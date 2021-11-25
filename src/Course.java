@@ -42,13 +42,13 @@ public abstract class Course {
         this.credit = credit;
     }
 
-    /*public Semester getSemester() {
+    public Semester getSemester() {
         return semester;
     }
 
     public void setSemester(Semester semester) {
         this.semester = semester;
-    }*/
+    }
 
     public int getRequiredCredit() {
         return requiredCredit;
@@ -58,13 +58,13 @@ public abstract class Course {
         this.requiredCredit = requiredCredit;
     }
 
-    /*public ArrayList<Student> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
     }
 
     public void setStudents(ArrayList<Student> students) {
         this.students = students;
-    }*/
+    }
 
     public int getEcts() {
         return ects;
@@ -90,26 +90,26 @@ public abstract class Course {
         this.prerequisites = prerequisites;
     }
 
-    /*public ArrayList<Section> getSectionList() {
+    public ArrayList<Section> getSectionList() {
         return sectionList;
     }
 
     public void setSectionList(ArrayList<Section> sectionList) {
         this.sectionList = sectionList;
-    }*/
+    }
 
     private int courseId;
     private String name;
     private int capacity;
     private String classroom;
     private int credit;
-    //private Semester semester;
+    private Semester semester;
     private int requiredCredit;
-    //private ArrayList<Student> students;
+    private ArrayList<Student> students;
     private int ects;
     private int curve;
     private ArrayList<Course> prerequisites;
-    //private ArrayList<Section> sectionList;
+    private ArrayList<Section> sectionList;
 
     public Course(int courseId, String name, int capacity, String classroom, int credit, int requiredCredit, int ects, int curve) {
         this.courseId = courseId;
