@@ -1,8 +1,7 @@
-public class QuotaError extends Error{
-
+public class NotInGraduationSemester extends Error{
     private Course course;
 
-    public QuotaError(Student student, Course course) {
+    public NotInGraduationSemester(Student student, Course course) {
         super(student);
         this.course = course;
     }

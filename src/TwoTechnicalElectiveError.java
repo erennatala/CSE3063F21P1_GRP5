@@ -1,8 +1,7 @@
-public class QuotaError extends Error{
-
+public class TwoTechnicalElectiveError extends Error{
     private Course course;
 
-    public QuotaError(Student student, Course course) {
+    public TwoTechnicalElectiveError(Student student, Course course) {
         super(student);
         this.course = course;
     }
