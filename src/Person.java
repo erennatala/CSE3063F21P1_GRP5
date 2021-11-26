@@ -7,6 +7,13 @@ public abstract class Person {
     private String surname;
     private ArrayList<String> emails;
 
+    public Person(int id, String name, String surname, ArrayList<String> emails) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.emails = emails;
+    }
+
     public int getId() {
         return id;
     }
@@ -39,10 +46,5 @@ public abstract class Person {
         this.emails = emails;
     }
 
-    public Person(int id, String name, String surname, ArrayList<String> emails) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.emails = emails;
-    }
+
 }

@@ -10,6 +10,13 @@ public class Student extends Person {
     private Instructor advisor;
     private int completedCredit;
     private ArrayList<Course> activeCourses;
+    private ArrayList<Course> pastCourses;
+    private ArrayList<Course> nonTakenCourses;
+    private ArrayList<Course> failedCourses;
+
+    public Student(int id, String name, String surname, ArrayList<String> emails) {
+        super(id, name, surname, emails);
+    }
 
     public Semester getSemester() {
         return semester;
@@ -107,11 +114,7 @@ public class Student extends Person {
         this.failedCourses = failedCourses;
     }
 
-    private ArrayList<Course> pastCourses;
-    private ArrayList<Course> nonTakenCourses;
-    private ArrayList<Course> failedCourses;
 
-    public Student(int id, String name, String surname, ArrayList<String> emails) {
-        super(id, name, surname, emails);
-    }
+
+
 }

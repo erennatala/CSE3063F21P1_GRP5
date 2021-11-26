@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 
 public class Semester {
+    private int semesterId;
+    private ArrayList<Course> courseList;
+
+    public Semester(int semesterId, ArrayList<Course> courseList) {
+        this.semesterId = semesterId;
+        this.courseList = courseList;
+    }
 
     public int getSemesterId() {
         return semesterId;
@@ -18,7 +25,5 @@ public class Semester {
         this.courseList = courseList;
     }
 
-    private int semesterId;
-    private ArrayList<Course> courseList;
 
 }
