@@ -4,7 +4,7 @@ public class Instructor extends Person{
     private ArrayList<Student> advisees; //list needs to be corrected it has be to list instead of arrayList which has coming through constructer, there will be list interface instead of collection
 
 
-    private ArrayList<Courses> givenCourses;
+    private ArrayList<Course> givenCourses;
 
     public ArrayList<Student> getAdvisees() {
         return advisees;
@@ -14,11 +14,11 @@ public class Instructor extends Person{
         this.advisees = advisees;
     }
 
-    public ArrayList<Courses> getGivenCourses() {
+    public ArrayList<Course> getGivenCourses() {
         return givenCourses;
     }
 
-    public void setGivenCourses(ArrayList<Courses> givenCourses) {
+    public void setGivenCourses(ArrayList<Course> givenCourses) {
         this.givenCourses = givenCourses;
     }
 
