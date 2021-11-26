@@ -1,6 +1,29 @@
 import java.util.ArrayList;
 
 public abstract class Course {
+    private int courseId;
+    private String name;
+    private int capacity;
+    private String classroom;
+    private int credit;
+    private Semester semester;
+    private int requiredCredit;
+    private ArrayList<Student> students;
+    private int ects;
+    private int curve;
+    private ArrayList<Course> prerequisites;
+    private ArrayList<Section> sectionList;
+
+    public Course(int courseId, String name, int capacity, String classroom, int credit, int requiredCredit, int ects, int curve) {
+        this.courseId = courseId;
+        this.name = name;
+        this.capacity = capacity;
+        this.classroom = classroom;
+        this.credit = credit;
+        this.requiredCredit = requiredCredit;
+        this.ects = ects;
+        this.curve = curve;
+    }
 
     public int getCourseId() {
         return courseId;
@@ -98,28 +121,8 @@ public abstract class Course {
         this.sectionList = sectionList;
     }
 
-    private int courseId;
-    private String name;
-    private int capacity;
-    private String classroom;
-    private int credit;
-    private Semester semester;
-    private int requiredCredit;
-    private ArrayList<Student> students;
-    private int ects;
-    private int curve;
-    private ArrayList<Course> prerequisites;
-    private ArrayList<Section> sectionList;
 
-    public Course(int courseId, String name, int capacity, String classroom, int credit, int requiredCredit, int ects, int curve) {
-        this.courseId = courseId;
-        this.name = name;
-        this.capacity = capacity;
-        this.classroom = classroom;
-        this.credit = credit;
-        this.requiredCredit = requiredCredit;
-        this.ects = ects;
-        this.curve = curve;
-    }
+
+
 
 }
