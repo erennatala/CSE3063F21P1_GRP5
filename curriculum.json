@@ -1,0 +1,466 @@
+[
+	{
+		"Semester-1": [
+			{
+				"courseCode": "ATA121",
+				"courseName": "Ataturk’s Principles and the History of Turkish Renovation I",
+				"T": "2",
+				"A": "0",
+				"CR": "2",
+				"ECTS": "2"
+			},
+			{
+				"courseCode": "MBG1201",
+				"courseName": "Introduction to Modern Biology",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "CSE1200",
+				"courseName": "Introduction to Computer Engineering",
+				"T": "3",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			},
+			{
+				"courseCode": "CSE1241",
+				"courseName": "Computer Programming I",
+				"T": "3",
+				"A": "2",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "MATH1001",
+				"courseName": "Calculus I",
+				"T": "4",
+				"A": "0",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "PHYS1101",
+				"courseName": "Physics I",
+				"T": "3",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			},
+			{
+				"courseCode": "PHYS1103",
+				"courseName": "Physics Lab I",
+				"T": "0",
+				"A": "2",
+				"CR": "2",
+				"ECTS": "2"
+			},
+			{
+				"courseCode": "TRD121",
+				"courseName": "Türk Dili I",
+				"T": "2",
+				"A": "0",
+				"CR": "2",
+				"ECTS": "2"
+			}
+		]
+	},
+	{
+		"Semester-2": [
+			{
+				"courseCode": "ATA122",
+				"courseName": "Ataturk’s Principles and the History of Turkish Renovation II",
+				"T": "2",
+				"A": "0",
+				"CR": "2",
+				"ECTS": "2"
+			},
+			{
+				"courseCode": "CSE1242",
+				"courseName": "Computer Programming II",
+				"T": "3",
+				"A": "2",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "MATH1002",
+				"courseName": "Calculus II",
+				"T": "4",
+				"A": "0",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "MATH2256",
+				"courseName": "Linear Algebra for Computer Engineering",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "NTExxx",
+				"courseName": "Non-Technical Elective - 1",
+				"T": "2",
+				"A": "0",
+				"CR": "3",
+				"ECTS": "3"
+			},
+			{
+				"courseCode": "PHYS1102",
+				"courseName": "Physics II",
+				"T": "3",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			},
+			{
+				"courseCode": "PHYS1104",
+				"courseName": "Physics Lab II",
+				"T": "0",
+				"A": "2",
+				"CR": "2",
+				"ECTS": "2"
+			},
+			{
+				"courseCode": "TRD122",
+				"courseName": "Türk Dili II",
+				"T": "2",
+				"A": "0",
+				"CR": "2",
+				"ECTS": "2"
+			}
+		]
+	},
+	{
+		"Semester-3": [
+			{
+				"courseCode": "CSE2023",
+				"courseName": "Discrete Computational Structures",
+				"T": "3",
+				"A": "0",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "CSE2225",
+				"courseName": "Data Structures",
+				"T": "3",
+				"A": "2",
+				"CR": "7",
+				"ECTS": "7"
+			},
+			{
+				"courseCode": "ECON2004",
+				"courseName": "Engineering Economy",
+				"T": "2",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			},
+			{
+				"courseCode": "EE2031",
+				"courseName": "Electric Circuits",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "MATH2055",
+				"courseName": "Differential Equations",
+				"T": "3",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			},
+			{
+				"courseCode": "MATH2059",
+				"courseName": "Numerical Methods",
+				"T": "3",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			}
+		]
+	},
+	{
+		"Semester-4": [
+			{
+				"courseCode": "CSE2246",
+				"courseName": "Analysis of Algorithms",
+				"T": "3",
+				"A": "2",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "CSE2138",
+				"courseName": "Systems Programming",
+				"T": "3",
+				"A": "2",
+				"CR": "7",
+				"ECTS": "7"
+			},
+			{
+				"courseCode": "CSE2260",
+				"courseName": "Principles of Programming Languages",
+				"T": "3",
+				"A": "2",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "EE2032",
+				"courseName": "Electronics",
+				"T": "2",
+				"A": "2",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "STAT2253",
+				"courseName": "Prob. and Stat. for Computer Engineering",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			}
+		]
+	},
+	{
+		"Semester-5": [
+			{
+				"courseCode": "CSE3000",
+				"courseName": "Summer Practice I",
+				"T": "0",
+				"A": "0",
+				"CR": "10",
+				"ECTS": "10"
+			},
+			{
+				"courseCode": "CSE3215",
+				"courseName": "Digital Logic Design",
+				"T": "3",
+				"A": "2",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "CSE3033",
+				"courseName": "Operating Systems",
+				"T": "3",
+				"A": "2",
+				"CR": "7",
+				"ECTS": "7"
+			},
+			{
+				"courseCode": "CSE3055",
+				"courseName": "Database Systems",
+				"T": "3",
+				"A": "2",
+				"CR": "7",
+				"ECTS": "7"
+			},
+			{
+				"courseCode": "CSE3063",
+				"courseName": "Object-Oriented Software Design",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "IE3081",
+				"courseName": "Modeling and Discrete Simulation",
+				"T": "3",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			}
+		]
+	},
+	{
+		"Semester-6": [
+			{
+				"courseCode": "CSE3038",
+				"courseName": "Computer Organization",
+				"T": "3",
+				"A": "2",
+				"CR": "7",
+				"ECTS": "7"
+			},
+			{
+				"courseCode": "CSE3044",
+				"courseName": "Software Engineering",
+				"T": "3",
+				"A": "2",
+				"CR": "7",
+				"ECTS": "7"
+			},
+			{
+				"courseCode": "CSE3048",
+				"courseName": "Introduction to Signals and Systems",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "CSE3264",
+				"courseName": "Formal Languages and Automata Theory",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "IE3235",
+				"courseName": "Operations Research",
+				"T": "3",
+				"A": "0",
+				"CR": "4",
+				"ECTS": "4"
+			},
+			{
+				"courseCode": "COM2202",
+				"courseName": "Technical Comm. and Entrepreneurship",
+				"T": "2",
+				"A": "0",
+				"CR": "2",
+				"ECTS": "2"
+			}
+		]
+	},
+	{
+		"Semester-7": [
+			{
+				"courseCode": "CSE4000",
+				"courseName": "Summer Practice II",
+				"T": "0",
+				"A": "0",
+				"CR": "10",
+				"ECTS": "10"
+			},
+			{
+				"courseCode": "CSE4074",
+				"courseName": "Computer Networks",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "CSE4219",
+				"courseName": "Principles of Embedded Systems Design",
+				"T": "3",
+				"A": "2",
+				"CR": "6",
+				"ECTS": "6"
+			},
+			{
+				"courseCode": "CSE4297",
+				"courseName": "Engineering Project I",
+				"T": "0",
+				"A": "2",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "ISG121",
+				"courseName": "İş Sağlığı ve Güvenliği I",
+				"T": "2",
+				"A": "0",
+				"CR": "2",
+				"ECTS": "2"
+			},
+			{
+				"courseCode": "CSE4288",
+				"courseName": "Introduction to Machine Learning",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "TExxx",
+				"courseName": "Technical Elective - 1",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "UE",
+				"courseName": "University Elective",
+				"T": "2",
+				"A": "0",
+				"CR": "3",
+				"ECTS": "3"
+			}
+		]
+	},
+	{
+		"Semester-8": [
+			{
+				"courseCode": "CSE4298",
+				"courseName": "Engineering Project II",
+				"T": "0",
+				"A": "2",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "ISG122",
+				"courseName": "İş Sağlığı ve Güvenliği II",
+				"T": "2",
+				"A": "0",
+				"CR": "2",
+				"ECTS": "2"
+			},
+			{
+				"courseCode": "NTExxx",
+				"courseName": "Non-Technical Elective - 2",
+				"T": "2",
+				"A": "0",
+				"CR": "3",
+				"ECTS": "3"
+			},
+			{
+				"courseCode": "FTExxx",
+				"courseName": "Faculty Technical Electives",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "TExxx",
+				"courseName": "Technical Elective - 2",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "TExxx",
+				"courseName": "Technical Elective - 3",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			},
+			{
+				"courseCode": "TExxx",
+				"courseName": "Technical Elective - 4",
+				"T": "3",
+				"A": "0",
+				"CR": "5",
+				"ECTS": "5"
+			}
+		]
+	}
+]
