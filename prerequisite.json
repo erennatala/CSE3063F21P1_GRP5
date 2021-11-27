@@ -1,0 +1,196 @@
+[
+	{
+		"MATH2055": [
+			
+			{
+				"courseCode": "MATH1001"
+			}
+		]
+	},
+	
+	
+	{
+		"CSE3048": [
+			{
+				"courseCode": "MATH2055"
+			}
+		]
+	},
+	
+	
+	{
+		"MATH2059": [
+			{
+				"courseCode": "MATH1001"
+			}
+		]
+	},
+	
+	{
+		"CSE4198": [
+			{
+				"courseCode": "CSE4197"
+			}
+		]
+	},
+	
+	{
+		"CSE4075": [
+			{
+				"courseCode": "CSE4074"
+			}
+		]
+	},
+	
+	{
+		"CSE2025": [
+			{
+				"courseCode": "CSE1142"
+			}
+		]
+	},
+	
+	{
+		"CSE2046": [
+			{
+				"courseCode": "CSE2025"
+			}
+		]
+	},
+	
+	{
+		"CSE3055": [
+			{
+				"courseCode": "CSE2025"
+			}
+		]
+	},
+	
+	{
+		"CSE3044": [
+			{
+				"courseCode": "CSE3055"
+			}
+		]
+	},
+	
+	{
+		"CSE4054": [
+			{
+				"courseCode": "CSE3055"
+			}
+		]
+	},
+	
+	{
+		"CSE1142": [
+			{
+				"courseCode": "CSE1141"
+			}
+		]
+	},
+	
+	{
+		"CSE3033": [
+			{
+				"courseCode": "CSE2025"
+			}
+		]
+	},
+	
+	{
+		"CSE4034": [
+			{
+				"courseCode": "CSE3033"
+			}
+		]
+	},
+	
+	{
+		"EE2031": [
+			{
+				"courseCode": "PHYS1102"
+			}
+		]
+	},
+	
+	{
+		"EE2032": [
+			{
+				"courseCode": "EE2031"
+			}
+		]
+	},
+	
+	{
+		"CSE3063": [
+			{
+				"courseCode": "CSE1142"
+			}
+		]
+	},
+	
+	{
+		"CSE3064": [
+			{
+				"courseCode": "CSE2023"
+				
+			}
+		]
+	},
+	
+	{
+		"CSE4061": [
+			{
+				"courseCode": "CSE3064"
+			}
+		]
+	},
+	
+	{
+		"CSE3038": [
+			{
+				"courseCode": "CSE3015"
+			},
+		
+			{
+				"courseCode": "CSE2138"
+			}
+		]
+		
+	},
+	
+	{
+		"CSE4117": [
+			{
+				"courseCode": "CSE3038"
+			}
+		]
+	},
+	
+	{
+		"CSE4087": [
+			{
+				"courseCode": "CSE3015"
+			}
+		]
+	},
+	
+	{
+		"IE3081": [
+			{
+				"courseCode": "STAT2053"
+			}
+		]
+	},
+	
+	{
+		"IE3035": [
+			{
+				"courseCode": "MATH2056"
+			}
+		]
+	}
+ ]
+	
+	
