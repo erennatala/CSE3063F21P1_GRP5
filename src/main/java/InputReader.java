@@ -3,6 +3,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.awt.desktop.SystemEventListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -16,9 +17,7 @@ public class InputReader {
 
     JSONParser parser = new JSONParser(); //her json okumada kulanılacak
 
-    public ArrayList<Course> readCourseJson() {
-
-        ArrayList<Course> course_list = new ArrayList<Course>();
+    public void readCourseJson(CourseExpert courseExpert, ArrayList<Instructor> instructors) {
 
         try {
             JSONArray curr_input = (JSONArray) parser.parse(new FileReader("curriculum.json"));
@@ -29,18 +28,46 @@ public class InputReader {
                 List<String> l = new ArrayList<String>(courses.keySet());
 
                 for (int i = 0; i<l.size(); i++) {
-                    JSONArray data_title = (JSONArray) courses.get(l.get(i));
+                    JSONArray data_title = (JSONArray) courses.get(l.get(i)); //title altındaki dersler arrayi
+
                     for (int j = 0; j < data_title.size(); j++) {
 
                         JSONObject obj = (JSONObject) data_title.get(j);
 
-                        if ((obj.get("courseId").toString().substring(0,3).equals("TEx")) || (obj.get("courseId").toString().substring(0,3).equals("FTE") ) || (obj.get("courseId").toString().substring(0,3).equals("UEx")) || (obj.get("courseId").toString().substring(0,3).equals("NTE"))){
+                        String creditEdited;
+                        String ectsEdited;
+                        String instructor = obj.get("Instructor").toString();
 
+                        System.out.println(obj.get("courseId").toString());
+
+                        if (obj.get("Credit").toString().length() == 4) {
+                            creditEdited = obj.get("Credit").toString().substring(0,1) + "." + obj.get("Credit").toString().substring(2,3);
                         }
                         else {
+                            creditEdited = obj.get("Credit").toString().substring(0,2) + "." + obj.get("Credit").toString().substring(3,4);
+                        }
 
-                            Course course = new MandatoryCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), 20, "SINIF", Integer.parseInt(obj.get("CR").toString()), 3, Integer.parseInt(obj.get("ECTS").toString()), 5); //KAPASİTE SINIF REQUIRED DEĞİŞ
-                            course_list.add(course);
+                        if (obj.get("ECTS").toString().length() == 4) {
+                            ectsEdited = obj.get("ECTS").toString().substring(0,1) + "." + obj.get("ECTS").toString().substring(2,3);
+                        }
+                        else {
+                            ectsEdited = obj.get("ECTS").toString().substring(0,2) + "." + obj.get("ECTS").toString().substring(3,4);
+                        }
+
+                        if (l.get(i).substring(0,8).equals("Semester")) {
+
+                            int semesterId = Integer.parseInt(l.get(i).substring(l.get(i).length()-1));
+
+                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "Must", semesterId);
+                        }
+                        else if (l.get(i).substring(0,9).equals("(ENG-FTE)")) {
+                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "FTE");
+                        }
+                        else if (l.get(i).substring(0,4).equals("(TE)")) {
+                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "TE");
+                        }
+                        else if (l.get(i).substring(0,14).equals("(NTE / ENG-UE)")) {
+                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited),"NTE-UE");
                         }
                     }
                 }
@@ -52,7 +79,6 @@ public class InputReader {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return course_list;
     }
 
     public void readStudentJson(int startIndex, StudentExpert studentExpert) {

@@ -3,14 +3,24 @@ public class Simulation {
     private InputReader inputReader;
     private InstructorExpert instructorExpert;
 
-    public Simulation() {
+    private Curriculum curriculum = new Curriculum();
+    private CourseExpert courseExpert = new CourseExpert(curriculum);
 
+    public Simulation() {}
+
+    public void createSemester() {
+        for (int i=1; i<9; i++) {
+            Semester semester = new Semester(i);
+            curriculum.addSemester(semester);
+        }
     }
 
     public void start(){
         this.studentExpert = new StudentExpert();
         this.inputReader = new InputReader();
         this.instructorExpert = new InstructorExpert();
+
+        createSemester();
 
         inputReader.readStudentJson(0,studentExpert);
         for(Student student: studentExpert.getStudents())
@@ -21,6 +31,12 @@ public class Simulation {
         inputReader.readInstructorJson(instructorExpert);
         for (Instructor instructor: instructorExpert.getInstructors()) {
             System.out.println(instructor.getId() + " " + instructor.getName() + " " + instructor.getSurname() + " " + instructor.getEmails().get(0));
+        }
+
+        inputReader.readCourseJson(courseExpert, instructorExpert.getInstructors());
+
+        for (int i=0; i<curriculum.getMandatoryCourses().size(); i++) {
+            System.out.println(curriculum.getMandatoryCourses().get(i).getCourseId() + " " + curriculum.getMandatoryCourses().get(i).getName());
         }
 
 
