@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class MandatoryCourse extends Course{
-    private ArrayList<LabCourse>labList;
+    private ArrayList<LabCourse> labList;
 
     public MandatoryCourse(int courseId, String name, int capacity, String classroom, int credit, int requiredCredit, int ects, int curve) {
         super(courseId, name, capacity, classroom, credit, requiredCredit, ects, curve);

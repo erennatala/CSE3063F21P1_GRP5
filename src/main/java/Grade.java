@@ -1,6 +1,14 @@
 public class Grade {
 
     private Course course;
+    private char letterGrade;
+    private int grade;
+
+    public Grade(Course course, char letterGrade, int grade) {
+        this.course = course;
+        this.letterGrade = letterGrade;
+        this.grade = grade;
+    }
 
     public Course getCourse() {
         return course;
@@ -26,14 +34,9 @@ public class Grade {
         this.grade = grade;
     }
 
-    private char letterGrade;
-    private int grade;
 
-    public Grade(Course course, char letterGrade, int grade) {
-        this.course = course;
-        this.letterGrade = letterGrade;
-        this.grade = grade;
-    }
+
+
 
 
 }

@@ -3,6 +3,12 @@ import java.util.Date;
 
 public class Section {
 
+    private int sectionId;
+    private ArrayList<Student> students;
+    private Date date;
+    private Course course;
+    private Instructor instructor;
+
     public Section(int sectionId, ArrayList<Student> students, Date date, Course course, Instructor instructor) {
         this.sectionId = sectionId;
         this.students = students;
@@ -51,10 +57,6 @@ public class Section {
         this.instructor = instructor;
     }
 
-    private int sectionId;
-    private ArrayList<Student> students;
-    private Date date;
-    private Course course;
-    private Instructor instructor;
+
 
 }
