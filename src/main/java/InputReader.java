@@ -57,8 +57,6 @@ public class InputReader {
 
     public void readStudentJson(int startIndex, StudentExpert studentExpert) {
 
-        ArrayList<Student> student_list = new ArrayList<Student>();
-
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
 
@@ -67,8 +65,6 @@ public class InputReader {
             for (Object o : student_input) {
 
                 JSONObject students = (JSONObject) o;
-
-//                if(number==1270){break;}
 
                 if (Integer.parseInt(students.get("index").toString()) < startIndex) {
                     continue;
@@ -117,7 +113,36 @@ public class InputReader {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        //return student_list;
+    }
+
+    public void readInstructorJson(InstructorExpert instructorExpert) {
+
+        try {
+            JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("instructors.json"));
+
+            for (Object o : instructor_input) {
+
+                JSONObject instructors = (JSONObject) o;
+
+                long id = (long) instructors.get("instructorID");
+                String name = (String) instructors.get("name");
+                String surname = (String) instructors.get("surname");
+                String email = (String) instructors.get("email");
+
+                ArrayList<String> emailToArray = new ArrayList<String>();
+
+                emailToArray.add(email);
+
+                instructorExpert.createInstructor((int)id, name, surname, emailToArray);
+            }
+            }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }
 
