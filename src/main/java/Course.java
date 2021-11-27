@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public abstract class Course {
-    private int courseId;
+    private String courseId;
     private String name;
     private int capacity;
     private String classroom;
@@ -14,7 +14,7 @@ public abstract class Course {
     private ArrayList<Course> prerequisites;
     private ArrayList<Section> sectionList;
 
-    public Course(int courseId, String name, int capacity, String classroom, int credit, int requiredCredit, int ects, int curve) {
+    public Course(String courseId, String name, int capacity, String classroom, int credit, int requiredCredit, int ects, int curve) {
         this.courseId = courseId;
         this.name = name;
         this.capacity = capacity;
@@ -25,11 +25,11 @@ public abstract class Course {
         this.curve = curve;
     }
 
-    public int getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
