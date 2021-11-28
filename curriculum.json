@@ -9,7 +9,7 @@
             "U": "0",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Öğr.Gör. HÜLYA ÖZLER",
+            "Instructor": "HÜLYA ÖZLER",
             "Capacity": "0",
             "Schedule": [
             {
@@ -27,7 +27,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi BESTE TURANLI",
+            "Instructor": "BESTE TURANLI",
             "Capacity": "0",
             "Schedule": [
             {
@@ -50,7 +50,7 @@
             "U": "0",
             "Credit": "4,00",
             "ECTS": "4,00",
-            "Instructor": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+            "Instructor": "FATMA ERGİN",
             "Capacity": "0",
             "Schedule": [
             {
@@ -73,7 +73,7 @@
             "U": "2",
             "Credit": "6,00",
             "ECTS": "6,00",
-            "Instructor": "Dr. Öğr. Üyesi SANEM ARSLAN YILMAZ",
+            "Instructor": "SANEM YILMAZ",
             "Capacity": "0",
             "Lab":{
             	"Day":"Wednesday",
@@ -102,7 +102,7 @@
             "U": "0",
             "Credit": "6,00",
             "ECTS": "6,00",
-            "Instructor": "Doç.Dr. MUSTAFA TAYLAN ŞENGÜL",
+            "Instructor": "MUSTAFA ŞENGÜL",
             "Capacity": "0",
             "Schedule": [
             {
@@ -125,7 +125,7 @@
             "U": "0",
             "Credit": "4,00",
             "ECTS": "4,00",
-            "Instructor": "Prof.Dr. MUSTAFA ALEVLİ",
+            "Instructor": "MUSTAFA ALEVLİ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -148,7 +148,7 @@
             "U": "2",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Arş.Gör. HÜSEYİN YALTIRIK",
+            "Instructor": "HÜSEYİN YALTIRIK",
             "Capacity": "0",
             "Schedule": [
             {
@@ -166,7 +166,7 @@
             "U": "0",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Öğr.Gör.Dr. YASEMİN BULUT",
+            "Instructor": "YASEMİN BULUT",
             "Capacity": "0",
             "Schedule": [
             {
@@ -189,7 +189,7 @@
             "U": "0",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Öğr.Gör. HÜLYA ÖZLER",
+            "Instructor": "HÜLYA ÖZLER",
             "Capacity": "0",
             "Schedule": [
             {
@@ -207,7 +207,7 @@
             "U": "2",
             "Credit": "6,00",
             "ECTS": "6,00",
-            "Instructor": "Dr. Öğr. Üyesi SANEM ARSLAN YILMAZ",
+            "Instructor": "SANEM YILMAZ",
             "Capacity": "0",
             "Lab":{
             	"Day":"Wednesday",
@@ -235,7 +235,7 @@
             "U": "0",
             "Credit": "6,00",
             "ECTS": "6,00",
-            "Instructor": "Arş.Gör.Dr. MUSTAFA CEM ÇELİK",
+            "Instructor": "MUSTAFA ÇELİK",
             "Capacity": "0",
             "Schedule": [
             {
@@ -258,7 +258,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. MUSTAFA TAYLAN ŞENGÜL",
+            "Instructor": "MUSTAFA ŞENGÜL",
             "Capacity": "0",
             "Schedule": [
             {
@@ -281,7 +281,7 @@
             "U": "0",
             "Credit": "4,00",
             "ECTS": "4,00",
-            "Instructor": "Prof.Dr. MUSTAFA ALEVLİ",
+            "Instructor": "MUSTAFA ALEVLİ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -299,7 +299,7 @@
             "U": "2",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Arş.Gör. HÜSEYİN YALTIRIK",
+            "Instructor": "HÜSEYİN YALTIRIK",
             "Capacity": "0",
             "Schedule": [
             {
@@ -317,7 +317,7 @@
             "U": "0",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Öğr.Gör.Dr. YASEMİN BULUT",
+            "Instructor": "YASEMİN BULUT",
             "Capacity": "0",
             "Schedule": [
             {
@@ -352,7 +352,7 @@
             "U": "0",
             "Credit": "6,00",
             "ECTS": "6,00",
-            "Instructor": "Prof.Dr. ALİ FUAT ALKAYA",
+            "Instructor": "ALİ ALKAYA",
             "Capacity": "0",
             "Schedule": [
             {
@@ -376,7 +376,7 @@
             "U": "2",
             "Credit": "7,00",
             "ECTS": "7,00",
-            "Instructor": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+            "Instructor": "MUSTAFA TÜMER",
             "Capacity": "0",
             "Lab":{
             	"Day":"Friday",
@@ -404,7 +404,7 @@
             "U": "0",
             "Credit": "4,00",
             "ECTS": "4,00",
-            "Instructor": "Prof.Dr. ARİF ORÇUN SÖYLEMEZ",
+            "Instructor": "ARİF SÖYLEMEZ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -427,7 +427,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. FULYA ÇALLIALP",
+            "Instructor": "FULYA ÇALLIALP",
             "Capacity": "0",
             "Schedule": [
             {
@@ -450,7 +450,7 @@
             "U": "0",
             "Credit": "4,00",
             "ECTS": "4,00",
-            "Instructor": "Doç.Dr. MUSTAFA YILMAZ",
+            "Instructor": "MUSTAFA YILMAZ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -473,7 +473,7 @@
             "U": "0",
             "Credit": "4,00",
             "ECTS": "4,00",
-            "Instructor": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+            "Instructor": "ÇİĞDEM ERDEM",
             "Capacity": "0",
             "Schedule": [
             {
@@ -501,7 +501,7 @@
             "U": "2",
             "Credit": "6,00",
             "ECTS": "6,00",
-            "Instructor": "Doç.Dr. ÖMER KORÇAK",
+            "Instructor": "ÖMER KORÇAK",
             "Capacity": "0",
             "Schedule": [
             {
@@ -524,7 +524,7 @@
             "U": "2",
             "Credit": "7,00",
             "ECTS": "7,00",
-            "Instructor": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+            "Instructor": "FATMA ERGİN",
             "Capacity": "0",
             "Lab":{
             	"Day":"Wednesday",
@@ -565,7 +565,7 @@
             "U": "2",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi AHMET UNUTULMAZ",
+            "Instructor": "AHMET UNUTULMAZ",
             "Capacity": "0",
             "Lab":{
             	"Day":"Thursday",
@@ -588,7 +588,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. MÜJDAT SOYTÜRK",
+            "Instructor": "MÜJDAT SOYTÜRK",
             "Capacity": "0",
             "Schedule": [
             {
@@ -628,7 +628,7 @@
             "U": "2",
             "Credit": "6,00",
             "ECTS": "6,00",
-            "Instructor": "Assist. Prof. Betül BOZ",
+            "Instructor": "Betül BOZ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -651,7 +651,7 @@
             "U": "2",
             "Credit": "7,00",
             "ECTS": "7,00",
-            "Instructor": "Dr. Öğr. Üyesi ALİ HAYDAR ÖZER",
+            "Instructor": "ALİ ÖZER",
             "Capacity": "0",
             "Lab":{
             	"Day":"Tuesday",
@@ -679,7 +679,7 @@
             "U": "2",
             "Credit": "7,00",
             "ECTS": "7,00",
-            "Instructor": "Doç.Dr. MUSTAFA AĞAOĞLU",
+            "Instructor": "MUSTAFA AĞAOĞLU",
             "Capacity": "0",
             "Lab":{
             	"Day":"Wednesday",
@@ -707,7 +707,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. MURAT CAN GANİZ",
+            "Instructor": "MURAT GANİZ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -730,7 +730,7 @@
             "U": "0",
             "Credit": "4,00",
             "ECTS": "4,00",
-            "Instructor": "Doç.Dr. MÜJDAT SOYTÜRK",
+            "Instructor": "MÜJDAT SOYTÜRK",
             "Capacity": "0",
             "Schedule": [
             {
@@ -758,7 +758,7 @@
             "U": "2",
             "Credit": "7,00",
             "ECTS": "7,00",
-            "Instructor": "Prof.Dr. HALUK RAHMİ TOPCUOĞLU",
+            "Instructor": "HALUK TOPCUOĞLU",
             "Capacity": "0",
             "Lab":{
             	"Day":"Friday",
@@ -786,7 +786,7 @@
             "U": "2",
             "Credit": "7,00",
             "ECTS": "7,00",
-            "Instructor": "Doç.Dr. MUSTAFA BORAHAN TÜMER",
+            "Instructor": "MUSTAFA TÜMER",
             "Capacity": "0",
             "Lab":{
             	"Day":"Tuesday",
@@ -814,7 +814,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+            "Instructor": "MEHMET BARAN",
             "Capacity": "0",
             "Schedule": [
             {
@@ -837,7 +837,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Assist. Prof. Ali Haydar Özer",
+            "Instructor": "Ali Özer",
             "Capacity": "0",
             "Schedule": [
             {
@@ -913,7 +913,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. ÖMER KORÇAK",
+            "Instructor": "ÖMER KORÇAK",
             "Capacity": "0",
             "Schedule": [
             {
@@ -949,7 +949,7 @@
             "U": "2",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Academic department staff",
+            "Instructor": "",
             "Capacity": "0",
             "Schedule":[]
         },
@@ -961,7 +961,7 @@
             "U": "0",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Doç.Dr. MUSTAFA YILMAZ",
+            "Instructor": "MUSTAFA YILMAZ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -979,7 +979,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+            "Instructor": "ÇİĞDEM ERDEM",
             "Capacity": "0",
             "Schedule": [
             {
@@ -1031,7 +1031,7 @@
             "U": "2",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Academic department staff",
+            "Instructor": "",
             "Capacity": "0",
             "Schedule":[]
         },
@@ -1043,7 +1043,7 @@
             "U": "0",
             "Credit": "2,00",
             "ECTS": "2,00",
-            "Instructor": "Doç.Dr. MUSTAFA YILMAZ",
+            "Instructor": "MUSTAFA YILMAZ",
             "Capacity": "0",
             "Schedule": [
             {
@@ -1126,7 +1126,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+            "Instructor": "MEHMET BARAN",
             "Capacity": "40",
             "Semester":"Spring",
             "Schedule": [
@@ -1163,7 +1163,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi SANEM ARSLAN YILMAZ",
+            "Instructor": "SANEM YILMAZ",
             "Capacity": "45",
             "Semester":"Spring",
             "Schedule": [
@@ -1226,7 +1226,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. MUSTAFA AĞAOĞLU",
+            "Instructor": "MUSTAFA AĞAOĞLU",
             "Capacity": "45",
             "Semester": "Spring",
             "Schedule": [
@@ -1263,7 +1263,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. ÖMER KORÇAK",
+            "Instructor": "ÖMER KORÇAK",
             "Capacity": "48",
             "Semester": "Spring",
             "Schedule": [
@@ -1313,7 +1313,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi BETÜL BOZ",
+            "Instructor": "BETÜL BOZ",
             "Capacity": "47",
             "Semester": "Spring",
             "Schedule": [
@@ -1337,7 +1337,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. MURAT CAN GANİZ",
+            "Instructor": "MURAT GANİZ",
             "Capacity": "68",
             "Semester": "Spring",
             "Schedule": [
@@ -1361,7 +1361,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. MUSTAFA AĞAOĞLU",
+            "Instructor": "MUSTAFA AĞAOĞLU",
             "Capacity": "55",
             "Semester": "Fall",
             "Schedule": [
@@ -1385,7 +1385,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi BETÜL BOZ",
+            "Instructor": "BETÜL BOZ",
             "Capacity": "57",
             "Semester": "Spring",
             "Schedule": [
@@ -1449,7 +1449,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Doç.Dr. MÜJDAT SOYTÜRK",
+            "Instructor": "MÜJDAT SOYTÜRK",
             "Capacity": "40",
             "Semester": "Spring",
             "Schedule": [
@@ -1473,7 +1473,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi ALİ HAYDAR ÖZER",
+            "Instructor": "ALİ ÖZER",
             "Capacity": "55",
             "Semester": "Fall",
             "Schedule": [
@@ -1497,7 +1497,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-            "Instructor": "Dr. Öğr. Üyesi MEHMET KADİR BARAN",
+            "Instructor": "MEHMET BARAN",
             "Capacity": "40",
 			"Semester": "Fall",
 			"Schedule": [
@@ -1521,7 +1521,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. ÇİĞDEM EROĞLU ERDEM",
+			"Instructor": "ÇİĞDEM ERDEM",
             "Capacity": "55",
 			"Semester": "Fall",
 			"Schedule": [
@@ -1558,7 +1558,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. ALİ FUAT ALKAYA",
+			"Instructor": "ALİ ALKAYA",
             "Capacity": "55",
 			"Semester": "Fall",
 			"Schedule": [
@@ -1608,7 +1608,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr. Öğr. Üyesi FATMA CORUT ERGİN",
+			"Instructor": "FATMA ERGİN",
             "Capacity": "35",
 			"Semester": "Fall",
 			"Schedule": [
@@ -1632,7 +1632,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Doç.Dr. MURAT CAN GANİZ",
+			"Instructor": "MURAT GANİZ",
             "Capacity": "40",
 			"Semester": "Spring",
 			"Schedule": [
@@ -1675,7 +1675,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. AHU ALTINKUT UNCUOĞLU",
+			"Instructor": "AHU UNCUOĞLU",
 			"Capacity": "144",
 			"Semester": "Spring",
 			"Schedule": [
@@ -1694,7 +1694,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. EMİN ARCA",
+			"Instructor": "EMİN ARCA",
             "Capacity": "60",
 			"Semester": "Spring",
 			"Schedule": [
@@ -1731,7 +1731,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi BERRİN KURŞUN",
+			"Instructor": "BERRİN KURŞUN",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1757,7 +1757,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr.Gör. ŞAKİR BİNGÖL",
+			"Instructor": "ŞAKİR BİNGÖL",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1771,7 +1771,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Doç.Dr. MURAT CAN GANİZ",
+			"Instructor": "MURAT GANİZ",
 			"Capacity": "68",
 			"Semester": "Spring",
 			"Schedule": [
@@ -1795,7 +1795,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr.Gör. ŞAKİR BİNGÖL",
+			"Instructor": "ŞAKİR BİNGÖL",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1808,7 +1808,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. GÖKHAN BORA ESMER",
+			"Instructor": "GÖKHAN ESMER",
 			"Capacity": "77",
 			"Semester": "Spring",
 			"Schedule": [
@@ -1832,7 +1832,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. SIDDIK SİNAN KESKİN",
+			"Instructor": "SIDDIK KESKİN",
 			"Capacity": "62",
 			"Semester": "Spring",
 			"Schedule": [
@@ -1869,7 +1869,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr. BERNA BALTA",
+			"Instructor": "BERNA BALTA",
 			"Capacity": "80",
 			"Semester": "Spring",
 			"Schedule": [
@@ -1888,7 +1888,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi MAHMURE ÖVÜL ARIOĞLU",
+			"Instructor": "MAHMURE ARIOĞLU",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1901,7 +1901,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Doç.Dr. MUSTAFA ÖZDEMİR",
+			"Instructor": "MUSTAFA ÖZDEMİR",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1914,7 +1914,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi UĞUR TÜMERDEM",
+			"Instructor": "UĞUR TÜMERDEM",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1927,7 +1927,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi UĞUR TÜMERDEM",
+			"Instructor": "UĞUR TÜMERDEM",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1940,7 +1940,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Doç.Dr. İBRAHİM SİNA KUSEYRİ",
+			"Instructor": "İBRAHİM KUYSERİ",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -1992,7 +1992,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. BEYTULLAH GÜLTEKİN ÇETİNER",
+			"Instructor": "BEYTULLAH ÇETİNER",
 			"Capacity": "0",
 			"Semester": "Spring",
 			"Schedule": [
@@ -2011,7 +2011,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr. Gör. Hülya ASLANOĞLU",
+			"Instructor": "Hülya ASLANOĞLU",
 			"Capacity": "0",
 			"Semester": "Spring",
 			"Schedule": [
@@ -2030,7 +2030,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr. Gör. Hülya ASLANOĞLU",
+			"Instructor": "Hülya ASLANOĞLU",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -2063,7 +2063,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi GÖRKEM YUMUŞAK",
+			"Instructor": "GÖRKEM YUMUŞAK",
 			"Capacity": "0",
 			"Semester": "Spring",
 			"Schedule": [
@@ -2087,7 +2087,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi SEVAL GENÇ",
+			"Instructor": "SEVAL GENÇ",
 			"Capacity": "0",
 			"Semester": "",
 			"Schedule": ""
@@ -2105,7 +2105,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. AHU ALTINKUT UNCUOĞLU",
+			"Instructor": "AHU UNCUOĞLU",
 			"Capacity": "144"
         },
         {
@@ -2116,7 +2116,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. EMİN ARCA",
+			"Instructor": "EMİN ARCA",
             "Capacity": "60"
         },
         {
@@ -2138,7 +2138,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi BERRİN KURŞUN",
+			"Instructor": "BERRİN KURŞUN",
 			"Capacity": "0"
         },
         {
@@ -2160,7 +2160,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr.Gör. ŞAKİR BİNGÖL",
+			"Instructor": "ŞAKİR BİNGÖL",
 			"Capacity": "0"
         },
         {
@@ -2171,7 +2171,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Doç.Dr. MURAT CAN GANİZ",
+			"Instructor": "MURAT GANİZ",
 			"Capacity": "68"
         },
         {
@@ -2182,7 +2182,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr.Gör. ŞAKİR BİNGÖL",
+			"Instructor": "ŞAKİR BİNGÖL",
 			"Capacity": "0"
         },
         {
@@ -2193,7 +2193,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. GÖKHAN BORA ESMER",
+			"Instructor": "GÖKHAN ESMER",
 			"Capacity": "77"
         },
         {
@@ -2204,7 +2204,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. SIDDIK SİNAN KESKİN",
+			"Instructor": "SIDDIK KESKİN",
 			"Capacity": "62"
         },
         {
@@ -2226,7 +2226,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr. BERNA BALTA",
+			"Instructor": "BERNA BALTA",
 			"Capacity": "80"
         },
         {
@@ -2237,7 +2237,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi MAHMURE ÖVÜL ARIOĞLU",
+			"Instructor": "MAHMURE ARIOĞLU",
 			"Capacity": "0"
         },
         {
@@ -2248,7 +2248,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Doç.Dr. MUSTAFA ÖZDEMİR",
+			"Instructor": "MUSTAFA ÖZDEMİR",
 			"Capacity": "0"
         },
         {
@@ -2259,7 +2259,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi UĞUR TÜMERDEM",
+			"Instructor": "UĞUR TÜMERDEM",
 			"Capacity": "0"
         },
         {
@@ -2270,7 +2270,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi UĞUR TÜMERDEM",
+			"Instructor": "UĞUR TÜMERDEM",
 			"Capacity": "0"
         },
         {
@@ -2281,7 +2281,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Doç.Dr. İBRAHİM SİNA KUSEYRİ",
+			"Instructor": "İBRAHİM KUYSERİ",
 			"Capacity": "0"
         },
         {
@@ -2325,7 +2325,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Prof.Dr. BEYTULLAH GÜLTEKİN ÇETİNER",
+			"Instructor": "BEYTULLAH ÇETİNER",
 			"Capacity": "0"
         },
         {
@@ -2336,7 +2336,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr. Gör. Hülya ASLANOĞLU",
+			"Instructor": "Hülya ASLANOĞLU",
 			"Capacity": "0"
         },
         {
@@ -2347,7 +2347,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Öğr. Gör. Hülya ASLANOĞLU",
+			"Instructor": "Hülya ASLANOĞLU",
 			"Capacity": "0"
         },
         {
@@ -2369,7 +2369,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi GÖRKEM YUMUŞAK",
+			"Instructor": "GÖRKEM YUMUŞAK",
 			"Capacity": "0"
         },
         {
@@ -2380,7 +2380,7 @@
             "U": "0",
             "Credit": "5,00",
             "ECTS": "5,00",
-			"Instructor": "Dr.Öğr.Üyesi SEVAL GENÇ",
+			"Instructor": "SEVAL GENÇ",
 			"Capacity": "0"
         }
     ]
@@ -2396,7 +2396,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Prof. Dr. HANDE SİNEM ERGUN",
+			"Instructor":"HANDE ERGÜN",
 			"Capacity":"50",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2415,7 +2415,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Prof. Dr. HANDE SİNEM ERGUN",
+			"Instructor":"HANDE ERGÜN",
 			"Capacity":"50",
 			"Semester":"Spring",
 			"Schedule": [
@@ -2577,7 +2577,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. FATMA BEYZA BAŞARAN",
+			"Instructor":"FATMA BAŞARAN",
 			"Capacity":"60",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2609,7 +2609,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Prof. Dr. HANDE SİNEM ERGUN",
+			"Instructor":"HANDE ERGÜN",
 			"Capacity":"60",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2654,7 +2654,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Doç. Dr. Sinan Çaya",
+			"Instructor":"Sinan Çaya",
 			"Capacity":"40",
 			"Semester":"",
 			"Schedule":[]
@@ -2746,7 +2746,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Aytün Kanat",
+			"Instructor":"Aytün Kanat",
 			"Capacity":"70",
 			"Semester":"Spring",
 			"Schedule": [
@@ -2778,7 +2778,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Deniz Öner",
+			"Instructor":"Deniz Öner",
 			"Capacity":"60",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2810,7 +2810,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Engin Yılmaz",
+			"Instructor":"Engin Yılmaz",
 			"Capacity":"70",
 			"Semester":"Spring",
 			"Schedule": [
@@ -2842,7 +2842,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Hayriye Ebru Oydağ",
+			"Instructor":"Hayriye Oydağ",
 			"Capacity":"69",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2900,7 +2900,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Özlem Yılmaz",
+			"Instructor":"Özlem Yılmaz",
 			"Capacity":"55",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2919,7 +2919,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Özlem Yılmaz",
+			"Instructor":"Özlem Yılmaz",
 			"Capacity":"55",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2938,7 +2938,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Özlem Yılmaz",
+			"Instructor":"Özlem Yılmaz",
 			"Capacity":"55",
 			"Semester":"Fall",
 			"Schedule": [
@@ -2957,7 +2957,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Sinan Çaya",
+			"Instructor":"Sinan Çaya",
 			"Capacity":"40",
 			"Semester":"",
 			"Schedule":[]
@@ -2970,7 +2970,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Sinan Çaya",
+			"Instructor":"Sinan Çaya",
 			"Capacity":"40",
 			"Semester":"",
 			"Schedule":[]
@@ -2983,7 +2983,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Cahit Köse",
+			"Instructor":"Cahit Köse",
 			"Capacity":"60",
 			"Semester":"Fall",
 			"Schedule": [
@@ -3002,7 +3002,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Sinan Çaya",
+			"Instructor":"Sinan Çaya",
 			"Capacity":"40",
 			"Semester":"",
 			"Schedule":[]
@@ -3015,7 +3015,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Gülizar Semra Özkurt",
+			"Instructor":"GÜLİZAR ÖZKURT",
 			"Capacity":"55",
 			"Semester":"Fall",
 			"Schedule": [
@@ -3034,7 +3034,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Gülizar Semra Özkurt",
+			"Instructor":"GÜLİZAR ÖZKURT",
 			"Capacity":"55",
 			"Semester":"Fall",
 			"Schedule": [
@@ -3053,7 +3053,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Gülizar Semra Özkurt",
+			"Instructor":"GÜLİZAR ÖZKURT",
 			"Capacity":"55",
 			"Semester":"Fall",
 			"Schedule": [
@@ -3072,7 +3072,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Öğr. Gör. Gülizar Semra Özkurt",
+			"Instructor":"GÜLİZAR ÖZKURT",
 			"Capacity":"55",
 			"Semester":"",
 			"Schedule":[]
@@ -3111,7 +3111,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"Dr. Lale Özdemir Şahin",
+			"Instructor":"Lale Şahin",
 			"Capacity":"60",
 			"Semester":"Spring",
 			"Schedule": [
@@ -3130,7 +3130,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"ROSA MARIA FLORES RANGEL",
+			"Instructor":"ROSA RANGEL",
 			"Capacity":"70",
 			"Semester":"Fall",
 			"Schedule": [
@@ -3149,7 +3149,7 @@
             "U": "0",
             "Credit": "3,00",
             "ECTS": "3,00",
-			"Instructor":"ROSA MARIA FLORES RANGEL",
+			"Instructor":"ROSA RANGEL",
 			"Capacity":"70",
 			"Semester":"Spring",
 			"Schedule": [

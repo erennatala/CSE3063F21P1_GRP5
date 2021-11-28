@@ -17,7 +17,12 @@ public class InputReader {
 
     JSONParser parser = new JSONParser(); //her json okumada kulanılacak
 
-    public void readCourseJson(CourseExpert courseExpert, ArrayList<Instructor> instructors) {
+    private int instructorId = 1000;
+    private int check = 0;
+    private Instructor inst;
+    private int instCheck = 1;
+
+    public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata
 
         try {
             JSONArray curr_input = (JSONArray) parser.parse(new FileReader("curriculum.json"));
@@ -34,11 +39,39 @@ public class InputReader {
 
                         JSONObject obj = (JSONObject) data_title.get(j);
 
+//                        JSONArray schedule = (JSONArray) obj.get("Schedule");
+
                         String creditEdited;
                         String ectsEdited;
                         String instructor = obj.get("Instructor").toString();
+                        String[] instructorName = instructor.split(" ");
 
-                        System.out.println(obj.get("courseId").toString());
+                        if (instructor.equals("")) {
+                            instCheck = 0;
+                        }
+                        else {
+                            if (instructorExpert.getInstructors().size() == 0) {
+                                inst = instructorExpert.createInstructor(instructorId, instructorName[0], instructorName[1]);
+                                instCheck = 1;
+                            }
+                            else {
+                                for (int k = 0; k<instructorExpert.getInstructors().size(); k++) {
+
+                                    if (instructorName[0].equals(instructorExpert.getInstructors().get(k).getName()) == true && instructorName[1].equals(instructorExpert.getInstructors().get(k).getSurname()) == true) {
+                                        check = 1;
+                                        break;
+                                    }
+                                    else {
+                                        check = 0;
+                                    }
+                                }
+                                if (check == 0) {
+                                    inst = instructorExpert.createInstructor(instructorId, instructorName[0], instructorName[1]);
+                                    instCheck = 1;
+                                    instructorId++;
+                                }
+                            }
+                        }
 
                         if (obj.get("Credit").toString().length() == 4) {
                             creditEdited = obj.get("Credit").toString().substring(0,1) + "." + obj.get("Credit").toString().substring(2,3);
@@ -55,19 +88,37 @@ public class InputReader {
                         }
 
                         if (l.get(i).substring(0,8).equals("Semester")) {
-
                             int semesterId = Integer.parseInt(l.get(i).substring(l.get(i).length()-1));
-
-                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "Must", semesterId);
+                            if (instCheck == 1) {
+                                inst.addGivenCourse(courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "Must", semesterId, inst));
+                            }
+//                            else {
+//                                courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "Must", semesterId);
+//                            }
                         }
                         else if (l.get(i).substring(0,9).equals("(ENG-FTE)")) {
-                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "FTE");
+                            if (instCheck == 1) {
+                                inst.addGivenCourse(courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "FTE", inst));
+                            }
+//                            else {
+//                                courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "FTE");
+//                            }
                         }
                         else if (l.get(i).substring(0,4).equals("(TE)")) {
-                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "TE");
+                            if (instCheck == 1) {
+                                inst.addGivenCourse(courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "TE", inst));
+                            }
+//                            else {
+//                                courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "TE");
+//                            }
                         }
                         else if (l.get(i).substring(0,14).equals("(NTE / ENG-UE)")) {
-                            courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited),"NTE-UE");
+                            if (instCheck == 1) {
+                                inst.addGivenCourse(courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "NTE-UE", inst));
+                            }
+//                            else {
+//                                courseExpert.createCourse(obj.get("courseId").toString(), obj.get("courseName").toString(), Integer.parseInt(obj.get("Capacity").toString()), Float.parseFloat(creditEdited), Float.parseFloat(ectsEdited), "NTE-UE");
+//                            }
                         }
                     }
                 }
@@ -141,34 +192,34 @@ public class InputReader {
         }
     }
 
-    public void readInstructorJson(InstructorExpert instructorExpert) {
-
-        try {
-            JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("instructors.json"));
-
-            for (Object o : instructor_input) {
-
-                JSONObject instructors = (JSONObject) o;
-
-                long id = (long) instructors.get("instructorID");
-                String name = (String) instructors.get("name");
-                String surname = (String) instructors.get("surname");
-                String email = (String) instructors.get("email");
-
-                ArrayList<String> emailToArray = new ArrayList<String>();
-
-                emailToArray.add(email);
-
-                instructorExpert.createInstructor((int)id, name, surname, emailToArray);
-            }
-            }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void readInstructorJson(InstructorExpert instructorExpert) {
+//
+//        try {
+//            JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("instructors.json"));
+//
+//            for (Object o : instructor_input) {
+//
+//                JSONObject instructors = (JSONObject) o;
+//
+//                long id = (long) instructors.get("instructorID");
+//                String name = (String) instructors.get("name");
+//                String surname = (String) instructors.get("surname");
+//                String email = (String) instructors.get("email");
+//
+//                ArrayList<String> emailToArray = new ArrayList<String>();
+//
+//                emailToArray.add(email);
+//
+//                instructorExpert.createInstructor((int)id, name, surname, emailToArray);
+//            }
+//            }
+//        catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
 

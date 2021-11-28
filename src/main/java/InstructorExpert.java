@@ -8,9 +8,10 @@ public class InstructorExpert {
         this.instructors = new ArrayList<Instructor>();
     }
 
-    public void createInstructor(int id, String name, String surname, ArrayList<String> emails) {
-        Instructor instructor = new Instructor(id, name, surname, emails);
+    public Instructor createInstructor(int id, String name, String surname) {
+        Instructor instructor = new Instructor(id, name, surname);
         instructors.add(instructor);
+        return instructor;
     }
 
     public ArrayList<Instructor> getInstructors() { return instructors; }

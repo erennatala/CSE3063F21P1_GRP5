@@ -10,6 +10,7 @@ public abstract class Course {
     private float ects;
     private ArrayList<Course> prerequisites;
     private ArrayList<Section> sectionList;
+    private Instructor instructor;
 
     public Course(String courseId, String name, int capacity, float credit, float ects) {
         this.courseId = courseId;
@@ -91,8 +92,7 @@ public abstract class Course {
         this.sectionList = sectionList;
     }
 
+    public Instructor getInstructor() {return instructor;}
 
-
-
-
+    public void setInstructor(Instructor instructor) {this.instructor = instructor;}
 }

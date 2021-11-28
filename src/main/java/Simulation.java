@@ -15,30 +15,32 @@ public class Simulation {
         }
     }
 
-    public void start(){
+    public void start() {
         this.studentExpert = new StudentExpert();
         this.inputReader = new InputReader();
         this.instructorExpert = new InstructorExpert();
 
         createSemester();
 
-        inputReader.readStudentJson(0,studentExpert);
-        for(Student student: studentExpert.getStudents())
-            System.out.println(student.getId()+" "+student.getName()+" "+student.getSurname());
+        inputReader.readStudentJson(0, studentExpert);
+        for (Student student : studentExpert.getStudents())
+            System.out.println(student.getId() + " " + student.getName() + " " + student.getSurname());
 
         System.out.println("************************************************");
 
-        inputReader.readInstructorJson(instructorExpert);
-        for (Instructor instructor: instructorExpert.getInstructors()) {
-            System.out.println(instructor.getId() + " " + instructor.getName() + " " + instructor.getSurname() + " " + instructor.getEmails().get(0));
+//        inputReader.readInstructorJson(instructorExpert);
+
+        inputReader.readCourseJson(courseExpert, instructorExpert);
+        for (int i = 0; i < curriculum.getMandatoryCourses().size(); i++) {
+//            System.out.println(curriculum.getMandatoryCourses().get(i).getCourseId() + " " + curriculum.getMandatoryCourses().get(i).getName());
+
         }
 
-        inputReader.readCourseJson(courseExpert, instructorExpert.getInstructors());
-
-        for (int i=0; i<curriculum.getMandatoryCourses().size(); i++) {
-            System.out.println(curriculum.getMandatoryCourses().get(i).getCourseId() + " " + curriculum.getMandatoryCourses().get(i).getName());
+        for (Course course : curriculum.getMandatoryCourses()) { //ali, betül
+            System.out.println(course.getName() + " " + course.getInstructor().getName());
+//        for (Instructor instructor: instructorExpert.getInstructors()) {
+//            System.out.println(instructor.getId() + " " + instructor.getName() + " " + instructor.getSurname() + " " + instructor.getGivenCourses());
+//        }
         }
-
-
     }
 }

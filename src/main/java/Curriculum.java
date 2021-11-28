@@ -38,12 +38,10 @@ public class Curriculum {
 
     public void setSemesterList(ArrayList<Semester> semesterList) {this.semesterList = semesterList;}
 
-    public void addSemester(Semester semester) {
-        this.semesterList.add(semester);
+    public void addSemester(Semester semester) {this.semesterList.add(semester);
     }
 
     public void addCourseToArrayList(Course course, String type, int semesterId) {
-
         for (Semester semester: semesterList) {
             if (semester.getSemesterId() == semesterId) {
                 mandatoryCourses.add((MandatoryCourse) course);
