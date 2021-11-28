@@ -6,7 +6,7 @@ public abstract class Course {
     private int capacity;
     private float credit;
     private Semester semester;
-    private ArrayList<Student> students;
+    private ArrayList<Student> students = new ArrayList<Student>();
     private float ects;
     private ArrayList<Course> prerequisites;
     private ArrayList<Section> sectionList;

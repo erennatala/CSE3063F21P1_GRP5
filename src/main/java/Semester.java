@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Semester {
     private int semesterId;
-    private ArrayList<Course> courseList;
+    private ArrayList<Course> courseList= new ArrayList<Course>();
 
     public Semester(int semesterId) {this.semesterId = semesterId;}
 
@@ -25,6 +25,9 @@ public class Semester {
 
     public void setCourseList(ArrayList<Course> courseList) {
         this.courseList = courseList;
+    }
+    public void addCourse(Course course){
+        courseList.add(course);
     }
 
 

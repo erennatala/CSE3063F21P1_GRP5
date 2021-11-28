@@ -18,4 +18,10 @@ public class StudentExpert {
     public void setStudents(ArrayList<Student> students) {
         this.students = students;
     }
+    public void showActiveCourses(){
+        for (Student student :
+                students) {
+            student.showActiveCourse();
+        }
+    }
 }

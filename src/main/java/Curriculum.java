@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Curriculum {
 
@@ -6,9 +7,9 @@ public class Curriculum {
 
     private ArrayList<FacultyTechnicalElective> facultyTechnicalElectives = new ArrayList<FacultyTechnicalElective>();
 
-    private ArrayList<NT_UElective> NTUElectives = new ArrayList<NT_UElective>();
+    private List<NT_UElective> NTUElectives = new ArrayList<>();
 
-    private ArrayList<TechnicalElective> technicalElectives = new ArrayList<TechnicalElective>();
+    private List<TechnicalElective> technicalElectives = new ArrayList<>();
 
     private ArrayList<Semester> semesterList = new ArrayList<Semester>();
 
@@ -20,11 +21,11 @@ public class Curriculum {
 
     public ArrayList<MandatoryCourse> getMandatoryCourses() {return mandatoryCourses;} //SİL
 
-    public ArrayList<FacultyTechnicalElective> getFacultyTechnicalElectives() {return facultyTechnicalElectives;}
+    public List<FacultyTechnicalElective> getFacultyTechnicalElectives() {return facultyTechnicalElectives;}
 
-    public ArrayList<NT_UElective> getNTUElectives() {return NTUElectives;}
+    public List getNTUElectives() {return NTUElectives;}
 
-    public ArrayList<TechnicalElective> getTechnicalElectives() {return technicalElectives;}
+    public List getTechnicalElectives() {return technicalElectives;}
 
     public ArrayList<Course> getCourseList() {
         return courseList;
@@ -45,6 +46,7 @@ public class Curriculum {
         for (Semester semester: semesterList) {
             if (semester.getSemesterId() == semesterId) {
                 mandatoryCourses.add((MandatoryCourse) course);
+                semester.addCourse(course);
                 course.setSemester(semester);
                 break;
             }
@@ -60,6 +62,23 @@ public class Curriculum {
             NTUElectives.add((NT_UElective) course);
         }
     }
+    public List<ElectiveCourse> getElectiveList(Course course){
+        return this.getTechnicalElectives();
+    }
+    public List<ElectiveCourse> getElectiveList(NT_UElective course){
+        return this.getNTUElectives();
+    }
+//    public ArrayList<NT_UElective> getElectiveList(NT_UElective course){
+//        return this.getNTUElectives();
+//    }
+//    public ArrayList<FacultyTechnicalElective> getElectiveList(FacultyTechnicalElective course){
+//        return this.getFacultyTechnicalElectives();
+//    }
+//    public ArrayList<ElectiveCourse> getElectiveList(ElectiveCourse course){
+//        if (course instanceof TechnicalElective)
+//            return this.getTechnicalElectives();
+//
+//    }
 
 
 }
