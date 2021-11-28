@@ -9,10 +9,11 @@ public class Student extends Person {
     private float cgpa;
     private Instructor advisor;
     private int completedCredit;
-    private ArrayList<Course> activeCourses;
+    private ArrayList<Course> activeCourses = new ArrayList<Course>();
     private ArrayList<Course> pastCourses;
     private ArrayList<Course> nonTakenCourses;
     private ArrayList<Course> failedCourses;
+    private ArrayList<Error> errors = new ArrayList<>();
 
     public Student(int id, String name, String surname, ArrayList<String> emails) {
         super(id, name, surname, emails);
@@ -112,6 +113,19 @@ public class Student extends Person {
 
     public void setFailedCourses(ArrayList<Course> failedCourses) {
         this.failedCourses = failedCourses;
+    }
+    public void addError(Error error){
+        errors.add(error);
+    }
+    public void addActiveCourse(Course course){
+        this.activeCourses.add(course);
+    }
+    public void showActiveCourse(){
+        System.out.println(getName()+" "+getSurname());
+        for (Course course :
+                activeCourses) {
+            System.out.println(course.getName());
+        }
     }
 
 

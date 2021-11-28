@@ -1,35 +1,30 @@
 import java.util.ArrayList;
 
 public abstract class Course {
-    private int courseId;
+    private String courseId;
     private String name;
     private int capacity;
-    private String classroom;
-    private int credit;
+    private float credit;
     private Semester semester;
-    private int requiredCredit;
-    private ArrayList<Student> students;
-    private int ects;
-    private int curve;
+    private ArrayList<Student> students = new ArrayList<Student>();
+    private float ects;
     private ArrayList<Course> prerequisites;
     private ArrayList<Section> sectionList;
+    private Instructor instructor;
 
-    public Course(int courseId, String name, int capacity, String classroom, int credit, int requiredCredit, int ects, int curve) {
+    public Course(String courseId, String name, int capacity, float credit, float ects) {
         this.courseId = courseId;
         this.name = name;
         this.capacity = capacity;
-        this.classroom = classroom;
         this.credit = credit;
-        this.requiredCredit = requiredCredit;
         this.ects = ects;
-        this.curve = curve;
     }
 
-    public int getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
@@ -49,19 +44,11 @@ public abstract class Course {
         this.capacity = capacity;
     }
 
-    public String getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(String classroom) {
-        this.classroom = classroom;
-    }
-
-    public int getCredit() {
+    public float getCredit() {
         return credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(float credit) {
         this.credit = credit;
     }
 
@@ -73,14 +60,6 @@ public abstract class Course {
         this.semester = semester;
     }
 
-    public int getRequiredCredit() {
-        return requiredCredit;
-    }
-
-    public void setRequiredCredit(int requiredCredit) {
-        this.requiredCredit = requiredCredit;
-    }
-
     public ArrayList<Student> getStudents() {
         return students;
     }
@@ -89,20 +68,12 @@ public abstract class Course {
         this.students = students;
     }
 
-    public int getEcts() {
+    public float getEcts() {
         return ects;
     }
 
-    public void setEcts(int ects) {
+    public void setEcts(float ects) {
         this.ects = ects;
-    }
-
-    public int getCurve() {
-        return curve;
-    }
-
-    public void setCurve(int curve) {
-        this.curve = curve;
     }
 
     public ArrayList<Course> getPrerequisites() {
@@ -121,8 +92,7 @@ public abstract class Course {
         this.sectionList = sectionList;
     }
 
+    public Instructor getInstructor() {return instructor;}
 
-
-
-
+    public void setInstructor(Instructor instructor) {this.instructor = instructor;}
 }
