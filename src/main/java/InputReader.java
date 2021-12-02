@@ -21,6 +21,9 @@ public class InputReader {
     private int check = 0;
     private Instructor inst;
     private int instCheck = 1;
+    private String day;
+    private String start_time;
+    private String end_time;
 
     public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata
 
@@ -33,7 +36,7 @@ public class InputReader {
                 List<String> l = new ArrayList<String>(courses.keySet());
 
                 for (int i = 0; i<l.size(); i++) {
-                    JSONArray data_title = (JSONArray) courses.get(l.get(i)); //title altındaki dersler arrayi
+                    JSONArray data_title = (JSONArray) courses.get(l.get(i));//title altındaki dersler arrayi
 
                     for (int j = 0; j < data_title.size(); j++) {
 
@@ -45,6 +48,28 @@ public class InputReader {
                         String ectsEdited;
                         String instructor = obj.get("Instructor").toString();
                         String[] instructorName = instructor.split(" ");
+                        //burdan itibaren başladım
+                        try {
+                            JSONArray schedule = (JSONArray) obj.get("Schedule");
+                            for (int k = 0; k < schedule.size(); k++) {
+                                JSONObject schedule_elements = (JSONObject) schedule.get(k);
+
+                                day = (String) schedule_elements.get("Day");
+                                start_time = (String) schedule_elements.get("Start");
+                                end_time = (String) schedule_elements.get("End");
+
+                                System.out.println(day + " " + start_time + " " + end_time);
+
+                            }
+                        }
+                        catch (ClassCastException c) {
+                        }
+                        catch (IndexOutOfBoundsException d) {
+                        }
+                        catch (NullPointerException p) {
+                        }
+
+                        //buraya kadar yazdım
 
                         if (instructor.equals("")) {
                             instCheck = 0;

@@ -1190,7 +1190,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester": "",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4040",
@@ -1203,7 +1203,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester": "",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4044",
@@ -1216,7 +1216,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester": "",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4053",
@@ -1253,7 +1253,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester": "",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4057",
@@ -1290,7 +1290,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester":"",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4059",
@@ -1303,7 +1303,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester":"",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4061",
@@ -1413,7 +1413,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester":"",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4067",
@@ -1426,7 +1426,7 @@
             "Instructor": "",
             "Capacity": "0",
             "Semester":"",
-            "Schedule": ""
+            "Schedule": []
         },
         {
             "courseId": "CSE4070",
@@ -1548,7 +1548,7 @@
 			"Instructor": "",
             "Capacity": "0",
 			"Semester":"",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "CSE4086",
@@ -1585,7 +1585,7 @@
 			"Instructor": "",
             "Capacity": "0",
 			"Semester":"",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "CSE4093",
@@ -1598,7 +1598,7 @@
 			"Instructor": "",
             "Capacity": "0",
 			"Semester":"",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "CSE4094",
@@ -1660,7 +1660,7 @@
 			"Instructor": "",
             "Capacity": "0",
 			"Semester":"",
-			"Schedule": ""
+			"Schedule": []
         }
     ]
 },
@@ -1721,7 +1721,7 @@
 			"Instructor": "",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "CHE4080",
@@ -1734,7 +1734,7 @@
 			"Instructor": "BERRİN KURŞUN",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "CSE4044",
@@ -1747,7 +1747,7 @@
 			"Instructor": "",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "CSE4056",
@@ -1760,7 +1760,7 @@
 			"Instructor": "ŞAKİR BİNGÖL",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
 			
         },
         {
@@ -1798,7 +1798,7 @@
 			"Instructor": "ŞAKİR BİNGÖL",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "EE4062",
@@ -1859,7 +1859,7 @@
 			"Instructor": "",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "IE4055",
@@ -1891,7 +1891,7 @@
 			"Instructor": "MAHMURE ARIOĞLU",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "ME3004",
@@ -1904,7 +1904,7 @@
 			"Instructor": "MUSTAFA ÖZDEMİR",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "ME3022",
@@ -1917,7 +1917,7 @@
 			"Instructor": "UĞUR TÜMERDEM",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "ME4018",
@@ -1930,7 +1930,7 @@
 			"Instructor": "UĞUR TÜMERDEM",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "ME4022",
@@ -1943,7 +1943,7 @@
 			"Instructor": "İBRAHİM KUYSERİ",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "ME4033",
@@ -1956,7 +1956,7 @@
 			"Instructor": "",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "ME4051",
@@ -1969,7 +1969,7 @@
 			"Instructor": "",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "MGT4076",
@@ -1982,7 +1982,7 @@
 			"Instructor": "",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "MGT4082",
@@ -2033,7 +2033,7 @@
 			"Instructor": "Hülya ASLANOĞLU",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         },
         {
             "courseId": "MGT4088",
@@ -2090,7 +2090,7 @@
 			"Instructor": "SEVAL GENÇ",
 			"Capacity": "0",
 			"Semester": "",
-			"Schedule": ""
+			"Schedule": []
         }
     ]
 },
