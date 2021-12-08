@@ -1,7 +1,5 @@
-import org.json.JSONObject;
-import org.json.simple.JSONArray;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class Approver
 {
@@ -38,7 +36,7 @@ public class Approver
     {
 
         int capacity = course.getCapacity();
-        ArrayList<Student> studentList = course.getStudents();
+        List<Student> studentList = course.getStudents();
         if (capacity > studentList.size())
         {
 
@@ -57,15 +55,15 @@ public class Approver
     // the method below compares the student's passed courses and prerequisite courses
     public boolean prerequisiteChecker()
     {
-        ArrayList<Course> takenCourses = student.getPastCourses();
-        ArrayList<Course> prerequisiteCourses = course.getPrerequisites();
+        List<Course> pastCourses = student.getPastCourses();
+        List<Course> prerequisiteCourses = course.getPrerequisites();
 
-        if (takenCourses.containsAll(prerequisiteCourses))
+        if (pastCourses.containsAll(prerequisiteCourses))
             return true;
         else
             for (Course required :
                     prerequisiteCourses) {
-                if (!takenCourses.contains(required)) {
+                if (!pastCourses.contains(required)) {
                     PrerequisiteError prerequisiteError = new PrerequisiteError(student,course,required);
                     //prerequisiteError.raiseError();
                     return false;

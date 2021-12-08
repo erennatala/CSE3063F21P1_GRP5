@@ -1,25 +1,28 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Semester {
-    private int semesterId;
-    private ArrayList<Course> courseList= new ArrayList<Course>();
+    private Integer semesterId;
+    private List<Course> courseList= new ArrayList<Course>();
 
-    public Semester(int semesterId) {this.semesterId = semesterId;}
+    public Semester(int semesterId) {
+        this.semesterId = semesterId;
+    }
 
     public Semester(int semesterId, ArrayList<Course> courseList) {
         this.semesterId = semesterId;
         this.courseList = courseList;
     }
 
-    public int getSemesterId() {
+    public Integer getSemesterId() {
         return semesterId;
     }
 
-    public void setSemesterId(int semesterId) {
+    public void setSemesterId(Integer semesterId) {
         this.semesterId = semesterId;
     }
 
-    public ArrayList<Course> getCourseList() {
+    public List<Course> getCourseList() {
         return courseList;
     }
 
@@ -29,6 +32,5 @@ public class Semester {
     public void addCourse(Course course){
         courseList.add(course);
     }
-
 
 }

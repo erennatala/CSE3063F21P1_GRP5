@@ -17,15 +17,25 @@ public class Curriculum {
 
     public Curriculum(){}
 
-    public Curriculum(ArrayList<Course> courseList) {this.courseList = courseList;}
+    public Curriculum(ArrayList<Course> courseList) {
+        this.courseList = courseList;
+    }
 
-    public ArrayList<MandatoryCourse> getMandatoryCourses() {return mandatoryCourses;} //SİL
+    public ArrayList<MandatoryCourse> getMandatoryCourses() {
+        return mandatoryCourses;
+    } //SİL
 
-    public List<FacultyTechnicalElective> getFacultyTechnicalElectives() {return facultyTechnicalElectives;}
+    public List<FacultyTechnicalElective> getFacultyTechnicalElectives() {
+        return facultyTechnicalElectives;
+    }
 
-    public List getNTUElectives() {return NTUElectives;}
+    public List getNTUElectives() {
+        return NTUElectives;
+    }
 
-    public List getTechnicalElectives() {return technicalElectives;}
+    public List getTechnicalElectives() {
+        return technicalElectives;
+    }
 
     public ArrayList<Course> getCourseList() {
         return courseList;
@@ -35,22 +45,32 @@ public class Curriculum {
         this.courseList = courseList;
     }
 
-    public ArrayList<Semester> getSemesterList() {return semesterList;}
-
-    public void setSemesterList(ArrayList<Semester> semesterList) {this.semesterList = semesterList;}
-
-    public void addSemester(Semester semester) {this.semesterList.add(semester);
+    public ArrayList<Semester> getSemesterList() {
+        return semesterList;
     }
 
-    public void addCourseToArrayList(Course course, String type, int semesterId) {
-        for (Semester semester: semesterList) {
-            if (semester.getSemesterId() == semesterId) {
-                mandatoryCourses.add((MandatoryCourse) course);
-                semester.addCourse(course);
-                course.setSemester(semester);
-                break;
-            }
-        }
+    public void setSemesterList(ArrayList<Semester> semesterList) {
+        this.semesterList = semesterList;
+    }
+
+    public void addSemester(Semester semester) {
+        this.semesterList.add(semester);
+    }
+
+    public void addCourseToArrayList(Course course, String type, Integer semesterId) {
+        Semester semester = semesterList.stream()
+                .filter(semester1->semesterId.equals(semester1.getSemesterId()))
+                .findAny()
+                .orElse(null);
+
+//        for (Semester semester: semesterList) {
+//            if (semester.getSemesterId() == semesterId) {
+//                mandatoryCourses.add((MandatoryCourse) course);
+//                semester.addCourse(course);
+//                course.setSemester(semester);
+//                break;
+//            }
+//        }
     }
 
     public void addCourseToArrayList(Course course, String type) {
