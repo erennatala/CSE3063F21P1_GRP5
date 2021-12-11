@@ -54,7 +54,33 @@ public abstract class Person {
     public void setEmails(List<String> emails) {
         this.emails = emails;
     }
-    
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
 
+        Person person = (Person) o;
+
+        if (getId() != person.getId()) return false;
+        if (!getName().equals(person.getName())) return false;
+        return getSurname().equals(person.getSurname());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getSurname().hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }

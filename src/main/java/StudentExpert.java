@@ -1,11 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class StudentExpert {
-    private List<Student> students;
+    //private List<Student> students;
+    private Map<Integer,Student>studentMap;
 
     public StudentExpert() {
-        this.students = new ArrayList<Student>();
+        this.studentMap = new HashMap<Integer,Student>();
     }
 
     private Student getStudent(int id, String name,String surname, List<String> emails){
@@ -19,21 +19,33 @@ public class StudentExpert {
         return student;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public Map<Integer, Student> getStudentMap() {
+        return studentMap;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setStudentMap(Map<Integer, Student> studentMap) {
+        this.studentMap = studentMap;
     }
 
     public void createStudent(int id, String name, String surname, List<String> emails){
         Student student = getStudent(id, name, surname, emails);
-        students.add(student);
+        Map<Integer,Student> studentMap = getStudentMap();
+        studentMap.put(Integer.valueOf(id),student);
     }
-    public void showActiveCourses(){
-        for (Student student : students) {
-            student.showActiveCourse();
+
+    public void showStudents(){
+        Map<Integer,Student> studentMap = getStudentMap();
+        Iterator<Map.Entry<Integer,Student>> studentIterator = studentMap.entrySet().iterator();
+        while(studentIterator.hasNext()){
+            Map.Entry<Integer,Student> tmpMap = (Map.Entry<Integer, Student>) studentIterator.next();
+            System.out.println(tmpMap.getKey()+" = "+tmpMap.getValue());
         }
+
     }
+
+//    public void showActiveCourses(){
+//        for (Student student : students) {
+//            student.showActiveCourse();
+//        }
+//    }
 }

@@ -14,22 +14,22 @@ public class Simulation {
             curriculum.addSemester(semester);
         }
     }
-    public void startRegistration(){
+    /*public void startRegistration(){
         //register students
         for (Student student:studentExpert.getStudents()) {
             Registrator registrator = new Registrator(student,student.getSemester(),curriculum);
             registrator.startRegistration();
         }
-    }
+    }*/
 
-    public void startGrading(){
+    /*public void startGrading(){
         //grading operations
         for (Student student :studentExpert.getStudents()
                 ) {
 
 
         }
-    }
+    }*/
     public void start() {
         this.studentExpert = new StudentExpert();
         this.inputReader = new InputReader();
@@ -55,7 +55,7 @@ public class Simulation {
 //        }
         }
         int startIndex = 0;
-        for(int i=1;i<9;i++){
+        /*for(int i=1;i<9;i++){
             if (i%2==1){
                 inputReader.readStudentJson(startIndex+((i-1)*35),studentExpert);
                 for (Student student :
@@ -74,7 +74,7 @@ public class Simulation {
             startGrading();
 
 
-        }
+        }*/
 //        for (Student student : studentExpert.getStudents())
 //            System.out.println(student.getId() + " " + student.getName() + " " + student.getSurname());
 //

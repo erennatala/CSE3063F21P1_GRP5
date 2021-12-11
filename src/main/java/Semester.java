@@ -33,4 +33,25 @@ public class Semester {
         courseList.add(course);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Semester)) return false;
+
+        Semester semester = (Semester) o;
+
+        return getSemesterId().equals(semester.getSemesterId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getSemesterId().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Semester{" +
+                "semesterId=" + semesterId +
+                '}';
+    }
 }
