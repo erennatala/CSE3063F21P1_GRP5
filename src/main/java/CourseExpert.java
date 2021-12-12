@@ -8,7 +8,7 @@ public class CourseExpert {
     private List<ElectiveCourse> facultyTechnicalList = new ArrayList<>();
     private List<ElectiveCourse> NT_UList = new ArrayList<>();
     private List<ElectiveCourse> technicalList = new ArrayList<>();
-    private Map<Integer,Semester> semesterMap= new HashMap<Integer,Semester>();
+    private Map<Integer,Semester> semesterMap = new HashMap<Integer,Semester>();
     //private ArrayList<Instructor> instructors; // buna bak
 
     public CourseExpert() {
@@ -21,16 +21,6 @@ public class CourseExpert {
             this.semesterMap.put(semesterId,new Semester(semesterId));
         }
     }
-//    public void showSemester(){
-//        Map<Integer,Semester> semesterMap = getSemesterMap();
-//        Iterator<Map.Entry<Integer,Semester>> new_Iterator = semesterMap.entrySet().iterator();
-//
-//        while(new_Iterator.hasNext()){
-//            Map.Entry<Integer,Semester> new_map = (Map.Entry<Integer, Semester>) new_Iterator.next();
-//            System.out.println(new_map.getKey()+" = "+new_map.getValue());
-//        }
-//    }
-
     public List<Course> getCourses() {
         return courses;
     }
@@ -128,7 +118,6 @@ public class CourseExpert {
         }
         else{
             ElectiveCourse electiveCourse = getElectiveFactory(type, courseId, name, capacity, credit, ects,instructor);
-            System.out.println(electiveCourse);
             addMandatoryCourse(electiveCourse);
             semester.addCourse(electiveCourse);
             return electiveCourse;
@@ -138,6 +127,33 @@ public class CourseExpert {
 
     public Course createCourse(String courseId, String name, int capacity, float credit, float ects, String type, Instructor instructor){
         return getElectiveFactory(type,courseId,name,capacity, credit,ects,instructor);
+    }
+    public void showMandatoryList(){
+        List<Course> mandatoryList = getMandatoryCourses();
+        for (Course mandatoryCourse:mandatoryList) {
+            System.out.println(mandatoryCourse);
+        }
+    }
+    public void showTechnicalElectiveList(){
+        List<ElectiveCourse> electiveCourseList = getTechnicalList();
+        for (ElectiveCourse electiveCourse :
+                electiveCourseList) {
+            System.out.println(electiveCourse);
+        }
+    }
+    public void showNT_UElectiveList(){
+        List<ElectiveCourse>electiveCourseList = getNT_UList();
+        for (ElectiveCourse electiveCourse:
+             electiveCourseList) {
+            System.out.println(electiveCourse);
+        }
+    }
+    public void showFacultyTechnicalList(){
+        List<ElectiveCourse>electiveCourseList = getFacultyTechnicalList();
+        for (ElectiveCourse electiveCourse :
+                electiveCourseList) {
+            System.out.println(electiveCourse);
+        }
     }
 
 

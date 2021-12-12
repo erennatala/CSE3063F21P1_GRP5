@@ -46,7 +46,7 @@ public class InputReader {
                         String type = obj.get("Type").toString();
                         String instructor = obj.get("Instructor").toString();
 
-                        if (!courseId.equals("NTExxx") && !courseId.equals("TExxx") && !courseId.equals("FTExxx") && !courseId.equals("UE") && instructor.equals("")) {
+                        if (!courseId.equals("NTExxx") && !courseId.equals("TExxx") && !courseId.equals("FTExxx") && !courseId.equals("UE") && instructor.equals("") && !type.equals("Must")) {
                             continue;
                         }
 

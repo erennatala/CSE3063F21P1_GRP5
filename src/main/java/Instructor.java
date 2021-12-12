@@ -49,8 +49,18 @@ public class Instructor extends Person{
         advisees.add(student);
     }
 
+    public void showGivenCourses(){
+        for (Course course :
+                givenCourses) {
+            System.out.println(course.getCourseId());
+        }
+    }
+
     @Override
     public String toString() {
+        //showGivenCourses();
         return "Instructor{} " + super.toString();
     }
+
+
 }

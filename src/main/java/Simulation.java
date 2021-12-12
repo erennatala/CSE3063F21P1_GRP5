@@ -32,10 +32,14 @@ public class Simulation {
         inputReader.readInstructorJson(instructorExpert);
         inputReader.readCourseJson(courseExpert, instructorExpert);
         instructorExpert.showInstructors();
-        System.out.println(courseExpert.getMandatoryCourses());
-        System.out.println(courseExpert.getFacultyTechnicalList());
-        System.out.println(courseExpert.getNT_UList());
-        System.out.println(courseExpert.getTechnicalList());
+        courseExpert.showMandatoryList();
+        System.out.println("******************************");
+        courseExpert.showFacultyTechnicalList();
+        System.out.println("******************************");
+        courseExpert.showNT_UElectiveList();
+        System.out.println("******************************");
+        courseExpert.showTechnicalElectiveList();
+        System.out.println("******************************");
 
         //createSemester();
 
