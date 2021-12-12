@@ -23,7 +23,7 @@ public class Curriculum {
 
     public ArrayList<MandatoryCourse> getMandatoryCourses() {
         return mandatoryCourses;
-    } //SİL
+    }
 
     public List<FacultyTechnicalElective> getFacultyTechnicalElectives() {
         return facultyTechnicalElectives;

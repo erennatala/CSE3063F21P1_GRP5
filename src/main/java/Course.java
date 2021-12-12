@@ -12,12 +12,23 @@ public abstract class Course {
     private ArrayList<Section> sectionList;
     private Instructor instructor;
 
-    public Course(String courseId, String name, int capacity, float credit, float ects) {
+    public Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {
+        this.courseId = courseId;
+        this.name = name;
+        this.capacity = capacity;
+        this.credit = credit;
+        this.semester = semester;
+        this.ects = ects;
+        this.instructor = instructor;
+    }
+
+    public Course(String courseId, String name, int capacity, float credit, float ects, Instructor instructor) {
         this.courseId = courseId;
         this.name = name;
         this.capacity = capacity;
         this.credit = credit;
         this.ects = ects;
+        this.instructor = instructor;
     }
 
     public String getCourseId() {
@@ -95,4 +106,13 @@ public abstract class Course {
     public Instructor getInstructor() {return instructor;}
 
     public void setInstructor(Instructor instructor) {this.instructor = instructor;}
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId='" + courseId + '\'' +
+                ", name='" + name + '\'' +
+                ", instructor=" + instructor +
+                '}';
+    }
 }

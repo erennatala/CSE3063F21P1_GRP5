@@ -330,7 +330,7 @@
         {
             "courseId": "NTExxx",
             "courseName": "Non-Technical Elective - 1",
-            "Type": "NTE",
+            "Type": "NTE-UE",
             "T": "2",
             "U": "0",
             "Credit": "3",
@@ -997,7 +997,7 @@
         {
             "courseId": "UE",
             "courseName": "University Elective",
-            "Type": "UE",
+            "Type": "NTE-UE",
             "T": "2",
             "U": "0",
             "Credit": "3",
@@ -1068,7 +1068,7 @@
         {
             "courseId": "NTExxx",
             "courseName": "Non-Technical Elective - 2",
-            "Type": "NTE",
+            "Type": "NTE-UE",
             "T": "2",
             "U": "0",
             "Credit": "3",
@@ -1670,7 +1670,7 @@
         {
             "courseId": "BIOE4072",
             "courseName": "Planning and Management of Research",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1689,7 +1689,7 @@
         {
             "courseId": "CHE4060",
             "courseName": "Cost Management in Chemical Industries",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1713,7 +1713,7 @@
         {
             "courseId": "CHE4068",
             "courseName": "Financial Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1726,7 +1726,7 @@
         {
             "courseId": "CHE4080",
             "courseName": "Chemical Engineering for Sustainable Biosphere",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1739,7 +1739,7 @@
         {
             "courseId": "CSE4044",
             "courseName": "Software Project Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1752,7 +1752,7 @@
         {
             "courseId": "CSE4056",
             "courseName": "Management of Information Systems",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1766,7 +1766,7 @@
         {
             "courseId": "CSE4062",
             "courseName": "Introduction to Data Science and Analytics",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1790,7 +1790,7 @@
         {
             "courseId": "EE4056",
             "courseName": "Introduction to Information Systems Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1803,7 +1803,7 @@
         {
             "courseId": "EE4062",
             "courseName": "Introduction to Image Processing",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1827,7 +1827,7 @@
         {
             "courseId": "ENVE4062",
             "courseName": "Energy and the Environment",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1851,7 +1851,7 @@
         {
             "courseId": "ENVE4063",
             "courseName": "Construction Materials for Environmental Engineering ",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1864,7 +1864,7 @@
         {
             "courseId": "IE4055",
             "courseName": "Design of Experiments",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1883,7 +1883,7 @@
         {
             "courseId": "IE4087",
             "courseName": "Introduction to Total Quality Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1896,7 +1896,7 @@
         {
             "courseId": "ME3004",
             "courseName": "Mathematical Modeling in Mechanical Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1909,7 +1909,7 @@
         {
             "courseId": "ME3022",
             "courseName": "Mechatronics",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1922,7 +1922,7 @@
         {
             "courseId": "ME4018",
             "courseName": "Introduction to Robotics",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1935,7 +1935,7 @@
         {
             "courseId": "ME4022",
             "courseName": "Control Systems",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1948,7 +1948,7 @@
         {
             "courseId": "ME4033",
             "courseName": "Designing Quality Products",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1961,7 +1961,7 @@
         {
             "courseId": "ME4051",
             "courseName": "Automotive Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1974,7 +1974,7 @@
         {
             "courseId": "MGT4076",
             "courseName": "Quality Management System in Automotive Industry",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -1987,7 +1987,7 @@
         {
             "courseId": "MGT4082",
             "courseName": "Advanced innovative Design Management for Entrepreneurship",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2006,7 +2006,7 @@
         {
             "courseId": "MGT4084",
             "courseName": "Innovation and New Product Development Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2025,7 +2025,7 @@
         {
             "courseId": "MGT4086",
             "courseName": "Managing Engineering and Technology",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2038,7 +2038,7 @@
         {
             "courseId": "MGT4088",
             "courseName": "Project Management for Engineers",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2058,7 +2058,7 @@
         {
             "courseId": "MSE4073",
             "courseName": "Materials Engineering Economics and Plant Design",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2082,7 +2082,7 @@
         {
             "courseId": "MSE4074",
             "courseName": "Total Quality Management in Materials Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2100,7 +2100,7 @@
         {
             "courseId": "BIOE4072",
             "courseName": "Planning and Management of Research",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2111,7 +2111,7 @@
         {
             "courseId": "CHE4060",
             "courseName": "Cost Management in Chemical Industries",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2122,7 +2122,7 @@
         {
             "courseId": "CHE4068",
             "courseName": "Financial Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2133,7 +2133,7 @@
         {
             "courseId": "CHE4080",
             "courseName": "Chemical Engineering for Sustainable Biosphere",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2144,7 +2144,7 @@
         {
             "courseId": "CSE4044",
             "courseName": "Software Project Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2155,7 +2155,7 @@
         {
             "courseId": "CSE4056",
             "courseName": "Management of Information Systems",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2166,7 +2166,7 @@
         {
             "courseId": "CSE4062",
             "courseName": "Introduction to Data Science and Analytics",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2177,7 +2177,7 @@
         {
             "courseId": "EE4056",
             "courseName": "Introduction to Information Systems Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2188,7 +2188,7 @@
         {
             "courseId": "EE4062",
             "courseName": "Introduction to Image Processing",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2199,7 +2199,7 @@
         {
             "courseId": "ENVE4062",
             "courseName": "Energy and the Environment",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2210,7 +2210,7 @@
         {
             "courseId": "ENVE4063",
             "courseName": "Construction Materials for Environmental Engineering ",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2221,7 +2221,7 @@
         {
             "courseId": "IE4055",
             "courseName": "Design of Experiments",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2232,7 +2232,7 @@
         {
             "courseId": "IE4087",
             "courseName": "Introduction to Total Quality Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2243,7 +2243,7 @@
         {
             "courseId": "ME3004",
             "courseName": "Mathematical Modeling in Mechanical Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2254,7 +2254,7 @@
         {
             "courseId": "ME3022",
             "courseName": "Mechatronics",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2265,7 +2265,7 @@
         {
             "courseId": "ME4018",
             "courseName": "Introduction to Robotics",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2276,7 +2276,7 @@
         {
             "courseId": "ME4022",
             "courseName": "Control Systems",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2287,7 +2287,7 @@
         {
             "courseId": "ME4033",
             "courseName": "Designing Quality Products",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2298,7 +2298,7 @@
         {
             "courseId": "ME4051",
             "courseName": "Automotive Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2309,7 +2309,7 @@
         {
             "courseId": "MGT4076",
             "courseName": "Quality Management System in Automotive Industry",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2320,7 +2320,7 @@
         {
             "courseId": "MGT4082",
             "courseName": "Advanced innovative Design Management for Entrepreneurship",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2331,7 +2331,7 @@
         {
             "courseId": "MGT4084",
             "courseName": "Innovation and New Product Development Management",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2342,7 +2342,7 @@
         {
             "courseId": "MGT4086",
             "courseName": "Managing Engineering and Technology",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2353,7 +2353,7 @@
         {
             "courseId": "MGT4088",
             "courseName": "Project Management for Engineers",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2364,7 +2364,7 @@
         {
             "courseId": "MSE4073",
             "courseName": "Materials Engineering Economics and Plant Design",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
@@ -2375,7 +2375,7 @@
         {
             "courseId": "MSE4074",
             "courseName": "Total Quality Management in Materials Engineering",
-            "Type": "Elective",
+            "Type": "FTE",
             "T": "3",
             "U": "0",
             "Credit": "5",
