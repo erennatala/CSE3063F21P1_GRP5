@@ -42,7 +42,7 @@ public class InputReader {
                         String courseName = obj.get("courseName").toString();
                         int capacity = Integer.parseInt(obj.get("Capacity").toString());
                         float credit = Integer.parseInt(obj.get("Credit").toString());
-                        float ects = Integer.parseInt(obj.get("Credit").toString());
+                        float ects = Integer.parseInt(obj.get("ECTS").toString());
                         String type = obj.get("Type").toString();
                         String instructor = obj.get("Instructor").toString();
 
@@ -140,5 +140,43 @@ public class InputReader {
             e.printStackTrace();
         }
     }
-}
 
+    public void readPrerequisiteJson(CourseExpert courseExpert) {
+
+        try {
+            JSONArray student_input = (JSONArray) parser.parse(new FileReader("prerequisite.json"));
+
+            for (Object o : student_input) {
+
+                JSONObject prerequisite = (JSONObject) o;
+
+                List<String> p = new ArrayList<String>(prerequisite.keySet());
+
+                for (int i = 0; i<p.size(); i++) {
+
+                    JSONArray data_title = (JSONArray) prerequisite.get(p.get(i));
+
+                    Course mainCourse = courseExpert.findCourse(p.get(i));
+
+                    for (int j = 0; j < data_title.size(); j++) {
+
+                        JSONObject obj = (JSONObject) data_title.get(j);
+
+                        String prerequisiteCourseName = obj.get("courseCode").toString();
+
+                        Course prerequisiteCourse = courseExpert.findCourse(prerequisiteCourseName);
+
+                        courseExpert.addPrerequisite(mainCourse, prerequisiteCourse);
+                    }
+                }
+            }
+        }
+        catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+    }
+}

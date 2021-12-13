@@ -163,5 +163,7 @@ public class CourseExpert {
         return course;
     }
 
-
+    public void addPrerequisite(Course mainCourse, Course prerequisiteCourse) {
+        mainCourse.getPrerequisites().add(prerequisiteCourse);
+    }
 }

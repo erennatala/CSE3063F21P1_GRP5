@@ -27,9 +27,9 @@
 	},
 	
 	{
-		"CSE4198": [
+		"CSE4298": [
 			{
-				"courseCode": "CSE4197"
+				"courseCode": "CSE4297"
 			}
 		]
 	},
@@ -43,17 +43,17 @@
 	},
 	
 	{
-		"CSE2025": [
+		"CSE2225": [
 			{
-				"courseCode": "CSE1142"
+				"courseCode": "CSE1242"
 			}
 		]
 	},
 	
 	{
-		"CSE2046": [
+		"CSE2246": [
 			{
-				"courseCode": "CSE2025"
+				"courseCode": "CSE2225"
 			}
 		]
 	},
@@ -61,7 +61,7 @@
 	{
 		"CSE3055": [
 			{
-				"courseCode": "CSE2025"
+				"courseCode": "CSE2225"
 			}
 		]
 	},
@@ -75,17 +75,9 @@
 	},
 	
 	{
-		"CSE4054": [
+		"CSE1242": [
 			{
-				"courseCode": "CSE3055"
-			}
-		]
-	},
-	
-	{
-		"CSE1142": [
-			{
-				"courseCode": "CSE1141"
+				"courseCode": "CSE1241"
 			}
 		]
 	},
@@ -93,7 +85,7 @@
 	{
 		"CSE3033": [
 			{
-				"courseCode": "CSE2025"
+				"courseCode": "CSE2225"
 			}
 		]
 	},
@@ -125,13 +117,13 @@
 	{
 		"CSE3063": [
 			{
-				"courseCode": "CSE1142"
+				"courseCode": "CSE1242"
 			}
 		]
 	},
 	
 	{
-		"CSE3064": [
+		"CSE3264": [
 			{
 				"courseCode": "CSE2023"
 				
@@ -142,7 +134,7 @@
 	{
 		"CSE4061": [
 			{
-				"courseCode": "CSE3064"
+				"courseCode": "CSE3264"
 			}
 		]
 	},
@@ -150,7 +142,7 @@
 	{
 		"CSE3038": [
 			{
-				"courseCode": "CSE3015"
+				"courseCode": "CSE3215"
 			},
 		
 			{
@@ -159,9 +151,9 @@
 		]
 		
 	},
-	
+
 	{
-		"CSE4117": [
+		"CSE4219": [
 			{
 				"courseCode": "CSE3038"
 			}
@@ -169,25 +161,17 @@
 	},
 	
 	{
-		"CSE4087": [
-			{
-				"courseCode": "CSE3015"
-			}
-		]
-	},
-	
-	{
 		"IE3081": [
 			{
-				"courseCode": "STAT2053"
+				"courseCode": "STAT2253"
 			}
 		]
 	},
 	
 	{
-		"IE3035": [
+		"IE3235": [
 			{
-				"courseCode": "MATH2056"
+				"courseCode": "MATH2256"
 			}
 		]
 	}
