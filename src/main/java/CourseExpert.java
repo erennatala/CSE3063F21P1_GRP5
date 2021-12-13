@@ -156,10 +156,11 @@ public class CourseExpert {
         }
     }
     public Course findCourse(String courseId){
-        Course course = new MandatoryCourse(courseId);
-
-        return courses.get(courses.indexOf(course));
-
+        Course course = getCourses().stream()
+                .filter(courseTmp -> courseId.equals(courseTmp.getCourseId()))
+                .findAny()
+                .orElse(null);
+        return course;
     }
 
 
