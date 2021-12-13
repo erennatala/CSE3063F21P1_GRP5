@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class CollisionError extends Error{
-
     private ArrayList<Course> courses;
 
     public CollisionError(Student student, ArrayList<Course> courses) {

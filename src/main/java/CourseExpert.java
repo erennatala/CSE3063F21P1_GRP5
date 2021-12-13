@@ -155,6 +155,12 @@ public class CourseExpert {
             System.out.println(electiveCourse);
         }
     }
+    public Course findCourse(String courseId){
+        Course course = new MandatoryCourse(courseId);
+
+        return courses.get(courses.indexOf(course));
+
+    }
 
 
 }

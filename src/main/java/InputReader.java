@@ -79,7 +79,7 @@ public class InputReader {
         }
     }
 
-    public void readStudentJson(int startIndex, StudentExpert studentExpert) {
+    public void readStudentJson(int startIndex, StudentExpert studentExpert,Semester semester) {
 
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
@@ -104,7 +104,7 @@ public class InputReader {
                 String surname = (String) students.get("surname");
                 JSONArray email = (JSONArray) students.get("email");
 
-                studentExpert.createStudent(number, name, surname, email);
+                studentExpert.createStudent(number, name, surname, email,semester);
 
             }
         } catch (FileNotFoundException e) {

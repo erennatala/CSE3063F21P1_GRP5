@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Course {
     private String courseId;
@@ -6,11 +7,15 @@ public abstract class Course {
     private int capacity;
     private float credit;
     private Semester semester;
-    private ArrayList<Student> students = new ArrayList<Student>();
+    private List<Student> students = new ArrayList<>(); // hashmap olucak
     private float ects;
-    private ArrayList<Course> prerequisites;
-    private ArrayList<Section> sectionList;
+    private List<Course> prerequisites = new ArrayList<>();
+    private List<Section> sectionList = new ArrayList<>();
     private Instructor instructor;
+
+    public Course(String courseId) {
+        this.courseId = courseId;
+    }
 
     public Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {
         this.courseId = courseId;
@@ -71,7 +76,7 @@ public abstract class Course {
         this.semester = semester;
     }
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
@@ -87,7 +92,7 @@ public abstract class Course {
         this.ects = ects;
     }
 
-    public ArrayList<Course> getPrerequisites() {
+    public List<Course> getPrerequisites() {
         return prerequisites;
     }
 
@@ -95,7 +100,7 @@ public abstract class Course {
         this.prerequisites = prerequisites;
     }
 
-    public ArrayList<Section> getSectionList() {
+    public List<Section> getSectionList() {
         return sectionList;
     }
 
@@ -114,5 +119,20 @@ public abstract class Course {
                 ", name='" + name + '\'' +
                 ", instructor=" + instructor +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+
+        Course course = (Course) o;
+
+        return getCourseId().equals(course.getCourseId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getCourseId().hashCode();
     }
 }

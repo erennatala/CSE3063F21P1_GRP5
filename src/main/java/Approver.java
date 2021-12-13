@@ -57,27 +57,30 @@ public class Approver
     {
         List<Course> pastCourses = student.getPastCourses();
         List<Course> prerequisiteCourses = course.getPrerequisites();
+        boolean isApproved = true;
 
-        if (pastCourses.containsAll(prerequisiteCourses))
-            return true;
-        else
             for (Course required :
                     prerequisiteCourses) {
                 if (!pastCourses.contains(required)) {
                     PrerequisiteError prerequisiteError = new PrerequisiteError(student,course,required);
-                    //prerequisiteError.raiseError();
-                    return false;
+                    student.addError(prerequisiteError);
+                    isApproved = false;
 
                 }
             }
-
-        return false;
+        return isApproved;
     }
     // approveCourse checks the both method above returns true or false
     public boolean approveCourse(Course course)
     {
+        boolean isApproved;
         this.course = course;
-        return capacityChecker() && prerequisiteChecker();
+        if (course instanceof ElectiveCourse)
+            isApproved = capacityChecker();
+
+        isApproved = prerequisiteChecker();
+
+        return isApproved;
     }
 
 }

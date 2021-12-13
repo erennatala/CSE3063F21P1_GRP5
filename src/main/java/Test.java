@@ -5,6 +5,7 @@ public class Test {
        Simulation simulation = new Simulation();
        simulation.start();
 
+
 //        Map<Integer,Semester> semesterMap = new HashMap<Integer,Semester>();
 //        Integer semesterId;
 //        for (int i = 1; i < 9; i++) {

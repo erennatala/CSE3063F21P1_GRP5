@@ -9,12 +9,12 @@ public class Student extends Person {
     private float cgpa;
     private Instructor advisor;
     private int completedCredit;
-    private List<Course> activeCourses;
-    private List<Course> courseBasket;
-    private List<Course> pastCourses;
-    private List<Course> nonTakenCourses;
-    private List<Course> failedCourses;
-    private List<Error> errors;
+    private List<Course> activeCourses = new ArrayList<>();
+    private List<Course> courseBasket = new ArrayList<>();;
+    private List<Course> pastCourses = new ArrayList<>();;
+    private List<Course> nonTakenCourses = new ArrayList<>();;
+    private List<Course> failedCourses = new ArrayList<>();;
+    private List<Error> errors = new ArrayList<>();;
 
     public Student() {
     }
@@ -27,18 +27,12 @@ public class Student extends Person {
         super(id, name, surname, emails);
     }
 
-    //This can be achieved by getters and setters at StudentExpert
-    public Student(int id, String name, String surname, List<String> emails, Semester semester, List<Course> activeCourses, List<Course> courseBasket, List<Course> pastCourses, List<Course> nonTakenCourses, List<Course> failedCourses, List<Error> errors) {
+    public Student(int id, String name, String surname, List<String> emails, Semester semester) {
         super(id, name, surname, emails);
         this.semester = semester;
-        this.activeCourses = activeCourses;
-        this.courseBasket = courseBasket;
-        this.pastCourses = pastCourses;
-        this.nonTakenCourses = nonTakenCourses;
-        this.failedCourses = failedCourses;
-        this.errors = errors;
     }
 
+    //This can be achieved by getters and setters at StudentExpert
     public Semester getSemester() {
         return semester;
     }
