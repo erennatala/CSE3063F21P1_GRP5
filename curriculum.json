@@ -1676,7 +1676,15 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "AHU UNCUOĞLU",
-			"Capacity": "144"
+			"Capacity": "144",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Monday",
+              "Start":"13:00",
+              "End":"15:50"
+            }
+          ]
         },
         {
             "courseId": "CHE4060",
@@ -1687,7 +1695,20 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "EMİN ARCA",
-            "Capacity": "60"
+            "Capacity": "60",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Monday",
+              "Start":"18:00",
+              "End":"18:50"
+            },
+            {
+              "Day":"Salı",
+              "Start":"17:00",
+              "End":"18:50"
+            }
+          ]
         },
         {
             "courseId": "CHE4068",
@@ -1698,7 +1719,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "CHE4080",
@@ -1709,7 +1732,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "BERRİN KURŞUN",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "CSE4044",
@@ -1720,7 +1745,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "CSE4056",
@@ -1731,7 +1758,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "ŞAKİR BİNGÖL",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "EE4056",
@@ -1742,7 +1771,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "ŞAKİR BİNGÖL",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "EE4062",
@@ -1753,7 +1784,20 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "GÖKHAN BORA ESMER",
-			"Capacity": "77"
+			"Capacity": "77",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Monday",
+              "Start":"16:00",
+              "End":"16:50"
+            },
+            {
+              "Day":"Wednesday",
+              "Start":"17:00",
+              "End":"18:50"
+            }
+          ]
         },
         {
             "courseId": "ENVE4062",
@@ -1764,7 +1808,20 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "SIDDIK SİNAN KESKİN",
-			"Capacity": "62"
+			"Capacity": "62",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Monday",
+              "Start":"13:00",
+              "End":"14:50"
+            },
+            {
+              "Day":"Friday",
+              "Start":"16:00",
+              "End":"16:50"
+            }
+          ]
         },
         {
             "courseId": "ENVE4063",
@@ -1775,7 +1832,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "IE4055",
@@ -1786,7 +1845,15 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "BERNA BALTA",
-			"Capacity": "80"
+			"Capacity": "80",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Monday",
+              "Start":"15:00",
+              "End":"17:50"
+            }
+          ]
         },
         {
             "courseId": "IE4087",
@@ -1797,7 +1864,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "MAHMURE ARIOĞLU",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "ME3004",
@@ -1808,7 +1877,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "MUSTAFA ÖZDEMİR",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "ME3022",
@@ -1819,7 +1890,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "UĞUR TÜMERDEM",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "ME4018",
@@ -1830,7 +1903,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "UĞUR TÜMERDEM",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "ME4022",
@@ -1841,7 +1916,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "İBRAHİM KUYSERİ",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "ME4033",
@@ -1852,7 +1929,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "ME4051",
@@ -1863,7 +1942,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "MGT4076",
@@ -1874,7 +1955,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "MGT4082",
@@ -1885,7 +1968,15 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "BEYTULLAH GÜLTEKİN ÇETİNER",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Tuesday",
+              "Start":"14:00",
+              "End":"16:50"
+            }
+          ]
         },
         {
             "courseId": "MGT4084",
@@ -1896,7 +1987,15 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "HÜLYA ASLANOĞLU",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Friday",
+              "Start":"14:00",
+              "End":"16:50"
+            }
+          ]
         },
         {
             "courseId": "MGT4086",
@@ -1907,7 +2006,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "HÜLYA ASLANOĞLU",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         },
         {
             "courseId": "MGT4088",
@@ -1918,7 +2019,15 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "Fall",
+            "Schedule": [
+            {
+              "Day":"Monday",
+              "Start":"10:00",
+              "End":"12:50"
+            }
+          ]
         },
         {
             "courseId": "MSE4073",
@@ -1929,7 +2038,20 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "GÖRKEM YUMUŞAK",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "Spring",
+            "Schedule": [
+            {
+              "Day":"Tuesday",
+              "Start":"13:00",
+              "End":"14:50"
+            },
+            {
+              "Day":"Thursday",
+              "Start":"14:00",
+              "End":"14:50"
+            }
+          ]
         },
         {
             "courseId": "MSE4074",
@@ -1940,7 +2062,9 @@
             "Credit": "5",
             "ECTS": "5",
 			"Instructor": "SEVAL GENÇ",
-			"Capacity": "0"
+			"Capacity": "0",
+            "Semester": "",
+            "Schedule": []
         }
     ]
 },

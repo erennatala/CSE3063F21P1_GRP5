@@ -112,6 +112,11 @@ public abstract class Course {
 
     public void setInstructor(Instructor instructor) {this.instructor = instructor;}
 
+    public void addSectionToArraylist(Section section) {
+        sectionList.add(section);
+        System.out.println(section.getCourse().getCourseId());
+    }
+
     @Override
     public String toString() {
         return "Course{" +

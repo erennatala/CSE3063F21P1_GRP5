@@ -6,7 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InputReader {
 
@@ -45,6 +47,7 @@ public class InputReader {
                         float ects = Integer.parseInt(obj.get("ECTS").toString());
                         String type = obj.get("Type").toString();
                         String instructor = obj.get("Instructor").toString();
+                        JSONArray schedule = (JSONArray) obj.get("Schedule");
 
                         if (!courseId.equals("NTExxx") && !courseId.equals("TExxx") && !courseId.equals("FTExxx") && !courseId.equals("UE") && instructor.equals("") && !type.equals("Must")) {
                             continue;
@@ -67,6 +70,30 @@ public class InputReader {
                         }
                         if (instructorObject != null)
                             instructorObject.addGivenCourse(course);
+
+                        if (schedule.size() != 0) {
+                            int sectionId = 0;
+                            Map<String, ArrayList<String>> scheduleList = new HashMap<String, ArrayList<String>>();
+                            for (int a = 0; a < schedule.size(); a++) {
+                                JSONObject scheduleobj = (JSONObject) schedule.get(a);
+
+                                String day = scheduleobj.get("Day").toString();
+                                String start = scheduleobj.get("Start").toString();
+                                String end = scheduleobj.get("End").toString();
+                                ArrayList<String> time = new ArrayList<String>();
+                                time.add(start);
+                                time.add(end);
+
+                                scheduleList.put(day, time);
+                                sectionId ++;
+                            }
+
+                            Section section = courseExpert.createSection(sectionId, course, instructorObject, scheduleList);
+
+                            System.out.println(section.getScheduleList().keySet());
+
+                            courseExpert.addSection(section);
+                        }
                     }
                 }
             }

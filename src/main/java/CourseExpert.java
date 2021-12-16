@@ -166,4 +166,13 @@ public class CourseExpert {
     public void addPrerequisite(Course mainCourse, Course prerequisiteCourse) {
         mainCourse.getPrerequisites().add(prerequisiteCourse);
     }
+
+    public Section createSection(int sectionId, Course course, Instructor instructor, Map<String, ArrayList<String>> scheduleList) {
+        return new Section(sectionId, course, instructor, scheduleList);
+    }
+
+    public void addSection(Section section) {
+        Course course = section.getCourse();
+        course.addSectionToArraylist(section);
+    }
 }
