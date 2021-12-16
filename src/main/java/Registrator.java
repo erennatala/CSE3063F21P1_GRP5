@@ -5,13 +5,14 @@ public class Registrator {
     private Student student;
     private Random randomGenerator = new Random();
     private Approver approver;
+    private CourseExpert courseExpert;
     //semester içerisinde dersleri tek tek ara
     //eğer elective gelirse curriculumda elective listlere bak bak
     // baskete eklendikten sonra basketi instructorun approvelaması için gönder
 
-
-    public Registrator(Student student) {
+    public Registrator(Student student, CourseExpert courseExpert) {
         this.student = student;
+        this.courseExpert = courseExpert;
         this.approver = new Approver(student);
     }
 
@@ -20,53 +21,53 @@ public class Registrator {
     }
 
     public void addBasket(Course course) {
-        student.addActiveCourse(course);
+        student.addCourseToBasket(course);
+    }
+    public void sendAdvisorApproval(){
+
     }
 
     public void startRegistration() {
+
+        Semester semester = student.getSemester();
         for (Course course : student.getFailedCourses()) {
-            //try to add basket / approve
-            if (approver.approveCourse(course)) {
-                addBasket(course);
-            }
+            if (approver.approveCourse(course)) addBasket(course);
+        }
 
-            //1 adet ders ve 1 adet öğrenciyi approvera gönderir eğer sıkıntı yoksa basket a ekler
-            //Sıkıntı varsa error çalıştır
-            // Errorların approverda oluşturulması lazım ? erroru orda oluştur buraya return et ?
-            // sonra öğrencinin erroruna koy ? Genel errora koy?
-
-             }
-
-        /*
-        //Öncelik kalan kurslar
-//
-        //Semesterda alması gerekn kursları kontrol et
         for (Course course : semester.getCourseList()) {
+            Course elective = null;
             // Eğer elective ise curriculuma bak ve rastgele bir elective seç
             // curriculumdaki hangi listi alacağını nasılbilicek NTE UE T ?
             // dersi ve öğrenciyi approvera gönder eğer sıkıntı varsa yukarı dön
             // eğer sıkıntı varsa error çalıştır
             if (course instanceof ElectiveCourse) {
-                //getlist(type overload) at curriculum
-//                do {
-//                    //get random elective from list
-//
-//                }while (approver.approveCourse(course));
-                continue;
-           }
-            addBasket(course);
-//                if (course instanceof MandatoryCourse) {
-//                    if (approver.approveCourse(course))
-//                        addBasket(course);
-//                    //error ?
-//                }
-                // Mandatory ise
-                // approver a gönder
+                int index = 0;
+                do {
+                    if (course instanceof TechnicalElective) {
+                        index = randomGenerator.nextInt(courseExpert.getTechnicalList().size());
+                        elective = courseExpert.getTechnicalList().get(index);
+                    } else if (course instanceof NT_UElective) {
+                        index = randomGenerator.nextInt(courseExpert.getNT_UList().size());
+                        elective = courseExpert.getNT_UList().get(index);
+                    } else if (course instanceof FacultyTechnicalElective){
+                        index = randomGenerator.nextInt(courseExpert.getFacultyTechnicalList().size());
+                        elective = courseExpert.getFacultyTechnicalList().get(index);
+                    }
 
-                // sıkıntı yoksa basket'e ekle ?
-
+                }while(!approver.approveCourse(elective));
+                addBasket(elective);
+            }else if (approver.approveCourse(course)) {
+                addBasket(course);
             }
-        */}
+        }
+        System.out.println(student);
+        for (Course course2 :
+                student.getCourseBasket()) {
+            System.out.println(course2);
+        }
+
 
     }
+
+}
 

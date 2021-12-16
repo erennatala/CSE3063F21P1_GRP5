@@ -16,6 +16,20 @@ public class Instructor extends Person{
         this.fullName = name + " " + surname;
     }
 
+    public void approveStudentBasket(Student student){
+
+        // Look for 2 technical
+
+        // Student can not take FTE course in Fall semester unless in graduation year
+
+        // Student can not take graduation project because completed credits < 165
+
+        // Look for uncompleted credit
+
+        // Look for collision
+
+    }
+
     public String getFullName() {
         return fullName;
     }

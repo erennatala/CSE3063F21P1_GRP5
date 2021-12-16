@@ -8,8 +8,6 @@ public class Simulation {
     private InputReader inputReader = new InputReader();
     private InstructorExpert instructorExpert = new InstructorExpert();
     private CourseExpert courseExpert = new CourseExpert();
-    private Curriculum curriculum = new Curriculum();
-
 
     public Simulation() {}
 
@@ -21,8 +19,9 @@ public class Simulation {
         while(studentIterator.hasNext()){
             Map.Entry<Integer,Student> newMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = newMap.getValue();
-            Registrator registrator = new Registrator(student);
+            Registrator registrator = new Registrator(student,getCourseExpert());
             registrator.startRegistration();
+            break;
         }
 
     }
@@ -85,6 +84,7 @@ public class Simulation {
         inputReader.readInstructorJson(instructorExpert);
         inputReader.readCourseJson(courseExpert, instructorExpert);
         addAllCoursesTogether();
+        inputReader.readPrerequisiteJson(courseExpert);
 
 //        instructorExpert.showInstructors();
 //        courseExpert.showMandatoryList();
@@ -125,10 +125,11 @@ public class Simulation {
 //                }
             }
             // after create start registration
-            startRegistration();
+
 
         }
-        studentExpert.showStudents();
+        startRegistration();
+        //studentExpert.showStudents();
 //        for (Student student : studentExpert.getStudents())
 //            System.out.println(student.getId() + " " + student.getName() + " " + student.getSurname());
 //
