@@ -28,7 +28,7 @@ public class PrerequisiteError extends Error{
     }
 
     @Override
-    public void raiseError() {
-        System.out.println("The system didn't allow "+course.getCourseId()+" Because student failed prerequisite "+ required.getCourseId());
+    public String raiseError() {
+        return "The system did not allow to take "+course.getCourseId()+" because student failed prerequisite "+ required.getCourseId();
     }
 }
