@@ -15,7 +15,7 @@ public class NotInGraduationError extends Error{
     }
 
     @Override
-    public void raiseError() {
-        super.raiseError();
+    public String raiseError() {
+        return "The advisor didn't approve " +  course.getCourseId() + " because students can't take FTE in FALL semester unless they are graduating this semester";
     }
 }
