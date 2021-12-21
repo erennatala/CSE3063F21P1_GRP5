@@ -18,6 +18,10 @@ public class Instructor extends Person{
 
     public void approveStudentBasket(Student student){
 
+        for (Course course : student.getCourseBasket()) {
+            System.out.println(course.getCourseId());
+        }
+
         int technicalCount = 0;
 
         for (int b = 0; b<student.getCourseBasket().size(); b++) {
@@ -43,13 +47,18 @@ public class Instructor extends Person{
                 if (!(semesterId == 7 || semesterId == 8)) {
                     NotInGraduationError notInGraduationError = new NotInGraduationError(student, course);
                     student.addError(notInGraduationError);
+
+                    student.getCourseBasket().remove(course);
                 }
             }
         }
 
         for (Course course: student.getCourseBasket()) {
             if (course.getCourseId().equals("CSE4197") && student.getCompletedCredit() < 165){ // Student can not take graduation project because completed credits < 165
+                ProjectError projectError = new ProjectError(student, course);
+                student.addError(projectError);
 
+                student.getCourseBasket().remove(course);
             }
         }
 
@@ -58,14 +67,18 @@ public class Instructor extends Person{
                 if ((student.getCompletedCredit() < ((TechnicalElective) course).getMinimumCredit())){
                     UncompletedCreditError uncompletedCreditError = new UncompletedCreditError(student, course);
                     student.addError(uncompletedCreditError);
+
+                    System.out.println(course);
+                    student.getCourseBasket().remove(course);
+                    System.out.println(student.getCourseBasket());
                 }
             }
         }
             // Look for collision
 
-//        for (int b = 0; b<student.getCourseBasket().size(); b++) {
-//            System.out.println(student.getCourseBasket().get(b).getCourseId());
-//        }
+        for (int b = 0; b<student.getCourseBasket().size(); b++) {
+            System.out.println(student.getCourseBasket().get(b).getCourseId());
+        }
 
         for (int i = 0; i<student.getCourseBasket().size(); i++) { //basket
             System.out.println("1 " + student.getCourseBasket().get(i).getCourseId());
@@ -73,7 +86,7 @@ public class Instructor extends Person{
 
                 List<String> mainBasketScheduleDays = new ArrayList<String>(student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().keySet());
 
-                for (int j = 1; j<student.getCourseBasket().size(); j++) {
+                for (int j = i+1; j<student.getCourseBasket().size(); j++) {
                     System.out.println("2 " + student.getCourseBasket().get(j).getCourseId());
                     try {
                         List<String> secondBasketScheduleDays = new ArrayList<String>(student.getCourseBasket().get(j).getSectionList().get(0).getScheduleList().keySet());
@@ -104,6 +117,8 @@ public class Instructor extends Person{
 
                                     if ((secondStartParsed <= mainEndParsed && secondStartParsed >= mainStartParsed) || (secondEndParsed <= mainEndParsed && secondEndParsed >= mainStartParsed)) {
                                         System.out.println("same day, nearly same hours, collision" + " " + student.getCourseBasket().get(i).getCourseId() + " and " + student.getCourseBasket().get(j).getCourseId());
+
+                                        student.getCourseBasket().remove(student.getCourseBasket().get(j));
                                     }
                                 }
                             }
@@ -117,8 +132,6 @@ public class Instructor extends Person{
             catch (IndexOutOfBoundsException e) {
                 System.out.println("schedule is null " + student.getCourseBasket().get(i).getCourseId());
             }
-
-
         }
     }
 
