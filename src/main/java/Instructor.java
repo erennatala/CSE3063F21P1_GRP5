@@ -40,21 +40,27 @@ public class Instructor extends Person{
             if (course instanceof FacultyTechnicalElective && season.equals("Fall")) {  // Student can not take FTE course in Fall semester unless in graduation year
                 if (!(semesterId == 7 || semesterId == 8)) {
                     NotInGraduationError notInGraduationError = new NotInGraduationError(student, course);
+                    student.addError(notInGraduationError);
                 }
             }
 
+            if (course.getCourseId().equals("CSE4197") && student.getCompletedCredit() < 165){ // Student can not take graduation project because completed credits < 165
+                //error
+            }
 
+            if ((course instanceof TechnicalElective)){   // Look for uncompleted credit
+                if ((student.getCompletedCredit() < ((TechnicalElective) course).getMinimumCredit())){
+                    UncompletedCreditError uncompletedCreditError = new UncompletedCreditError(student, course);
+                    student.addError(uncompletedCreditError);
+                }
+            }
 
+//            if (collisonError){  // Look for collision
+//                error
+//            }
         }
 
 
-
-
-        // Student can not take graduation project because completed credits < 165
-
-        // Look for uncompleted credit
-
-        // Look for collision
 
     }
 
