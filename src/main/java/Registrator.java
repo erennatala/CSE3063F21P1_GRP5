@@ -83,6 +83,7 @@ public class Registrator {
             // dersi ve öğrenciyi approvera gönder eğer sıkıntı varsa yukarı dön
             // eğer sıkıntı varsa error çalıştır
             if (course instanceof ElectiveCourse) {
+                // aynı dersi veriyor düzelt baskette kontrol et
                 int index = 0;
                 do {
                     if (course instanceof TechnicalElective) {

@@ -86,6 +86,7 @@ public class Simulation {
         inputReader.readCourseJson(courseExpert, instructorExpert);
         addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
+        studentExpert.setInstructors(new ArrayList<Instructor>(instructorExpert.getInstructorMap().values()));
 
 //        instructorExpert.showInstructors();
 //        courseExpert.showMandatoryList();
