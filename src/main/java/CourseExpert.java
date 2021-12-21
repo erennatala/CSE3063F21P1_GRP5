@@ -95,16 +95,19 @@ public class CourseExpert {
         }
         if(type.equalsIgnoreCase("NTE-UE")){
             ElectiveCourse nt_uElective = new NT_UElective(courseId, name, capacity, credit, ects, instructor);
-            addNTUElective(nt_uElective);
+            if(!(courseId.equals("NTExxx") || courseId.equals("UE")))
+                addNTUElective(nt_uElective);
             return nt_uElective;
         }
         else if (type.equalsIgnoreCase("TE")){
             ElectiveCourse technicalElective = new TechnicalElective(courseId, name, capacity, credit, ects, instructor);
+            if(!courseId.equals("TExxx"))
             addTechnicalElective(technicalElective);
             return technicalElective;
         }
         else if (type.equalsIgnoreCase("FTE")){
             ElectiveCourse facultyTechnicalElective = new FacultyTechnicalElective(courseId, name, capacity, credit, ects, instructor);
+            if(!courseId.equals("FTExxx"))
             addFacultyTechnicalElective(facultyTechnicalElective);
             return facultyTechnicalElective;
         }
