@@ -4,7 +4,7 @@ import java.util.List;
 public class Student extends Person {
     private Semester semester;
     private Boolean IsBasketApproved;
-    private int grade;
+    private Grade grade;
     private float gpa;
     private float cgpa;
     private Instructor advisor;
@@ -49,14 +49,6 @@ public class Student extends Person {
         IsBasketApproved = basketApproved;
     }
 
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
     public float getGpa() {
         return gpa;
     }
@@ -71,6 +63,14 @@ public class Student extends Person {
 
     public void setCgpa(float cgpa) {
         this.cgpa = cgpa;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 
     public Instructor getAdvisor() {

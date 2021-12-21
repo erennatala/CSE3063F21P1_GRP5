@@ -1,13 +1,24 @@
 public class Grade {
 
     private Course course;
-    private char letterGrade;
-    private int grade;
+    private String letterGrade;
+    private double successGrade;
+    private double zScore;
+    private double tScore;
+    private int YSS;
+    private int YIS;
 
-    public Grade(Course course, char letterGrade, int grade) {
+
+    public Grade(Course course, int grade) {
         this.course = course;
-        this.letterGrade = letterGrade;
-        this.grade = grade;
+        this.successGrade = grade;
+    }
+
+    public Grade(Course course, int YSS, int YIS) {
+        this.course = course;
+        this.YSS = YSS;
+        this.YIS = YIS;
+        calculateSuccessGrade();
     }
 
     public Course getCourse() {
@@ -18,25 +29,56 @@ public class Grade {
         this.course = course;
     }
 
-    public char getLetterGrade() {
+    public String getLetterGrade() {
         return letterGrade;
     }
 
-    public void setLetterGrade(char letterGrade) {
+    public void setLetterGrade(String letterGrade) {
         this.letterGrade = letterGrade;
     }
 
-    public int getGrade() {
-        return grade;
+    public int getYSS() {
+        return YSS;
     }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setYSS(int YSS) {
+        this.YSS = YSS;
     }
 
+    public int getYIS() {
+        return YIS;
+    }
 
+    public void setYIS(int YIS) {
+        this.YIS = YIS;
+    }
 
+    public double getSuccessGrade() {
+        return successGrade;
+    }
 
+    public void setSuccessGrade(double successGrade) {
+        this.successGrade = successGrade;
+    }
 
+    public void calculateSuccessGrade() {
+        double sg = (getYSS() * 0.4) + (getYIS() * 0.6);
+        setSuccessGrade(sg);
+    }
 
+    public double getzScore() {
+        return zScore;
+    }
+
+    public void setzScore(double zScore) {
+        this.zScore = zScore;
+    }
+
+    public double gettScore() {
+        return tScore;
+    }
+
+    public void settScore(double tScore) {
+        this.tScore = tScore;
+    }
 }
