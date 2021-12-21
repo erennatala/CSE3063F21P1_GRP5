@@ -10,11 +10,11 @@ public class Student extends Person {
     private Instructor advisor;
     private int completedCredit;
     private List<Course> activeCourses = new ArrayList<>();
-    private List<Course> courseBasket = new ArrayList<>();;
-    private List<Course> pastCourses = new ArrayList<>();;
-    private List<Course> nonTakenCourses = new ArrayList<>();;
-    private List<Course> failedCourses = new ArrayList<>();;
-    private List<Error> errors = new ArrayList<>();;
+    private List<Course> courseBasket = new ArrayList<>();
+    private List<Course> pastCourses = new ArrayList<>();
+    private List<Course> nonTakenCourses = new ArrayList<>();
+    private List<Course> failedCourses = new ArrayList<>();
+    private List<Error> errors = new ArrayList<>();
 
     public Student() {
     }
@@ -96,7 +96,8 @@ public class Student extends Person {
     public void setActiveCourses(List<Course> activeCourses) {
         this.activeCourses = activeCourses;
     }
-    public void addActiveCourse(Course course){
+
+    public void addActiveCourse(Course course) {
         this.activeCourses.add(course);
     }
 
@@ -155,23 +156,21 @@ public class Student extends Person {
     public void setErrors(List<Error> errors) {
         this.errors = errors;
     }
-    public void addError(Error error){
+
+    public void addError(Error error) {
         this.errors.add(error);
     }
 
 
-    public void showActiveCourse(){
-        System.out.println(getName()+" "+getSurname());
-        for (Course course :
-                activeCourses) {
+    public void showActiveCourse() {
+        System.out.println(getName() + " " + getSurname());
+        for (Course course : activeCourses) {
             System.out.println(course.getName());
         }
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "semester=" + semester +
-                "} " + super.toString();
+        return "Student{" + "semester=" + semester + "} " + super.toString();
     }
 }

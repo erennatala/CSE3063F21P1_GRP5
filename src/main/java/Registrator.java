@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 
 public class Registrator {
@@ -16,14 +17,55 @@ public class Registrator {
         this.approver = new Approver(student);
     }
 
-    public void selectCourse() {
+    public Student getStudent() {
+        return student;
+    }
 
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Random getRandomGenerator() {
+        return randomGenerator;
+    }
+
+    public void setRandomGenerator(Random randomGenerator) {
+        this.randomGenerator = randomGenerator;
+    }
+
+    public Approver getApprover() {
+        return approver;
+    }
+
+    public void setApprover(Approver approver) {
+        this.approver = approver;
+    }
+
+    public CourseExpert getCourseExpert() {
+        return courseExpert;
+    }
+
+    public void setCourseExpert(CourseExpert courseExpert) {
+        this.courseExpert = courseExpert;
     }
 
     public void addBasket(Course course) {
         student.addCourseToBasket(course);
     }
-    public void sendAdvisorApproval(){
+
+    public void sendAdvisorApproval() {
+
+    }
+
+    public void addBasketToActiveCourse() {
+        Student student = getStudent();
+        List<Course> courseBasket = student.getCourseBasket();
+        List<Course> activeCourses = student.getActiveCourses();
+        activeCourses.addAll(courseBasket);
+        for (Course course : courseBasket) {
+            course.addStudentToArraylist(student);
+        }
+        courseBasket.clear();
 
     }
 
@@ -49,22 +91,27 @@ public class Registrator {
                     } else if (course instanceof NT_UElective) {
                         index = randomGenerator.nextInt(courseExpert.getNT_UList().size());
                         elective = courseExpert.getNT_UList().get(index);
-                    } else if (course instanceof FacultyTechnicalElective){
+                    } else if (course instanceof FacultyTechnicalElective) {
                         index = randomGenerator.nextInt(courseExpert.getFacultyTechnicalList().size());
                         elective = courseExpert.getFacultyTechnicalList().get(index);
                     }
 
-                }while(!approver.approveCourse(elective));
+                } while (!approver.approveCourse(elective));
                 addBasket(elective);
-            }else if (approver.approveCourse(course)) {
+            } else if (approver.approveCourse(course)) {
                 addBasket(course);
             }
         }
-        System.out.println(student);
-        for (Course course2 :
-                student.getCourseBasket()) {
-            System.out.println(course2);
-        }
+//        System.out.println(student);
+//        for (Course course2 : student.getCourseBasket()) {
+//            System.out.println(course2);
+//        }
+
+        //send instructor approval
+
+        // addBasket and clear
+        addBasketToActiveCourse();
+
 
 
     }

@@ -117,6 +117,11 @@ public abstract class Course {
         System.out.println(section.getCourse().getCourseId());
     }
 
+    public void addStudentToArraylist(Student student) {
+        List<Student> students = getStudents();
+        students.add(student);
+    }
+
     @Override
     public String toString() {
         return "Course{" +

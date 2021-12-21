@@ -24,6 +24,7 @@ public class Simulation {
             break;
         }
 
+
     }
 
     /*public void startGrading(){
@@ -96,44 +97,18 @@ public class Simulation {
 //        courseExpert.showTechnicalElectiveList();
 //        System.out.println("******************************");
 
-
-
-//        for (int i = 0; i < curriculum.getMandatoryCourses().size(); i++) {
-////            System.out.println(curriculum.getMandatoryCourses().get(i).getCourseId() + " " + curriculum.getMandatoryCourses().get(i).getName());
-//
-//        }
-
-//        for (Course course : curriculum.getMandatoryCourses()) { //ali, betül
-//            System.out.println(course.getName() + " " + course.getInstructor().getName());
-////        for (Instructor instructor: instructorExpert.getInstructors()) {
-////            System.out.println(instructor.getId() + " " + instructor.getName() + " " + instructor.getSurname() + " " + instructor.getGivenCourses());
-////        }
-//        }
         int startIndex = 0;
         for(int i=1;i<9;i++){
             if (i%2==1){
                 inputReader.readStudentJson(startIndex+((i-1)*35),studentExpert,courseExpert.getSemesterMap().get(1));
                 break;
-//                for (Student student :
-//                        studentExpert.getStudents()) {
-//                    for (Semester semester :
-//                            curriculum.getSemesterList()) {
-//                        if (semester.getSemesterId() == i)
-//                            student.setSemester(semester);
-//                    }
-//
-//                }
             }
             // after create start registration
 
 
         }
         startRegistration();
-        //studentExpert.showStudents();
-//        for (Student student : studentExpert.getStudents())
-//            System.out.println(student.getId() + " " + student.getName() + " " + student.getSurname());
-//
-//        System.out.println("************************************************");
+
 
 
     }
