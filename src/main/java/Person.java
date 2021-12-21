@@ -1,13 +1,16 @@
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 public abstract class Person {
     private int id;
     private String name;
     private String surname;
-    private ArrayList<String> emails;
+    private List<String> emails;
 
-    public Person(int id, String name, String surname, ArrayList<String> emails) {
+    public Person() {
+    }
+
+    public Person(int id, String name, String surname, List<String> emails) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -44,13 +47,40 @@ public abstract class Person {
         this.surname = surname;
     }
 
-    public ArrayList<String> getEmails() {
+    public List<String> getEmails() {
         return emails;
     }
 
-    public void setEmails(ArrayList<String> emails) {
+    public void setEmails(List<String> emails) {
         this.emails = emails;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
 
+        Person person = (Person) o;
+
+        if (getId() != person.getId()) return false;
+        if (!getName().equals(person.getName())) return false;
+        return getSurname().equals(person.getSurname());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getSurname().hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }

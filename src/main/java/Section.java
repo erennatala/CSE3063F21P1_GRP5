@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Section {
 
     private int sectionId;
-    private ArrayList<Student> students;
-    private Date date;
     private Course course;
     private Instructor instructor;
+    private Map<String, ArrayList<String>> scheduleList;
 
-    public Section(int sectionId, ArrayList<Student> students, Date date, Course course, Instructor instructor) {
+    public Section(int sectionId, Course course, Instructor instructor, Map<String, ArrayList<String>> scheduleList) {
         this.sectionId = sectionId;
-        this.students = students;
-        this.date = date;
         this.course = course;
         this.instructor = instructor;
+        this.scheduleList = scheduleList;
     }
 
     public int getSectionId() {
@@ -23,22 +23,6 @@ public class Section {
 
     public void setSectionId(int sectionId) {
         this.sectionId = sectionId;
-    }
-
-    public ArrayList<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public Course getCourse() {
@@ -57,6 +41,7 @@ public class Section {
         this.instructor = instructor;
     }
 
+    public Map<String, ArrayList<String>> getScheduleList() {return scheduleList;}
 
-
+    public void setScheduleList(Map<String, ArrayList<String>> scheduleList) {this.scheduleList = scheduleList;}
 }

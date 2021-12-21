@@ -1,38 +1,44 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student extends Person {
     private Semester semester;
-    private ArrayList<Course> courseBasket;
     private Boolean IsBasketApproved;
     private int grade;
     private float gpa;
     private float cgpa;
     private Instructor advisor;
     private int completedCredit;
-    private ArrayList<Course> activeCourses = new ArrayList<Course>();
-    private ArrayList<Course> pastCourses;
-    private ArrayList<Course> nonTakenCourses;
-    private ArrayList<Course> failedCourses;
-    private ArrayList<Error> errors = new ArrayList<>();
+    private List<Course> activeCourses = new ArrayList<>();
+    private List<Course> courseBasket = new ArrayList<>();
+    private List<Course> pastCourses = new ArrayList<>();
+    private List<Course> nonTakenCourses = new ArrayList<>();
+    private List<Course> failedCourses = new ArrayList<>();
+    private List<Error> errors = new ArrayList<>();
 
-    public Student(int id, String name, String surname, ArrayList<String> emails) {
+    public Student() {
+    }
+
+    public Student(int id, String name, String surname) {
+        super(id, name, surname);
+    }
+
+    public Student(int id, String name, String surname, List<String> emails) {
         super(id, name, surname, emails);
     }
 
+    public Student(int id, String name, String surname, List<String> emails, Semester semester) {
+        super(id, name, surname, emails);
+        this.semester = semester;
+    }
+
+    //This can be achieved by getters and setters at StudentExpert
     public Semester getSemester() {
         return semester;
     }
 
     public void setSemester(Semester semester) {
         this.semester = semester;
-    }
-
-    public ArrayList<Course> getCourseBasket() {
-        return courseBasket;
-    }
-
-    public void setCourseBasket(ArrayList<Course> courseBasket) {
-        this.courseBasket = courseBasket;
     }
 
     public Boolean getBasketApproved() {
@@ -83,52 +89,88 @@ public class Student extends Person {
         this.completedCredit = completedCredit;
     }
 
-    public ArrayList<Course> getActiveCourses() {
+    public List<Course> getActiveCourses() {
         return activeCourses;
     }
 
-    public void setActiveCourses(ArrayList<Course> activeCourses) {
+    public void setActiveCourses(List<Course> activeCourses) {
         this.activeCourses = activeCourses;
     }
 
-    public ArrayList<Course> getPastCourses() {
+    public void addActiveCourse(Course course) {
+        this.activeCourses.add(course);
+    }
+
+    public List<Course> getCourseBasket() {
+        return courseBasket;
+    }
+
+    public void setCourseBasket(List<Course> courseBasket) {
+        this.courseBasket = courseBasket;
+    }
+
+    public void addCourseToBasket(Course course) {
+        this.courseBasket.add(course);
+    }
+
+    public List<Course> getPastCourses() {
         return pastCourses;
     }
 
-    public void setPastCourses(ArrayList<Course> pastCourses) {
+    public void setPastCourses(List<Course> pastCourses) {
         this.pastCourses = pastCourses;
     }
 
-    public ArrayList<Course> getNonTakenCourses() {
+    public void addPastCourse(Course course) {
+        this.pastCourses.add(course);
+    }
+
+    public List<Course> getNonTakenCourses() {
         return nonTakenCourses;
     }
 
-    public void setNonTakenCourses(ArrayList<Course> nonTakenCourses) {
+    public void setNonTakenCourses(List<Course> nonTakenCourses) {
         this.nonTakenCourses = nonTakenCourses;
     }
 
-    public ArrayList<Course> getFailedCourses() {
+    public void addNonTakenCourse(Course course) {
+        this.nonTakenCourses.add(course);
+    }
+
+    public List<Course> getFailedCourses() {
         return failedCourses;
     }
 
-    public void setFailedCourses(ArrayList<Course> failedCourses) {
+    public void setFailedCourses(List<Course> failedCourses) {
         this.failedCourses = failedCourses;
     }
-    public void addError(Error error){
-        errors.add(error);
+
+    public void addFailedCourse(Course course) {
+        this.failedCourses.add(course);
     }
-    public void addActiveCourse(Course course){
-        this.activeCourses.add(course);
+
+    public List<Error> getErrors() {
+        return errors;
     }
-    public void showActiveCourse(){
-        System.out.println(getName()+" "+getSurname());
-        for (Course course :
-                activeCourses) {
+
+    public void setErrors(List<Error> errors) {
+        this.errors = errors;
+    }
+
+    public void addError(Error error) {
+        this.errors.add(error);
+    }
+
+
+    public void showActiveCourse() {
+        System.out.println(getName() + " " + getSurname());
+        for (Course course : activeCourses) {
             System.out.println(course.getName());
         }
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Student{" + "semester=" + semester + "} " + super.toString();
+    }
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Course {
     private String courseId;
@@ -6,18 +7,33 @@ public abstract class Course {
     private int capacity;
     private float credit;
     private Semester semester;
-    private ArrayList<Student> students = new ArrayList<Student>();
+    private List<Student> students = new ArrayList<>(); // hashmap olucak
     private float ects;
-    private ArrayList<Course> prerequisites;
-    private ArrayList<Section> sectionList;
+    private List<Course> prerequisites = new ArrayList<>();
+    private List<Section> sectionList = new ArrayList<>();
     private Instructor instructor;
 
-    public Course(String courseId, String name, int capacity, float credit, float ects) {
+    public Course(String courseId) {
+        this.courseId = courseId;
+    }
+
+    public Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {
+        this.courseId = courseId;
+        this.name = name;
+        this.capacity = capacity;
+        this.credit = credit;
+        this.semester = semester;
+        this.ects = ects;
+        this.instructor = instructor;
+    }
+
+    public Course(String courseId, String name, int capacity, float credit, float ects, Instructor instructor) {
         this.courseId = courseId;
         this.name = name;
         this.capacity = capacity;
         this.credit = credit;
         this.ects = ects;
+        this.instructor = instructor;
     }
 
     public String getCourseId() {
@@ -60,7 +76,7 @@ public abstract class Course {
         this.semester = semester;
     }
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
@@ -76,7 +92,7 @@ public abstract class Course {
         this.ects = ects;
     }
 
-    public ArrayList<Course> getPrerequisites() {
+    public List<Course> getPrerequisites() {
         return prerequisites;
     }
 
@@ -84,7 +100,7 @@ public abstract class Course {
         this.prerequisites = prerequisites;
     }
 
-    public ArrayList<Section> getSectionList() {
+    public List<Section> getSectionList() {
         return sectionList;
     }
 
@@ -95,4 +111,38 @@ public abstract class Course {
     public Instructor getInstructor() {return instructor;}
 
     public void setInstructor(Instructor instructor) {this.instructor = instructor;}
+
+    public void addSectionToArraylist(Section section) {
+        sectionList.add(section);
+        System.out.println(section.getCourse().getCourseId());
+    }
+
+    public void addStudentToArraylist(Student student) {
+        List<Student> students = getStudents();
+        students.add(student);
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId='" + courseId + '\'' +
+                ", name='" + name + '\'' +
+                ", instructor=" + instructor +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+
+        Course course = (Course) o;
+
+        return getCourseId().equals(course.getCourseId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getCourseId().hashCode();
+    }
 }
