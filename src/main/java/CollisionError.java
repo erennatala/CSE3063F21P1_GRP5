@@ -15,4 +15,9 @@ public class CollisionError extends Error{
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
     }
+
+    @Override
+    public String raiseError() {
+        return "The system did not allow";
+    }
 }

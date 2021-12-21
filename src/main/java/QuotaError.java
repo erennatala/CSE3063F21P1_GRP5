@@ -16,7 +16,7 @@ public class QuotaError extends Error{
     }
 
     @Override
-    public void raiseError() {
-        super.raiseError();
+    public String raiseError() {
+        return "The student could not register for " + course.getCourseId() + " because of a quota problem.";
     }
 }

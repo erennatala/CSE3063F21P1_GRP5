@@ -13,7 +13,7 @@ public abstract class Error {
         this.student = student;
     }
 
-    public void raiseError(){
-        System.out.println("error");
+    public String raiseError(){
+        return "";
     }
 }
