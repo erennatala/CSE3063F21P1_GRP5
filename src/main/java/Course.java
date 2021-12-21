@@ -114,7 +114,6 @@ public abstract class Course {
 
     public void addSectionToArraylist(Section section) {
         sectionList.add(section);
-        System.out.println(section.getCourse().getCourseId());
     }
 
     public void addStudentToArraylist(Student student) {

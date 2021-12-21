@@ -18,7 +18,11 @@ public class CourseExpert {
         int semesterId;
         for (int i = 1; i < 9; i++) {
             semesterId = i;
-            this.semesterMap.put(semesterId,new Semester(semesterId));
+            String season;
+            if (i%2==1)
+                season = "Fall";
+            else season = "Spring";
+            this.semesterMap.put(semesterId,new Semester(semesterId, season));
         }
     }
     public List<Course> getCourses() {

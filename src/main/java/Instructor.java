@@ -18,9 +18,37 @@ public class Instructor extends Person{
 
     public void approveStudentBasket(Student student){
 
-        // Look for 2 technical
+        int technicalCount = 0;
 
-        // Student can not take FTE course in Fall semester unless in graduation year
+        for (Course course: student.getCourseBasket()) {
+
+            if(course instanceof TechnicalElective) {   // Look for 2 technical
+                technicalCount++;
+
+                if (technicalCount>2) {
+                    TwoTechnicalElectiveError technicalElectiveError = new TwoTechnicalElectiveError(student, course);
+                    student.addError(technicalElectiveError);
+                    student.getCourseBasket().remove(course);
+
+                    technicalCount--;
+                }
+            }
+
+            int semesterId = student.getSemester().getSemesterId();
+            String season = student.getSemester().getSeason();
+
+            if (course instanceof FacultyTechnicalElective && season.equals("Fall")) {  // Student can not take FTE course in Fall semester unless in graduation year
+                if (!(semesterId == 7 || semesterId == 8)) {
+                    NotInGraduationError notInGraduationError = new NotInGraduationError(student, course);
+                }
+            }
+
+
+
+        }
+
+
+
 
         // Student can not take graduation project because completed credits < 165
 
@@ -67,6 +95,55 @@ public class Instructor extends Person{
         for (Course course :
                 givenCourses) {
             System.out.println(course.getCourseId());
+        }
+    }
+
+    public void checkCollision(Student student, List<Course> courseBasket) {
+        courseBasket = new ArrayList<Course>();
+
+        courseBasket.add(student.getCourseBasket().get(2));
+
+        for (int i = 0; i<student.getCourseBasket().size(); i++) { //basket
+
+            List<String> mainBasketScheduleDays = new ArrayList<String>(student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().keySet());
+
+            for (int k = 0; k < mainBasketScheduleDays.size(); k++) { //basket içindeki dersin içindeki sectionın içindeki schedulelist
+
+                for (int j = 0; j<courseBasket.size(); j++) {
+
+                    List<String> secondBasketScheduleDays = new ArrayList<String>(courseBasket.get(j).getSectionList().get(0).getScheduleList().keySet());
+
+                    for (int z = 0; z < secondBasketScheduleDays.size(); z++) {
+
+                        String mainStart = student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().get(mainBasketScheduleDays.get(k)).get(0);
+                        String mainEnd = student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().get(mainBasketScheduleDays.get(k)).get(1);
+
+                        String[] mainStartParts = mainStart.split(":");
+                        String[] mainEndParts = mainEnd.split(":");
+
+                        int mainStartParsed = Integer.parseInt(mainStartParts[0]+mainStartParts[1]);
+                        int mainEndParsed = Integer.parseInt(mainEndParts[0]+mainEndParts[1]);
+
+                        String secondStart = courseBasket.get(j).getSectionList().get(0).getScheduleList().get(secondBasketScheduleDays.get(z)).get(0);
+                        String secondEnd = courseBasket.get(j).getSectionList().get(0).getScheduleList().get(secondBasketScheduleDays.get(z)).get(1);
+
+                        String[] secondStartParts = secondStart.split(":");
+                        String[] secondEndParts = secondEnd.split(":");
+
+                        int secondStartParsed = Integer.parseInt(secondStartParts[0]+secondStartParts[1]);
+                        int secondEndParsed = Integer.parseInt(secondEndParts[0]+secondEndParts[1]);
+
+                        if (mainBasketScheduleDays.get(k).equals(secondBasketScheduleDays.get(z))) { //aynı gün
+
+                            if ((secondStartParsed <= mainEndParsed && secondStartParsed >= mainStartParsed) || (secondEndParsed <= mainEndParsed && secondEndParsed >= mainStartParsed)) {
+                                System.out.println("same day, nearly same hours, collision" + " " + student.getCourseBasket().get(i).getCourseId() + " and " + courseBasket.get(j).getCourseId());
+                            }
+                        }
+
+
+                    }
+                }
+            }
         }
     }
 

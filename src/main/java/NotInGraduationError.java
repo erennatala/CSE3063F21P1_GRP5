@@ -1,7 +1,7 @@
-public class NotInGraduationSemester extends Error{
+public class NotInGraduationError extends Error{
     private Course course;
 
-    public NotInGraduationSemester(Student student, Course course) {
+    public NotInGraduationError(Student student, Course course) {
         super(student);
         this.course = course;
     }
