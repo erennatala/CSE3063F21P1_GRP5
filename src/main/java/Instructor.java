@@ -62,32 +62,24 @@ public class Instructor extends Person{
             }
         }
 
-        for (Course course: student.getCourseBasket()) {
-            if ((course instanceof TechnicalElective)){   // Look for uncompleted credit
-                if ((student.getCompletedCredit() < ((TechnicalElective) course).getMinimumCredit())){
-                    UncompletedCreditError uncompletedCreditError = new UncompletedCreditError(student, course);
+        for (int c=student.getCourseBasket().size()-1; c>=0; c--) {
+            if ((student.getCourseBasket().get(c) instanceof TechnicalElective)){   // Look for uncompleted credit
+                if ((student.getCompletedCredit() < ((TechnicalElective) student.getCourseBasket().get(c)).getMinimumCredit())){
+                    UncompletedCreditError uncompletedCreditError = new UncompletedCreditError(student, student.getCourseBasket().get(c));
                     student.addError(uncompletedCreditError);
 
-                    System.out.println(course);
-                    student.getCourseBasket().remove(course);
-                    System.out.println(student.getCourseBasket());
+                    student.getCourseBasket().remove(student.getCourseBasket().get(c));
                 }
             }
         }
             // Look for collision
 
-        for (int b = 0; b<student.getCourseBasket().size(); b++) {
-            System.out.println(student.getCourseBasket().get(b).getCourseId());
-        }
-
         for (int i = 0; i<student.getCourseBasket().size(); i++) { //basket
-            System.out.println("1 " + student.getCourseBasket().get(i).getCourseId());
             try {
 
                 List<String> mainBasketScheduleDays = new ArrayList<String>(student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().keySet());
 
                 for (int j = i+1; j<student.getCourseBasket().size(); j++) {
-                    System.out.println("2 " + student.getCourseBasket().get(j).getCourseId());
                     try {
                         List<String> secondBasketScheduleDays = new ArrayList<String>(student.getCourseBasket().get(j).getSectionList().get(0).getScheduleList().keySet());
 
