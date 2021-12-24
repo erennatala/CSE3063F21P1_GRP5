@@ -61,7 +61,6 @@ public class Approver
 
             for (Course required :
                     prerequisiteCourses) {
-                System.out.println(course.getName()+" "+required.getName());
                 if (!pastCourses.contains(required)) {
                     PrerequisiteError prerequisiteError = new PrerequisiteError(student,course,required);
                     student.addError(prerequisiteError);

@@ -15,7 +15,7 @@ public class UncompletedCreditError extends Error{
     }
 
     @Override
-    public void raiseError() {
-        super.raiseError();
+    public String raiseError() {
+        return "The advisor didn't approve " + course.getCourseId() + " because student completed credits < 155";
     }
 }

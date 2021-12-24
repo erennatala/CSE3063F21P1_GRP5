@@ -1,7 +1,7 @@
-public class TwoTechnicalElectiveError extends Error{
+public class NotInGraduationError extends Error{
     private Course course;
 
-    public TwoTechnicalElectiveError(Student student, Course course) {
+    public NotInGraduationError(Student student, Course course) {
         super(student);
         this.course = course;
     }
@@ -16,6 +16,6 @@ public class TwoTechnicalElectiveError extends Error{
 
     @Override
     public String raiseError() {
-        return "The advisor didn't approve " + course.getCourseId() + " because student already took 2 TE and in FALL semester only 2 TE can be taken.";
+        return "The advisor didn't approve " +  course.getCourseId() + " because students can't take FTE in FALL semester unless they are graduating this semester";
     }
 }

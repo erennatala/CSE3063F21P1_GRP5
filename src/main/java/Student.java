@@ -18,6 +18,7 @@ public class Student extends Person {
     private List<Course> nonTakenCourses = new ArrayList<>();
     private List<Course> failedCourses = new ArrayList<>();
     private List<Error> errors = new ArrayList<>();
+    private Transcript transcript;
 
     public Student() {
     }
@@ -33,6 +34,7 @@ public class Student extends Person {
     public Student(int id, String name, String surname, List<String> emails, Semester semester) {
         super(id, name, surname, emails);
         this.semester = semester;
+        this.transcript = new Transcript(this);
     }
 
     public Map<Course, Grade> getGradeMap() {
@@ -173,6 +175,13 @@ public class Student extends Person {
         this.errors.add(error);
     }
 
+    public Transcript getTranscript() {
+        return transcript;
+    }
+
+    public void setTranscript(Transcript transcript) {
+        this.transcript = transcript;
+    }
 
     public void showActiveCourse() {
         System.out.println(getName() + " " + getSurname());

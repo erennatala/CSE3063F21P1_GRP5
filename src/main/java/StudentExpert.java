@@ -3,7 +3,7 @@ import java.util.*;
 public class StudentExpert {
     //private List<Student> students;
     private Map<Integer,Student>studentMap = new HashMap<>();
-
+    private List<Instructor> instructors;
     public StudentExpert() {
     }
 
@@ -20,11 +20,26 @@ public class StudentExpert {
         this.studentMap = studentMap;
     }
 
-    public void createStudent(int id, String name, String surname, List<String> emails,Semester semester){
-        Student student = getStudent(id, name, surname, emails,semester);
-        Map<Integer,Student> studentMap = this.studentMap;
-        studentMap.put(id,student);
+    public List<Instructor> getInstructors() {
+        return instructors;
     }
+
+    public void setInstructors(List<Instructor> instructors) {
+        this.instructors = instructors;
+    }
+
+    public void createStudent(int id, String name, String surname, List<String> emails, Semester semester){
+        Random random = new Random();
+        Student student = getStudent(id, name, surname, emails,semester);
+        List<Instructor> instructors = getInstructors();
+        int index = random.nextInt(instructors.size());
+        Instructor instructor = instructors.get(index);
+        student.setAdvisor(instructor);
+        instructor.addAdvisees(student);
+        Map<Integer,Student> studentMap = getStudentMap();
+        studentMap.put(Integer.valueOf(id),student);
+    }
+
 
     public void showStudents(){
         Map<Integer,Student> studentMap = this.studentMap;

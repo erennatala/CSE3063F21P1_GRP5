@@ -91,8 +91,6 @@ public class InputReader {
 
                             Section section = courseExpert.createSection(sectionId, course, instructorObject, scheduleList);
 
-                            System.out.println(section.getScheduleList().keySet());
-
                             courseExpert.addSection(section);
                         }
                     }

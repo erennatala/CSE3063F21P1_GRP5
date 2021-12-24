@@ -108,6 +108,8 @@ public class Registrator {
 //        }
 
         //send instructor approval
+        Instructor instructor = student.getAdvisor();
+        instructor.approveStudentBasket(student);
 
         // addBasket and clear
         addBasketToActiveCourse();

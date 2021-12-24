@@ -1,7 +1,7 @@
-public class NotInGraduationSemester extends Error{
+public class ProjectError extends Error{
     private Course course;
 
-    public NotInGraduationSemester(Student student, Course course) {
+    public ProjectError(Student student, Course course) {
         super(student);
         this.course = course;
     }
@@ -15,7 +15,7 @@ public class NotInGraduationSemester extends Error{
     }
 
     @Override
-    public void raiseError() {
-        super.raiseError();
+    public String raiseError() {
+        return "The advisor didn't approve " + course.getCourseId() + " because student completed credits < 165";
     }
 }
