@@ -20,23 +20,25 @@ public class Simulation {
         while(studentIterator.hasNext()){
             Map.Entry<Integer,Student> newMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = newMap.getValue();
-            student.setSemester(courseExpert.getSemesterMap().get(8));//burası farklı
+            //student.setSemester(courseExpert.getSemesterMap().get(8));
             Registrator registrator = new Registrator(student,getCourseExpert());
+            // Register 1 Student to 1 semester
             registrator.startRegistration();
-            break;
+            //student.getActiveCourses().forEach(System.out::println);
         }
-
-
     }
 
-    /*public void startGrading(){
-        //grading operations
-        for (Student student :studentExpert.getStudents()
-                ) {
 
-
+    public void startGrading(){
+        for (Course course : courseExpert.getCourses()) {
+            Grader grader = new Grader(course);
+            grader.startGrading();
+//            for (Student student: course.getStudents()){
+//                System.out.println(student.getGradeMap());
+//            }
+            break;
         }
-    }*/
+    }
 
     public StudentExpert getStudentExpert() {
         return studentExpert;
@@ -89,30 +91,28 @@ public class Simulation {
         addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
         studentExpert.setInstructors(new ArrayList<Instructor>(instructorExpert.getInstructorMap().values()));
+//        Course course = courseExpert.getMandatoryCourses().stream()
+//                .filter(src -> src.getCourseId().equals("CSE4197"))
+//                .findAny()
+//                .orElse(null);
+//        System.out.println(course);
+//        System.out.println("******");
 
-//        instructorExpert.showInstructors();
-//        courseExpert.showMandatoryList();
-//        System.out.println("******************************");
-//        courseExpert.showFacultyTechnicalList();
-//        System.out.println("******************************");
-//        courseExpert.showNT_UElectiveList();
-//        System.out.println("******************************");
-//        courseExpert.showTechnicalElectiveList();
-//        System.out.println("******************************");
 
         int startIndex = 0;
-        for(int i=1;i<9;i++){
+        for(int i=1;i<7;i++){
             if (i%2==1){
                 inputReader.readStudentJson(startIndex+((i-1)*35),studentExpert,courseExpert.getSemesterMap().get(1));
                 break;
             }
             // after create start registration
-
+            startRegistration();
 
         }
         startRegistration();
+        startGrading();
 
-        transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
+        //transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
 
     }
 }

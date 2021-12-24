@@ -70,17 +70,32 @@ public class Approver
             }
         return isApproved;
     }
+    public boolean isElectiveTaken(){
+        List<Course> pastCourses = student.getPastCourses();
+        List<Course> courseBasket = student.getCourseBasket();
+        if(pastCourses.contains(course)) {
+            return false;
+        }
+        else if(courseBasket.contains(course)) {
+            return false;
+        }
+        else return true;
+    }
     // approveCourse checks the both method above returns true or false
     public boolean approveCourse(Course course)
     {
         boolean isApproved;
+        boolean capacityCheck = true;
+        boolean prerequisiteCheck;
+        boolean electiveCheck = true;
+
         this.course = course;
-        if (course instanceof ElectiveCourse)
-            isApproved = capacityChecker();
-
-        isApproved = prerequisiteChecker();
-
-        return isApproved;
+        if (course instanceof ElectiveCourse) {
+            capacityCheck = capacityChecker();
+            electiveCheck = isElectiveTaken();
+        }
+        prerequisiteCheck = prerequisiteChecker();
+        return capacityCheck && electiveCheck && prerequisiteCheck;
     }
 
 }

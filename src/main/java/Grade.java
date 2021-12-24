@@ -89,4 +89,12 @@ public class Grade {
     public void settScore(double tScore) {
         this.tScore = tScore;
     }
+
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "letterGrade='" + letterGrade + '\'' +
+                ", successGrade=" + successGrade +
+                '}';
+    }
 }
