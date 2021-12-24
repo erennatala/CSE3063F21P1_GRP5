@@ -4,14 +4,16 @@ import java.util.List;
 public class Semester {
     private Integer semesterId;
     private List<Course> courseList= new ArrayList<Course>();
+    private String season;
 
-    public Semester(int semesterId) {
-        this.semesterId = semesterId;
+    public Semester(int semesterId, String season) {
+        this.semesterId = semesterId; this.season = season;
     }
 
-    public Semester(int semesterId, ArrayList<Course> courseList) {
+    public Semester(int semesterId, ArrayList<Course> courseList, String season) {
         this.semesterId = semesterId;
         this.courseList = courseList;
+        this.season = season;
     }
 
     public Integer getSemesterId() {
@@ -29,9 +31,14 @@ public class Semester {
     public void setCourseList(ArrayList<Course> courseList) {
         this.courseList = courseList;
     }
+
     public void addCourse(Course course){
         courseList.add(course);
     }
+
+    public String getSeason() {return season;}
+
+    public void setSeason(String season) {this.season = season;}
 
     @Override
     public boolean equals(Object o) {

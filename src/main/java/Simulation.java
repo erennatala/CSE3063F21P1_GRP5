@@ -19,6 +19,7 @@ public class Simulation {
         while(studentIterator.hasNext()){
             Map.Entry<Integer,Student> newMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = newMap.getValue();
+            student.setSemester(courseExpert.getSemesterMap().get(8));//burası farklı
             Registrator registrator = new Registrator(student,getCourseExpert());
             registrator.startRegistration();
             break;
@@ -86,6 +87,7 @@ public class Simulation {
         inputReader.readCourseJson(courseExpert, instructorExpert);
         addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
+        studentExpert.setInstructors(new ArrayList<Instructor>(instructorExpert.getInstructorMap().values()));
 
 //        instructorExpert.showInstructors();
 //        courseExpert.showMandatoryList();
