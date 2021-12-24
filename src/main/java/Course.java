@@ -13,8 +13,7 @@ public abstract class Course {
     private List<Section> sectionList = new ArrayList<>();
     private Instructor instructor;
 
-    protected Course(String courseId) {
-        this.courseId = courseId;
+    public Course() {
     }
 
     protected Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {

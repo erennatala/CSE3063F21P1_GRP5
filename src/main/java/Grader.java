@@ -15,20 +15,26 @@ public class Grader {
     private final int YSSL = 35;
     @SuppressWarnings("FieldCanBeLocal")
     private final int BNAL = 35;
-
-    private static final Map<Integer,String> DDSTable= Map.of(
-            90,"AA",
-            85,"BA",
-            80,"BB",
-            75,"CB",
-            65,"CC",
-            55,"DC",
-            50,"DD",
-            45,"FD",
-            0,"FF"
-
-    );
     private Course course;
+
+
+    private static final Map<Integer,String> DDSTable = Map.ofEntries(
+            Map.entry(90,"AA"),
+            Map.entry(85,"BA"),
+            Map.entry(80,"BB"),
+            Map.entry(75,"CB"),
+            Map.entry(70,"CC"),
+            Map.entry(65,"CC"),
+            Map.entry(60,"DC"),
+            Map.entry(55,"DC"),
+            Map.entry(50,"DD"),
+            Map.entry(45,"FD"),
+            Map.entry(0,"FF")
+    );
+
+    public Grader(Course course) {
+        this.course = course;
+    }
 
     public Course getCourse() {
         return course;
@@ -39,7 +45,8 @@ public class Grader {
     }
 
     private int round(double successGrade) {
-        return (int)(Math.floor(successGrade / 5) * 5);
+        int result = (int)(Math.floor(successGrade / 5) * 5);
+        return result;
     }
 
     private void initializeGrade(Student student, int YSS, int YIS) {
@@ -47,6 +54,9 @@ public class Grader {
         student.getGradeMap().put(course,grade);
         double successGrade = grade.getSuccessGrade();
         int roundedGrade = round(successGrade);
+        if(roundedGrade<45){
+            roundedGrade = 0;
+        }
         assignLetterGrade(roundedGrade,grade);
     }
     private void assignLetterGrade(int roundedGrade,Grade grade){

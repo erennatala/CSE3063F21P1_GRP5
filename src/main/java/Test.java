@@ -11,8 +11,6 @@ public class Test {
 
 
 
-
-
 //        Map<Integer,Semester> semesterMap = new HashMap<Integer,Semester>();
 //        Integer semesterId;
 //        for (int i = 1; i < 9; i++) {

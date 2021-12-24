@@ -6,7 +6,7 @@ import java.io.IOException;
 
 
 public class Transcript {
-    private Map<String,Object> transcriptMap= new HashMap<>();
+    private Map<String,Object> transcriptMap;
     private Student student;
 
     public Transcript(Student student) {
@@ -41,8 +41,8 @@ public class Transcript {
         String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
         Map<String,Object> semesterMap = (HashMap<String,Object>)transcriptMap.get(semesterName);
         Map<String,Object> courseMap = (HashMap<String,Object>)semesterMap.get("Courses");
-        //String letterGrade = student.getGradeMap().get(course).getLetterGrade();
-        //courseMap.put(course.getCourseId(),letterGrade);
+        String letterGrade = student.getGradeMap().get(course).getLetterGrade();
+        courseMap.put(course.getCourseId(),letterGrade);
 
     }
 

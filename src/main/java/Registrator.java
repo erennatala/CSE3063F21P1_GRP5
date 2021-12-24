@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -66,55 +67,69 @@ public class Registrator {
             course.addStudentToArraylist(student);
         }
         courseBasket.clear();
+    }
+
+    public Course selectRandomElective(Course course) {
+
+        int index;
+        Course elective = null;
+        do {
+            if (course instanceof TechnicalElective) {
+                index = randomGenerator.nextInt(courseExpert.getTechnicalList().size());
+                elective = courseExpert.getTechnicalList().get(index);
+            } else if (course instanceof NT_UElective) {
+                index = randomGenerator.nextInt(courseExpert.getNT_UList().size());
+                elective = courseExpert.getNT_UList().get(index);
+            } else if (course instanceof FacultyTechnicalElective) {
+                index = randomGenerator.nextInt(courseExpert.getFacultyTechnicalList().size());
+                elective = courseExpert.getFacultyTechnicalList().get(index);
+            }
+            // If course is not approved or it already exist in student basket or taken course ?
+        } while (!approver.approveCourse(elective));
+        return elective;
 
     }
 
     public void startRegistration() {
 
         Semester semester = student.getSemester();
+        // Select non taken courses with matching semester
+        //
         for (Course course : student.getFailedCourses()) {
             if (approver.approveCourse(course)) addBasket(course);
         }
 
-        for (Course course : semester.getCourseList()) {
-            Course elective = null;
-            // Eğer elective ise curriculuma bak ve rastgele bir elective seç
-            // curriculumdaki hangi listi alacağını nasılbilicek NTE UE T ?
-            // dersi ve öğrenciyi approvera gönder eğer sıkıntı varsa yukarı dön
-            // eğer sıkıntı varsa error çalıştır
-            if (course instanceof ElectiveCourse) {
-                int index;
-                do {
-                    if (course instanceof TechnicalElective) {
-                        index = randomGenerator.nextInt(courseExpert.getTechnicalList().size());
-                        elective = courseExpert.getTechnicalList().get(index);
-                    } else if (course instanceof NT_UElective) {
-                        index = randomGenerator.nextInt(courseExpert.getNT_UList().size());
-                        elective = courseExpert.getNT_UList().get(index);
-                    } else if (course instanceof FacultyTechnicalElective) {
-                        index = randomGenerator.nextInt(courseExpert.getFacultyTechnicalList().size());
-                        elective = courseExpert.getFacultyTechnicalList().get(index);
-                    }
+        List<Course> NontakenCourseList = student.getNonTakenCourses();
+        Iterator<Course> iterator = NontakenCourseList.iterator();
+        // Take courses from Nontaken
+        while(iterator.hasNext()) {
+            Course next = iterator.next();
+            if(next instanceof ElectiveCourse) {
+                Course course = selectRandomElective(next);
+                addBasket(course);
+                iterator.remove();
+            }
+            if(approver.approveCourse(next)){
+                addBasket(next);
+                iterator.remove();
+            }
 
-                } while (!approver.approveCourse(elective));
+        }
+
+        for (Course course : semester.getCourseList()) {
+
+            if (course instanceof ElectiveCourse) {
+                Course elective = selectRandomElective(course);
                 addBasket(elective);
-            } else if (approver.approveCourse(course)) {
+            }
+            else if (approver.approveCourse(course)) {
                 addBasket(course);
             }
         }
-//        System.out.println(student);
-//        for (Course course2 : student.getCourseBasket()) {
-//            System.out.println(course2);
-//        }
-
         //send instructor approval
         Instructor instructor = student.getAdvisor();
         instructor.approveStudentBasket(student);
-
-        // addBasket and clear
         addBasketToActiveCourse();
-
-
 
     }
 

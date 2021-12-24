@@ -173,6 +173,7 @@ public class Student extends Person {
 
     public void addError(Error error) {
         this.errors.add(error);
+        //transcript.addError(error);
     }
 
     public Transcript getTranscript() {
