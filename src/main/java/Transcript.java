@@ -34,7 +34,7 @@ public class Transcript {
         Map<String, Object> semesterMap = createSemester(semester);
         String semesterString = "Semester".concat(semester.getSemesterId().toString());
         transcriptMap.put(semesterString,semesterMap);
-
+        transcriptMap.put("GPA",student.getGpa());
     }
     @SuppressWarnings("unchecked")
     public void addCourse(Course course){
