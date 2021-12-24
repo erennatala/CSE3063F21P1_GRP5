@@ -23,6 +23,12 @@ public class Grade {
         calculateSuccessGrade();
     }
 
+    public Grade(Student student, Course course, String letterGrade) {
+        this.student = student;
+        this.course = course;
+        this.letterGrade = letterGrade;
+    }
+
     public Course getCourse() {
         return course;
     }

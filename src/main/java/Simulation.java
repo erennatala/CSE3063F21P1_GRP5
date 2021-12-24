@@ -8,6 +8,7 @@ public class Simulation {
     private InputReader inputReader = new InputReader();
     private InstructorExpert instructorExpert = new InstructorExpert();
     private CourseExpert courseExpert = new CourseExpert();
+    private TranscriptReader transcriptReader = new TranscriptReader();
 
     public Simulation() {}
 
@@ -111,7 +112,7 @@ public class Simulation {
         }
         startRegistration();
 
-
+        transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
 
     }
 }
