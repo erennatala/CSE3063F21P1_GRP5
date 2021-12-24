@@ -13,6 +13,12 @@ public class Transcript {
         this.student = student;
         this.transcriptMap = new HashMap<>();
         this.transcriptMap.put("ID", student.getId());
+        this.transcriptMap.put("Name",student.getName());
+        this.transcriptMap.put("Surname",student.getSurname());
+        this.transcriptMap.put("Email",student.getEmails());
+        this.transcriptMap.put("Semester",student.getSemester());
+        this.transcriptMap.put("CGPA",student.getCgpa());
+        this.transcriptMap.put("Advisor",student.getAdvisor());
         Semester semester = student.getSemester();
         addSemester(semester);
 
@@ -28,6 +34,15 @@ public class Transcript {
         Map<String, Object> semesterMap = createSemester(semester);
         String semesterString = "Semester".concat(semester.getSemesterId().toString());
         transcriptMap.put(semesterString,semesterMap);
+        transcriptMap.put("GPA",student.getGpa());
+    }
+    @SuppressWarnings("unchecked")
+    public void addCourse(Course course){
+        String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
+        Map<String,Object> semesterMap = (HashMap<String,Object>)transcriptMap.get(semesterName);
+        Map<String,Object> courseMap = (HashMap<String,Object>)semesterMap.get("Courses");
+        //String letterGrade = student.getGradeMap().get(course).getLetterGrade();
+        //courseMap.put(course.getCourseId(),letterGrade);
 
     }
 
