@@ -22,12 +22,12 @@ public class StudentExpert {
 
     public void createStudent(int id, String name, String surname, List<String> emails,Semester semester){
         Student student = getStudent(id, name, surname, emails,semester);
-        Map<Integer,Student> studentMap = getStudentMap();
-        studentMap.put(Integer.valueOf(id),student);
+        Map<Integer,Student> studentMap = this.studentMap;
+        studentMap.put(id,student);
     }
 
     public void showStudents(){
-        Map<Integer,Student> studentMap = getStudentMap();
+        Map<Integer,Student> studentMap = this.studentMap;
         Iterator<Map.Entry<Integer,Student>> studentIterator = studentMap.entrySet().iterator();
         while(studentIterator.hasNext()){
             Map.Entry<Integer,Student> tmpMap = (Map.Entry<Integer, Student>) studentIterator.next();

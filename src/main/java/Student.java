@@ -1,10 +1,13 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Student extends Person {
     private Semester semester;
     private Boolean IsBasketApproved;
     private Grade grade;
+    private Map<Course,Grade> gradeMap = new HashMap<>();
     private float gpa;
     private float cgpa;
     private Instructor advisor;
@@ -30,6 +33,15 @@ public class Student extends Person {
     public Student(int id, String name, String surname, List<String> emails, Semester semester) {
         super(id, name, surname, emails);
         this.semester = semester;
+    }
+
+    public Map<Course, Grade> getGradeMap() {
+        return gradeMap;
+    }
+
+    public Student setGradeMap(Map<Course, Grade> gradeMap) {
+        this.gradeMap = gradeMap;
+        return this;
     }
 
     //This can be achieved by getters and setters at StudentExpert

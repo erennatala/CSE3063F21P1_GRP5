@@ -1,7 +1,7 @@
 public abstract class Error {
     private Student student;
 
-    public Error(Student student) {
+    protected Error(Student student) {
         this.student = student;
     }
 

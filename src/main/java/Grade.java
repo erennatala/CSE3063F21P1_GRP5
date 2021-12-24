@@ -1,6 +1,7 @@
 public class Grade {
 
     private Course course;
+    private Student student;
     private String letterGrade;
     private double successGrade;
     private double zScore;
@@ -11,10 +12,11 @@ public class Grade {
 
     public Grade(Course course, int grade) {
         this.course = course;
-        this.successGrade = grade;
+        this.successGrade = (double) grade;
     }
 
-    public Grade(Course course, int YSS, int YIS) {
+    public Grade(Student student,Course course, int YSS, int YIS) {
+        this.student = student;
         this.course = course;
         this.YSS = YSS;
         this.YIS = YIS;
@@ -62,7 +64,7 @@ public class Grade {
     }
 
     public void calculateSuccessGrade() {
-        double sg = (getYSS() * 0.4) + (getYIS() * 0.6);
+        double sg = ((double) YSS * 0.4) + ((double) YIS * 0.6);
         setSuccessGrade(sg);
     }
 

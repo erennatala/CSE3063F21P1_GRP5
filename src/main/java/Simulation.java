@@ -19,7 +19,7 @@ public class Simulation {
         while(studentIterator.hasNext()){
             Map.Entry<Integer,Student> newMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = newMap.getValue();
-            Registrator registrator = new Registrator(student,getCourseExpert());
+            Registrator registrator = new Registrator(student, courseExpert);
             registrator.startRegistration();
             break;
         }
@@ -77,10 +77,10 @@ public class Simulation {
         courseExpert.setCourses(courses);
     }
     public void start() {
-        InputReader inputReader = getInputReader();
-        StudentExpert studentExpert = getStudentExpert();
-        InstructorExpert instructorExpert = getInstructorExpert();
-        CourseExpert courseExpert = getCourseExpert();
+        InputReader inputReader = this.inputReader;
+        StudentExpert studentExpert = this.studentExpert;
+        InstructorExpert instructorExpert = this.instructorExpert;
+        CourseExpert courseExpert = this.courseExpert;
 
         inputReader.readInstructorJson(instructorExpert);
         inputReader.readCourseJson(courseExpert, instructorExpert);

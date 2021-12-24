@@ -58,7 +58,7 @@ public class Registrator {
     }
 
     public void addBasketToActiveCourse() {
-        Student student = getStudent();
+        Student student = this.student;
         List<Course> courseBasket = student.getCourseBasket();
         List<Course> activeCourses = student.getActiveCourses();
         activeCourses.addAll(courseBasket);
@@ -83,7 +83,7 @@ public class Registrator {
             // dersi ve öğrenciyi approvera gönder eğer sıkıntı varsa yukarı dön
             // eğer sıkıntı varsa error çalıştır
             if (course instanceof ElectiveCourse) {
-                int index = 0;
+                int index;
                 do {
                     if (course instanceof TechnicalElective) {
                         index = randomGenerator.nextInt(courseExpert.getTechnicalList().size());
