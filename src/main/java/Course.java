@@ -13,11 +13,11 @@ public abstract class Course {
     private List<Section> sectionList = new ArrayList<>();
     private Instructor instructor;
 
-    public Course(String courseId) {
+    protected Course(String courseId) {
         this.courseId = courseId;
     }
 
-    public Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {
+    protected Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {
         this.courseId = courseId;
         this.name = name;
         this.capacity = capacity;
@@ -27,7 +27,7 @@ public abstract class Course {
         this.instructor = instructor;
     }
 
-    public Course(String courseId, String name, int capacity, float credit, float ects, Instructor instructor) {
+    protected Course(String courseId, String name, int capacity, float credit, float ects, Instructor instructor) {
         this.courseId = courseId;
         this.name = name;
         this.capacity = capacity;
@@ -117,7 +117,7 @@ public abstract class Course {
     }
 
     public void addStudentToArraylist(Student student) {
-        List<Student> students = getStudents();
+        List<Student> students = this.students;
         students.add(student);
     }
 

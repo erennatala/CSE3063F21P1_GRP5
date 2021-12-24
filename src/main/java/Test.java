@@ -1,9 +1,16 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 public class Test {
+
     public static void main(String[] args) {
        Simulation simulation = new Simulation();
        simulation.start();
+
+
+
+
 
 
 //        Map<Integer,Semester> semesterMap = new HashMap<Integer,Semester>();

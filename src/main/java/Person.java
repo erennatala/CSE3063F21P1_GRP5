@@ -7,7 +7,7 @@ public abstract class Person {
     private String surname;
     private List<String> emails;
 
-    public Person() {
+    protected Person() {
     }
 
     public Person(int id, String name, String surname, List<String> emails) {
@@ -17,7 +17,7 @@ public abstract class Person {
         this.emails = emails;
     }
 
-    public Person(int id, String name, String surname) {
+    protected Person(int id, String name, String surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;

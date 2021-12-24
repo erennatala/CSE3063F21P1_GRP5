@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class InputReader {
 
-    JSONParser parser = new JSONParser(); //her json okumada kulanılacak
+    private JSONParser parser = new JSONParser(); //her json okumada kulanılacak
 
     private int instructorId = 1000;
     private int check = 0;
@@ -22,10 +22,11 @@ public class InputReader {
     private String start_time;
     private String end_time;
 
+    @SuppressWarnings("unchecked")
     public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata
 
         try {
-            JSONArray curr_input = (JSONArray) parser.parse(new FileReader("curriculum.json"));
+            JSONArray curr_input = (JSONArray) getParser().parse(new FileReader("curriculum.json"));
 
             for (Object o : curr_input) {
                 JSONObject courses = (JSONObject) o;
@@ -104,10 +105,11 @@ public class InputReader {
         }
     }
 
-    public void readStudentJson(int startIndex, StudentExpert studentExpert,Semester semester) {
+    @SuppressWarnings("unchecked")
+    public void readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {
 
         try {
-            JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
+            JSONArray student_input = (JSONArray) getParser().parse(new FileReader("students.json"));
 
             int number = 999+startIndex;
 
@@ -144,7 +146,7 @@ public class InputReader {
     public void readInstructorJson(InstructorExpert instructorExpert) {
 
         try {
-            JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("instructors.json"));
+            JSONArray instructor_input = (JSONArray) getParser().parse(new FileReader("instructors.json"));
 
             for (Object o : instructor_input) {
 
@@ -166,10 +168,11 @@ public class InputReader {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public void readPrerequisiteJson(CourseExpert courseExpert) {
 
         try {
-            JSONArray student_input = (JSONArray) parser.parse(new FileReader("prerequisite.json"));
+            JSONArray student_input = (JSONArray) getParser().parse(new FileReader("prerequisite.json"));
 
             for (Object o : student_input) {
 
@@ -203,5 +206,14 @@ public class InputReader {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+    }
+
+    public JSONParser getParser() {
+        return parser;
+    }
+
+    public InputReader setParser(JSONParser parser) {
+        this.parser = parser;
+        return this;
     }
 }

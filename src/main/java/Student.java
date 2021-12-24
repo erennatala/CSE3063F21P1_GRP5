@@ -1,10 +1,13 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Student extends Person {
     private Semester semester;
     private Boolean IsBasketApproved;
-    private int grade;
+    private Grade grade;
+    private Map<Course,Grade> gradeMap = new HashMap<>();
     private float gpa;
     private float cgpa;
     private Instructor advisor;
@@ -34,6 +37,15 @@ public class Student extends Person {
         this.transcript = new Transcript(this);
     }
 
+    public Map<Course, Grade> getGradeMap() {
+        return gradeMap;
+    }
+
+    public Student setGradeMap(Map<Course, Grade> gradeMap) {
+        this.gradeMap = gradeMap;
+        return this;
+    }
+
     //This can be achieved by getters and setters at StudentExpert
     public Semester getSemester() {
         return semester;
@@ -51,14 +63,6 @@ public class Student extends Person {
         IsBasketApproved = basketApproved;
     }
 
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
     public float getGpa() {
         return gpa;
     }
@@ -73,6 +77,14 @@ public class Student extends Person {
 
     public void setCgpa(float cgpa) {
         this.cgpa = cgpa;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 
     public Instructor getAdvisor() {

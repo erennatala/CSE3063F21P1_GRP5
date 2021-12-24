@@ -152,11 +152,11 @@ public class Instructor extends Person{
     }
 
     public void addGivenCourse(Course course) {
-        givenCourses = getGivenCourses();
+        givenCourses = givenCourses;
         givenCourses.add(course);
     }
     public void addAdvisees(Student student){
-        advisees = getAdvisees();
+        advisees = advisees;
         advisees.add(student);
     }
 

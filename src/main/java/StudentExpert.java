@@ -42,7 +42,7 @@ public class StudentExpert {
 
 
     public void showStudents(){
-        Map<Integer,Student> studentMap = getStudentMap();
+        Map<Integer,Student> studentMap = this.studentMap;
         Iterator<Map.Entry<Integer,Student>> studentIterator = studentMap.entrySet().iterator();
         while(studentIterator.hasNext()){
             Map.Entry<Integer,Student> tmpMap = (Map.Entry<Integer, Student>) studentIterator.next();

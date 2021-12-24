@@ -73,20 +73,20 @@ public class CourseExpert {
         this.semesterMap = semesterMap;
     }
     public void addMandatoryCourse(Course course){
-        List<Course> mandatoryCourses = getMandatoryCourses();
+        List<Course> mandatoryCourses = this.mandatoryCourses;
         mandatoryCourses.add(course);
     }
     public void addNTUElective(ElectiveCourse electiveCourse){
-        List<ElectiveCourse> NT_UList = getNT_UList();
+        List<ElectiveCourse> NT_UList = this.NT_UList;
         NT_UList.add(electiveCourse);
     }
     public void addTechnicalElective(ElectiveCourse electiveCourse){
-        List<ElectiveCourse> technicalList = getTechnicalList();
+        List<ElectiveCourse> technicalList = this.technicalList;
         technicalList.add(electiveCourse);
     }
 
     public void addFacultyTechnicalElective(ElectiveCourse electiveCourse) {
-        List<ElectiveCourse> facultyTechnicalList = getFacultyTechnicalList();
+        List<ElectiveCourse> facultyTechnicalList = this.facultyTechnicalList;
         facultyTechnicalList.add(electiveCourse);
     }
     public ElectiveCourse getElectiveFactory(String type,String courseId, String name, int capacity, float credit, float ects,Instructor instructor){
@@ -115,8 +115,8 @@ public class CourseExpert {
     }
     public Course createCourse(String courseId, String name, int capacity, float credit, float ects, String type, int semesterId, Instructor instructor){
         Course mandatoryCourse;
-        Map<Integer,Semester> semesterMap = getSemesterMap();
-        Semester semester = semesterMap.get(semesterId);
+        Map<Integer,Semester> semesterMap = this.semesterMap;
+        Semester semester = semesterMap.get(Integer.valueOf(semesterId));
         if(type.equals("Must")){
             mandatoryCourse = new MandatoryCourse(courseId,name,capacity,credit,ects,semester,instructor);
             addMandatoryCourse(mandatoryCourse);
@@ -136,34 +136,34 @@ public class CourseExpert {
         return getElectiveFactory(type,courseId,name,capacity, credit,ects,instructor);
     }
     public void showMandatoryList(){
-        List<Course> mandatoryList = getMandatoryCourses();
+        List<Course> mandatoryList = mandatoryCourses;
         for (Course mandatoryCourse:mandatoryList) {
             System.out.println(mandatoryCourse);
         }
     }
     public void showTechnicalElectiveList(){
-        List<ElectiveCourse> electiveCourseList = getTechnicalList();
+        List<ElectiveCourse> electiveCourseList = technicalList;
         for (ElectiveCourse electiveCourse :
                 electiveCourseList) {
             System.out.println(electiveCourse);
         }
     }
     public void showNT_UElectiveList(){
-        List<ElectiveCourse>electiveCourseList = getNT_UList();
+        List<ElectiveCourse>electiveCourseList = NT_UList;
         for (ElectiveCourse electiveCourse:
              electiveCourseList) {
             System.out.println(electiveCourse);
         }
     }
     public void showFacultyTechnicalList(){
-        List<ElectiveCourse>electiveCourseList = getFacultyTechnicalList();
+        List<ElectiveCourse>electiveCourseList = facultyTechnicalList;
         for (ElectiveCourse electiveCourse :
                 electiveCourseList) {
             System.out.println(electiveCourse);
         }
     }
     public Course findCourse(String courseId){
-        Course course = getCourses().stream()
+        Course course = courses.stream()
                 .filter(courseTmp -> courseId.equals(courseTmp.getCourseId()))
                 .findAny()
                 .orElse(null);

@@ -78,10 +78,10 @@ public class Simulation {
         courseExpert.setCourses(courses);
     }
     public void start() {
-        InputReader inputReader = getInputReader();
-        StudentExpert studentExpert = getStudentExpert();
-        InstructorExpert instructorExpert = getInstructorExpert();
-        CourseExpert courseExpert = getCourseExpert();
+        InputReader inputReader = this.inputReader;
+        StudentExpert studentExpert = this.studentExpert;
+        InstructorExpert instructorExpert = this.instructorExpert;
+        CourseExpert courseExpert = this.courseExpert;
 
         inputReader.readInstructorJson(instructorExpert);
         inputReader.readCourseJson(courseExpert, instructorExpert);
