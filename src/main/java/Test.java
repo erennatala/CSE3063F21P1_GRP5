@@ -1,12 +1,52 @@
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Test {
 
     public static void main(String[] args) {
        Simulation simulation = new Simulation();
-       simulation.start();
+        simulation.start();
+
+//        List<Schedule> list1 = new ArrayList<>();
+//        list1.add(new Schedule("Monday","16:00","16:50"));
+//        list1.add(new Schedule("Tuesday","16:00","16:50"));
+//        List<Schedule> list2 = new ArrayList<>();
+//        list2.add(new Schedule("Monday","16:00","16:50"));
+//        list2.add(new Schedule("Tuesday","12:00","12:50"));
+//
+//        List<Schedule> collisions = list1.stream()
+//                .filter(
+//                        e -> (
+//                                list2.stream()
+//                                        .filter(
+//                                                d ->
+//                                                        (d.compareTo(e) == 1)
+//                                        ).count()
+//                        ) >= 1
+//                )
+//                .collect(Collectors.toList());
+//
+//        System.out.println(collisions);
+
+//        unavailable = list1.stream()
+//                .filter(
+//                        e -> (
+//                                list2.stream()
+//                                        .filter(
+//                                                d ->
+//                                                        d.equals(e)
+//                                        )
+//                                        .count()
+//                        ) < 1
+//                )
+//                .collect(Collectors.toList())
+//        ;
+
+
+
+
+
+
 
 //       List<String> emails = new ArrayList<>();
 //

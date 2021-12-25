@@ -9,7 +9,7 @@ public class InstructorExpert {
 
 
     public InstructorExpert() {
-        this.instructorMap = new HashMap<String, Instructor>();
+        this.instructorMap = new HashMap<>();
     }
 
     public Map<String, Instructor> getInstructorMap() {

@@ -10,18 +10,18 @@ public class Simulation {
     private CourseExpert courseExpert = new CourseExpert();
     private TranscriptReader transcriptReader = new TranscriptReader();
 
-    public Simulation() {}
+    public Simulation() {
+    }
 
-
-    public void startRegistration(){
+    public void startRegistration() {
         //register students
-        Map<Integer,Student> studentMap = studentExpert.getStudentMap();
-        Iterator<Map.Entry<Integer,Student>> studentIterator =  studentMap.entrySet().iterator();
-        while(studentIterator.hasNext()){
-            Map.Entry<Integer,Student> newMap = (Map.Entry<Integer, Student>) studentIterator.next();
+        Map<Integer, Student> studentMap = studentExpert.getStudentMap();
+        Iterator<Map.Entry<Integer, Student>> studentIterator = studentMap.entrySet().iterator();
+        while (studentIterator.hasNext()) {
+            Map.Entry<Integer, Student> newMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = newMap.getValue();
             //student.setSemester(courseExpert.getSemesterMap().get(8));
-            Registrator registrator = new Registrator(student,getCourseExpert());
+            Registrator registrator = new Registrator(student, courseExpert);
             // Register 1 Student to 1 semester
             registrator.startRegistration();
             //student.getActiveCourses().forEach(System.out::println);
@@ -30,7 +30,7 @@ public class Simulation {
     }
 
 
-    public void startGrading(){
+    public void startGrading() {
         for (Course course : courseExpert.getCourses()) {
             Grader grader = new Grader(course);
             grader.startGrading();
@@ -69,7 +69,7 @@ public class Simulation {
         this.courseExpert = courseExpert;
     }
 
-    public void addAllCoursesTogether(){
+    public void addAllCoursesTogether() {
         List<Course> courses = new ArrayList<>();
         courses.addAll(courseExpert.getMandatoryCourses());
         courses.addAll(courseExpert.getTechnicalList());
@@ -77,6 +77,7 @@ public class Simulation {
         courses.addAll(courseExpert.getNT_UList());
         courseExpert.setCourses(courses);
     }
+
     public void start() {
         InputReader inputReader = this.inputReader;
         StudentExpert studentExpert = this.studentExpert;
@@ -87,12 +88,26 @@ public class Simulation {
         inputReader.readCourseJson(courseExpert, instructorExpert);
         addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
-        studentExpert.setInstructors(new ArrayList<Instructor>(instructorExpert.getInstructorMap().values()));
+        studentExpert.setInstructors(new ArrayList<>(instructorExpert.getInstructorMap().values()));
+
+//        for (Course course: courseExpert.getCourses()){
+//            //System.out.println(course.getCourseId());
+//            try {
+//                for (Schedule schedule : course.getSection().getScheduleList()) {
+//                    //System.out.println(schedule);
+//                }
+//            }catch (NullPointerException e){
+//                System.out.println(course.getCourseId());
+//                e.printStackTrace();
+//            }
+//
+//        }
+
 
         int startIndex = 0;
-        for(int i=1;i<7;i++){
-            if (i%2==1){
-                inputReader.readStudentJson(startIndex+((i-1)*35),studentExpert,courseExpert.getSemesterMap().get(1));
+        for (int i = 1; i < 7; i++) {
+            if (i % 2 == 1) {
+                inputReader.readStudentJson(startIndex + ((i - 1) * 35), studentExpert, courseExpert.getSemesterMap().get(1));
                 break;
             }
             // after create start registration

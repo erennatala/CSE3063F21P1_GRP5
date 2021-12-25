@@ -14,6 +14,6 @@ public abstract class Error {
     }
 
     public String raiseError(){
-        return "";
+        return "Abstract Error";
     }
 }

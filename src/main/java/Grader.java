@@ -54,21 +54,19 @@ public class Grader {
         grade.setLetterGrade(letterGrade);
     }
     private int generateRandomGrade(){
+        // Generates random number less than 45 with 0.02 probability, greater than 45 with 0.98 probability
+        // Calculated SuccessGrade has approximately 0.1 probability to be less than 45
         Random random = new Random();
         int num = random.nextInt(50);
         if(num<=1){
             return random.nextInt(45);
         }
         else{
-            int i = random.nextInt(100-45+1)+45;
-            return i;
+            return random.nextInt(100-45+1)+45;
         }
     }
     private void assignRandomGrade() {
         Course course = this.course;
-        Random random = new Random();
-        int low = 0;
-        int high = 101;
         for (Student student : course.getStudents()) {
             int YSS = generateRandomGrade();
             int YIS = generateRandomGrade();

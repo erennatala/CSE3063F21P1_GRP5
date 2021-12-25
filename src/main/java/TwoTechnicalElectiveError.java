@@ -1,4 +1,4 @@
-public class TwoTechnicalElectiveError extends Error{
+public class TwoTechnicalElectiveError extends Error {
     private Course course;
 
     public TwoTechnicalElectiveError(Student student, Course course) {

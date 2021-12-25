@@ -7,7 +7,7 @@ public class Student extends Person {
     private Semester semester;
     private Boolean IsBasketApproved;
     private Grade grade;
-    private Map<Course,Grade> gradeMap = new HashMap<>();
+    private Map<Course, Grade> gradeMap = new HashMap<>();
     private float gpa = 0;
     private float cgpa = 0;
     private Instructor advisor;
@@ -21,14 +21,7 @@ public class Student extends Person {
     private Transcript transcript;
 
     public Student() {
-    }
-
-    public Student(int id, String name, String surname) {
-        super(id, name, surname);
-    }
-
-    public Student(int id, String name, String surname, List<String> emails) {
-        super(id, name, surname, emails);
+        super();
     }
 
     public Student(int id, String name, String surname, List<String> emails, Semester semester) {

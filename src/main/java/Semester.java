@@ -3,16 +3,11 @@ import java.util.List;
 
 public class Semester {
     private Integer semesterId;
-    private List<Course> courseList= new ArrayList<Course>();
+    private List<Course> courseList = new ArrayList<>();
     private String season;
 
     public Semester(int semesterId, String season) {
-        this.semesterId = semesterId; this.season = season;
-    }
-
-    public Semester(int semesterId, ArrayList<Course> courseList, String season) {
         this.semesterId = semesterId;
-        this.courseList = courseList;
         this.season = season;
     }
 
@@ -28,17 +23,21 @@ public class Semester {
         return courseList;
     }
 
-    public void setCourseList(ArrayList<Course> courseList) {
+    public void setCourseList(List<Course> courseList) {
         this.courseList = courseList;
     }
 
-    public void addCourse(Course course){
+    public void addCourse(Course course) {
         courseList.add(course);
     }
 
-    public String getSeason() {return season;}
+    public String getSeason() {
+        return season;
+    }
 
-    public void setSeason(String season) {this.season = season;}
+    public void setSeason(String season) {
+        this.season = season;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -57,8 +56,6 @@ public class Semester {
 
     @Override
     public String toString() {
-        return "Semester{" +
-                "semesterId=" + semesterId +
-                '}';
+        return "Semester{" + "semesterId=" + semesterId + '}';
     }
 }

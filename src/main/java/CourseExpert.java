@@ -8,7 +8,7 @@ public class CourseExpert {
     private List<ElectiveCourse> facultyTechnicalList = new ArrayList<>();
     private List<ElectiveCourse> NT_UList = new ArrayList<>();
     private List<ElectiveCourse> technicalList = new ArrayList<>();
-    private Map<Integer,Semester> semesterMap = new HashMap<Integer,Semester>();
+    private Map<Integer,Semester> semesterMap = new HashMap<>();
     //private ArrayList<Instructor> instructors; // buna bak
 
     public CourseExpert() {
@@ -174,12 +174,12 @@ public class CourseExpert {
         mainCourse.getPrerequisites().add(prerequisiteCourse);
     }
 
-    public Section createSection(int sectionId, Course course, Instructor instructor, Map<String, ArrayList<String>> scheduleList) {
+    public Section createSection(int sectionId, Course course, Instructor instructor, List<Schedule> scheduleList) {
         return new Section(sectionId, course, instructor, scheduleList);
     }
 
     public void addSection(Section section) {
         Course course = section.getCourse();
-        course.addSectionToArraylist(section);
+        course.setSection(section);
     }
 }

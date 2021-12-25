@@ -1,6 +1,7 @@
 public class ElectiveCourse extends Course{
 
     public ElectiveCourse() {
+        super();
     }
 
     public ElectiveCourse(String courseId, String name, int capacity, float credit, float ects, Instructor instructor) {

@@ -1,7 +1,8 @@
-public class TechnicalElective extends ElectiveCourse{
+public class TechnicalElective extends ElectiveCourse {
     private final int minimumCredit = 155;
 
     public TechnicalElective() {
+        super();
     }
 
     public TechnicalElective(String courseId, String name, int capacity, float credit, float ects, Instructor instructor) {
