@@ -38,6 +38,7 @@ public class StudentExpert {
         instructor.addAdvisees(student);
         Map<Integer,Student> studentMap = getStudentMap();
         studentMap.put(Integer.valueOf(id),student);
+        student.setTranscript(new Transcript(student));
     }
 
 

@@ -8,8 +8,8 @@ public class Student extends Person {
     private Boolean IsBasketApproved;
     private Grade grade;
     private Map<Course,Grade> gradeMap = new HashMap<>();
-    private float gpa;
-    private float cgpa;
+    private float gpa = 0;
+    private float cgpa = 0;
     private Instructor advisor;
     private int completedCredit;
     private List<Course> activeCourses = new ArrayList<>();
@@ -34,7 +34,6 @@ public class Student extends Person {
     public Student(int id, String name, String surname, List<String> emails, Semester semester) {
         super(id, name, surname, emails);
         this.semester = semester;
-        this.transcript = new Transcript(this);
     }
 
     public Map<Course, Grade> getGradeMap() {
@@ -173,7 +172,7 @@ public class Student extends Person {
 
     public void addError(Error error) {
         this.errors.add(error);
-        //transcript.addError(error);
+        transcript.addError(error);
     }
 
     public Transcript getTranscript() {
@@ -193,6 +192,8 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Student{" + "semester=" + semester + "} " + super.toString();
+        return "Student{" +
+                "advisor=" + advisor +
+                "} " + super.toString();
     }
 }

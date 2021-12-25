@@ -16,9 +16,9 @@ public class Transcript {
         this.transcriptMap.put("Name",student.getName());
         this.transcriptMap.put("Surname",student.getSurname());
         this.transcriptMap.put("Email",student.getEmails());
-        this.transcriptMap.put("Semester",student.getSemester());
+        this.transcriptMap.put("Semester",student.getSemester().getSemesterId());
         this.transcriptMap.put("CGPA",student.getCgpa());
-        this.transcriptMap.put("Advisor",student.getAdvisor());
+        this.transcriptMap.put("Advisor",student.getAdvisor().getFullName());
         Semester semester = student.getSemester();
         addSemester(semester);
 

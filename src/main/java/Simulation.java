@@ -25,6 +25,7 @@ public class Simulation {
             // Register 1 Student to 1 semester
             registrator.startRegistration();
             //student.getActiveCourses().forEach(System.out::println);
+
         }
     }
 
@@ -33,10 +34,6 @@ public class Simulation {
         for (Course course : courseExpert.getCourses()) {
             Grader grader = new Grader(course);
             grader.startGrading();
-//            for (Student student: course.getStudents()){
-//                System.out.println(student.getGradeMap());
-//            }
-            break;
         }
     }
 
@@ -91,13 +88,6 @@ public class Simulation {
         addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
         studentExpert.setInstructors(new ArrayList<Instructor>(instructorExpert.getInstructorMap().values()));
-//        Course course = courseExpert.getMandatoryCourses().stream()
-//                .filter(src -> src.getCourseId().equals("CSE4197"))
-//                .findAny()
-//                .orElse(null);
-//        System.out.println(course);
-//        System.out.println("******");
-
 
         int startIndex = 0;
         for(int i=1;i<7;i++){
@@ -111,8 +101,13 @@ public class Simulation {
         }
         startRegistration();
         startGrading();
+        TranscriptWriter transcriptWriter = new TranscriptWriter(studentExpert);
+        transcriptWriter.startWriter();
+        // 1 semester bittikten sonra gerekli değerleri arttır listleri sıfırla
+        // input config
 
-        //transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
+//        transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
+//        studentExpert.showStudents();
 
     }
 }

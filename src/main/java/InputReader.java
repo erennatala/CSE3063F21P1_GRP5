@@ -129,7 +129,7 @@ public class InputReader {
 
                 String name = (String) students.get("name");
                 String surname = (String) students.get("surname");
-                JSONArray email = (JSONArray) students.get("email");
+                List<String> email = new ArrayList<String>((ArrayList)students.get("email"));
 
                 studentExpert.createStudent(number, name, surname, email,semester);
 

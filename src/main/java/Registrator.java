@@ -125,6 +125,7 @@ public class Registrator {
             else if (approver.approveCourse(course)) {
                 addBasket(course);
             }
+            else System.out.println(course);
         }
         //send instructor approval
         Instructor instructor = student.getAdvisor();

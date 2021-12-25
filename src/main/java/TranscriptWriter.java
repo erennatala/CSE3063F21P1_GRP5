@@ -9,6 +9,10 @@ public class TranscriptWriter {
 
     private StudentExpert studentExpert;
 
+    public TranscriptWriter(StudentExpert studentExpert) {
+        this.studentExpert = studentExpert;
+    }
+
     public void writeTranscript(Map<String, Object> transcriptMap, int studentId) { //bir öğrenci transkripti yazma
 //        JSONObject transcriptMap = (JSONObject) transcript.getTranscriptMap();
         JSONObject transcriptMap1 = new JSONObject(transcriptMap);
@@ -32,7 +36,8 @@ public class TranscriptWriter {
             Student student = iteratorMap.getValue();
             Transcript transcript = student.getTranscript();
 
-//            writeTranscript(transcript, student.getId());
+            writeTranscript(transcript.getTranscriptMap(), student.getId());
+
         }
     }
 }

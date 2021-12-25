@@ -6,26 +6,26 @@ public class Test {
 
     public static void main(String[] args) {
        Simulation simulation = new Simulation();
-       //simulation.start();
+       simulation.start();
 
-       List<String> emails = new ArrayList<>();
-
-       emails.add("keremmican@gmail.com");
-       Map<String, Object> transcriptMap = new HashMap<>();
-
-       transcriptMap.put("ID", 150119629);
-       transcriptMap.put("Name","Kerem");
-       transcriptMap.put("Surname","Mican");
-       transcriptMap.put("Emails", emails);
-       transcriptMap.put("Semester",8);
-       transcriptMap.put("CGPA",8);
-       transcriptMap.put("Advisor","Gülen Greenvood");
-
-
-
-       TranscriptWriter transcriptWriter = new TranscriptWriter();
-
-       transcriptWriter.writeTranscript(transcriptMap, 150119629);
+//       List<String> emails = new ArrayList<>();
+//
+//       emails.add("keremmican@gmail.com");
+//       Map<String, Object> transcriptMap = new HashMap<>();
+//
+//       transcriptMap.put("ID", 150119629);
+//       transcriptMap.put("Name","Kerem");
+//       transcriptMap.put("Surname","Mican");
+//       transcriptMap.put("Emails", emails);
+//       transcriptMap.put("Semester",8);
+//       transcriptMap.put("CGPA",8);
+//       transcriptMap.put("Advisor","Gülen Greenvood");
+//
+//
+//
+//       TranscriptWriter transcriptWriter = new TranscriptWriter();
+//
+//       transcriptWriter.writeTranscript(transcriptMap, 150119629);
 
 
 //        Map<Integer,Semester> semesterMap = new HashMap<Integer,Semester>();
