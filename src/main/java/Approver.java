@@ -10,7 +10,6 @@ public class Approver {
         this.student = student;
     }
 
-    // getter setter silinince sari highlight ile hata veriyor
     public Student getStudent() {
         return student;
     }
@@ -36,7 +35,6 @@ public class Approver {
             return true;
         } else {
             QuotaError quotaError = new QuotaError(student, course);
-            //quotaError.raiseError();
             student.addError(quotaError);
             return false;
         }
@@ -62,7 +60,6 @@ public class Approver {
     }
 
     public boolean isElectiveTaken() {
-        System.out.println(course);
         List<Course> pastCourses = student.getPastCourses();
         List<Course> courseBasket = student.getCourseBasket();
         if (pastCourses.contains(course)) {

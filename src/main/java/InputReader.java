@@ -15,6 +15,9 @@ public class InputReader {
 
     private JSONParser parser = new JSONParser(); //her json okumada kulanılacak
 
+    public InputReader() {
+    }
+
     @SuppressWarnings("unchecked")
     public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata
 
@@ -99,21 +102,21 @@ public class InputReader {
     }
 
     @SuppressWarnings("unchecked")
-    public void readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {
+    public int readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {
 
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
 
-            int number = 999 + startIndex;
+            int number =startIndex;
 
             for (Object o : student_input) {
 
                 JSONObject students = (JSONObject) o;
 
-                if (Integer.parseInt(students.get("index").toString()) < startIndex) {
+                if (Integer.parseInt(students.get("index").toString()) < startIndex-999) {
                     continue;
                 }
-                if (Integer.parseInt(students.get("index").toString()) == startIndex + 71) {
+                if (Integer.parseInt(students.get("index").toString()) == startIndex + 70 - 999) {
                     break;
                 }
 
@@ -126,6 +129,8 @@ public class InputReader {
                 studentExpert.createStudent(number, name, surname, email, semester);
 
             }
+
+            return number;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -133,6 +138,7 @@ public class InputReader {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        return 0;
     }
 
     public void readInstructorJson(InstructorExpert instructorExpert) {
@@ -198,12 +204,58 @@ public class InputReader {
         }
     }
 
-    public String readConfig() {
+    public String readGenerationParameter(){
+        try {
+            JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
+            String generation = config.get("Generation").toString();
+            return generation;
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String readSeasonParameter() {
 
         try {
             JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
             String season = config.get("Season").toString();
             return season;
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String readFirstStudent(){
+        try {
+            JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
+            String output = outputobj.get("First Student").toString();
+            return output;
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String readLastStudent(){
+        try {
+            JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
+            String output = outputobj.get("Last Student").toString();
+            return output;
 
         }catch (FileNotFoundException e) {
             e.printStackTrace();

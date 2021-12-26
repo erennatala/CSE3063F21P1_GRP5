@@ -32,16 +32,19 @@ public class TranscriptWriter {
         Iterator<Map.Entry<Integer, Student>> studentIterator = studentMap.entrySet().iterator();
 
         while (studentIterator.hasNext()) {
-            Map.Entry<Integer, Student> iteratorMap = (Map.Entry<Integer, Student>) studentIterator.next();
-            Student student = iteratorMap.getValue();
-            Transcript transcript = student.getTranscript();
-            double CGPA = student.getCgpa();
-            double roundOff = (double) Math.round(CGPA * 100) / 100;
-            transcript.getTranscriptMap().put("CGPA: ", roundOff);
-            transcript.getTranscriptMap().put("Semester: ", student.getSemester().getSemesterId());
-            transcript.getTranscriptMap().put("Completed Credit", student.getCompletedCredit());
-            writeTranscript(transcript.getTranscriptMap(), student.getId());
-
+            try {
+                Map.Entry<Integer, Student> iteratorMap = (Map.Entry<Integer, Student>) studentIterator.next();
+                Student student = iteratorMap.getValue();
+                Transcript transcript = student.getTranscript();
+                double CGPA = student.getCgpa();
+                double roundOff = (double) Math.round(CGPA * 100) / 100;
+                transcript.getTranscriptMap().put("CGPA", roundOff);
+                transcript.getTranscriptMap().put("Semester", student.getSemester().getSemesterId());
+                transcript.getTranscriptMap().put("Completed Credit", student.getCompletedCredit());
+                writeTranscript(transcript.getTranscriptMap(), student.getId());
+            }catch(NullPointerException e){
+            }
         }
+
     }
 }
