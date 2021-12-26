@@ -13,6 +13,10 @@ public abstract class Error {//A class for errors which may occur for student's 
         this.student = student;
     }
 
+    public Course raiseCourse(){
+
+        return null;
+    }
     public String raiseError(){
         return "Abstract Error";
     }

@@ -43,23 +43,6 @@ public class Grader {
         return course;
     }
 
-//    public void calculateCGPA(Student student){ //The method calculates the cumulative GPA of the student
-//        List<Course> courses = new ArrayList<>();// it checks the credits of courses from failed and past courses and calculates the grade
-//        courses.addAll(student.getFailedCourses());
-//        courses.addAll(student.getPastCourses());
-//        double allTakenCredits = 0;
-//
-//        for(Course c : courses){
-//            allTakenCredits += course.getCredit();
-//        }
-//        double currentCredit = 0;
-//        for(Course course: student.getActiveCourses()){
-//            currentCredit += course.getCredit();
-//        }
-//        double CGPA = (student.getCgpa()*allTakenCredits + currentCredit * student.getGpa())/;
-//
-//    }
-
     public void setCourse(Course course) {
         this.course = course;
     }

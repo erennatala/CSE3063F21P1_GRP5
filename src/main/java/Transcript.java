@@ -5,6 +5,7 @@ public class Transcript {
     private Student student;
     private double activeCredit = 0;
     private double activeGrade = 0;
+
     private double cumulativeCredit = 0;
     private double cumulativeGrade = 0;
 

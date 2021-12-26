@@ -140,9 +140,7 @@ public class Instructor extends Person {
 
                         }
                 }
-                //tempCourse = secondIterator.next();
             }
-            //firstCourse = basketIterator.next();
 
         }
         courseBasket.removeAll(willBeRemoved);

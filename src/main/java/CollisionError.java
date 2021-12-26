@@ -1,8 +1,7 @@
-import java.util.ArrayList;
-
 public class CollisionError extends Error{ // CollisionError class extends from Error class, and it checks for if there is a collision in students schedule
     private Course firstCourse;
     private Course secondCourse;
+
 
     public CollisionError(Student student, Course firstCourse,Course secondCourse) {
         super(student);
@@ -26,6 +25,11 @@ public class CollisionError extends Error{ // CollisionError class extends from 
     public CollisionError setSecondCourse(Course secondCourse) {
         this.secondCourse = secondCourse;
         return this;
+    }
+
+    @Override
+    public Course raiseCourse() {
+        return secondCourse;
     }
 
     @Override
