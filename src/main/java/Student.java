@@ -41,6 +41,7 @@ public class Student extends Person {//A class for Students and it extends from 
         return semester;
     }
 
+
     public void setSemester(Semester semester) {
         this.semester = semester;
     }
@@ -148,6 +149,18 @@ public class Student extends Person {//A class for Students and it extends from 
     public void addError(Error error) {
         this.errors.add(error);
         transcript.addError(error);
+    }
+    public void calculateGPA(){
+        double activeCredit = transcript.getActiveCredit();
+        double activeGrade = transcript.getActiveGrade();
+        double result = activeGrade / activeCredit;
+        setGpa((float)result);
+    }
+    public void calculateCGPA(){
+        double cumulativeCredit = transcript.getCumulativeCredit();
+        double cumulativeGrade = transcript.getCumulativeGrade();
+        double result = cumulativeGrade / cumulativeCredit;
+        setCgpa((float)result);
     }
 
     public Transcript getTranscript() {

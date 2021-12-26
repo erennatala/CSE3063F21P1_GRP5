@@ -10,7 +10,6 @@ public class Approver {// Approver class checks the student if he/she is able to
         this.student = student;
     }
 
-    // getter setter silinince sari highlight ile hata veriyor
     public Student getStudent() {
         return student;
     }
@@ -36,7 +35,6 @@ public class Approver {// Approver class checks the student if he/she is able to
             return true;
         } else { //if there is not enough capacity it gets quota error and adds it to the student's error list
             QuotaError quotaError = new QuotaError(student, course);
-            //quotaError.raiseError();
             student.addError(quotaError);
             return false;
         }
@@ -60,8 +58,9 @@ public class Approver {// Approver class checks the student if he/she is able to
         return isApproved;
     }
 
+
     public boolean isElectiveTaken() {// checks for the elective courses in student's taken courses if he/she already have taken it
-        System.out.println(course);
+
         List<Course> pastCourses = student.getPastCourses();
         List<Course> courseBasket = student.getCourseBasket();
         if (pastCourses.contains(course)) {//if the past courses of the student contains the selected elective course it will return with false statement

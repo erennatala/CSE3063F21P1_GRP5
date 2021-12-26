@@ -23,6 +23,17 @@ public class Grader {
             Map.entry(45,"FD"),
             Map.entry(0,"FF")
     );
+    private final Map<String, Double> creditTable = Map.ofEntries(
+            Map.entry("AA", 4.00),
+            Map.entry("BA",3.50),
+            Map.entry("BB", 3.00),
+            Map.entry("CB",2.50),
+            Map.entry("CC",2.00),
+            Map.entry("DC",1.50),
+            Map.entry("DD",1.00),
+            Map.entry("FD", 0.50),
+            Map.entry("FF",0.00)
+    );
 
     public Grader(Course course) {
         this.course = course;
@@ -68,6 +79,11 @@ public class Grader {
         assignLetterGrade(roundedGrade,grade);
         addFailPassed(student,grade.getLetterGrade());
         student.getTranscript().addCourse(course);
+
+        String letterGrade = grade.getLetterGrade();
+        double activeGrade = student.getTranscript().getActiveGrade();
+        activeGrade += creditTable.get(letterGrade) * course.getCredit();
+        student.getTranscript().setActiveGrade(activeGrade);
     }
 
     private void addFailPassed(Student student,String letterGrade){ //checks for the student if student failed the course or not

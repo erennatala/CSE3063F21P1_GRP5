@@ -1,8 +1,9 @@
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+
+import org.json.JSONObject;
+import org.json.simple.parser.ParseException;
+
+import java.io.*;
+import java.util.*;
 
 public class Simulation {
     private StudentExpert studentExpert = new StudentExpert();
@@ -10,6 +11,9 @@ public class Simulation {
     private InstructorExpert instructorExpert = new InstructorExpert();
     private CourseExpert courseExpert = new CourseExpert();
     private TranscriptReader transcriptReader = new TranscriptReader();
+    private Map<String,Object> departmentOutput = new HashMap<>();
+    private int lastStudent;
+    private int firstStudent;
 
     public Simulation() {
     }
@@ -22,15 +26,31 @@ public class Simulation {
         while (studentIterator.hasNext()) {
             Map.Entry<Integer, Student> newMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = newMap.getValue();
-            //student.setSemester(courseExpert.getSemesterMap().get(8));
             Registrator registrator = new Registrator(student, courseExpert);
-            // Register 1 Student to 1 semester
             registrator.startRegistration();
-            //student.getActiveCourses().forEach(System.out::println);
         }
         System.out.println("--End point of the startRegistration function--");
     }
 
+    public void prepareDepartmentOutput(int firstStudent,int lastStudent){
+        departmentOutput.put("First Student",firstStudent);
+        departmentOutput.put("Last Student",lastStudent);
+        try {
+            FileWriter outputFile = new FileWriter("DepartmentOutput.json");
+            JSONObject obj = new JSONObject(departmentOutput);
+            outputFile.write(obj.toString(4));
+            outputFile.close();
+            // Errors
+        }catch (IOException e) {
+
+        }
+
+    }
+
+    public void readDepartmentOutput(){
+       setLastStudent(Integer.parseInt(inputReader.readLastStudent()));
+       setFirstStudent(Integer.parseInt(inputReader.readFirstStudent()));
+    }
 
     public void startGrading() {//the method written below starts the grading with using for loop via Grader
         System.out.println("--Start point of the starGrading function--");
@@ -104,54 +124,108 @@ public class Simulation {
         System.out.println("--End point of the checkTranscriptFolder function--");
     }
 
-    public void start() {//programs starts the launch
-        System.out.println("--Start point of the start function--");
-        checkTranscriptFolder();
-        InputReader inputReader = this.inputReader;
-        StudentExpert studentExpert = this.studentExpert;
-        InstructorExpert instructorExpert = this.instructorExpert;
-        CourseExpert courseExpert = this.courseExpert;
 
+    public void simulateSemester(){
+
+        startRegistration();
+        startGrading();
+        assignNextSemester();
+    }
+
+    public int getLastStudent() {
+        return lastStudent;
+    }
+
+    public Simulation setLastStudent(int lastStudent) {
+        this.lastStudent = lastStudent;
+        return this;
+    }
+
+    public int getFirstStudent() {
+        return firstStudent;
+    }
+
+    public Simulation setFirstStudent(int firstStudent) {
+        this.firstStudent = firstStudent;
+        return this;
+    }
+
+    public void initializeStudents(String generation, String season){
+            int firstStudent;
+            int lastStudent;
+        if (generation.equals("1")){
+
+            firstStudent = 999;
+            lastStudent = 999;
+            setLastStudent(lastStudent);
+            setFirstStudent(firstStudent);
+
+
+            int lastSemester;
+            if(season.equalsIgnoreCase("Fall")){
+
+                lastSemester = 7;
+            }
+            else if (season.equalsIgnoreCase("Spring")){
+                lastSemester = 8;
+            }
+            else{
+                System.out.println("Error ocurred while initialization");
+                lastSemester = 0;
+            }
+            // Create Random students for all semester using implemented simulation processes
+            for (int i = 1; i < lastSemester; i++) {
+                if (i % 2 == 1) {
+                    lastStudent = inputReader.readStudentJson(lastStudent, studentExpert, courseExpert.getSemesterMap().get(1));
+                    setLastStudent(lastStudent);
+                }
+                simulateSemester();
+            }
+            if(season.equalsIgnoreCase("Fall")){
+                int superLast = getLastStudent();
+                int ls = inputReader.readStudentJson(lastStudent, studentExpert, courseExpert.getSemesterMap().get(1));
+                setLastStudent(ls);
+            }
+
+        }else {
+
+            readDepartmentOutput();
+            transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
+            if(season.equalsIgnoreCase("Fall")){
+                int superLast = getLastStudent();
+                int ls = inputReader.readStudentJson(superLast, studentExpert, courseExpert.getSemesterMap().get(1));
+                setLastStudent(ls);
+            }
+
+        }
+
+    }
+
+    public void start() {
+
+        checkTranscriptFolder();
+        // Read other inputs
         inputReader.readInstructorJson(instructorExpert);
         inputReader.readCourseJson(courseExpert, instructorExpert);
         addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
         studentExpert.setInstructors(new ArrayList<>(instructorExpert.getInstructorMap().values()));
 
-//        for (Course course: courseExpert.getCourses()){
-//            //System.out.println(course.getCourseId());
-//            try {
-//                for (Schedule schedule : course.getSection().getScheduleList()) {
-//                    //System.out.println(schedule);
-//                }
-//            }catch (NullPointerException e){
-//                System.out.println(course.getCourseId());
-//                e.printStackTrace();
-//            }
-//
-//        }
+        // Read Config Parameters
+        String season = inputReader.readSeasonParameter();
+        String generation = inputReader.readGenerationParameter();
+        // Initialize Students Depending On Input Parameters
 
+        initializeStudents(generation,season);
 
-        int startIndex = 0;
-        for (int i = 1; i < 8; i++) {
-            if (i % 2 == 1) {
-                inputReader.readStudentJson(startIndex + ((i - 1) * 35), studentExpert, courseExpert.getSemesterMap().get(1));
-            }
-            // after create start registration
-            startRegistration();
-            startGrading();
-            assignNextSemester();
-
-        }
-//        startRegistration();
-//        startGrading();
+        simulateSemester();
+        // Write call for transcript after simulation
+        //prepareDepartmentOutput();
         TranscriptWriter transcriptWriter = new TranscriptWriter(studentExpert);
         transcriptWriter.startWriter();
-        // 1 semester bittikten sonra gerekli değerleri arttır listleri sıfırla
-        // input config
 
-//        transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
-//        studentExpert.showStudents();
-        System.out.println("--End point of the start function--");
+
+        prepareDepartmentOutput(lastStudent,firstStudent);
+
     }
 }
