@@ -1,24 +1,16 @@
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 public class Grader {
-    // YSSL: 35
-    // BNAL: 35
-    // BDKL: 20
 
-    private final int BDKL = 20;
-    @SuppressWarnings("FieldCanBeLocal")
-    private final int YSSL = 35;
-    @SuppressWarnings("FieldCanBeLocal")
-    private final int BNAL = 35;
     private Course course;
 
 
     private static final Map<Integer,String> DDSTable = Map.ofEntries(
+            Map.entry(100,"AA"),
+            Map.entry(95,"AA"),
             Map.entry(90,"AA"),
             Map.entry(85,"BA"),
             Map.entry(80,"BB"),
@@ -40,13 +32,29 @@ public class Grader {
         return course;
     }
 
+//    public void calculateCGPA(Student student){
+//        List<Course> courses = new ArrayList<>();
+//        courses.addAll(student.getFailedCourses());
+//        courses.addAll(student.getPastCourses());
+//        double allTakenCredits = 0;
+//
+//        for(Course c : courses){
+//            allTakenCredits += course.getCredit();
+//        }
+//        double currentCredit = 0;
+//        for(Course course: student.getActiveCourses()){
+//            currentCredit += course.getCredit();
+//        }
+//        double CGPA = (student.getCgpa()*allTakenCredits + currentCredit * student.getGpa())/;
+//
+//    }
+
     public void setCourse(Course course) {
         this.course = course;
     }
 
     private int round(double successGrade) {
-        int result = (int)(Math.floor(successGrade / 5) * 5);
-        return result;
+        return (int)(Math.floor(successGrade / 5) * 5);
     }
 
     private void initializeGrade(Student student, int YSS, int YIS) {
@@ -58,26 +66,48 @@ public class Grader {
             roundedGrade = 0;
         }
         assignLetterGrade(roundedGrade,grade);
+        addFailPassed(student,grade.getLetterGrade());
+        student.getTranscript().addCourse(course);
     }
+
+    private void addFailPassed(Student student,String letterGrade){
+        if("FF".equals(letterGrade)){
+            student.addFailedCourse(course);
+        }else{
+            int credit = (int)course.getCredit();
+            credit += student.getCompletedCredit();
+            student.setCompletedCredit(credit);
+            student.addPastCourse(course);
+        }
+    }
+
     private void assignLetterGrade(int roundedGrade,Grade grade){
         String letterGrade = DDSTable.get(roundedGrade);
         grade.setLetterGrade(letterGrade);
     }
 
+    private int generateRandomGrade(){
+        // Generates random number less than 45 with 0.02 probability, greater than 45 with 0.98 probability
+        // Calculated SuccessGrade has approximately 0.1 probability to be less than 45
+        Random random = new Random();
+        int num = random.nextInt(50);
+        if(num<=1){
+            return random.nextInt(45);
+        }
+        else{
+            return random.nextInt(100-45+1)+45;
+        }
+    }
     private void assignRandomGrade() {
         Course course = this.course;
-        Random random = new Random();
-        int low = 0;
-        int high = 101;
         for (Student student : course.getStudents()) {
-            int YSS = random.nextInt(low + high) + low;
-            int YIS = random.nextInt(low + high) + low;
+            int YSS = generateRandomGrade();
+            int YIS = generateRandomGrade();
             initializeGrade(student, YSS, YIS);
         }
     }
     public void startGrading() {
         assignRandomGrade();
     }
-
 
 }

@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Instructor extends Person {
     private String fullName;
     private List<Student> advisees = new ArrayList<>(); //list needs to be corrected it has be to list instead of arrayList which has coming through constructer, there will be list interface instead of collection
     private List<Course> givenCourses = new ArrayList<>();
 
-    public Instructor(int id, String name, String surname, ArrayList<String> emails) {
+    public Instructor(int id, String name, String surname, List<String> emails) {
         super(id, name, surname, emails);
         this.fullName = name + " " + surname;
     }
@@ -26,7 +27,7 @@ public class Instructor extends Person {
             if (next instanceof TechnicalElective) {
                 count++;
                 if (count > 2) {
-                    TwoTechnicalElectiveError technicalElectiveError = new TwoTechnicalElectiveError(student, next);
+                    Error technicalElectiveError = new TwoTechnicalElectiveError(student, next);
                     student.addNonTakenCourse(new TechnicalElective());
                     student.addError(technicalElectiveError);
                     iterator.remove();
@@ -44,7 +45,7 @@ public class Instructor extends Person {
                 .orElse(null);
         if (course != null) {
             courseBasket.remove(course);
-            NotInGraduationError notInGraduationError = new NotInGraduationError(student, course);
+            Error notInGraduationError = new NotInGraduationError(student, course);
             student.addNonTakenCourse(new FacultyTechnicalElective());
             student.addError(notInGraduationError);
         }
@@ -60,7 +61,7 @@ public class Instructor extends Person {
                     .orElse(null);
             if (course != null) {
                 courseBasket.remove(course);
-                ProjectError projectError = new ProjectError(student, course);
+                Error projectError = new ProjectError(student, course);
                 student.addNonTakenCourse(course);
                 student.addError(projectError);
             }
@@ -73,29 +74,139 @@ public class Instructor extends Person {
         while (iterator.hasNext()) {
             Course next = iterator.next();
             if (next instanceof TechnicalElective && student.getCompletedCredit() < ((TechnicalElective) next).getMinimumCredit()) {
-                UncompletedCreditError uncompletedCreditError = new UncompletedCreditError(student, next);
+                Error uncompletedCreditError = new UncompletedCreditError(student, next);
                 student.addNonTakenCourse(new TechnicalElective());
                 student.addError(uncompletedCreditError);
                 iterator.remove();
             }
         }
     }
+    public Course selectNonTakenCourse(Course course){
+        if(course instanceof MandatoryCourse) {
+            return course;
+        }else if(course instanceof TechnicalElective){
+            return new TechnicalElective();
+        }else if(course instanceof FacultyTechnicalElective){
+            return new FacultyTechnicalElective();
+        }else if(course instanceof NT_UElective){
+            return new NT_UElective();
+        }
+        return null;
+    }
+    public void collisionCheck(List<Course> courseBasket,Student student){
+        List<Course> willBeRemoved = new ArrayList<>();
+
+        Iterator<Course> basketIterator = courseBasket.iterator();
+        while(basketIterator.hasNext()){
+            Course firstCourse = basketIterator.next();
+            if(willBeRemoved.contains(firstCourse)){
+                continue;
+            }
+            Iterator<Course> secondIterator = courseBasket.iterator();
+            //tempCourse = secondIterator.next();
+            Section firstSection = firstCourse.getSection();
+            List<Schedule> firstScheduleList = firstSection.getScheduleList();
+            while(secondIterator.hasNext()){
+                Course tempCourse = secondIterator.next();
+                if (willBeRemoved.contains(tempCourse)){
+                    continue;
+                }
+                if(firstCourse.equals(tempCourse)) {
+                    continue;
+                }
+
+                Section secondSection = tempCourse.getSection();
+                List<Schedule> secondScheduleList = secondSection.getScheduleList();
+                List<Schedule> collisions = firstScheduleList.stream()
+                        .filter(e -> (secondScheduleList.stream()
+                                .filter(d -> (d.compareTo(e) == 1))
+                                .count()) >= 1)
+                        .collect(Collectors.toList());
+                if(!collisions.isEmpty()) {
+
+                        if(firstCourse instanceof MandatoryCourse){
+                            Course selectedCourse = selectNonTakenCourse(tempCourse);
+                            Error error = new CollisionError(student,firstCourse,tempCourse);
+                            student.addError(error);
+                            student.addNonTakenCourse(selectedCourse);
+                            willBeRemoved.add(tempCourse);
+
+                        }
+                        else{
+                            Course selectedCourse = selectNonTakenCourse(firstCourse);
+                            Error error = new CollisionError(student,tempCourse,firstCourse);
+                            student.addError(error);
+                            student.addNonTakenCourse(selectedCourse);
+                            willBeRemoved.add(firstCourse);
+
+                        }
+                }
+                //tempCourse = secondIterator.next();
+            }
+            //firstCourse = basketIterator.next();
+
+        }
+        courseBasket.removeAll(willBeRemoved);
+
+
+//        while(basketIterator.hasNext()){
+//            Course firstCourse = basketIterator.next();
+//            System.out.println(firstCourse.getName());
+//            System.out.println("*************");
+//            Iterator<Course> secondIterator = courseBasket.iterator();
+//            //tempCourse = secondIterator.next();
+//            Section firstSection = firstCourse.getSection();
+//            List<Schedule> firstScheduleList = firstSection.getScheduleList();
+//            while(secondIterator.hasNext()){
+//                Course tempCourse = secondIterator.next();
+//                System.out.println(tempCourse.getName());
+//                if(firstCourse.equals(tempCourse)) {
+//                    System.out.println("hi");
+//                    continue;
+//                }
+//
+//                Section secondSection = tempCourse.getSection();
+//                List<Schedule> secondScheduleList = secondSection.getScheduleList();
+//                List<Schedule> collisions = firstScheduleList.stream()
+//                        .filter(e -> (secondScheduleList.stream()
+//                                .filter(d -> (d.compareTo(e) == 1))
+//                                .count()) >= 1)
+//                        .collect(Collectors.toList());
+//                if(!collisions.isEmpty()) {
+//                    Course selectedCourse = selectNonTakenCourse(tempCourse);
+//                    Error error = new CollisionError(student,firstCourse,tempCourse);
+//                    student.addNonTakenCourse(selectedCourse);
+//                    secondIterator.remove();
+////                    if(firstCourse instanceof MandatoryCourse){
+////                        Course selectedCourse = selectNonTakenCourse(tempCourse);
+////                        Error error = new CollisionError(student,firstCourse,tempCourse);
+////                        student.addNonTakenCourse(selectedCourse);
+////                        secondIterator.remove();
+////                    }
+////                    else{
+////                        Course selectedCourse = selectNonTakenCourse(firstCourse);
+////                        Error error = new CollisionError(student,tempCourse,firstCourse);
+////                        student.addNonTakenCourse(selectedCourse);
+////                        basketIterator.remove();
+////                    }
+//                }
+//                //tempCourse = secondIterator.next();
+//            }
+//            //firstCourse = basketIterator.next();
+//
+//        }
+
+    }
 
     public void approveStudentBasket(Student student) {
         String season = student.getSemester().getSeason();
         int semesterId = student.getSemester().getSemesterId();
-        //student.getCourseBasket().forEach(System.out::println);
 
-//        for (Course course : student.getCourseBasket()) {
-//            System.out.println(course.getCourseId());
-//        }
-
-
-        if (season.equals("Fall")) {
+        if ("Fall".equals(season)) {
             checkTwoTechnical(student);
         }
 
-        if (!(semesterId == 7 || semesterId == 8) && season.equals("Fall")) {
+        if (!(semesterId == 7 || semesterId == 8) && "Fall".equals(season)) {
             checkFTE(student);
         }
 
@@ -103,59 +214,9 @@ public class Instructor extends Person {
 
         checkMinimumCredit(student);
 
-        // Look for collision
+        List<Course> courseBasket = student.getCourseBasket();
+        collisionCheck(courseBasket,student);
 
-        for (int i = 0; i < student.getCourseBasket().size(); i++) { //basket
-            try {
-
-                List<String> mainBasketScheduleDays = new ArrayList<String>(student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().keySet());
-
-                for (int j = i + 1; j < student.getCourseBasket().size(); j++) {
-                    try {
-                        List<String> secondBasketScheduleDays = new ArrayList<String>(student.getCourseBasket().get(j).getSectionList().get(0).getScheduleList().keySet());
-
-                        for (int k = 0; k < mainBasketScheduleDays.size(); k++) {//basket içindeki dersin içindeki sectionın içindeki schedulelist
-
-                            for (int z = 0; z < secondBasketScheduleDays.size(); z++) {
-
-                                String mainStart = student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().get(mainBasketScheduleDays.get(k)).get(0);
-                                String mainEnd = student.getCourseBasket().get(i).getSectionList().get(0).getScheduleList().get(mainBasketScheduleDays.get(k)).get(1);
-
-                                String[] mainStartParts = mainStart.split(":");
-                                String[] mainEndParts = mainEnd.split(":");
-
-                                int mainStartParsed = Integer.parseInt(mainStartParts[0] + mainStartParts[1]);
-                                int mainEndParsed = Integer.parseInt(mainEndParts[0] + mainEndParts[1]);
-
-                                String secondStart = student.getCourseBasket().get(j).getSectionList().get(0).getScheduleList().get(secondBasketScheduleDays.get(z)).get(0);
-                                String secondEnd = student.getCourseBasket().get(j).getSectionList().get(0).getScheduleList().get(secondBasketScheduleDays.get(z)).get(1);
-
-                                String[] secondStartParts = secondStart.split(":");
-                                String[] secondEndParts = secondEnd.split(":");
-
-                                int secondStartParsed = Integer.parseInt(secondStartParts[0] + secondStartParts[1]);
-                                int secondEndParsed = Integer.parseInt(secondEndParts[0] + secondEndParts[1]);
-
-                                if (mainBasketScheduleDays.get(k).equals(secondBasketScheduleDays.get(z))) { //aynı gün
-
-                                    if ((secondStartParsed <= mainEndParsed && secondStartParsed >= mainStartParsed) || (secondEndParsed <= mainEndParsed && secondEndParsed >= mainStartParsed)) {
-                                        System.out.println("same day, nearly same hours, collision" + " " + student.getCourseBasket().get(i).getCourseId() + " and " + student.getCourseBasket().get(j).getCourseId());
-                                        Error error = new CollisionError(student,student.getCourseBasket().get(i),student.getCourseBasket().get(j));
-                                        student.addError(error);
-                                        student.addNonTakenCourse(student.getActiveCourses().get(j));
-                                        student.getCourseBasket().remove(student.getCourseBasket().get(j));
-                                    }
-                                }
-                            }
-                        }
-                    } catch (IndexOutOfBoundsException e) {
-                        System.out.println("schedule is null " + student.getCourseBasket().get(j).getCourseId());
-                    }
-                }
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("schedule is null " + student.getCourseBasket().get(i).getCourseId());
-            }
-        }
     }
 
     public String getFullName() {
@@ -183,12 +244,10 @@ public class Instructor extends Person {
     }
 
     public void addGivenCourse(Course course) {
-        givenCourses = givenCourses;
         givenCourses.add(course);
     }
 
     public void addAdvisees(Student student) {
-        advisees = advisees;
         advisees.add(student);
     }
 

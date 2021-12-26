@@ -1,9 +1,6 @@
 public class PrerequisiteError extends Error{
     private Course course;
     private Course required;
-    public PrerequisiteError(Student student) {
-        super(student);
-    }
 
     public PrerequisiteError(Student student, Course course, Course required) {
         super(student);

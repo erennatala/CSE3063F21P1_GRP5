@@ -7,18 +7,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class TranscriptReader {
 
-    JSONParser parser = new JSONParser();
+    private JSONParser parser = new JSONParser();
 
+    @SuppressWarnings("unchecked")
     public void readTranscriptJson(StudentExpert studentExpert, CourseExpert courseExpert, InstructorExpert instructorExpert) {
 
-        try{
+        try {
             File folder = new File("transcripts");
             File[] listOfFiles = folder.listFiles();
 
-            for (int i=0; i< listOfFiles.length; i++) {
+            for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
                 File file = listOfFiles[i];
 
                 try {
@@ -42,7 +44,7 @@ public class TranscriptReader {
 
                     for (Object o : curr_input.keySet()) { //Semester geziyor
                         try {
-                            if (o.toString().substring(0,8).equals("Semester") && !(o.toString().equals("Semester"))) {
+                            if (o.toString().substring(0, 8).equals("Semester") && !(o.toString().equals("Semester"))) {
                                 JSONObject currSemester = (JSONObject) curr_input.get(o);
                                 JSONObject courses = (JSONObject) currSemester.get("Courses");
 
@@ -54,13 +56,13 @@ public class TranscriptReader {
 
                                     if (grade.getLetterGrade().equals("FF")) {
                                         student.getFailedCourses().add(course);
-                                    }
-                                    else {
+                                    } else {
                                         student.getPastCourses().add(course);
                                     }
                                 }
                             }
-                        } catch (StringIndexOutOfBoundsException s) {}
+                        } catch (StringIndexOutOfBoundsException s) {
+                        }
                     }
 
                 } catch (FileNotFoundException e) {
@@ -71,7 +73,9 @@ public class TranscriptReader {
                     e.printStackTrace();
                 }
             }
-        }catch(NullPointerException e){}
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1,14 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Approver
-{
+public class Approver {
 
     private Student student;
     private Course course;
 
-    public Approver(Student student)
-    {
+    public Approver(Student student) {
         this.student = student;
     }
 
@@ -28,23 +26,16 @@ public class Approver
     public void setCourse(Course course) {
         this.course = course;
     }
-
-
-
     // capacityChecker checks the capacity of related courses for student
-    public boolean capacityChecker()
-    {
+    public boolean capacityChecker() {
 
         int capacity = course.getCapacity();
         List<Student> studentList = course.getStudents();
-        if (capacity > studentList.size())
-        {
+        if (capacity > studentList.size()) {
 
             return true;
-        }
-        else
-        {
-            QuotaError quotaError = new QuotaError(student,course);
+        } else {
+            QuotaError quotaError = new QuotaError(student, course);
             //quotaError.raiseError();
             student.addError(quotaError);
             return false;
@@ -52,39 +43,37 @@ public class Approver
 
 
     }
+
     // the method below compares the student's passed courses and prerequisite courses
-    public boolean prerequisiteChecker()
-    {
+    public boolean prerequisiteChecker() {
         List<Course> pastCourses = student.getPastCourses();
         List<Course> prerequisiteCourses = course.getPrerequisites();
         boolean isApproved = true;
 
-            for (Course required :
-                    prerequisiteCourses) {
-                if (!pastCourses.contains(required)) {
-                    PrerequisiteError prerequisiteError = new PrerequisiteError(student,course,required);
-                    student.addError(prerequisiteError);
-                    isApproved = false;
+        for (Course required : prerequisiteCourses) {
+            if (!pastCourses.contains(required)) {
+                PrerequisiteError prerequisiteError = new PrerequisiteError(student, course, required);
+                student.addError(prerequisiteError);
+                isApproved = false;
 
-                }
             }
+        }
         return isApproved;
     }
-    public boolean isElectiveTaken(){
+
+    public boolean isElectiveTaken() {
+        System.out.println(course);
         List<Course> pastCourses = student.getPastCourses();
         List<Course> courseBasket = student.getCourseBasket();
-        if(pastCourses.contains(course)) {
+        if (pastCourses.contains(course)) {
             return false;
-        }
-        else if(courseBasket.contains(course)) {
+        } else if (courseBasket.contains(course)) {
             return false;
-        }
-        else return true;
+        } else return true;
     }
+
     // approveCourse checks the both method above returns true or false
-    public boolean approveCourse(Course course)
-    {
-        boolean isApproved;
+    public boolean approveCourse(Course course) {
         boolean capacityCheck = true;
         boolean prerequisiteCheck;
         boolean electiveCheck = true;

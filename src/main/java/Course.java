@@ -10,10 +10,10 @@ public abstract class Course {
     private List<Student> students = new ArrayList<>(); // hashmap olucak
     private float ects;
     private List<Course> prerequisites = new ArrayList<>();
-    private List<Section> sectionList = new ArrayList<>();
+    private Section section;
     private Instructor instructor;
 
-    public Course() {
+    protected Course() {
     }
 
     protected Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {
@@ -79,7 +79,7 @@ public abstract class Course {
         return students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
@@ -95,29 +95,26 @@ public abstract class Course {
         return prerequisites;
     }
 
-    public void setPrerequisites(ArrayList<Course> prerequisites) {
+    public void setPrerequisites(List<Course> prerequisites) {
         this.prerequisites = prerequisites;
-    }
-
-    public List<Section> getSectionList() {
-        return sectionList;
-    }
-
-    public void setSectionList(ArrayList<Section> sectionList) {
-        this.sectionList = sectionList;
     }
 
     public Instructor getInstructor() {return instructor;}
 
     public void setInstructor(Instructor instructor) {this.instructor = instructor;}
 
-    public void addSectionToArraylist(Section section) {
-        sectionList.add(section);
-    }
-
     public void addStudentToArraylist(Student student) {
         List<Student> students = this.students;
         students.add(student);
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public Course setSection(Section section) {
+        this.section = section;
+        return this;
     }
 
     @Override

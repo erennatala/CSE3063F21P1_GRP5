@@ -4,16 +4,8 @@ public class Grade {
     private Student student;
     private String letterGrade;
     private double successGrade;
-    private double zScore;
-    private double tScore;
     private int YSS;
     private int YIS;
-
-
-    public Grade(Course course, int grade) {
-        this.course = course;
-        this.successGrade = (double) grade;
-    }
 
     public Grade(Student student,Course course, int YSS, int YIS) {
         this.student = student;
@@ -72,22 +64,6 @@ public class Grade {
     public void calculateSuccessGrade() {
         double sg = ((double) YSS * 0.4) + ((double) YIS * 0.6);
         setSuccessGrade(sg);
-    }
-
-    public double getzScore() {
-        return zScore;
-    }
-
-    public void setzScore(double zScore) {
-        this.zScore = zScore;
-    }
-
-    public double gettScore() {
-        return tScore;
-    }
-
-    public void settScore(double tScore) {
-        this.tScore = tScore;
     }
 
     @Override

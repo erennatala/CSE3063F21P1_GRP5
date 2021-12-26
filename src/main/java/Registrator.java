@@ -3,14 +3,15 @@ import java.util.List;
 import java.util.Random;
 
 public class Registrator {
-    //1 adet öğrenciyi 1 dönem kayıt eder
+
     private Student student;
     private Random randomGenerator = new Random();
     private Approver approver;
     private CourseExpert courseExpert;
-    //semester içerisinde dersleri tek tek ara
-    //eğer elective gelirse curriculumda elective listlere bak bak
-    // baskete eklendikten sonra basketi instructorun approvelaması için gönder
+
+    public Registrator() {
+
+    }
 
     public Registrator(Student student, CourseExpert courseExpert) {
         this.student = student;
@@ -54,13 +55,20 @@ public class Registrator {
         student.addCourseToBasket(course);
     }
 
-    public void sendAdvisorApproval() {
-
+    public void assignNextSemester(Student student,Semester semester) {
+        // student.gradeMap ?
+        student.setSemester(semester);
+        student.setGpa(0);
+        student.getTranscript().addSemester(semester);
+        List<Course> activeCourses = student.getActiveCourses();
+        activeCourses.clear();
     }
 
     public void addBasketToActiveCourse() {
         Student student = this.student;
         List<Course> courseBasket = student.getCourseBasket();
+        List<Course> failedCourses = student.getFailedCourses();
+        failedCourses.removeAll(courseBasket);
         List<Course> activeCourses = student.getActiveCourses();
         activeCourses.addAll(courseBasket);
         for (Course course : courseBasket) {
@@ -86,6 +94,7 @@ public class Registrator {
             }
             // If course is not approved or it already exist in student basket or taken course ?
         } while (!approver.approveCourse(elective));
+        //System.out.println(elective);
         return elective;
 
     }
@@ -97,22 +106,29 @@ public class Registrator {
         //
         for (Course course : student.getFailedCourses()) {
             if (approver.approveCourse(course)) addBasket(course);
+
         }
 
         List<Course> NontakenCourseList = student.getNonTakenCourses();
         Iterator<Course> iterator = NontakenCourseList.iterator();
+
         // Take courses from Nontaken
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Course next = iterator.next();
-            if(next instanceof ElectiveCourse) {
+            if (next instanceof ElectiveCourse) {
                 Course course = selectRandomElective(next);
-                addBasket(course);
-                iterator.remove();
+                //addBasket(course);
+                //iterator.remove();
+                if (approver.approveCourse(course)) {
+                    addBasket(course);
+                    iterator.remove();
+                }
             }
-            if(approver.approveCourse(next)){
+            else if(approver.approveCourse(next)) {
                 addBasket(next);
                 iterator.remove();
             }
+
 
         }
 
@@ -121,10 +137,9 @@ public class Registrator {
             if (course instanceof ElectiveCourse) {
                 Course elective = selectRandomElective(course);
                 addBasket(elective);
-            }
-            else if (approver.approveCourse(course)) {
+            } else if (approver.approveCourse(course)) {
                 addBasket(course);
-            }
+            } else System.out.println(course);
         }
         //send instructor approval
         Instructor instructor = student.getAdvisor();

@@ -8,7 +8,7 @@ public class CourseExpert {
     private List<ElectiveCourse> facultyTechnicalList = new ArrayList<>();
     private List<ElectiveCourse> NT_UList = new ArrayList<>();
     private List<ElectiveCourse> technicalList = new ArrayList<>();
-    private Map<Integer,Semester> semesterMap = new HashMap<Integer,Semester>();
+    private Map<Integer,Semester> semesterMap = new HashMap<>();
     //private ArrayList<Instructor> instructors; // buna bak
 
     public CourseExpert() {
@@ -23,6 +23,11 @@ public class CourseExpert {
                 season = "Fall";
             else season = "Spring";
             this.semesterMap.put(semesterId,new Semester(semesterId, season));
+        }
+    }
+    public void clearCourses(){
+        for(Course course: courses) {
+            course.getStudents().clear();
         }
     }
     public List<Course> getCourses() {
@@ -102,7 +107,7 @@ public class CourseExpert {
         else if (type.equalsIgnoreCase("TE")){
             ElectiveCourse technicalElective = new TechnicalElective(courseId, name, capacity, credit, ects, instructor);
             if(!courseId.equals("TExxx"))
-            addTechnicalElective(technicalElective);
+                addTechnicalElective(technicalElective);
             return technicalElective;
         }
         else if (type.equalsIgnoreCase("FTE")){
@@ -174,12 +179,12 @@ public class CourseExpert {
         mainCourse.getPrerequisites().add(prerequisiteCourse);
     }
 
-    public Section createSection(int sectionId, Course course, Instructor instructor, Map<String, ArrayList<String>> scheduleList) {
+    public Section createSection(int sectionId, Course course, Instructor instructor, List<Schedule> scheduleList) {
         return new Section(sectionId, course, instructor, scheduleList);
     }
 
     public void addSection(Section section) {
         Course course = section.getCourse();
-        course.addSectionToArraylist(section);
+        course.setSection(section);
     }
 }

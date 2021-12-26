@@ -626,7 +626,13 @@
             "ECTS": "10",
             "Instructor": "BETÜL DEMİRÖZ BOZ",
             "Capacity": "0",
-            "Schedule":[]
+            "Schedule":[
+              {
+                "Day": "Sunday",
+                "Start": "12:00",
+                "End": "12:30"
+              }
+            ]
         },
         {
             "courseId": "CSE3215",
@@ -916,7 +922,13 @@
             "ECTS": "10",
             "Instructor": "BETÜL DEMİRÖZ BOZ",
             "Capacity": "0",
-            "Schedule":[]
+            "Schedule":[
+              {
+                "Day": "Sunday",
+                "Start": "13:00",
+                "End": "13:30"
+              }
+            ]
         },
         {
             "courseId": "CSE4074",
@@ -972,9 +984,15 @@
             "U": "2",
             "Credit": "5",
             "ECTS": "5",
-            "Instructor": "",
+            "Instructor": "MUSTAFA YILMAZ",
             "Capacity": "0",
-            "Schedule":[]
+            "Schedule":[
+              {
+                "Day": "Sunday",
+                "Start": "14:00",
+                "End": "14:30"
+              }
+            ]
         },
         {
             "courseId": "ISG121",
@@ -1054,9 +1072,15 @@
             "U": "2",
             "Credit": "5",
             "ECTS": "5",
-            "Instructor": "",
+            "Instructor": "MUSTAFA YILMAZ",
             "Capacity": "0",
-            "Schedule":[]
+            "Schedule":[
+              {
+                "Day": "Sunday",
+                "Start": "15:00",
+                "End": "15:30"
+              }
+            ]
         },
         {
             "courseId": "ISG122",

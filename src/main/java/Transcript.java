@@ -1,29 +1,23 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.*;
-import java.io.FileWriter;
-import java.io.IOException;
-
 
 public class Transcript {
-    private Map<String,Object> transcriptMap;
+    private Map<String, Object> transcriptMap;
     private Student student;
 
     public Transcript(Student student) {
         this.student = student;
         this.transcriptMap = new HashMap<>();
         this.transcriptMap.put("ID", student.getId());
-        this.transcriptMap.put("Name",student.getName());
-        this.transcriptMap.put("Surname",student.getSurname());
-        this.transcriptMap.put("Email",student.getEmails());
-        this.transcriptMap.put("Semester",student.getSemester());
-        this.transcriptMap.put("CGPA",student.getCgpa());
-        this.transcriptMap.put("Advisor",student.getAdvisor());
+        this.transcriptMap.put("Name", student.getName());
+        this.transcriptMap.put("Surname", student.getSurname());
+        this.transcriptMap.put("Email", student.getEmails());
+        this.transcriptMap.put("Advisor", student.getAdvisor().getFullName());
         Semester semester = student.getSemester();
         addSemester(semester);
 
     }
-    public Map<String, Object> createSemester(Semester semester) {
+
+    public Map<String, Object> createSemester() {
         Map<String, Object> semesterMap = new HashMap<>();
         semesterMap.put("Courses", new HashMap<String, Object>());
         semesterMap.put("Errors", new ArrayList<>());
@@ -31,18 +25,19 @@ public class Transcript {
     }
 
     public void addSemester(Semester semester) {
-        Map<String, Object> semesterMap = createSemester(semester);
+        Map<String, Object> semesterMap = createSemester();
         String semesterString = "Semester".concat(semester.getSemesterId().toString());
-        transcriptMap.put(semesterString,semesterMap);
-        transcriptMap.put("GPA",student.getGpa());
+        transcriptMap.put(semesterString, semesterMap);
+        transcriptMap.put("GPA", student.getGpa());
     }
+
     @SuppressWarnings("unchecked")
-    public void addCourse(Course course){
+    public void addCourse(Course course) {
         String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
-        Map<String,Object> semesterMap = (HashMap<String,Object>)transcriptMap.get(semesterName);
-        Map<String,Object> courseMap = (HashMap<String,Object>)semesterMap.get("Courses");
+        Map<String, Object> semesterMap = (HashMap<String, Object>) transcriptMap.get(semesterName);
+        Map<String, Object> courseMap = (HashMap<String, Object>) semesterMap.get("Courses");
         String letterGrade = student.getGradeMap().get(course).getLetterGrade();
-        courseMap.put(course.getCourseId(),letterGrade);
+        courseMap.put(course.getCourseId(), letterGrade);
 
     }
 
@@ -61,11 +56,12 @@ public class Transcript {
     public void setStudent(Student student) {
         this.student = student;
     }
+
     @SuppressWarnings("unchecked")
     public void addError(Error error) {
         String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
-        Map<String,Object> semesterMap = (HashMap<String,Object>)transcriptMap.get(semesterName);
-        List<String> errorList = (ArrayList<String>)semesterMap.get("Errors");
+        Map<String, Object> semesterMap = (HashMap<String, Object>) transcriptMap.get(semesterName);
+        List<String> errorList = (ArrayList<String>) semesterMap.get("Errors");
         errorList.add(error.raiseError());
 
     }
