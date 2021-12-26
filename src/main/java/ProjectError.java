@@ -15,6 +15,11 @@ public class ProjectError extends Error{//ProjectError class extends from Error 
     }
 
     @Override
+    public Course raiseCourse() {
+        return course;
+    }
+
+    @Override
     public String raiseError() {
         return "The advisor didn't approve " + course.getCourseId() + " because student completed credits < 165";
     }

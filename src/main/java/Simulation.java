@@ -35,6 +35,27 @@ public class Simulation {
     public void prepareDepartmentOutput(int firstStudent,int lastStudent){
         departmentOutput.put("First Student",firstStudent);
         departmentOutput.put("Last Student",lastStudent);
+        Map<Course,List<Integer>> errorMap = studentExpert.prepareErrorOutput();
+        List<String> strList = new ArrayList<>();
+        for(Course course: errorMap.keySet()){
+            List<Integer> tmpList = errorMap.get(course);
+            if(tmpList.get(0)!=0)
+                strList.add(tmpList.get(0).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE COLLIISION PROBLEMS");
+            if(tmpList.get(1)!=0)
+                strList.add(tmpList.get(1).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE NOT IN GRADUATION PROBLEMS");
+            if(tmpList.get(2)!=0)
+                 strList.add(tmpList.get(2).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE PREREQUISITE PROBLEMS");
+            if(tmpList.get(3)!=0)
+                strList.add(tmpList.get(3).toString()+" STUDENTS COULDNT REGISTER FOR GRADUATION PROJECT");
+            if(tmpList.get(4)!=0)
+                strList.add(tmpList.get(4).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE QUOTA PROBLEMS");
+            if(tmpList.get(5)!=0)
+                strList.add(tmpList.get(5).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE TWO TECHNICAL ELECTIVE PROBLEMS");
+            if(tmpList.get(6)!=0)
+                strList.add(tmpList.get(6).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE UNCOMPLETED CREDIT PROBLEMS");
+            departmentOutput.put("Errors",strList);
+        }
+
         try {
             FileWriter outputFile = new FileWriter("DepartmentOutput.json");
             JSONObject obj = new JSONObject(departmentOutput);
@@ -176,14 +197,15 @@ public class Simulation {
             // Create Random students for all semester using implemented simulation processes
             for (int i = 1; i < lastSemester; i++) {
                 if (i % 2 == 1) {
-                    lastStudent = inputReader.readStudentJson(lastStudent, studentExpert, courseExpert.getSemesterMap().get(1));
+                    int superLast = getLastStudent();
+                    lastStudent = inputReader.readStudentJson(superLast, studentExpert, courseExpert.getSemesterMap().get(1));
                     setLastStudent(lastStudent);
                 }
                 simulateSemester();
             }
             if(season.equalsIgnoreCase("Fall")){
                 int superLast = getLastStudent();
-                int ls = inputReader.readStudentJson(lastStudent, studentExpert, courseExpert.getSemesterMap().get(1));
+                int ls = inputReader.readStudentJson(superLast, studentExpert, courseExpert.getSemesterMap().get(1));
                 setLastStudent(ls);
             }
 
@@ -220,12 +242,10 @@ public class Simulation {
 
         simulateSemester();
         // Write call for transcript after simulation
-        //prepareDepartmentOutput();
+        studentExpert.prepareErrorOutput();
         TranscriptWriter transcriptWriter = new TranscriptWriter(studentExpert);
         transcriptWriter.startWriter();
-
-
-        prepareDepartmentOutput(lastStudent,firstStudent);
+        prepareDepartmentOutput(firstStudent,lastStudent);
 
     }
 }

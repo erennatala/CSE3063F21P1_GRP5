@@ -9,6 +9,7 @@ public class CourseExpert {
     private List<ElectiveCourse> NT_UList = new ArrayList<>();
     private List<ElectiveCourse> technicalList = new ArrayList<>();
     private Map<Integer,Semester> semesterMap = new HashMap<>();
+    private Map<Course,List<Integer>> errorMap= new HashMap<>();
     //private ArrayList<Instructor> instructors; // buna bak
 
     public CourseExpert() {

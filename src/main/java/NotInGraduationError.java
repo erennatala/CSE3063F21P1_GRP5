@@ -15,6 +15,11 @@ public class NotInGraduationError extends Error{//NotInGraduationError class ext
     }
 
     @Override
+    public Course raiseCourse() {
+        return course;
+    }
+
+    @Override
     public String raiseError() {
         return "The advisor didn't approve " +  course.getCourseId() + " because students can't take FTE in FALL semester unless they are graduating this semester";
     }
