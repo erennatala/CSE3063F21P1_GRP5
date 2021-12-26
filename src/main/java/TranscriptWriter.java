@@ -35,7 +35,9 @@ public class TranscriptWriter {
             Map.Entry<Integer, Student> iteratorMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = iteratorMap.getValue();
             Transcript transcript = student.getTranscript();
-            transcript.getTranscriptMap().put("CGPA: ", student.getCgpa());
+            double CGPA = student.getCgpa();
+            double roundOff = (double) Math.round(CGPA * 100) / 100;
+            transcript.getTranscriptMap().put("CGPA: ", roundOff);
             transcript.getTranscriptMap().put("Semester: ", student.getSemester().getSemesterId());
             transcript.getTranscriptMap().put("Completed Credit", student.getCompletedCredit());
             writeTranscript(transcript.getTranscriptMap(), student.getId());
