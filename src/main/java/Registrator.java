@@ -56,22 +56,26 @@ public class Registrator {
     }
 
     public void assignNextSemester(Student student,Semester semester) {
-        // student.gradeMap ?
-        Transcript transcript = student.getTranscript();
-        double activeGrade = transcript.getActiveGrade();
-        double cumulativeGrade = transcript.getCumulativeGrade() + activeGrade;
-        transcript.setCumulativeGrade(cumulativeGrade);
-        student.calculateGPA();
-        transcript.setActiveGrade(0);
+        try {
+            // student.gradeMap ?
+            Transcript transcript = student.getTranscript();
+            double activeGrade = transcript.getActiveGrade();
+            double cumulativeGrade = transcript.getCumulativeGrade() + activeGrade;
+            transcript.setCumulativeGrade(cumulativeGrade);
+            student.calculateGPA();
+            transcript.setActiveGrade(0);
 
-        transcript.addGPA();
-        transcript.setActiveCredit(0);
-        student.setGpa(0);
-        student.calculateCGPA();
-        student.setSemester(semester);
-        transcript.addSemester(semester);
-        List<Course> activeCourses = student.getActiveCourses();
-        activeCourses.clear();
+            transcript.addGPA();
+            transcript.setActiveCredit(0);
+            student.setGpa(0);
+            student.calculateCGPA();
+            student.setSemester(semester);
+            transcript.addSemester(semester);
+            List<Course> activeCourses = student.getActiveCourses();
+            activeCourses.clear();
+        }catch(NullPointerException e){
+
+        }
     }
 
     public void addBasketToActiveCourse() {
@@ -131,7 +135,6 @@ public class Registrator {
             }
             // If course is not approved or it already exist in student basket or taken course ?
         } while (!approver.approveCourse(elective));
-        //System.out.println(elective);
         return elective;
 
     }
@@ -140,7 +143,6 @@ public class Registrator {
 
         Semester semester = student.getSemester();
         // Select non taken courses with matching semester
-        //
         for (Course course : student.getFailedCourses()) {
             if (approver.approveCourse(course)) addBasket(course);
 
@@ -154,8 +156,7 @@ public class Registrator {
             Course next = iterator.next();
             if (next instanceof ElectiveCourse) {
                 Course course = selectRandomElective(next);
-                //addBasket(course);
-                //iterator.remove();
+
                 if (approver.approveCourse(course)) {
                     addBasket(course);
                     iterator.remove();
@@ -168,7 +169,7 @@ public class Registrator {
 
 
         }
-
+        //System.out.println(student);
         for (Course course : semester.getCourseList()) {
 
             if (course instanceof ElectiveCourse) {
@@ -176,7 +177,7 @@ public class Registrator {
                 addBasket(elective);
             } else if (approver.approveCourse(course)) {
                 addBasket(course);
-            } else System.out.println(course);
+            }
         }
         //send instructor approval
         Instructor instructor = student.getAdvisor();

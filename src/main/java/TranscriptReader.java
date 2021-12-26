@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class TranscriptReader {
@@ -60,6 +61,7 @@ public class TranscriptReader {
                                         student.getPastCourses().add(course);
                                     }
                                 }
+                                student.getTranscript().getTranscriptMap().put(o.toString(),(Map<String,Object>)currSemester);
                             }
                         } catch (StringIndexOutOfBoundsException s) {
                         }
@@ -70,6 +72,8 @@ public class TranscriptReader {
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {
+                    e.printStackTrace();
+                } catch(NullPointerException e) {
                     e.printStackTrace();
                 }
             }
