@@ -102,7 +102,7 @@ public class InputReader {
     }
 
     @SuppressWarnings("unchecked")
-    public void readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {//method for reading students Json files
+    public int readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {//method for reading students Json files
 
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
