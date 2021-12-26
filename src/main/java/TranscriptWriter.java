@@ -1,5 +1,4 @@
 import org.json.JSONObject;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
@@ -22,6 +21,7 @@ public class TranscriptWriter {
             outputFile.write(transcriptMap1.toString(4));
             outputFile.close();
         } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

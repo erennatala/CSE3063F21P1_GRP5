@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -86,8 +87,15 @@ public class Simulation {
         courses.addAll(courseExpert.getNT_UList());
         courseExpert.setCourses(courses);
     }
+    public void checkTranscriptFolder(){
+        File file = new File("transcripts/");
+        if(!file.exists()){
+            file.mkdir();
+        }
+    }
 
     public void start() {
+        checkTranscriptFolder();
         InputReader inputReader = this.inputReader;
         StudentExpert studentExpert = this.studentExpert;
         InstructorExpert instructorExpert = this.instructorExpert;
