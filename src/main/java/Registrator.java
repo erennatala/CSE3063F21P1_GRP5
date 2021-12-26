@@ -57,22 +57,59 @@ public class Registrator {
 
     public void assignNextSemester(Student student,Semester semester) {
         // student.gradeMap ?
-        student.setSemester(semester);
+        Transcript transcript = student.getTranscript();
+        double activeGrade = transcript.getActiveGrade();
+        double cumulativeGrade = transcript.getCumulativeGrade() + activeGrade;
+        transcript.setCumulativeGrade(cumulativeGrade);
+        student.calculateGPA();
+        transcript.setActiveGrade(0);
+
+        transcript.addGPA();
+        transcript.setActiveCredit(0);
         student.setGpa(0);
-        student.getTranscript().addSemester(semester);
+        student.calculateCGPA();
+        student.setSemester(semester);
+        transcript.addSemester(semester);
         List<Course> activeCourses = student.getActiveCourses();
         activeCourses.clear();
     }
 
     public void addBasketToActiveCourse() {
         Student student = this.student;
+        Transcript transcript = student.getTranscript();
         List<Course> courseBasket = student.getCourseBasket();
         List<Course> failedCourses = student.getFailedCourses();
+        for(Course course: courseBasket){
+
+            if (failedCourses.contains(course)){
+                // Add course credit to active credit of semester
+                double activeCredit = transcript.getActiveCredit();
+                activeCredit += course.getCredit();
+                transcript.setActiveCredit(activeCredit);
+                // Delete courses credit from cumulative credit if is retaken
+                double cumulativeCredit = transcript.getCumulativeCredit();
+                cumulativeCredit -= course.getCredit();
+                transcript.setCumulativeCredit(cumulativeCredit);
+            }
+        }
+        // Clear course object from failed course list if it is retaken
         failedCourses.removeAll(courseBasket);
+
+        // Add approved course basket to active course list
         List<Course> activeCourses = student.getActiveCourses();
         activeCourses.addAll(courseBasket);
+
         for (Course course : courseBasket) {
+            // Add course credit to active credit of semester
+            double activeCredit = transcript.getActiveCredit();
+            activeCredit += course.getCredit();
+            transcript.setActiveCredit(activeCredit);
+
+            double cumulativeCredit = transcript.getCumulativeCredit();
+            cumulativeCredit += course.getCredit();
+            transcript.setCumulativeCredit(cumulativeCredit);
             course.addStudentToArraylist(student);
+
         }
         courseBasket.clear();
     }

@@ -17,6 +17,8 @@ public class Student extends Person {
     private List<Course> failedCourses = new ArrayList<>();
     private List<Error> errors = new ArrayList<>();
     private Transcript transcript;
+    // Cumilative Taken Credit : All Attemted Credit -> oldCumilateiveTaken + this semester taken credit
+    // SemesterTakenCredit : attemted Credit in semester -> if a course is re attemted reduce it from oldCumilative
 
     public Student() {
         super();
@@ -40,6 +42,7 @@ public class Student extends Person {
     public Semester getSemester() {
         return semester;
     }
+
 
     public void setSemester(Semester semester) {
         this.semester = semester;
@@ -148,6 +151,18 @@ public class Student extends Person {
     public void addError(Error error) {
         this.errors.add(error);
         transcript.addError(error);
+    }
+    public void calculateGPA(){
+        double activeCredit = transcript.getActiveCredit();
+        double activeGrade = transcript.getActiveGrade();
+        double result = activeGrade / activeCredit;
+        setGpa((float)result);
+    }
+    public void calculateCGPA(){
+        double cumulativeCredit = transcript.getCumulativeCredit();
+        double cumulativeGrade = transcript.getCumulativeGrade();
+        double result = cumulativeGrade / cumulativeCredit;
+        setCgpa((float)result);
     }
 
     public Transcript getTranscript() {

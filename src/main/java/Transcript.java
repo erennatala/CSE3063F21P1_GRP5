@@ -3,6 +3,10 @@ import java.util.*;
 public class Transcript {
     private Map<String, Object> transcriptMap;
     private Student student;
+    private double activeCredit = 0;
+    private double activeGrade = 0;
+    private double cumulativeCredit = 0;
+    private double cumulativeGrade = 0;
 
     public Transcript(Student student) {
         this.student = student;
@@ -24,11 +28,46 @@ public class Transcript {
         return semesterMap;
     }
 
+    public double getActiveCredit() {
+        return activeCredit;
+    }
+
+    public Transcript setActiveCredit(double activeCredit) {
+        this.activeCredit = activeCredit;
+        return this;
+    }
+
+    public double getActiveGrade() {
+        return activeGrade;
+    }
+
+    public Transcript setActiveGrade(double activeGrade) {
+        this.activeGrade = activeGrade;
+        return this;
+    }
+
+    public double getCumulativeCredit() {
+        return cumulativeCredit;
+    }
+
+    public Transcript setCumulativeCredit(double cumulativeCredit) {
+        this.cumulativeCredit = cumulativeCredit;
+        return this;
+    }
+
+    public double getCumulativeGrade() {
+        return cumulativeGrade;
+    }
+
+    public Transcript setCumulativeGrade(double cumulativeGrade) {
+        this.cumulativeGrade = cumulativeGrade;
+        return this;
+    }
+
     public void addSemester(Semester semester) {
         Map<String, Object> semesterMap = createSemester();
         String semesterString = "Semester".concat(semester.getSemesterId().toString());
         transcriptMap.put(semesterString, semesterMap);
-        transcriptMap.put("GPA", student.getGpa());
     }
 
     @SuppressWarnings("unchecked")
@@ -64,6 +103,15 @@ public class Transcript {
         List<String> errorList = (ArrayList<String>) semesterMap.get("Errors");
         errorList.add(error.raiseError());
 
+    }
+    @SuppressWarnings("unchecked")
+    public void addGPA(){
+        String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
+        Map<String, Object> semesterMap = (HashMap<String, Object>) transcriptMap.get(semesterName);
+        double GPA = student.getGpa();
+        double roundOff = (double) Math.round(GPA * 100) / 100;
+        semesterMap.put("ActiveCredit",activeCredit);
+        semesterMap.put("GPA",roundOff);
     }
 
 }
