@@ -1,380 +1,511 @@
 [  
 	{ 
       "instructorID": 1000,
-	  "name": "Çiğdem",
-	  "surname": "Eroğlu Erdem",
+	  "name": "ÇİĞDEM",
+	  "surname": "EROĞLU ERDEM",
+		"fullName":"ÇİĞDEM EROĞLU ERDEM",
 	  "email":"cigdem.erdem@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1001,
-	  "name": "Betül",
-	  "surname": "Demiröz Boz",
+	  "name": "BETÜL",
+	  "surname": "DEMİRÖZ BOZ",
+		"fullName":"BETÜL DEMİRÖZ BOZ",
 	  "email":"betul.demiroz@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1002,
-	  "name": "Fatma",
-	  "surname": "Corut Ergin",
+	  "name": "FATMA",
+	  "surname": "ÇORUT ERGİN",
+		"fullName":"FATMA ÇORUT ERGİN",
 	  "email":"fatma.ergin@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1003,
-	  "name": "Ömer",
-	  "surname": "Korçak",
+	  "name": "ÖMER",
+	  "surname": "KORÇAK",
+		"fullName":"ÖMER KORÇAK",
 	  "email":"omer.korcak@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1004,
-	  "name": "Ali Haydar",
-	  "surname": "Özer",
+	  "name": "ALİ HAYDAR",
+	  "surname": "ÖZER",
+		"fullName":"ALİ HAYDAR ÖZER",
 	  "email":"haydar.ozer@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1005,
-	  "name": "Sanem",
-	  "surname": "Arslan",
+	  "name": "SANEM",
+	  "surname": "ARSLAN YILMAZ",
+		"fullName":"SANEM ARSLAN YILMAZ",
 	  "email":"sanem.arslan@marmara.edu.tr"
 	    
 	},
 	  
 	{ 
       "instructorID": 1006,
-	  "name": "Murat Can",
-	  "surname": "Ganiz",
+	  "name": "MURAT CAN",
+		"surname":"GANİZ",
+		"fullName":"MURAT CAN GANİZ",
 	  "email":"murat.ganiz@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1007,
-	  "name": "Müjdat",
-	  "surname": "Soytürk",
+	  "name": "MÜJDAT",
+	  "surname": "SOYTÜRK",
+		"fullName":"MÜJDAT SOYTÜRK",
 	  "email":"mujdat.soyturk@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1008,
-	  "name": "Borahan",
-	  "surname": "Tümer",
+	  "name": "MUSTAFA BORAHAN",
+	  "surname": "TÜMER",
+		"fullName":"MUSTAFA BORAHAN TÜMER",
 	  "email":"borahan.tumer@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1009,
-	  "name": "Mustafa",
-	  "surname": "Ağaoğlu",
+	  "name": "MUSTAFA",
+	  "surname": "AĞAOĞLU",
+		"fullName":"MUSTAFA AĞAOĞLU",
 	  "email":"agaoglu@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1010,
-	  "name": "Mehmet",
-	  "surname": "Baran",
+	  "name": "MEHMET",
+	  "surname": "BARAN",
+		"fullName":"MEHMET BARAN",
 	  "email":"mehmet.baran@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1011,
-	  "name": "Fulya",
-	  "surname":"Çallıalp",
+	  "name": "FULYA",
+	  "surname":"ÇALLIALP",
+		"fullName":"FULYA ÇALLIALP",
 	  "email":"fulya.callıalp@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1012,
-	  "name": "Eren Yıldızhan",
-	  "surname": "Geyhan",
+	  "name": "EREN YILDIZHAN",
+	  "surname": "GEYHAN",
+		"fullName":"EREN YILDIZHAN GEYHAN",
 	  "email":"eren.geyhan@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1013,
-	  "name": "Hande Sinem",
-	  "surname": "Ergün",
+	  "name": "HANDE SİNEM",
+	  "surname": "ERGÜN",
+		"fullName":"HANDE SİNEM ERGÜN",
 	  "email":"@hande.ergunmarmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1014,
-	  "name": "Sinan",
-	  "surname": "Çaya",
+	  "name": "SİNAN",
+	  "surname": "ÇAYA",
+		"fullName":"SİNAN ÇAYA",
 	  "email":"sinan.caya@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1015,
-	  "name": "Mustafa",
-	  "surname": "Yılmaz",
+	  "name": "MUSTAFA",
+	  "surname": "YILMAZ",
+		"fullName":"MUSTAFA YILMAZ",
 	  "email":"mustafa.yılmaz@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1016,
-	  "name": "M. Nureddin",
-	  "surname":"Türkan",
+	  "name": "NUREDDİN",
+	  "surname":"TÜRKAN",
+		"fullName":"NUREDDİN TÜRKAN",
 	  "email":"nureddin.turkan@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1017,
-	  "name": "Mustafa Cem",
-	  "surname": "Çelik",
+	  "name": "MUSTAFA CEM",
+	  "surname": "ÇELİK",
+		"fullName":"MUSTAFA CEM ÇELİK",
 	  "email":"mustafa.celik@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1018,
-	  "name": "Hülya",
-	  "surname": "Özler",
+	  "name": "HÜLYA",
+	  "surname": "ÖZLER",
+		"fullName":"HÜLYA ÖZLER",
 	  "email":"hulya.ozler@marmara.edu.tr"
 	    
 	},
 	
 	{ 
       "instructorID": 1019,
-	  "name": "Hülya",
-	  "surname": "Aslanoğlu",
+	  "name": "HÜLYA",
+	  "surname": "ASLANOĞLU",
+		"fullName":"HÜLYA ASLANOĞLU",
 	  "email":"hulya.aslanoglu@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1020,
-	  "name": "Uğur",
-	  "surname": "Özveren",
+	  "name": "UĞUR",
+	  "surname": "ÖZVEREN",
+		"fullName":"UĞUR ÖZVEREN",
 	  "email":"ugur.ozveren@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1021,
-	  "name": "Fatma Beyza",
-	  "surname": "Başaran",
+	  "name": "FATMA BEYZA",
+	  "surname": "BAŞARAN",
+		"fullName":"FATMA BEYZA BAŞARAN",
 	  "email":"fatma.basaran@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1022,
-	  "name": "Haluk Rahmi",
-	  "surname": "Topçuoğlu",
+	  "name": "HALUK RAHMİ",
+	  "surname": "TOPÇUOĞLU",
+		"fullName":"HALUK RAHMİ TOPÇUOĞLU",
 	  "email":"haluk.topcuoglu@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1023,
-	  "name": "Ayşe Beyza",
-	  "surname": "Celep",
+	  "name": "AYŞE BEYZA",
+	  "surname": "CELEP",
+		"fullName":"AYŞE BEYZA CELEP",
 	  "email":"ayse.celep@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1024,
-	  "name": "Mustafa Taylan",
-	  "surname": "Sengul",
+	  "name": "MUSTAFA TAYLAN",
+	  "surname": "ŞENGÜL",
+		"fullName":"MUSTAFA TAYLAN ŞENGÜL",
 	  "email":"mustafa.sengul@marmara.edu.tr"
 	    
 	},
 
 	{ 
       "instructorID": 1026,
-	  "name": "Beste",
-	  "surname": "Turanlı",
+	  "name": "BESTE",
+	  "surname": "TURANLI",
+		"fullName":"BESTE TURANLI",
 	  "email":"beste.turanlı@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1027,
-	  "name": "Beytullah Gültekin",
-	  "surname": "Çetiner",
+	  "name": "BEYTULLAH GÜLTEKİN",
+	  "surname": "ÇETİNER",
+		"fullName":"BEYTULLAH GÜLTEKİN ÇETİNER",
 	  "email":"beytullah.cetiner@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1028,
-	  "name": "Emrah",
-	  "surname": "Gençalp",
+	  "name": "EMRAH",
+	  "surname": "GENÇALP",
+		"fullName":"EMRAH GENÇALP",
 	  "email":"emrah.gencalp@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1029,
-	  "name": "Aytün",
-	  "surname": "Alakuş",
+	  "name": "AYTÜN",
+	  "surname": "ALAKUŞ",
+		"fullName":"AYTÜN ALAKUŞ",
 	  "email":"aytun.alakus@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1030,
-	  "name": "Özge",
-	  "surname": "Kanat",
+	  "name": "ÖZGE",
+	  "surname": "KANAT",
+		"fullName":"ÖZGE KANAT",
 	  "email":"ozge.kanat@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1031,
-	  "name": "Deniz",
-	  "surname": "Öner",
+	  "name": "DENİZ",
+	  "surname": "ÖNER",
+		"fullName":"DENİZ ÖNER",
 	  "email":"deniz.oner@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1032,
-	  "name": "Hayriye Ebru",
-	  "surname": "Oydağ",
+	  "name": "HAYRİYE EBRU",
+	  "surname": "OYDAĞ",
+		"fullName":"HAYRİYE EBRU OYDAĞ",
 	  "email":"hayriye.oydag@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1033,
-	  "name": "Özlem",
-	  "surname": "Yılmaz",
+	  "name": "ÖZLEM",
+	  "surname": "YILMAZ",
+		"fullName":"ÖZLEM YILMAZ",
 	  "email":"ozlem.yılmaz@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1034,
-	  "name": "Seda",
-	  "surname": "Tunoğlu",
+	  "name": "SEDA",
+	  "surname": "TUNOĞLU",
+		"fullName":"SEDA TUNOĞLU",
 	  "email":"seda.tunoglu@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1035,
-	  "name": "Mustafa",
-	  "surname": "Alevli",
+	  "name": "MUSTAFA",
+	  "surname": "ALEVLİ",
+		"fullName":"MUSTAFA ALEVLİ",
 	  "email":"mustafa.alevli@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1036,
-	  "name": "Tayfun",
-	  "surname": "Akyürek",
+	  "name": "TAYFUN",
+	  "surname": "AKYÜREK",
+		"fullName":"TAYFUN AKYÜREK",
 	  "email":"tayfun.akyurek@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1037,
-	  "name": "Hüseyin",
-	  "surname": "Yaltırık",
+	  "name": "HÜSEYİN",
+	  "surname": "YALTIRIK",
+		"fullName":"HÜSEYİN YALTIRIK",
 	  "email":"huseyin.yaltırık@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1038,
-	  "name": "Yasemin",
-	  "surname": "Bulut",
+	  "name": "YASEMİN",
+	  "surname": "BULUT",
+		"fullName":"YASEMİN BULUT",
 	  "email":"yasemin.bulut@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1039,
-	  "name": "Gülizar Semra",
-	  "surname": "Özkürt",
+	  "name": "GÜLİZAR SEMRA",
+	  "surname": "ÖZKURT",
+		"fullName":"GÜLİZAR SEMRA ÖZKURT",
 	  "email":"gulizar.ozkurt@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1040,
-	  "name": "Rosa Maria Flores",
-	  "surname": "Rangel",
+	  "name": "ROSA MARIA FLORES",
+	  "surname": "RANGEL",
+		"fullName":"ROSA MARIA FLORES RANGEL",
 	  "email":"rosa.rangel@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1041,
-	  "name": "Ahmet",
-	  "surname": "Unutulmaz",
+	  "name": "AHMET",
+	  "surname": "UNUTULMAZ",
+		"fullName":"AHMET UNUTULMAZ",
 	  "email":"ahmet.unutulmaz@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1042,
-	  "name": "Gökhan Bora",
-	  "surname": "Esmer",
+	  "name": "GÖKHAN BORA",
+	  "surname": "ESMER",
+		"fullName":"GÖKHAN BORA ESMER",
 	  "email":"gokhan.esmer@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1043,
-	  "name": "Sıddık Sinan",
-	  "surname": "Keskin",
+	  "name": "SIDDIK SİNAN",
+	  "surname": "KESKİN",
+		"fullName":"SIDDIK SİNAN KESKİN",
 	  "email":"sinan.keskin@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1044,
-	  "name": "Berna",
-	  "surname": "Balta",
+	  "name": "BERNA",
+	  "surname": "BALTA",
+		"fullName":"BERNA BALTA",
 	  "email":"berna.balta@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1045,
-	  "name": "Ahmet Tanju",
-	  "surname": "Yelkenci",
+	  "name": "AHMET TANJU",
+	  "surname": "YELKENCİ",
+		"fullName":"AHMET TANJU YELKENCİ",
 	  "email":"ahmet.yelkenci@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1046,
-	  "name": "Görkem",
-	  "surname": "Yumuşak",
+	  "name": "GÖRKEM",
+	  "surname": "YUMUŞAK",
+		"fullName":"GÖRKEM YUMUŞAK",
 	  "email":"gorkem.yumusak@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1047,
-	  "name": "Engin",
-	  "surname": "Yılmaz",
+	  "name": "ENGİN",
+	  "surname": "YILMAZ",
+		"fullName":"ENGİN YILMAZ",
 	  "email":"engin.yılmaz@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1048,
-	  "name": "Turgay",
-	  "surname": "Özbek",
+	  "name": "TURGAY",
+	  "surname": "ÖZBEK",
+		"fullName":"TURGAY ÖZBEK",
 	  "email":"turgay.ozbek@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1049,
-	  "name": "Cahit",
-	  "surname": "Köse",
+	  "name": "CAHİT",
+	  "surname": "KÖSE",
+		"fullName":"CAHİT KÖSE",
 	  "email":"cahit.kose@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1050,
-	  "name": "Caner",
-	  "surname":"Dilmener",
+	  "name": "CANER",
+	  "surname":"DİLMENER",
+		"fullName":"CANER DİLMENER",
 	  "email":"caner.dilmener@marmara.edu.tr"
 	    
 	},
 	{ 
       "instructorID": 1051,
-	  "name": "Lale",
-	  "surname": "Özdemir Şahin",
+	  "name": "LALE",
+	  "surname": "ÖZDEMİR ŞAHİN",
+		"fullName":"LALE ÖZDEMİR ŞAHİN",
 	  "email":"lale.sahin@marmara.edu.tr"
 	    
+	},
+	{
+		"instructorID": 1052,
+		"name": "BERRİN",
+		"surname": "KURŞUN",
+		"fullName":"BERRİN KURŞUN",
+		"email":"berrin.kursun@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1053,
+		"name": "SEVAL",
+		"surname": "GENÇ",
+		"fullName":"SEVAL GENÇ",
+		"email":"seval.genc@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1054,
+		"name": "ŞAKİR",
+		"surname": "BİNGÖL",
+		"fullName":"ŞAKİR BİNGÖL",
+		"email":"sakir.bingol@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1055,
+		"name": "ARİF",
+		"surname": "SÖYLEMEZ",
+		"fullName":"ARİF SÖYLEMEZ",
+		"email":"arif.soylemez@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1056,
+		"name": "AHU",
+		"surname":"UNCUOĞLU",
+		"fullName":"AHU UNCUOĞLU",
+		"email":"ahu.uncuoglu@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1057,
+		"name": "EMİN",
+		"surname": "ARCA",
+		"fullName":"EMİN ARCA",
+		"email":"emin.arca@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1058,
+		"name": "MAHMURE",
+		"surname": "ARIOĞLU",
+		"fullName":"MAHMURE ARIOĞLU",
+		"email":"mahmure.arıoglu@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1059,
+		"name": "MUSTAFA",
+		"surname": "ÖZDEMİR",
+		"fullName":"MUSTAFA ÖZDEMİR",
+		"email":"mustafa.ozdemir@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1060,
+		"name": "UĞUR",
+		"surname": "TÜMERDEM",
+		"fullName":"UĞUR TÜMERDEM",
+		"email":"ugur.tumerdem@marmara.edu.tr"
+
+	},
+	{
+		"instructorID": 1061,
+		"name": "İBRAHİM",
+		"surname": "KUYSERİ",
+		"fullName":"İBRAHİM KUYSERİ",
+		"email":"ibrahim.kuyseri@marmara.edu.tr"
+
 	}
 
 ]

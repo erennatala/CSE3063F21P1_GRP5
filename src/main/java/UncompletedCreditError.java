@@ -1,4 +1,4 @@
-public class UncompletedCreditError extends Error{
+public class UncompletedCreditError extends Error{//UncompletedCreditError class extends from Error class, and it will occur if student has any uncompleted credit
     private Course course;
 
     public UncompletedCreditError(Student student, Course course) {
@@ -15,7 +15,7 @@ public class UncompletedCreditError extends Error{
     }
 
     @Override
-    public void raiseError() {
-        super.raiseError();
+    public String raiseError() {
+        return "The advisor didn't approve " + course.getCourseId() + " because student completed credits < 155";
     }
 }

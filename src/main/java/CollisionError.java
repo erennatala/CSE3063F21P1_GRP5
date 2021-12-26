@@ -1,19 +1,35 @@
 import java.util.ArrayList;
 
-public class CollisionError extends Error{
+public class CollisionError extends Error{ // CollisionError class extends from Error class, and it checks for if there is a collision in students schedule
+    private Course firstCourse;
+    private Course secondCourse;
 
-    private ArrayList<Course> courses;
-
-    public CollisionError(Student student, ArrayList<Course> courses) {
+    public CollisionError(Student student, Course firstCourse,Course secondCourse) {
         super(student);
-        this.courses = courses;
+        this.firstCourse = firstCourse;
+        this.secondCourse = secondCourse;
     }
 
-    public ArrayList<Course> getCourses() {
-        return courses;
+    public Course getFirstCourse() {
+        return firstCourse;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public CollisionError setFirstCourse(Course firstCourse) {
+        this.firstCourse = firstCourse;
+        return this;
+    }
+
+    public Course getSecondCourse() {
+        return secondCourse;
+    }
+
+    public CollisionError setSecondCourse(Course secondCourse) {
+        this.secondCourse = secondCourse;
+        return this;
+    }
+
+    @Override
+    public String raiseError() {
+        return "Advisor didn't approve "+secondCourse.getName()+" because of collision with "+firstCourse.getName()+" in schedule";
     }
 }

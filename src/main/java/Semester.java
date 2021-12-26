@@ -1,34 +1,61 @@
 import java.util.ArrayList;
+import java.util.List;
 
-public class Semester {
-    private int semesterId;
-    private ArrayList<Course> courseList= new ArrayList<Course>();
+public class Semester {//A class for semesters
+    private Integer semesterId;//semesterId takes the ID of semester
+    private List<Course> courseList = new ArrayList<>();//courseList is a ArrayList that contains the courses for related semester
+    private String season;//season takes the season of the semester
 
-    public Semester(int semesterId) {this.semesterId = semesterId;}
-
-    public Semester(int semesterId, ArrayList<Course> courseList) {
+    public Semester(int semesterId, String season) {
         this.semesterId = semesterId;
-        this.courseList = courseList;
+        this.season = season;
     }
 
-    public int getSemesterId() {
+    public Integer getSemesterId() {
         return semesterId;
     }
 
-    public void setSemesterId(int semesterId) {
+    public void setSemesterId(Integer semesterId) {
         this.semesterId = semesterId;
     }
 
-    public ArrayList<Course> getCourseList() {
+    public List<Course> getCourseList() {
         return courseList;
     }
 
-    public void setCourseList(ArrayList<Course> courseList) {
+    public void setCourseList(List<Course> courseList) {
         this.courseList = courseList;
     }
-    public void addCourse(Course course){
+
+    public void addCourse(Course course) {
         courseList.add(course);
     }
 
+    public String getSeason() {
+        return season;
+    }
 
+    public void setSeason(String season) {
+        this.season = season;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Semester)) return false;
+
+        Semester semester = (Semester) o;
+
+        return getSemesterId().equals(semester.getSemesterId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getSemesterId().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Semester{" + "semesterId=" + semesterId + '}';
+    }
 }

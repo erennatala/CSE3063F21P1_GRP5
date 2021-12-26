@@ -1,23 +1,38 @@
 import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Course {
-    private String courseId;
-    private String name;
-    private int capacity;
-    private float credit;
-    private Semester semester;
-    private ArrayList<Student> students = new ArrayList<Student>();
-    private float ects;
-    private ArrayList<Course> prerequisites;
-    private ArrayList<Section> sectionList;
-    private Instructor instructor;
+public abstract class Course { //Courses in the program will run through Course class
+    private String courseId; // courseId attribute takes the ID of the course
+    private String name; //name attribute takes the name if the course
+    private int capacity; //capacity attribute takes the capacity of the course
+    private float credit; // credit attribute takes the credits of the course
+    private Semester semester;// semester will show the semester of the course
+    private List<Student> students = new ArrayList<>(); // hashmap olucak //the hashmap of students shows the students who are registered for the course
+    private float ects; // ects attribute takes the ects of the class
+    private List<Course> prerequisites = new ArrayList<>();// prerequisites is the list that contains prerequisites courses of the courses
+    private Section section; //section attribute takes the sections of the course
+    private Instructor instructor; //Instructor attribute takes the instructor of the course
 
-    public Course(String courseId, String name, int capacity, float credit, float ects) {
+    protected Course() {
+    }
+
+    protected Course(String courseId, String name, int capacity, float credit, Semester semester, float ects, Instructor instructor) {
+        this.courseId = courseId;
+        this.name = name;
+        this.capacity = capacity;
+        this.credit = credit;
+        this.semester = semester;
+        this.ects = ects;
+        this.instructor = instructor;
+    }
+
+    protected Course(String courseId, String name, int capacity, float credit, float ects, Instructor instructor) {
         this.courseId = courseId;
         this.name = name;
         this.capacity = capacity;
         this.credit = credit;
         this.ects = ects;
+        this.instructor = instructor;
     }
 
     public String getCourseId() {
@@ -60,11 +75,11 @@ public abstract class Course {
         this.semester = semester;
     }
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
@@ -76,23 +91,53 @@ public abstract class Course {
         this.ects = ects;
     }
 
-    public ArrayList<Course> getPrerequisites() {
+    public List<Course> getPrerequisites() {
         return prerequisites;
     }
 
-    public void setPrerequisites(ArrayList<Course> prerequisites) {
+    public void setPrerequisites(List<Course> prerequisites) {
         this.prerequisites = prerequisites;
-    }
-
-    public ArrayList<Section> getSectionList() {
-        return sectionList;
-    }
-
-    public void setSectionList(ArrayList<Section> sectionList) {
-        this.sectionList = sectionList;
     }
 
     public Instructor getInstructor() {return instructor;}
 
     public void setInstructor(Instructor instructor) {this.instructor = instructor;}
+
+    public void addStudentToArraylist(Student student) {
+        List<Student> students = this.students;
+        students.add(student);
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public Course setSection(Section section) {
+        this.section = section;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId='" + courseId + '\'' +
+                ", name='" + name + '\'' +
+                ", instructor=" + instructor +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+
+        Course course = (Course) o;
+
+        return getCourseId().equals(course.getCourseId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getCourseId().hashCode();
+    }
 }

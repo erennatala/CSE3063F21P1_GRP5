@@ -1,7 +1,7 @@
-public abstract class Error {
+public abstract class Error {//A class for errors which may occur for student's course taking process
     private Student student;
 
-    public Error(Student student) {
+    protected Error(Student student) {
         this.student = student;
     }
 
@@ -13,7 +13,7 @@ public abstract class Error {
         this.student = student;
     }
 
-    public void raiseError(){
-        System.out.println("error");
+    public String raiseError(){
+        return "Abstract Error";
     }
 }

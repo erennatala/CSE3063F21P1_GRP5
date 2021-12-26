@@ -1,4 +1,4 @@
-public class TwoTechnicalElectiveError extends Error{
+public class TwoTechnicalElectiveError extends Error {//TwoTechnicalElectiveError class extends from Error class, it will occur if student already taken two Technical Elective courses in Fall semester
     private Course course;
 
     public TwoTechnicalElectiveError(Student student, Course course) {
@@ -15,7 +15,7 @@ public class TwoTechnicalElectiveError extends Error{
     }
 
     @Override
-    public void raiseError() {
-        super.raiseError();
+    public String raiseError() {
+        return "The advisor didn't approve " + course.getCourseId() + " because student already took 2 TE and in FALL semester only 2 TE can be taken.";
     }
 }
