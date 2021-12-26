@@ -39,10 +39,15 @@ public class TranscriptWriter {// TranscriptWriter class writes the transcript
                 double CGPA = student.getCgpa();
                 double roundOff = (double) Math.round(CGPA * 100) / 100;
                 transcript.getTranscriptMap().put("CGPA", roundOff);
-                transcript.getTranscriptMap().put("Semester", student.getSemester().getSemesterId());
+                try {
+                    transcript.getTranscriptMap().put("Semester", student.getSemester().getSemesterId());
+                }catch (NullPointerException np) {
+
+                }
                 transcript.getTranscriptMap().put("Completed Credit", student.getCompletedCredit());
                 writeTranscript(transcript.getTranscriptMap(), student.getId());
             }catch(NullPointerException e){
+
             }
         }
 

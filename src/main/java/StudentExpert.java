@@ -8,6 +8,57 @@ public class StudentExpert {
     public StudentExpert() {
     }
 
+    public Map<Course,List<Integer>> prepareErrorOutput(){
+        Map<Course,List<Integer>> departmentError = new HashMap<>();
+
+        for(Student student: studentMap.values()){
+            List<Error> errorList = student.getErrors();
+            for(Error error: errorList){
+                int index = 7;
+                if(error instanceof CollisionError){
+                    index = 0;
+                }
+                else if(error instanceof NotInGraduationError){
+                    index = 1;
+                }
+                else if(error instanceof PrerequisiteError){
+                    index = 2;
+                }
+                else if(error instanceof ProjectError){
+                    index = 3;
+                }
+                else if(error instanceof QuotaError){
+                    index = 4;
+                }
+                else if(error instanceof TwoTechnicalElectiveError){
+                    index = 5;
+                }
+                else if(error instanceof UncompletedCreditError){
+                    index = 6;
+                }
+                Course course = error.raiseCourse();
+                Integer count;
+                try{
+                //count = departmentError.get(course).get(index);
+                    if(!departmentError.containsKey(course)){
+                        List<Integer> list = new ArrayList<>(Collections.nCopies(7,0));
+                        departmentError.put(course, list);
+                    }else{
+                        count = departmentError.get(course).get(index);
+                        count++;
+                        departmentError.get(course).set(index,count);
+                    }
+
+                }catch(NullPointerException e){
+                    count = 0;
+                }catch(IndexOutOfBoundsException e) {
+                    continue;
+                }
+
+            }
+        }
+       return departmentError;
+    }
     private Student getStudent(int id, String name, String surname, List<String> emails, Semester semester) {
         Student student = new Student(id, name, surname, emails, semester);
         return student;

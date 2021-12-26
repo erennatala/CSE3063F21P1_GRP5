@@ -15,6 +15,11 @@ public class TwoTechnicalElectiveError extends Error {//TwoTechnicalElectiveErro
     }
 
     @Override
+    public Course raiseCourse() {
+        return course;
+    }
+
+    @Override
     public String raiseError() {
         return "The advisor didn't approve " + course.getCourseId() + " because student already took 2 TE and in FALL semester only 2 TE can be taken.";
     }
