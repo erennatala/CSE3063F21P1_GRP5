@@ -1,11 +1,11 @@
-public class Grade {
+public class Grade {//Grade class is the class for students grades
 
-    private Course course;
-    private Student student;
-    private String letterGrade;
-    private double successGrade;
-    private int YSS;
-    private int YIS;
+    private Course course;// course attribute takes the courses of the grade
+    private Student student;// student attribute takes the student of the grade
+    private String letterGrade;// letterGrade attribute is takes the letter grade for grade
+    private double successGrade;// success successGrade attribute takes the success grade
+    private int YSS;// YSS attribute is the grade attribute for end of the year
+    private int YIS;// YIS attribute is the grade attribute for year while student is studying that year
 
     public Grade(Student student,Course course, int YSS, int YIS) {
         this.student = student;

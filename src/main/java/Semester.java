@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Semester {
-    private Integer semesterId;
-    private List<Course> courseList = new ArrayList<>();
-    private String season;
+public class Semester {//A class for semesters
+    private Integer semesterId;//semesterId takes the ID of semester
+    private List<Course> courseList = new ArrayList<>();//courseList is a ArrayList that contains the courses for related semester
+    private String season;//season takes the season of the semester
 
     public Semester(int semesterId, String season) {
         this.semesterId = semesterId;

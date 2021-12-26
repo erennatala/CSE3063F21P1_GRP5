@@ -1,4 +1,4 @@
-public class NotInGraduationError extends Error{
+public class NotInGraduationError extends Error{//NotInGraduationError class extends from Error class and, it will occur when student is not in graduation.
     private Course course;
 
     public NotInGraduationError(Student student, Course course) {

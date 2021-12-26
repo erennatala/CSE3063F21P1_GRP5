@@ -1,4 +1,4 @@
-public class TwoTechnicalElectiveError extends Error {
+public class TwoTechnicalElectiveError extends Error {//TwoTechnicalElectiveError class extends from Error class, it will occur if student already taken two Technical Elective courses in Fall semester
     private Course course;
 
     public TwoTechnicalElectiveError(Student student, Course course) {

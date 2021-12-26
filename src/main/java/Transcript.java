@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Transcript {
-    private Map<String, Object> transcriptMap;
-    private Student student;
+public class Transcript {//A class for Transcript
+    private Map<String, Object> transcriptMap;//transcriptMap as Map
+    private Student student;//student attribute
 
     public Transcript(Student student) {
         this.student = student;
@@ -17,14 +17,14 @@ public class Transcript {
 
     }
 
-    public Map<String, Object> createSemester() {
+    public Map<String, Object> createSemester() {//function creates a semester and puts courses as HashMap and errors as ArrayList
         Map<String, Object> semesterMap = new HashMap<>();
         semesterMap.put("Courses", new HashMap<String, Object>());
         semesterMap.put("Errors", new ArrayList<>());
         return semesterMap;
     }
 
-    public void addSemester(Semester semester) {
+    public void addSemester(Semester semester) {//the method written below adds semester and puts semester to semesterMap. Also, it puts student's gpa to transcriptMap
         Map<String, Object> semesterMap = createSemester();
         String semesterString = "Semester".concat(semester.getSemesterId().toString());
         transcriptMap.put(semesterString, semesterMap);
@@ -32,7 +32,7 @@ public class Transcript {
     }
 
     @SuppressWarnings("unchecked")
-    public void addCourse(Course course) {
+    public void addCourse(Course course) {// the function adds course via semester name and transcriptMap
         String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
         Map<String, Object> semesterMap = (HashMap<String, Object>) transcriptMap.get(semesterName);
         Map<String, Object> courseMap = (HashMap<String, Object>) semesterMap.get("Courses");

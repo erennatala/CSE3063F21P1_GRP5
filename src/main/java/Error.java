@@ -1,4 +1,4 @@
-public abstract class Error {
+public abstract class Error {//A class for errors which may occur for student's course taking process
     private Student student;
 
     protected Error(Student student) {

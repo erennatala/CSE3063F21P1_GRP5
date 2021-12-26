@@ -14,7 +14,7 @@ public class CourseExpert {
     public CourseExpert() {
         createSemester();
     }
-    public void createSemester() {
+    public void createSemester() { //Semesters get created in below methods based on semester number
         int semesterId;
         for (int i = 1; i < 9; i++) {
             semesterId = i;
@@ -22,7 +22,7 @@ public class CourseExpert {
             if (i%2==1)
                 season = "Fall";
             else season = "Spring";
-            this.semesterMap.put(semesterId,new Semester(semesterId, season));
+            this.semesterMap.put(semesterId,new Semester(semesterId, season)); //they will be named as Fall or Spring again based on the semester number
         }
     }
     public void clearCourses(){
@@ -94,41 +94,41 @@ public class CourseExpert {
         List<ElectiveCourse> facultyTechnicalList = this.facultyTechnicalList;
         facultyTechnicalList.add(electiveCourse);
     }
-    public ElectiveCourse getElectiveFactory(String type,String courseId, String name, int capacity, float credit, float ects,Instructor instructor){
+    public ElectiveCourse getElectiveFactory(String type,String courseId, String name, int capacity, float credit, float ects,Instructor instructor){// this is a factory design pattern for elective courses
         if (type == null){
             return null;
         }
-        if(type.equalsIgnoreCase("NTE-UE")){
+        if(type.equalsIgnoreCase("NTE-UE")){ //checks for if the course is a Non-Technical or a University Elective
             ElectiveCourse nt_uElective = new NT_UElective(courseId, name, capacity, credit, ects, instructor);
-            if(!(courseId.equals("NTExxx") || courseId.equals("UE")))
+            if(!(courseId.equals("NTExxx") || courseId.equals("UE"))) //if the course has a NTExxx or UE code it will not be added
                 addNTUElective(nt_uElective);
             return nt_uElective;
         }
-        else if (type.equalsIgnoreCase("TE")){
+        else if (type.equalsIgnoreCase("TE")){//checks for if the course is a Technical Elective
             ElectiveCourse technicalElective = new TechnicalElective(courseId, name, capacity, credit, ects, instructor);
-            if(!courseId.equals("TExxx"))
+            if(!courseId.equals("TExxx")) //if the course has a TExxx code it will not be added
                 addTechnicalElective(technicalElective);
             return technicalElective;
         }
-        else if (type.equalsIgnoreCase("FTE")){
+        else if (type.equalsIgnoreCase("FTE")){//checks for if the course is a Faculty Technical Elective
             ElectiveCourse facultyTechnicalElective = new FacultyTechnicalElective(courseId, name, capacity, credit, ects, instructor);
-            if(!courseId.equals("FTExxx"))
+            if(!courseId.equals("FTExxx")) //if the course has a FTExxx code it will not be added
             addFacultyTechnicalElective(facultyTechnicalElective);
             return facultyTechnicalElective;
         }
         return null;
     }
-    public Course createCourse(String courseId, String name, int capacity, float credit, float ects, String type, int semesterId, Instructor instructor){
+    public Course createCourse(String courseId, String name, int capacity, float credit, float ects, String type, int semesterId, Instructor instructor){ //courses get created in the given function
         Course mandatoryCourse;
         Map<Integer,Semester> semesterMap = this.semesterMap;
         Semester semester = semesterMap.get(Integer.valueOf(semesterId));
-        if(type.equals("Must")){
+        if(type.equals("Must")){// if the course has a must type it will be created as mandatory course
             mandatoryCourse = new MandatoryCourse(courseId,name,capacity,credit,ects,semester,instructor);
             addMandatoryCourse(mandatoryCourse);
             semester.addCourse(mandatoryCourse);
             return mandatoryCourse;
         }
-        else{
+        else{// if course has not must type it will not be created as mandatory, instead of it, it will be created as elective course
             ElectiveCourse electiveCourse = getElectiveFactory(type, courseId, name, capacity, credit, ects,instructor);
             addMandatoryCourse(electiveCourse);
             semester.addCourse(electiveCourse);

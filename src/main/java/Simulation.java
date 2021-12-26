@@ -14,8 +14,9 @@ public class Simulation {
     public Simulation() {
     }
 
-    public void startRegistration() {
+    public void startRegistration() {//the method starts the registration of students
         //register students
+        System.out.println("--Start point of the startRegistration function--");
         Map<Integer, Student> studentMap = studentExpert.getStudentMap();
         Iterator<Map.Entry<Integer, Student>> studentIterator = studentMap.entrySet().iterator();
         while (studentIterator.hasNext()) {
@@ -27,16 +28,20 @@ public class Simulation {
             registrator.startRegistration();
             //student.getActiveCourses().forEach(System.out::println);
         }
+        System.out.println("--End point of the startRegistration function--");
     }
 
 
-    public void startGrading() {
+    public void startGrading() {//the method written below starts the grading with using for loop via Grader
+        System.out.println("--Start point of the starGrading function--");
         for (Course course : courseExpert.getCourses()) {
             Grader grader = new Grader(course);
             grader.startGrading();
         }
+        System.out.println("--End point of the startGrading function--");
     }
-    public void assignNextSemester(){
+    public void assignNextSemester(){//the function assigns the next semester for student
+        System.out.println("--Start point of the assignNextSemester function--");
         Map<Integer, Student> studentMap = studentExpert.getStudentMap();
         for (Student student : studentMap.values()) {
             int nextSemesterID = student.getSemester().getSemesterId()+1;
@@ -45,6 +50,7 @@ public class Simulation {
             registrator.assignNextSemester(student,semester);
         }
         courseExpert.clearCourses();
+        System.out.println("--End point of the assignNextSemester function--");
     }
 
     public StudentExpert getStudentExpert() {
@@ -79,22 +85,27 @@ public class Simulation {
         this.courseExpert = courseExpert;
     }
 
-    public void addAllCoursesTogether() {
+    public void addAllCoursesTogether() {//method written below provides adding all courses together via courseExpert
+        System.out.println("--Start point of the addAllCoursesTogether function--");
         List<Course> courses = new ArrayList<>();
         courses.addAll(courseExpert.getMandatoryCourses());
         courses.addAll(courseExpert.getTechnicalList());
         courses.addAll(courseExpert.getFacultyTechnicalList());
         courses.addAll(courseExpert.getNT_UList());
         courseExpert.setCourses(courses);
+        System.out.println("--End point of the addAllCoursesTogether function--");
     }
-    public void checkTranscriptFolder(){
+    public void checkTranscriptFolder(){//the function checks for the transcript folder
+        System.out.println("--Start point of the checkTranscriptFolder function--");
         File file = new File("transcripts/");
-        if(!file.exists()){
+        if(!file.exists()){//if folder does not exist, it gets created
             file.mkdir();
         }
+        System.out.println("--End point of the checkTranscriptFolder function--");
     }
 
-    public void start() {
+    public void start() {//programs starts the launch
+        System.out.println("--Start point of the start function--");
         checkTranscriptFolder();
         InputReader inputReader = this.inputReader;
         StudentExpert studentExpert = this.studentExpert;
@@ -141,6 +152,6 @@ public class Simulation {
 
 //        transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
 //        studentExpert.showStudents();
-
+        System.out.println("--End point of the start function--");
     }
 }

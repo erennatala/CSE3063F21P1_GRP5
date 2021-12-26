@@ -1,4 +1,4 @@
-public class FacultyTechnicalElective extends ElectiveCourse{
+public class FacultyTechnicalElective extends ElectiveCourse{// A class for Faculty Technical Elective courses and, it extends from ElectiveCourse class
 
     public FacultyTechnicalElective() {
         super();

@@ -16,10 +16,10 @@ public class InputReader {
     private JSONParser parser = new JSONParser(); //her json okumada kulanılacak
 
     @SuppressWarnings("unchecked")
-    public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata
+    public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata //the function is reads the courses from json file and assigns them to instructors
 
         try {
-            JSONArray curr_input = (JSONArray) parser.parse(new FileReader("curriculum.json"));
+            JSONArray curr_input = (JSONArray) parser.parse(new FileReader("curriculum.json")); //creates a JSONArray as and reads curriculum.json
 
             for (Object o : curr_input) {
                 JSONObject courses = (JSONObject) o;
@@ -27,28 +27,28 @@ public class InputReader {
                 List<String> l = new ArrayList<String>(courses.keySet());
 
                 for (int i = 0; i < l.size(); i++) {
-                    JSONArray data_title = (JSONArray) courses.get(l.get(i));//title altındaki dersler arrayi
+                    JSONArray data_title = (JSONArray) courses.get(l.get(i));//title altındaki dersler arrayi //gets the courses array under title
 
-                    for (int j = 0; j < data_title.size(); j++) {
+                    for (int j = 0; j < data_title.size(); j++) { //the for loop creates JSONObject by getting data_title
 
                         JSONObject obj = (JSONObject) data_title.get(j);
 
-                        Course course = null;
-                        String courseId = obj.get("courseId").toString();
-                        String courseName = obj.get("courseName").toString();
-                        int capacity = Integer.parseInt(obj.get("Capacity").toString());
-                        float credit = Integer.parseInt(obj.get("Credit").toString());
-                        float ects = Integer.parseInt(obj.get("ECTS").toString());
-                        String type = obj.get("Type").toString();
-                        String instructor = obj.get("Instructor").toString();
-                        JSONArray schedule = (JSONArray) obj.get("Schedule");
+                        Course course = null; //course will be read from json file
+                        String courseId = obj.get("courseId").toString(); //courseID will be gotten
+                        String courseName = obj.get("courseName").toString();//name of the course will be gotten
+                        int capacity = Integer.parseInt(obj.get("Capacity").toString());//capacity of the class will be taken
+                        float credit = Integer.parseInt(obj.get("Credit").toString());//credits of course will be taken
+                        float ects = Integer.parseInt(obj.get("ECTS").toString());//ects of the course will be taken
+                        String type = obj.get("Type").toString();//type will be gotten from json file via the loop
+                        String instructor = obj.get("Instructor").toString();//instructors of the courses will be taken
+                        JSONArray schedule = (JSONArray) obj.get("Schedule"); //schedule will be gotten from obj for JSONArray
 
                         if (!courseId.equals("NTExxx") && !courseId.equals("TExxx") && !courseId.equals("FTExxx") && !courseId.equals("UE") && instructor.equals("") && !type.equals("Must")) {
                             continue;
-                        }
+                        }//the condition checks the courseID if it is equal to NTExxx, Texxx, Ftexxx and UE. Also, it checks if there is an instructor for course and type of the course.
 
                         Instructor instructorObject = instructorExpert.findInstructor(instructor);
-
+                        //checks the courses by their title and it sends them to related lists
                         if (l.get(i).substring(0, 8).equals("Semester")) {
                             int semesterId = Integer.parseInt(l.get(i).substring(l.get(i).length() - 1));
                             course = courseExpert.createCourse(courseId, courseName, capacity, credit, ects, type, semesterId, instructorObject);
@@ -99,7 +99,7 @@ public class InputReader {
     }
 
     @SuppressWarnings("unchecked")
-    public void readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {
+    public void readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {//method for reading students Json files
 
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
@@ -135,7 +135,7 @@ public class InputReader {
         }
     }
 
-    public void readInstructorJson(InstructorExpert instructorExpert) {
+    public void readInstructorJson(InstructorExpert instructorExpert) {//a method for reading instructors json files
 
         try {
             JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("instructors.json"));
@@ -160,7 +160,7 @@ public class InputReader {
     }
 
     @SuppressWarnings("unchecked")
-    public void readPrerequisiteJson(CourseExpert courseExpert) {
+    public void readPrerequisiteJson(CourseExpert courseExpert) {//function reads the prerequisite json file
 
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("prerequisite.json"));

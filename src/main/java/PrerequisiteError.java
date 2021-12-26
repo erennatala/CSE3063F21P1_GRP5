@@ -1,4 +1,4 @@
-public class PrerequisiteError extends Error{
+public class PrerequisiteError extends Error{//PrerequisiteError class extends from Error class. It will occur when a student tries to take a course which he/she did not pass the prerequisite course of that course.
     private Course course;
     private Course required;
 

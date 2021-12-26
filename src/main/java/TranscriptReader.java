@@ -14,16 +14,16 @@ public class TranscriptReader {
     private JSONParser parser = new JSONParser();
 
     @SuppressWarnings("unchecked")
-    public void readTranscriptJson(StudentExpert studentExpert, CourseExpert courseExpert, InstructorExpert instructorExpert) {
+    public void readTranscriptJson(StudentExpert studentExpert, CourseExpert courseExpert, InstructorExpert instructorExpert) {// the function reads the transcripts from json files
 
         try {
-            File folder = new File("transcripts");
+            File folder = new File("transcripts");//pathname
             File[] listOfFiles = folder.listFiles();
 
-            for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
+            for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {//for loop ranges length of listOfFiles
                 File file = listOfFiles[i];
 
-                try {
+                try {// halihazirda olusturulmus transcript dosyalarini alir islem yapar ve trancript varsa okuyup ogrenci olusturuyor ogrencinin transcriptle bulunan bilgilerini ogrenciyi olusturuktan sonra icine atar
                     JSONObject curr_input = (JSONObject) parser.parse(new FileReader(file.toString()));
 
                     String name = curr_input.get("Name").toString();

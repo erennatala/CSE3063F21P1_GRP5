@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Instructor extends Person {
     private String fullName;
-    private List<Student> advisees = new ArrayList<>(); //list needs to be corrected it has be to list instead of arrayList which has coming through constructer, there will be list interface instead of collection
+    private List<Student> advisees = new ArrayList<>(); //ArrayList needs to be corrected it has be to list instead of arrayList which has coming through constructer, there will be list interface instead of collection
     private List<Course> givenCourses = new ArrayList<>();
 
     public Instructor(int id, String name, String surname, List<String> emails) {
@@ -18,7 +18,7 @@ public class Instructor extends Person {
         this.fullName = name + " " + surname;
     }
 
-    public void checkTwoTechnical(Student student) {
+    public void checkTwoTechnical(Student student) {//the method written below checks the student if he/she tries to take two technical elective courses. If he/she tries error occurres
         List<Course> courseBasket = student.getCourseBasket();
         int count = 0;
         Iterator<Course> iterator = courseBasket.iterator();
@@ -26,7 +26,7 @@ public class Instructor extends Person {
             Course next = iterator.next();
             if (next instanceof TechnicalElective) {
                 count++;
-                if (count > 2) {
+                if (count > 2) {//after checks for the courses, related course gets added to non taken courses
                     Error technicalElectiveError = new TwoTechnicalElectiveError(student, next);
                     student.addNonTakenCourse(new TechnicalElective());
                     student.addError(technicalElectiveError);
@@ -37,13 +37,13 @@ public class Instructor extends Person {
         }
     }
 
-    public void checkFTE(Student student) {
+    public void checkFTE(Student student) {//the function checks for FTE courses of student's course basket
         List<Course> courseBasket = student.getCourseBasket();
         Course course = courseBasket.stream()
                 .filter(src -> src instanceof FacultyTechnicalElective)
                 .findAny()
                 .orElse(null);
-        if (course != null) {
+        if (course != null) {//if there are no fte courses notInGraduationError occurs
             courseBasket.remove(course);
             Error notInGraduationError = new NotInGraduationError(student, course);
             student.addNonTakenCourse(new FacultyTechnicalElective());
@@ -52,9 +52,9 @@ public class Instructor extends Person {
 
     }
 
-    public void graduationProjectCheck(Student student) {
+    public void graduationProjectCheck(Student student) {// the function checks for the student's graduation project
         List<Course> courseBasket = student.getCourseBasket();
-        if (student.getCompletedCredit() < 165) {
+        if (student.getCompletedCredit() < 165) {//condition looks for student's completed credit if it is enough to take graduation project
             Course course = courseBasket.stream()
                     .filter(src -> src.getCourseId().equals("CSE4197"))
                     .findAny()
@@ -68,12 +68,12 @@ public class Instructor extends Person {
         }
     }
 
-    public void checkMinimumCredit(Student student) {
+    public void checkMinimumCredit(Student student) {//the function checks the student's course basket and iteration process runs.
         List<Course> courseBasket = student.getCourseBasket();
         Iterator<Course> iterator = courseBasket.iterator();
         while (iterator.hasNext()) {
             Course next = iterator.next();
-            if (next instanceof TechnicalElective && student.getCompletedCredit() < ((TechnicalElective) next).getMinimumCredit()) {
+            if (next instanceof TechnicalElective && student.getCompletedCredit() < ((TechnicalElective) next).getMinimumCredit()) {//if condition checks for minimum credit condition to take Technical Elective course
                 Error uncompletedCreditError = new UncompletedCreditError(student, next);
                 student.addNonTakenCourse(new TechnicalElective());
                 student.addError(uncompletedCreditError);
@@ -81,7 +81,7 @@ public class Instructor extends Person {
             }
         }
     }
-    public Course selectNonTakenCourse(Course course){
+    public Course selectNonTakenCourse(Course course){//the method written below checks for the instances of courses if it is Technical Elective, Faculty Technical Elective or NT_UE Elective then selects the non-taken one
         if(course instanceof MandatoryCourse) {
             return course;
         }else if(course instanceof TechnicalElective){
@@ -93,7 +93,7 @@ public class Instructor extends Person {
         }
         return null;
     }
-    public void collisionCheck(List<Course> courseBasket,Student student){
+    public void collisionCheck(List<Course> courseBasket,Student student){//the function uses a loop to get in course list and, it compares them with each other. By the priority of colliding lectures it will start a delete process. And deleted courses will be sent to non taken courses list.
         List<Course> willBeRemoved = new ArrayList<>();
 
         Iterator<Course> basketIterator = courseBasket.iterator();
@@ -198,7 +198,7 @@ public class Instructor extends Person {
 
     }
 
-    public void approveStudentBasket(Student student) {
+    public void approveStudentBasket(Student student) {//the function checks the student if it is appropriate to approve via season amd elective courses
         String season = student.getSemester().getSeason();
         int semesterId = student.getSemester().getSemesterId();
 
