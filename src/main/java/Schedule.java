@@ -1,15 +1,15 @@
 import org.jetbrains.annotations.NotNull;
 
 
-public class Schedule implements Comparable<Schedule>{
-    private String day;
-    private int startTime;
-    private int endTime;
+public class Schedule implements Comparable<Schedule>{//A class for Schedule
+    private String day;//day attribute for days in schedule
+    private int startTime;//startTime attribute shows the start time in schedule
+    private int endTime;//endTime attribute shows the start time in schedule
 
     public Schedule(String day, String start, String end) {
         this.day = day;
-        String [] startParsed = start.split(":");
-        String [] endParsed = end.split(":");
+        String [] startParsed = start.split(":");//splits start
+        String [] endParsed = end.split(":");//splits end
         this.startTime = Integer.parseInt(startParsed[0] + startParsed[1]);
         this.endTime = Integer.parseInt(endParsed[0] + endParsed[1]);
     }

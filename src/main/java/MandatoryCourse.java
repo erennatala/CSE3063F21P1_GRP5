@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class MandatoryCourse extends Course{
+public class MandatoryCourse extends Course{//MandatoryCourse class extends from Course class and, it is for must type courses
+    private ArrayList<LabCourse> labList;
 
     public MandatoryCourse() {
     }

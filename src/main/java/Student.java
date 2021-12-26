@@ -3,22 +3,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Student extends Person {
-    private Semester semester;
-    private Map<Course, Grade> gradeMap = new HashMap<>();
-    private float gpa = 0;
-    private float cgpa = 0;
-    private Instructor advisor;
-    private int completedCredit;
-    private List<Course> activeCourses = new ArrayList<>();
-    private List<Course> courseBasket = new ArrayList<>();
-    private List<Course> pastCourses = new ArrayList<>();
-    private List<Course> nonTakenCourses = new ArrayList<>();
-    private List<Course> failedCourses = new ArrayList<>();
-    private List<Error> errors = new ArrayList<>();
-    private Transcript transcript;
-    // Cumilative Taken Credit : All Attemted Credit -> oldCumilateiveTaken + this semester taken credit
-    // SemesterTakenCredit : attemted Credit in semester -> if a course is re attemted reduce it from oldCumilative
+public class Student extends Person {//A class for Students and it extends from Person class
+    private Semester semester;//semester attribute to take semester of students that passed or active
+    private Map<Course, Grade> gradeMap = new HashMap<>();//gradeMap is a HashMap for grading
+    private float gpa = 0;//attribute for gpa
+    private float cgpa = 0;//attribute for cgpa
+    private Instructor advisor;//advisor attribute for instructor of the student
+    private int completedCredit;//completedCredit takes the credits that student has completed
+    private List<Course> activeCourses = new ArrayList<>();//ArrayList takes the active courses of the student
+    private List<Course> courseBasket = new ArrayList<>();//ArrayList for student's course basket
+    private List<Course> pastCourses = new ArrayList<>();//ArrayList takes the student's past courses
+    private List<Course> nonTakenCourses = new ArrayList<>();//ArrayList takes the courses that student has not taken yet
+    private List<Course> failedCourses = new ArrayList<>();// ArrayList takes the student's failed courses
+    private List<Error> errors = new ArrayList<>();//ArrayList for errors that occurred
+    private Transcript transcript;//transcript attribute for student's transcript
 
     public Student() {
         super();
@@ -173,7 +171,7 @@ public class Student extends Person {
         this.transcript = transcript;
     }
 
-    public void showActiveCourse() {
+    public void showActiveCourse() {//the method given below shows the active courses of the student via for loop
         System.out.println(getName() + " " + getSurname());
         for (Course course : activeCourses) {
             System.out.println(course.getName());

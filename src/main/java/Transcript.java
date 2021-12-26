@@ -21,7 +21,7 @@ public class Transcript {
 
     }
 
-    public Map<String, Object> createSemester() {
+    public Map<String, Object> createSemester() {//function creates a semester and puts courses as HashMap and errors as ArrayList
         Map<String, Object> semesterMap = new HashMap<>();
         semesterMap.put("Courses", new HashMap<String, Object>());
         semesterMap.put("Errors", new ArrayList<>());
@@ -71,7 +71,7 @@ public class Transcript {
     }
 
     @SuppressWarnings("unchecked")
-    public void addCourse(Course course) {
+    public void addCourse(Course course) {// the function adds course via semester name and transcriptMap
         String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
         Map<String, Object> semesterMap = (HashMap<String, Object>) transcriptMap.get(semesterName);
         Map<String, Object> courseMap = (HashMap<String, Object>) semesterMap.get("Courses");

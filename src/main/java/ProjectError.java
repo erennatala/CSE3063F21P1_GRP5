@@ -1,4 +1,4 @@
-public class ProjectError extends Error{
+public class ProjectError extends Error{//ProjectError class extends from Error class, it may occur when student did not finish the project
     private Course course;
 
     public ProjectError(Student student, Course course) {

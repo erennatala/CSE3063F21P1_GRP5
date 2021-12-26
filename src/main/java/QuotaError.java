@@ -1,4 +1,4 @@
-public class QuotaError extends Error{
+public class QuotaError extends Error{//QuotaError class extends from Error class, it will occur when there is not enough capacity for the course that student tries to take
 
     private Course course;
 

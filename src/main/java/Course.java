@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Course {
-    private String courseId;
-    private String name;
-    private int capacity;
-    private float credit;
-    private Semester semester;
-    private List<Student> students = new ArrayList<>(); // hashmap olucak
-    private float ects;
-    private List<Course> prerequisites = new ArrayList<>();
-    private Section section;
-    private Instructor instructor;
+public abstract class Course { //Courses in the program will run through Course class
+    private String courseId; // courseId attribute takes the ID of the course
+    private String name; //name attribute takes the name if the course
+    private int capacity; //capacity attribute takes the capacity of the course
+    private float credit; // credit attribute takes the credits of the course
+    private Semester semester;// semester will show the semester of the course
+    private List<Student> students = new ArrayList<>(); // hashmap olucak //the hashmap of students shows the students who are registered for the course
+    private float ects; // ects attribute takes the ects of the class
+    private List<Course> prerequisites = new ArrayList<>();// prerequisites is the list that contains prerequisites courses of the courses
+    private Section section; //section attribute takes the sections of the course
+    private Instructor instructor; //Instructor attribute takes the instructor of the course
 
     protected Course() {
     }

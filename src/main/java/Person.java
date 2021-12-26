@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Person {
-    private int id;
-    private String name;
-    private String surname;
-    private List<String> emails;
+    private int id;//id attribute takes the ID of the person
+    private String name;//name attribute takes the name of the person
+    private String surname;// surname attribute takes the surname of the person
+    private List<String> emails;//emails attribute is a list that takes emails
 
     protected Person() {
     }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class CollisionError extends Error{
+public class CollisionError extends Error{ // CollisionError class extends from Error class, and it checks for if there is a collision in students schedule
     private Course firstCourse;
     private Course secondCourse;
 

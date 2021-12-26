@@ -1,4 +1,4 @@
-public class TechnicalElective extends ElectiveCourse {
+public class TechnicalElective extends ElectiveCourse {//A class for Technical Elective courses and, it extends from ElectiveCourse class
     private final int minimumCredit = 155;
 
     public TechnicalElective() {

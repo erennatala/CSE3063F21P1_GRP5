@@ -2,8 +2,8 @@ import java.util.*;
 
 public class StudentExpert {
     //private List<Student> students;
-    private Map<Integer, Student> studentMap = new HashMap<>();
-    private List<Instructor> instructors;
+    private Map<Integer, Student> studentMap = new HashMap<>();//attribute studentMap as HashMap
+    private List<Instructor> instructors;//instructors as instructor list
 
     public StudentExpert() {
     }
@@ -29,7 +29,7 @@ public class StudentExpert {
         this.instructors = instructors;
     }
 
-    public void createStudent(int id, String name, String surname, List<String> emails, Semester semester) {
+    public void createStudent(int id, String name, String surname, List<String> emails, Semester semester) {//the function creates the student with given parameters such as id, name, surname, emails and semester
         Random random = new Random();
         Student student = getStudent(id, name, surname, emails, semester);
         List<Instructor> instructors = getInstructors();
@@ -42,7 +42,7 @@ public class StudentExpert {
         student.setTranscript(new Transcript(student));
     }
 
-    public void showStudents() {
+    public void showStudents() {//via the studentMap the function prints the students by the help of iteration
         Map<Integer, Student> studentMap = this.studentMap;
         Iterator<Map.Entry<Integer, Student>> studentIterator = studentMap.entrySet().iterator();
         while (studentIterator.hasNext()) {
