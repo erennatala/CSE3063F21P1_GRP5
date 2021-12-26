@@ -198,6 +198,23 @@ public class InputReader {
         }
     }
 
+    public String readConfig() {
+
+        try {
+            JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
+            String season = config.get("Season").toString();
+            return season;
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public JSONParser getParser() {
         return parser;
     }
