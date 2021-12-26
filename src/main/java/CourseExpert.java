@@ -25,6 +25,11 @@ public class CourseExpert {
             this.semesterMap.put(semesterId,new Semester(semesterId, season));
         }
     }
+    public void clearCourses(){
+        for(Course course: courses) {
+            course.getStudents().clear();
+        }
+    }
     public List<Course> getCourses() {
         return courses;
     }
@@ -102,7 +107,7 @@ public class CourseExpert {
         else if (type.equalsIgnoreCase("TE")){
             ElectiveCourse technicalElective = new TechnicalElective(courseId, name, capacity, credit, ects, instructor);
             if(!courseId.equals("TExxx"))
-            addTechnicalElective(technicalElective);
+                addTechnicalElective(technicalElective);
             return technicalElective;
         }
         else if (type.equalsIgnoreCase("FTE")){

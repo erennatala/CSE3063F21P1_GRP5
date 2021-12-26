@@ -62,6 +62,7 @@ public class Approver {
     }
 
     public boolean isElectiveTaken() {
+        System.out.println(course);
         List<Course> pastCourses = student.getPastCourses();
         List<Course> courseBasket = student.getCourseBasket();
         if (pastCourses.contains(course)) {

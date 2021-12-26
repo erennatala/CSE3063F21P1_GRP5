@@ -14,6 +14,7 @@ public class TranscriptWriter {
     }
 
     public void writeTranscript(Map<String, Object> transcriptMap, int studentId) {
+
         JSONObject transcriptMap1 = new JSONObject(transcriptMap);
 
         try {
@@ -34,6 +35,9 @@ public class TranscriptWriter {
             Map.Entry<Integer, Student> iteratorMap = (Map.Entry<Integer, Student>) studentIterator.next();
             Student student = iteratorMap.getValue();
             Transcript transcript = student.getTranscript();
+            transcript.getTranscriptMap().put("CGPA: ", student.getCgpa());
+            transcript.getTranscriptMap().put("Semester: ", student.getSemester().getSemesterId());
+            transcript.getTranscriptMap().put("Completed Credit", student.getCompletedCredit());
             writeTranscript(transcript.getTranscriptMap(), student.getId());
 
         }

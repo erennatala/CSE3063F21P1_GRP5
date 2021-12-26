@@ -5,7 +5,7 @@ public class Test {
 
     public static void main(String[] args) {
        Simulation simulation = new Simulation();
-        simulation.start();
+       simulation.start();
 
 //        List<Schedule> list1 = new ArrayList<>();
 //        list1.add(new Schedule("Monday","16:00","16:50"));
@@ -25,6 +25,7 @@ public class Test {
 //                        ) >= 1
 //                )
 //                .collect(Collectors.toList());
+//        System.out.println(list2);
 //
 //        System.out.println(collisions);
 

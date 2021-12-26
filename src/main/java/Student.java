@@ -5,8 +5,6 @@ import java.util.Map;
 
 public class Student extends Person {
     private Semester semester;
-    private Boolean IsBasketApproved;
-    private Grade grade;
     private Map<Course, Grade> gradeMap = new HashMap<>();
     private float gpa = 0;
     private float cgpa = 0;
@@ -47,14 +45,6 @@ public class Student extends Person {
         this.semester = semester;
     }
 
-    public Boolean getBasketApproved() {
-        return IsBasketApproved;
-    }
-
-    public void setBasketApproved(Boolean basketApproved) {
-        IsBasketApproved = basketApproved;
-    }
-
     public float getGpa() {
         return gpa;
     }
@@ -69,14 +59,6 @@ public class Student extends Person {
 
     public void setCgpa(float cgpa) {
         this.cgpa = cgpa;
-    }
-
-    public Grade getGrade() {
-        return grade;
-    }
-
-    public void setGrade(Grade grade) {
-        this.grade = grade;
     }
 
     public Instructor getAdvisor() {

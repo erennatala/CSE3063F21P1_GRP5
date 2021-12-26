@@ -25,7 +25,6 @@ public class Simulation {
             // Register 1 Student to 1 semester
             registrator.startRegistration();
             //student.getActiveCourses().forEach(System.out::println);
-
         }
     }
 
@@ -35,6 +34,16 @@ public class Simulation {
             Grader grader = new Grader(course);
             grader.startGrading();
         }
+    }
+    public void assignNextSemester(){
+        Map<Integer, Student> studentMap = studentExpert.getStudentMap();
+        for (Student student : studentMap.values()) {
+            int nextSemesterID = student.getSemester().getSemesterId()+1;
+            Semester semester = courseExpert.getSemesterMap().get(nextSemesterID);
+            Registrator registrator = new Registrator();
+            registrator.assignNextSemester(student,semester);
+        }
+        courseExpert.clearCourses();
     }
 
     public StudentExpert getStudentExpert() {
@@ -105,17 +114,18 @@ public class Simulation {
 
 
         int startIndex = 0;
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 8; i++) {
             if (i % 2 == 1) {
                 inputReader.readStudentJson(startIndex + ((i - 1) * 35), studentExpert, courseExpert.getSemesterMap().get(1));
-                break;
             }
             // after create start registration
             startRegistration();
+            startGrading();
+            assignNextSemester();
 
         }
-        startRegistration();
-        startGrading();
+//        startRegistration();
+//        startGrading();
         TranscriptWriter transcriptWriter = new TranscriptWriter(studentExpert);
         transcriptWriter.startWriter();
         // 1 semester bittikten sonra gerekli değerleri arttır listleri sıfırla
