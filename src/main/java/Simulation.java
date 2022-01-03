@@ -127,22 +127,23 @@ public class Simulation {
     }
 
     public void addAllCoursesTogether() {//method written below provides adding all courses together via courseExpert
-        System.out.println("--Start point of the addAllCoursesTogether function--");
-        List<Course> courses = new ArrayList<>();
-        courses.addAll(courseExpert.getMandatoryCourses());
-        courses.addAll(courseExpert.getTechnicalList());
-        courses.addAll(courseExpert.getFacultyTechnicalList());
-        courses.addAll(courseExpert.getNT_UList());
-        courseExpert.setCourses(courses);
-        System.out.println("--End point of the addAllCoursesTogether function--");
+       // System.out.println("--Start point of the addAllCoursesTogether function--");
+//        List<Course> courses = new ArrayList<>();
+//        courses.addAll(courseExpert.getMandatoryCourses());
+//        courses.addAll(courseExpert.getTechnicalList());
+//        courses.addAll(courseExpert.getFacultyTechnicalList());
+//        courses.addAll(courseExpert.getNT_UList());
+//        courseExpert.setCourses(courses);
+        System.out.println(courseExpert.getCourses().size());
+        //System.out.println("--End point of the addAllCoursesTogether function--");
     }
     public void checkTranscriptFolder(){//the function checks for the transcript folder
-        System.out.println("--Start point of the checkTranscriptFolder function--");
+        //System.out.println("--Start point of the checkTranscriptFolder function--");
         File file = new File("transcripts/");
         if(!file.exists()){//if folder does not exist, it gets created
             file.mkdir();
         }
-        System.out.println("--End point of the checkTranscriptFolder function--");
+        //System.out.println("--End point of the checkTranscriptFolder function--");
     }
 
 

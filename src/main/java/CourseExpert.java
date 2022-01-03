@@ -28,7 +28,7 @@ public class CourseExpert {
     }
     public void clearCourses(){
         for(Course course: courses) {
-            course.getStudents().clear();
+            course.clearStudents();
         }
     }
     public List<Course> getCourses() {
@@ -101,20 +101,26 @@ public class CourseExpert {
         }
         if(type.equalsIgnoreCase("NTE-UE")){ //checks for if the course is a Non-Technical or a University Elective
             ElectiveCourse nt_uElective = new NT_UElective(courseId, name, capacity, credit, ects, instructor);
-            if(!(courseId.equals("NTExxx") || courseId.equals("UE"))) //if the course has a NTExxx or UE code it will not be added
+            if(!(courseId.equals("NTExxx") || courseId.equals("UE"))){ //if the course has a NTExxx or UE code it will not be added
                 addNTUElective(nt_uElective);
+                this.courses.add(nt_uElective);//
+            }
             return nt_uElective;
         }
         else if (type.equalsIgnoreCase("TE")){//checks for if the course is a Technical Elective
             ElectiveCourse technicalElective = new TechnicalElective(courseId, name, capacity, credit, ects, instructor);
-            if(!courseId.equals("TExxx")) //if the course has a TExxx code it will not be added
+            if(!courseId.equals("TExxx")) { //if the course has a TExxx code it will not be added
                 addTechnicalElective(technicalElective);
+                this.courses.add(technicalElective);//
+            }
             return technicalElective;
         }
         else if (type.equalsIgnoreCase("FTE")){//checks for if the course is a Faculty Technical Elective
             ElectiveCourse facultyTechnicalElective = new FacultyTechnicalElective(courseId, name, capacity, credit, ects, instructor);
-            if(!courseId.equals("FTExxx")) //if the course has a FTExxx code it will not be added
-            addFacultyTechnicalElective(facultyTechnicalElective);
+            if(!courseId.equals("FTExxx")) { //if the course has a FTExxx code it will not be added
+                addFacultyTechnicalElective(facultyTechnicalElective);
+                this.courses.add(facultyTechnicalElective);//
+            }
             return facultyTechnicalElective;
         }
         return null;
@@ -127,12 +133,14 @@ public class CourseExpert {
             mandatoryCourse = new MandatoryCourse(courseId,name,capacity,credit,ects,semester,instructor);
             addMandatoryCourse(mandatoryCourse);
             semester.addCourse(mandatoryCourse);
+            this.courses.add(mandatoryCourse);//
             return mandatoryCourse;
         }
         else{// if course has not must type it will not be created as mandatory, instead of it, it will be created as elective course
             ElectiveCourse electiveCourse = getElectiveFactory(type, courseId, name, capacity, credit, ects,instructor);
             addMandatoryCourse(electiveCourse);
             semester.addCourse(electiveCourse);
+            this.courses.add(electiveCourse);//
             return electiveCourse;
         }
 
@@ -177,7 +185,7 @@ public class CourseExpert {
     }
 
     public void addPrerequisite(Course mainCourse, Course prerequisiteCourse) {
-        mainCourse.getPrerequisites().add(prerequisiteCourse);
+        mainCourse.addPrerequisite(prerequisiteCourse);
     }
 
     public Section createSection(int sectionId, Course course, Instructor instructor, List<Schedule> scheduleList) {

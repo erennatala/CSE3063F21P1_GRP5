@@ -51,8 +51,11 @@ public class Approver {// Approver class checks the student if he/she is able to
             if (!pastCourses.contains(required)) {
                 PrerequisiteError prerequisiteError = new PrerequisiteError(student, course, required);
                 student.addError(prerequisiteError);
-                isApproved = false;
+                if (!student.getNonTakenCourses().contains(course)) {
+                    student.addNonTakenCourse(course); //Select
+                }
 
+                isApproved = false;
             }
         }
         return isApproved;
