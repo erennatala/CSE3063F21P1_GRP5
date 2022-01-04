@@ -20,7 +20,7 @@ public class Instructor extends Person {
         this.fullName = name + " " + surname;
     }
 
-    public void checkTwoTechnical(Student student) {//the method written below checks the student if he/she tries to take two technical elective courses. If he/she tries error occurres
+    public void checkTwoTechnical(Student student) {//the method written below checks the student if he/she tries to take two technical elective courses.
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Checking for more than two Technical Elective");
         List<Course> courseBasket = student.getCourseBasket();
@@ -91,38 +91,40 @@ public class Instructor extends Person {
             }
         }
     }
-    public Course selectNonTakenCourse(Course course){//the method written below checks for the instances of courses if it is Technical Elective, Faculty Technical Elective or NT_UE Elective then selects the non-taken one
-        if(course instanceof MandatoryCourse) {
+
+    public Course selectNonTakenCourse(Course course) {//the method written below checks for the instances of courses if it is Technical Elective, Faculty Technical Elective or NT_UE Elective then selects the non-taken one
+        if (course instanceof MandatoryCourse) {
             return course;
-        }else if(course instanceof TechnicalElective){
+        } else if (course instanceof TechnicalElective) {
             return new TechnicalElective();
-        }else if(course instanceof FacultyTechnicalElective){
+        } else if (course instanceof FacultyTechnicalElective) {
             return new FacultyTechnicalElective();
-        }else if(course instanceof NT_UElective){
+        } else if (course instanceof NT_UElective) {
             return new NT_UElective();
         }
         return null;
     }
-    public void collisionCheck(List<Course> courseBasket,Student student){//the function uses a loop to get in course list and, it compares them with each other. By the priority of colliding lectures it will start a delete process. And deleted courses will be sent to non taken courses list.
+
+    public void collisionCheck(List<Course> courseBasket, Student student) {//the function uses a loop to get in course list and, it compares them with each other. By the priority of colliding lectures it will start a delete process. And deleted courses will be sent to non taken courses list.
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Checking for collisions");
         List<Course> willBeRemoved = new ArrayList<>();
 
         Iterator<Course> basketIterator = courseBasket.iterator();
-        while(basketIterator.hasNext()){
+        while (basketIterator.hasNext()) {
             Course firstCourse = basketIterator.next();
-            if(willBeRemoved.contains(firstCourse)){
+            if (willBeRemoved.contains(firstCourse)) {
                 continue;
             }
             Iterator<Course> secondIterator = courseBasket.iterator();
             Section firstSection = firstCourse.getSection();
             List<Schedule> firstScheduleList = firstSection.getScheduleList();
-            while(secondIterator.hasNext()){
+            while (secondIterator.hasNext()) {
                 Course tempCourse = secondIterator.next();
-                if (willBeRemoved.contains(tempCourse)){
+                if (willBeRemoved.contains(tempCourse)) {
                     continue;
                 }
-                if(firstCourse.equals(tempCourse)) {
+                if (firstCourse.equals(tempCourse)) {
                     continue;
                 }
 
@@ -133,24 +135,23 @@ public class Instructor extends Person {
                                 .filter(d -> (d.compareTo(e) == 1))
                                 .count()) >= 1)
                         .collect(Collectors.toList());
-                if(!collisions.isEmpty()) {
+                if (!collisions.isEmpty()) {
 
-                        if(firstCourse instanceof MandatoryCourse){
-                            Course selectedCourse = selectNonTakenCourse(tempCourse);
-                            Error error = new CollisionError(student,firstCourse,tempCourse);
-                            student.addError(error);
-                            student.addNonTakenCourse(selectedCourse);
-                            willBeRemoved.add(tempCourse);
+                    if (firstCourse instanceof MandatoryCourse) {
+                        Course selectedCourse = selectNonTakenCourse(tempCourse);
+                        Error error = new CollisionError(student, firstCourse, tempCourse);
+                        student.addError(error);
+                        student.addNonTakenCourse(selectedCourse);
+                        willBeRemoved.add(tempCourse);
 
-                        }
-                        else{
-                            Course selectedCourse = selectNonTakenCourse(firstCourse);
-                            Error error = new CollisionError(student,tempCourse,firstCourse);
-                            student.addError(error);
-                            student.addNonTakenCourse(selectedCourse);
-                            willBeRemoved.add(firstCourse);
+                    } else {
+                        Course selectedCourse = selectNonTakenCourse(firstCourse);
+                        Error error = new CollisionError(student, tempCourse, firstCourse);
+                        student.addError(error);
+                        student.addNonTakenCourse(selectedCourse);
+                        willBeRemoved.add(firstCourse);
 
-                        }
+                    }
                 }
             }
 
@@ -160,8 +161,8 @@ public class Instructor extends Person {
     }
 
     public void approveStudentBasket(Student student) {//the function checks the student if it is appropriate to approve via season amd elective courses
-        Logger logger = Logger.getLogger(this.getClass().getName());
 
+        Logger logger = Logger.getLogger(this.getClass().getName());
         String season = student.getSemester().getSeason();
         int semesterId = student.getSemester().getSemesterId();
 
@@ -174,13 +175,11 @@ public class Instructor extends Person {
         }
 
         graduationProjectCheck(student);
-
         checkMinimumCredit(student);
 
         List<Course> courseBasket = student.getCourseBasket();
-        collisionCheck(courseBasket,student);
-        logger.info("Course basket approved by "+ this.fullName);
-
+        collisionCheck(courseBasket, student);
+        logger.info("Course basket approved by " + this.fullName);
 
     }
 
@@ -188,25 +187,13 @@ public class Instructor extends Person {
         return fullName;
     }
 
-//    public void setFullName(String fullName) {
-//        this.fullName = fullName;
-//    }
-
     public List<Student> getAdvisees() {
         return advisees;
     }
 
-//    public void setAdvisees(List<Student> advisees) {
-//        this.advisees = advisees;
-//    }
-
     public List<Course> getGivenCourses() {
         return givenCourses;
     }
-
-//    public void setGivenCourses(List<Course> givenCourses) {
-//        this.givenCourses = givenCourses;
-//    }
 
     public void addGivenCourse(Course course) {
         givenCourses.add(course);
@@ -215,13 +202,6 @@ public class Instructor extends Person {
     public void addAdvisees(Student student) {
         advisees.add(student);
     }
-
-//    public void showGivenCourses() {
-//        for (Course course :
-//                givenCourses) {
-//            System.out.println(course.getCourseId());
-//        }
-//    }
 
     @Override
     public String toString() {

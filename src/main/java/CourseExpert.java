@@ -45,41 +45,21 @@ public class CourseExpert {
         return mandatoryCourses;
     }
 
-//    public void setMandatoryCourses(List<Course> mandatoryCourses) {
-//        this.mandatoryCourses = mandatoryCourses;
-//    }
-
     public List<ElectiveCourse> getFacultyTechnicalList() {
         return facultyTechnicalList;
     }
-
-//    public void setFacultyTechnicalList(List<ElectiveCourse> facultyTechnicalList) {
-//        this.facultyTechnicalList = facultyTechnicalList;
-//    }
 
     public List<ElectiveCourse> getNT_UList() {
         return NT_UList;
     }
 
-//    public void setNT_UList(List<ElectiveCourse> NT_UList) {
-//        this.NT_UList = NT_UList;
-//    }
-
     public List<ElectiveCourse> getTechnicalList() {
         return technicalList;
     }
 
-//    public void setTechnicalList(List<ElectiveCourse> technicalList) {
-//        this.technicalList = technicalList;
-//    }
-
     public Map<Integer, Semester> getSemesterMap() {
         return semesterMap;
     }
-
-//    public void setSemesterMap(Map<Integer, Semester> semesterMap) {
-//        this.semesterMap = semesterMap;
-//    }
 
     public void addMandatoryCourse(Course course) {
         List<Course> mandatoryCourses = this.mandatoryCourses;

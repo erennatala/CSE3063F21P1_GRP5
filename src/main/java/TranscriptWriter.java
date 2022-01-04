@@ -42,12 +42,12 @@ public class TranscriptWriter {// TranscriptWriter class writes the transcript
                 transcript.getTranscriptMap().put("CGPA", roundOff);
                 try {
                     transcript.getTranscriptMap().put("Semester", student.getSemester().getSemesterId());
-                }catch (NullPointerException np) {
+                } catch (NullPointerException np) {
                     logger.error(np.getMessage());
                 }
                 transcript.getTranscriptMap().put("Completed Credit", student.getCompletedCredit());
                 writeTranscript(transcript.getTranscriptMap(), student.getId());
-            }catch(NullPointerException e){
+            } catch (NullPointerException e) {
                 logger.error(e.getMessage());
             }
         }

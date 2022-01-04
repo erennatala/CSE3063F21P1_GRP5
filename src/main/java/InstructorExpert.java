@@ -1,6 +1,4 @@
 import org.apache.log4j.Logger;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -8,7 +6,6 @@ import java.util.Map;
 public class InstructorExpert {// A class for holds the functions for instructor
 
     private Map<String,Instructor> instructorMap;
-
 
     public InstructorExpert() {
         this.instructorMap = new HashMap<>();
@@ -30,14 +27,7 @@ public class InstructorExpert {// A class for holds the functions for instructor
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Instructor Created: " + instructor);
     }
-    public void showInstructors(){//the method prints the instructors via while loop by using tmpMap
-        Map<String,Instructor> instructorMap = this.instructorMap;
-        Iterator<Map.Entry<String,Instructor>> instructorIterator = instructorMap.entrySet().iterator();
-        while (instructorIterator.hasNext()) {
-            Map.Entry<String, Instructor> tmpMap = (Map.Entry<String, Instructor>) instructorIterator.next();
-            System.out.println(tmpMap.getKey()+" = "+tmpMap.getValue());
-        }
-    }
+
     public Instructor findInstructor(String fullName){//the function finds the instructors by their name
         Map<String,Instructor> instructorMap = this.instructorMap;
         Instructor instructor = instructorMap.get(fullName);

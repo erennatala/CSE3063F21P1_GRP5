@@ -79,7 +79,7 @@ public abstract class Course { //Courses in the program will run through Course 
         return students;
     }
 
-    public void clearStudents(){
+    public void clearStudents() {
         this.students.clear();
     }
 
@@ -91,25 +91,21 @@ public abstract class Course { //Courses in the program will run through Course 
         return ects;
     }
 
-//    public void setEcts(float ects) {
-//        this.ects = ects;
-//    }
-
     public List<Course> getPrerequisites() {
         return prerequisites;
     }
 
-    public void addPrerequisite(Course course){
+    public void addPrerequisite(Course course) {
         this.prerequisites.add(course);
     }
 
-//    public void setPrerequisites(List<Course> prerequisites) {
-//        this.prerequisites = prerequisites;
-//    }
+    public Instructor getInstructor() {
+        return instructor;
+    }
 
-    public Instructor getInstructor() {return instructor;}
-
-    public void setInstructor(Instructor instructor) {this.instructor = instructor;}
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
 
     public void addStudentToArraylist(Student student) {
         List<Student> students = this.students;
@@ -127,11 +123,7 @@ public abstract class Course { //Courses in the program will run through Course 
 
     @Override
     public String toString() {
-        return "Course{" +
-                "courseId='" + courseId + '\'' +
-                ", name='" + name + '\'' +
-                ", instructor=" + instructor +
-                '}';
+        return "Course{" + "courseId='" + courseId + '\'' + ", name='" + name + '\'' + ", instructor=" + instructor + '}';
     }
 
     @Override

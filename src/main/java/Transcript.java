@@ -101,14 +101,15 @@ public class Transcript {
         errorList.add(error.raiseError());
 
     }
+
     @SuppressWarnings("unchecked")
-    public void addGPA(){
+    public void addGPA() {
         String semesterName = "Semester".concat(getStudent().getSemester().getSemesterId().toString());
         Map<String, Object> semesterMap = (HashMap<String, Object>) transcriptMap.get(semesterName);
         double GPA = student.getGpa();
         double roundOff = (double) Math.round(GPA * 100) / 100;
-        semesterMap.put("ActiveCredit",activeCredit);
-        semesterMap.put("GPA",roundOff);
+        semesterMap.put("ActiveCredit", activeCredit);
+        semesterMap.put("GPA", roundOff);
     }
 
 }

@@ -38,8 +38,6 @@ public class Approver {// Approver class checks the student if he/she is able to
             student.addError(quotaError);
             return false;
         }
-
-
     }
 
     public boolean prerequisiteChecker() {// the method below compares the student's passed courses and prerequisite courses
@@ -61,7 +59,6 @@ public class Approver {// Approver class checks the student if he/she is able to
         return isApproved;
     }
 
-
     public boolean isElectiveTaken() {// checks for the elective courses in student's taken courses if he/she already have taken it
 
         List<Course> pastCourses = student.getPastCourses();
@@ -72,7 +69,6 @@ public class Approver {// Approver class checks the student if he/she is able to
             return false;
         } else return true;
     }
-
 
     public boolean approveCourse(Course course) {// approveCourse checks the both method above returns true or false
         boolean capacityCheck = true;

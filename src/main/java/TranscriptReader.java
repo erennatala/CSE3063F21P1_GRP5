@@ -2,7 +2,6 @@ import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -64,7 +63,7 @@ public class TranscriptReader {
                                         student.getPastCourses().add(course);
                                     }
                                 }
-                                student.getTranscript().getTranscriptMap().put(o.toString(),(Map<String,Object>)currSemester);
+                                student.getTranscript().getTranscriptMap().put(o.toString(), (Map<String, Object>) currSemester);
                             }
                         } catch (StringIndexOutOfBoundsException s) {
                         }
@@ -76,7 +75,7 @@ public class TranscriptReader {
                     logger.error(e.getMessage());
                 } catch (ParseException e) {
                     logger.error(e.getMessage());
-                } catch(NullPointerException e) {
+                } catch (NullPointerException e) {
                     logger.error(e.getMessage());
                 }
             }

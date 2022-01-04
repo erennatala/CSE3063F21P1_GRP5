@@ -3,24 +3,21 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class InputReader {
 
-    private JSONParser parser = new JSONParser(); //her json okumada kulanılacak
+    private JSONParser parser = new JSONParser();
 
     public InputReader() {
     }
 
     @SuppressWarnings("unchecked")
-    public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata //the function is reads the courses from json file and assigns them to instructors
+    public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) {//the function is reads the courses from json file and assigns them to instructors
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Reading Curriculum.json");
         try {
@@ -32,7 +29,7 @@ public class InputReader {
                 List<String> l = new ArrayList<String>(courses.keySet());
 
                 for (int i = 0; i < l.size(); i++) {
-                    JSONArray data_title = (JSONArray) courses.get(l.get(i));//title altındaki dersler arrayi //gets the courses array under title
+                    JSONArray data_title = (JSONArray) courses.get(l.get(i));//gets the courses array under title
 
                     for (int j = 0; j < data_title.size(); j++) { //the for loop creates JSONObject by getting data_title
 
@@ -69,8 +66,7 @@ public class InputReader {
 
                         if (schedule.size() != 0) {
                             int sectionId = 0;
-                            //Map<String, ArrayList<String>> scheduleList = new HashMap<>();
-                            List<Schedule> scheduleList= new ArrayList<>();
+                            List<Schedule> scheduleList = new ArrayList<>();
                             for (int a = 0; a < schedule.size(); a++) {
                                 JSONObject scheduleobj = (JSONObject) schedule.get(a);
 
@@ -78,17 +74,11 @@ public class InputReader {
                                 String start = scheduleobj.get("Start").toString();
                                 String end = scheduleobj.get("End").toString();
 
-                                Schedule scheduleObjn = new Schedule(day,start,end);
+                                Schedule scheduleObjn = new Schedule(day, start, end);
                                 scheduleList.add(scheduleObjn);
-//                                ArrayList<String> time = new ArrayList<String>();
-//                                time.add(start);
-//                                time.add(end);
-
                                 sectionId++;
                             }
-
                             Section section = courseExpert.createSection(sectionId, course, instructorObject, scheduleList);
-
                             courseExpert.addSection(section);
                         }
                     }
@@ -110,30 +100,26 @@ public class InputReader {
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
 
-            int number =startIndex;
+            int number = startIndex;
 
             for (Object o : student_input) {
 
                 JSONObject students = (JSONObject) o;
 
-                if (Integer.parseInt(students.get("index").toString()) < startIndex-999) {
+                if (Integer.parseInt(students.get("index").toString()) < startIndex - 999) {
                     continue;
                 }
                 if (Integer.parseInt(students.get("index").toString()) == startIndex + 70 - 999) {
                     break;
                 }
-
                 number++;
-
-
                 String name = (String) students.get("name");
                 String surname = (String) students.get("surname");
                 List<String> email = new ArrayList<String>((ArrayList) students.get("email"));
                 studentExpert.createStudent(number, name, surname, email, semester);
-
             }
-
             return number;
+
         } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
         } catch (IOException e) {
@@ -156,7 +142,6 @@ public class InputReader {
                 long id = (long) instructors.get("instructorID");
                 String name = (String) instructors.get("name");
                 String surname = (String) instructors.get("surname");
-
                 instructorExpert.createInstructor((int) id, name, surname);
             }
         } catch (FileNotFoundException e) {
@@ -178,23 +163,18 @@ public class InputReader {
             for (Object o : student_input) {
 
                 JSONObject prerequisite = (JSONObject) o;
-
                 List<String> p = new ArrayList<String>(prerequisite.keySet());
 
                 for (int i = 0; i < p.size(); i++) {
 
                     JSONArray data_title = (JSONArray) prerequisite.get(p.get(i));
-
                     Course mainCourse = courseExpert.findCourse(p.get(i));
 
                     for (int j = 0; j < data_title.size(); j++) {
 
                         JSONObject obj = (JSONObject) data_title.get(j);
-
                         String prerequisiteCourseName = obj.get("courseCode").toString();
-
                         Course prerequisiteCourse = courseExpert.findCourse(prerequisiteCourseName);
-
                         courseExpert.addPrerequisite(mainCourse, prerequisiteCourse);
                     }
                 }
@@ -208,14 +188,14 @@ public class InputReader {
         }
     }
 
-    public String readGenerationParameter(){
+    public String readGenerationParameter() {
         Logger logger = Logger.getLogger(this.getClass().getName());
         try {
             JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
             String generation = config.get("Generation").toString();
             return generation;
 
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
         } catch (IOException e) {
             logger.error(e.getMessage());
@@ -232,7 +212,7 @@ public class InputReader {
             String season = config.get("Season").toString();
             return season;
 
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
         } catch (IOException e) {
             logger.error(e.getMessage());
@@ -241,14 +221,15 @@ public class InputReader {
         }
         return null;
     }
-    public String readFirstStudent(){
+
+    public String readFirstStudent() {
         Logger logger = Logger.getLogger(this.getClass().getName());
         try {
             JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
             String output = outputobj.get("First Student").toString();
             return output;
 
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
         } catch (IOException e) {
             logger.error(e.getMessage());
@@ -257,14 +238,15 @@ public class InputReader {
         }
         return null;
     }
-    public String readLastStudent(){
+
+    public String readLastStudent() {
         Logger logger = Logger.getLogger(this.getClass().getName());
         try {
             JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
             String output = outputobj.get("Last Student").toString();
             return output;
 
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
         } catch (IOException e) {
             logger.error(e.getMessage());
