@@ -188,25 +188,25 @@ public class Instructor extends Person {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+//    public void setFullName(String fullName) {
+//        this.fullName = fullName;
+//    }
 
     public List<Student> getAdvisees() {
         return advisees;
     }
 
-    public void setAdvisees(List<Student> advisees) {
-        this.advisees = advisees;
-    }
+//    public void setAdvisees(List<Student> advisees) {
+//        this.advisees = advisees;
+//    }
 
     public List<Course> getGivenCourses() {
         return givenCourses;
     }
 
-    public void setGivenCourses(List<Course> givenCourses) {
-        this.givenCourses = givenCourses;
-    }
+//    public void setGivenCourses(List<Course> givenCourses) {
+//        this.givenCourses = givenCourses;
+//    }
 
     public void addGivenCourse(Course course) {
         givenCourses.add(course);
@@ -216,16 +216,15 @@ public class Instructor extends Person {
         advisees.add(student);
     }
 
-    public void showGivenCourses() {
-        for (Course course :
-                givenCourses) {
-            System.out.println(course.getCourseId());
-        }
-    }
+//    public void showGivenCourses() {
+//        for (Course course :
+//                givenCourses) {
+//            System.out.println(course.getCourseId());
+//        }
+//    }
 
     @Override
     public String toString() {
-        //showGivenCourses();
         return "Instructor{} " + super.toString();
     }
 

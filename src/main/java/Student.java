@@ -33,10 +33,10 @@ public class Student extends Person {//A class for Students and it extends from 
         return gradeMap;
     }
 
-    public Student setGradeMap(Map<Course, Grade> gradeMap) {
-        this.gradeMap = gradeMap;
-        return this;
-    }
+//    public Student setGradeMap(Map<Course, Grade> gradeMap) {
+//        this.gradeMap = gradeMap;
+//        return this;
+//    }
 
     //This can be achieved by getters and setters at StudentExpert
     public Semester getSemester() {
@@ -80,25 +80,57 @@ public class Student extends Person {//A class for Students and it extends from 
         this.completedCredit = completedCredit;
     }
 
-    public List<Course> getActiveCourses() {
-        return activeCourses;
+//    public List<Course> getActiveCourses() {
+//        return activeCourses;
+//    }
+//
+//    public void setActiveCourses(List<Course> activeCourses) {
+//        this.activeCourses = activeCourses;
+//    }
+//
+//    public void addActiveCourse(Course course) {
+//        this.activeCourses.add(course);
+//    }
+
+    public void clearActiveCourses(){
+        this.activeCourses.clear();
     }
 
-    public void setActiveCourses(List<Course> activeCourses) {
-        this.activeCourses = activeCourses;
+    public void basketToActiveCourses(){
+        this.activeCourses.addAll(courseBasket);
+    }
+    public void clearCourseBasket(){
+        this.courseBasket.clear();
     }
 
-    public void addActiveCourse(Course course) {
-        this.activeCourses.add(course);
+    public void addActiveCredit(){
+
+        for(Course course: courseBasket){
+            if(failedCourses.contains(course)){
+                double cumulativeCredit = transcript.getCumulativeCredit();
+                cumulativeCredit -= course.getCredit();
+                transcript.setCumulativeCredit(cumulativeCredit);
+                failedCourses.remove(course);
+            }
+
+            double activeCredit = transcript.getActiveCredit();
+            activeCredit += course.getCredit();
+            transcript.setActiveCredit(activeCredit);
+
+            double cumulativeCredit = transcript.getCumulativeCredit();
+            cumulativeCredit += course.getCredit();
+            transcript.setCumulativeCredit(cumulativeCredit);
+            course.addStudentToArraylist(this);
+        }
     }
 
     public List<Course> getCourseBasket() {
         return courseBasket;
     }
 
-    public void setCourseBasket(List<Course> courseBasket) {
-        this.courseBasket = courseBasket;
-    }
+//    public void setCourseBasket(List<Course> courseBasket) {
+//        this.courseBasket = courseBasket;
+//    }
 
     public void addCourseToBasket(Course course) {
         this.courseBasket.add(course);
@@ -108,9 +140,9 @@ public class Student extends Person {//A class for Students and it extends from 
         return pastCourses;
     }
 
-    public void setPastCourses(List<Course> pastCourses) {
-        this.pastCourses = pastCourses;
-    }
+//    public void setPastCourses(List<Course> pastCourses) {
+//        this.pastCourses = pastCourses;
+//    }
 
     public void addPastCourse(Course course) {
         this.pastCourses.add(course);
@@ -120,9 +152,9 @@ public class Student extends Person {//A class for Students and it extends from 
         return nonTakenCourses;
     }
 
-    public void setNonTakenCourses(List<Course> nonTakenCourses) {
-        this.nonTakenCourses = nonTakenCourses;
-    }
+//    public void setNonTakenCourses(List<Course> nonTakenCourses) {
+//        this.nonTakenCourses = nonTakenCourses;
+//    }
 
     public void addNonTakenCourse(Course course) {
         this.nonTakenCourses.add(course);
@@ -132,9 +164,9 @@ public class Student extends Person {//A class for Students and it extends from 
         return failedCourses;
     }
 
-    public void setFailedCourses(List<Course> failedCourses) {
-        this.failedCourses = failedCourses;
-    }
+//    public void setFailedCourses(List<Course> failedCourses) {
+//        this.failedCourses = failedCourses;
+//    }
 
     public void addFailedCourse(Course course) {
         this.failedCourses.add(course);
@@ -175,12 +207,12 @@ public class Student extends Person {//A class for Students and it extends from 
         this.transcript = transcript;
     }
 
-    public void showActiveCourse() {//the method given below shows the active courses of the student via for loop
-        System.out.println(getName() + " " + getSurname());
-        for (Course course : activeCourses) {
-            System.out.println(course.getName());
-        }
-    }
+//    public void showActiveCourse() {//the method given below shows the active courses of the student via for loop
+//        System.out.println(getName() + " " + getSurname());
+//        for (Course course : activeCourses) {
+//            System.out.println(course.getName());
+//        }
+//    }
 
     @Override
     public String toString() {

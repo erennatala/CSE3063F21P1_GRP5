@@ -33,36 +33,32 @@ public class Transcript {
         return activeCredit;
     }
 
-    public Transcript setActiveCredit(double activeCredit) {
+    public void setActiveCredit(double activeCredit) {
         this.activeCredit = activeCredit;
-        return this;
     }
 
     public double getActiveGrade() {
         return activeGrade;
     }
 
-    public Transcript setActiveGrade(double activeGrade) {
+    public void setActiveGrade(double activeGrade) {
         this.activeGrade = activeGrade;
-        return this;
     }
 
     public double getCumulativeCredit() {
         return cumulativeCredit;
     }
 
-    public Transcript setCumulativeCredit(double cumulativeCredit) {
+    public void setCumulativeCredit(double cumulativeCredit) {
         this.cumulativeCredit = cumulativeCredit;
-        return this;
     }
 
     public double getCumulativeGrade() {
         return cumulativeGrade;
     }
 
-    public Transcript setCumulativeGrade(double cumulativeGrade) {
+    public void setCumulativeGrade(double cumulativeGrade) {
         this.cumulativeGrade = cumulativeGrade;
-        return this;
     }
 
     public void addSemester(Semester semester) {

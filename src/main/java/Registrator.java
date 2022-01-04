@@ -32,21 +32,21 @@ public class Registrator {//A class for registration process
         this.student = student;
     }
 
-    public Random getRandomGenerator() {
-        return randomGenerator;
-    }
+//    public Random getRandomGenerator() {
+//        return randomGenerator;
+//    }
+//
+//    public void setRandomGenerator(Random randomGenerator) {
+//        this.randomGenerator = randomGenerator;
+//    }
 
-    public void setRandomGenerator(Random randomGenerator) {
-        this.randomGenerator = randomGenerator;
-    }
-
-    public Approver getApprover() {
-        return approver;
-    }
-
-    public void setApprover(Approver approver) {
-        this.approver = approver;
-    }
+//    public Approver getApprover() {
+//        return approver;
+//    }
+//
+//    public void setApprover(Approver approver) {
+//        this.approver = approver;
+//    }
 
     public CourseExpert getCourseExpert() {
         return courseExpert;
@@ -76,55 +76,20 @@ public class Registrator {//A class for registration process
             student.calculateCGPA();
             student.setSemester(semester);
             transcript.addSemester(semester);
-            List<Course> activeCourses = student.getActiveCourses();
-            activeCourses.clear();
+            student.clearActiveCourses();
         }catch(NullPointerException e){
 
         }
     }
 
-    public void addBasketToActiveCourse() {//the function creates lists for course basket and failed courses and makes a compare and remove process.
-        Student student = this.student;
-        Transcript transcript = student.getTranscript();
-        List<Course> courseBasket = student.getCourseBasket();
-        List<Course> failedCourses = student.getFailedCourses();
-        for(Course course: courseBasket){
-
-            if (failedCourses.contains(course)){
-                // Add course credit to active credit of semester
-                double activeCredit = transcript.getActiveCredit();
-                activeCredit += course.getCredit();
-                transcript.setActiveCredit(activeCredit);
-                // Delete courses credit from cumulative credit if is retaken
-                double cumulativeCredit = transcript.getCumulativeCredit();
-                cumulativeCredit -= course.getCredit();
-                transcript.setCumulativeCredit(cumulativeCredit);
-            }
-        }
-        // Clear course object from failed course list if it is retaken
-        failedCourses.removeAll(courseBasket);
-
-        // Add approved course basket to active course list
-        List<Course> activeCourses = student.getActiveCourses();
-        activeCourses.addAll(courseBasket);
-
-        for (Course course : courseBasket) {
-            // Add course credit to active credit of semester
-            double activeCredit = transcript.getActiveCredit();
-            activeCredit += course.getCredit();
-            transcript.setActiveCredit(activeCredit);
-
-            double cumulativeCredit = transcript.getCumulativeCredit();
-            cumulativeCredit += course.getCredit();
-            transcript.setCumulativeCredit(cumulativeCredit);
-            course.addStudentToArraylist(student);
-
-        }
-        courseBasket.clear();
-    }//active courses will be added to course basket and, it will be added to student's ArrayList
+    public void addBasketToActiveCourse() {
+        //the function creates lists for course basket and failed courses and makes a compare and remove process.
+        student.basketToActiveCourses();
+        student.addActiveCredit();
+        student.clearCourseBasket();
+    }
 
     public Course selectRandomElective(Course course) {//A method for selecting elective course randomly
-
         int index;
         Course elective = null;
         do {

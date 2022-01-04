@@ -91,9 +91,9 @@ public abstract class Course { //Courses in the program will run through Course 
         return ects;
     }
 
-    public void setEcts(float ects) {
-        this.ects = ects;
-    }
+//    public void setEcts(float ects) {
+//        this.ects = ects;
+//    }
 
     public List<Course> getPrerequisites() {
         return prerequisites;
@@ -103,9 +103,9 @@ public abstract class Course { //Courses in the program will run through Course 
         this.prerequisites.add(course);
     }
 
-    public void setPrerequisites(List<Course> prerequisites) {
-        this.prerequisites = prerequisites;
-    }
+//    public void setPrerequisites(List<Course> prerequisites) {
+//        this.prerequisites = prerequisites;
+//    }
 
     public Instructor getInstructor() {return instructor;}
 

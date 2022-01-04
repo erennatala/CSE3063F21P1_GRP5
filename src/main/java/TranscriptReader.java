@@ -35,6 +35,7 @@ public class TranscriptReader {
                     int semester = Integer.parseInt(curr_input.get("Semester").toString());
                     String advisor = curr_input.get("Advisor").toString();
                     List<String> emails = (List<String>) curr_input.get("Email");
+                    int completedCredit = Integer.parseInt(curr_input.get("Completed Credit").toString());
 
                     studentExpert.createStudent(id, name, surname, emails, courseExpert.getSemesterMap().get(semester));
 
@@ -43,6 +44,7 @@ public class TranscriptReader {
                     student.setAdvisor(instructor);
                     instructor.addAdvisees(student);
                     student.setCgpa(cgpa);
+                    student.setCompletedCredit(completedCredit);
 
                     for (Object o : curr_input.keySet()) {
                         try {

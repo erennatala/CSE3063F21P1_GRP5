@@ -13,19 +13,19 @@ public class CollisionError extends Error{ // CollisionError class extends from 
         return firstCourse;
     }
 
-    public CollisionError setFirstCourse(Course firstCourse) {
-        this.firstCourse = firstCourse;
-        return this;
-    }
+//    public CollisionError setFirstCourse(Course firstCourse) {
+//        this.firstCourse = firstCourse;
+//        return this;
+//    }
 
     public Course getSecondCourse() {
         return secondCourse;
     }
 
-    public CollisionError setSecondCourse(Course secondCourse) {
-        this.secondCourse = secondCourse;
-        return this;
-    }
+//    public CollisionError setSecondCourse(Course secondCourse) {
+//        this.secondCourse = secondCourse;
+//        return this;
+//    }
 
     @Override
     public Course raiseCourse() {
