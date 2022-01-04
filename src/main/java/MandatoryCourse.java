@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class MandatoryCourse extends Course{//MandatoryCourse class extends from Course class and, it is for must type courses
 
     public MandatoryCourse() {

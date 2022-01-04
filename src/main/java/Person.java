@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Person {
@@ -51,10 +50,6 @@ public abstract class Person {
         return emails;
     }
 
-    public void setEmails(List<String> emails) {
-        this.emails = emails;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,10 +72,6 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+        return "Person{" + "id=" + id + ", name='" + name + '\'' + ", surname='" + surname + '\'' + '}';
     }
 }
