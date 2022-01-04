@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -149,6 +151,8 @@ public class Student extends Person {//A class for Students and it extends from 
     public void addError(Error error) {
         this.errors.add(error);
         transcript.addError(error);
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info(error.raiseError());
     }
     public void calculateGPA(){
         double activeCredit = transcript.getActiveCredit();
@@ -181,7 +185,7 @@ public class Student extends Person {//A class for Students and it extends from 
     @Override
     public String toString() {
         return "Student{" +
-                "advisor=" + advisor +
-                "} " + super.toString();
+                "semester=" + semester +
+                "} " + super.toString() + " advisor="+advisor;
     }
 }

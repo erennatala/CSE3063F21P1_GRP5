@@ -1,3 +1,4 @@
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -16,7 +17,7 @@ public class TranscriptReader {
 
     @SuppressWarnings("unchecked")
     public void readTranscriptJson(StudentExpert studentExpert, CourseExpert courseExpert, InstructorExpert instructorExpert) {// the function reads the transcripts from json files
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
         try {//the function takes the transcript files that have already created and puts into the process and if transcript exists, function reads it and creates the student. After it, function  adds the student's information which contained in transcript
             File folder = new File("transcripts");//pathname
             File[] listOfFiles = folder.listFiles();
@@ -68,16 +69,17 @@ public class TranscriptReader {
                     }
 
                 } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 } catch (ParseException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 } catch(NullPointerException e) {
+                    logger.error(e.getMessage());
                 }
             }
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

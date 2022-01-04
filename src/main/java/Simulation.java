@@ -1,4 +1,6 @@
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 
@@ -20,7 +22,8 @@ public class Simulation {
 
     public void startRegistration() {//the method starts the registration of students
         //register students
-        System.out.println("--Start point of the startRegistration function--");
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Starting Registration Process");
         Map<Integer, Student> studentMap = studentExpert.getStudentMap();
         Iterator<Map.Entry<Integer, Student>> studentIterator = studentMap.entrySet().iterator();
         while (studentIterator.hasNext()) {
@@ -29,7 +32,7 @@ public class Simulation {
             Registrator registrator = new Registrator(student, courseExpert);
             registrator.startRegistration();
         }
-        System.out.println("--End point of the startRegistration function--");
+        logger.info("Registration Process Finished");
     }
 
     public void prepareDepartmentOutput(int firstStudent,int lastStudent){
@@ -74,15 +77,17 @@ public class Simulation {
     }
 
     public void startGrading() {//the method written below starts the grading with using for loop via Grader
-        System.out.println("--Start point of the starGrading function--");
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Starting Grading Process");
         for (Course course : courseExpert.getCourses()) {
             Grader grader = new Grader(course);
             grader.startGrading();
         }
-        System.out.println("--End point of the startGrading function--");
+        logger.info("Grading Process Finished");
     }
     public void assignNextSemester(){//the function assigns the next semester for student
-        System.out.println("--Start point of the assignNextSemester function--");
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Assigning all students to next semester");
         Map<Integer, Student> studentMap = studentExpert.getStudentMap();
         for (Student student : studentMap.values()) {
             int nextSemesterID = student.getSemester().getSemesterId()+1;
@@ -91,7 +96,6 @@ public class Simulation {
             registrator.assignNextSemester(student,semester);
         }
         courseExpert.clearCourses();
-        System.out.println("--End point of the assignNextSemester function--");
     }
 
     public StudentExpert getStudentExpert() {
@@ -126,19 +130,9 @@ public class Simulation {
         this.courseExpert = courseExpert;
     }
 
-    public void addAllCoursesTogether() {//method written below provides adding all courses together via courseExpert
-       // System.out.println("--Start point of the addAllCoursesTogether function--");
-//        List<Course> courses = new ArrayList<>();
-//        courses.addAll(courseExpert.getMandatoryCourses());
-//        courses.addAll(courseExpert.getTechnicalList());
-//        courses.addAll(courseExpert.getFacultyTechnicalList());
-//        courses.addAll(courseExpert.getNT_UList());
-//        courseExpert.setCourses(courses);
-        System.out.println(courseExpert.getCourses().size());
-        //System.out.println("--End point of the addAllCoursesTogether function--");
-    }
     public void checkTranscriptFolder(){//the function checks for the transcript folder
-        //System.out.println("--Start point of the checkTranscriptFolder function--");
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Checking for if transcript folder exist");
         File file = new File("transcripts/");
         if(!file.exists()){//if folder does not exist, it gets created
             file.mkdir();
@@ -148,7 +142,8 @@ public class Simulation {
 
 
     public void simulateSemester(){
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Simulating Semester");
         startRegistration();
         startGrading();
         assignNextSemester();
@@ -173,10 +168,12 @@ public class Simulation {
     }
 
     public void initializeStudents(String generation, String season){
-            int firstStudent;
-            int lastStudent;
-        if (generation.equals("1")){
+        Logger logger = Logger.getLogger(this.getClass().getName());
 
+        int firstStudent;
+        int lastStudent;
+        if (generation.equals("1")){
+            logger.info("Creating Random Students");
             firstStudent = 999;
             lastStudent = 999;
             setLastStudent(lastStudent);
@@ -211,7 +208,7 @@ public class Simulation {
             }
 
         }else {
-
+            logger.info("Reading Students From Existed Transcript");
             readDepartmentOutput();
             transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
             if(season.equalsIgnoreCase("Fall")){
@@ -225,12 +222,16 @@ public class Simulation {
     }
 
     public void start() {
-
+        //PropertyConfigurator.configure("log4j.xml");
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Simulation Started");
         checkTranscriptFolder();
         // Read other inputs
         inputReader.readInstructorJson(instructorExpert);
+        //instructor creationda kaldım-> logger
+
         inputReader.readCourseJson(courseExpert, instructorExpert);
-        addAllCoursesTogether();
+        //addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
         studentExpert.setInstructors(new ArrayList<>(instructorExpert.getInstructorMap().values()));
 
@@ -238,15 +239,17 @@ public class Simulation {
         String season = inputReader.readSeasonParameter();
         String generation = inputReader.readGenerationParameter();
         // Initialize Students Depending On Input Parameters
-
+        logger.info("Initializing Students");
         initializeStudents(generation,season);
 
         simulateSemester();
         // Write call for transcript after simulation
+        logger.info("Preparing Department Output and Transcripts");
         studentExpert.prepareErrorOutput();
         TranscriptWriter transcriptWriter = new TranscriptWriter(studentExpert);
         transcriptWriter.startWriter();
         prepareDepartmentOutput(firstStudent,lastStudent);
+        logger.info("Simulation Finished");
 
     }
 }

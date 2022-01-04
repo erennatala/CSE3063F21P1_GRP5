@@ -34,6 +34,6 @@ public class CollisionError extends Error{ // CollisionError class extends from 
 
     @Override
     public String raiseError() {
-        return "Advisor didn't approve "+secondCourse.getName()+" because of collision with "+firstCourse.getName()+" in schedule";
+        return "Advisor didn't approve "+secondCourse.getCourseId()+" because of collision with "+firstCourse.getCourseId()+" in schedule";
     }
 }

@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+
 import java.util.*;
 
 public class StudentExpert {
@@ -81,8 +83,10 @@ public class StudentExpert {
     }
 
     public void createStudent(int id, String name, String surname, List<String> emails, Semester semester) {//the function creates the student with given parameters such as id, name, surname, emails and semester
+        Logger logger = Logger.getLogger(this.getClass().getName());
         Random random = new Random();
         Student student = getStudent(id, name, surname, emails, semester);
+
         List<Instructor> instructors = getInstructors();
         int index = random.nextInt(instructors.size());
         Instructor instructor = instructors.get(index);
@@ -91,6 +95,7 @@ public class StudentExpert {
         Map<Integer, Student> studentMap = getStudentMap();
         studentMap.put(Integer.valueOf(id), student);
         student.setTranscript(new Transcript(student));
+        logger.info("Student created for: " + student);
     }
 
     public void showStudents() {//via the studentMap the function prints the students by the help of iteration

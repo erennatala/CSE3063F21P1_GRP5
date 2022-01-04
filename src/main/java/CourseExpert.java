@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+
 import java.util.*;
 
 public class CourseExpert {
@@ -134,6 +136,8 @@ public class CourseExpert {
             addMandatoryCourse(mandatoryCourse);
             semester.addCourse(mandatoryCourse);
             this.courses.add(mandatoryCourse);//
+            Logger logger = Logger.getLogger(this.getClass().getName());
+            logger.info("Course created: " + mandatoryCourse);
             return mandatoryCourse;
         }
         else{// if course has not must type it will not be created as mandatory, instead of it, it will be created as elective course
@@ -141,13 +145,18 @@ public class CourseExpert {
             addMandatoryCourse(electiveCourse);
             semester.addCourse(electiveCourse);
             this.courses.add(electiveCourse);//
+            Logger logger = Logger.getLogger(this.getClass().getName());
+            logger.info("Course created: " + electiveCourse);
             return electiveCourse;
         }
 
     }
 
     public Course createCourse(String courseId, String name, int capacity, float credit, float ects, String type, Instructor instructor){
-        return getElectiveFactory(type,courseId,name,capacity, credit,ects,instructor);
+        Course electiveCourse = getElectiveFactory(type,courseId,name,capacity, credit,ects,instructor);
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Course created: " + electiveCourse);
+        return electiveCourse;
     }
     public void showMandatoryList(){
         List<Course> mandatoryList = mandatoryCourses;
@@ -185,6 +194,8 @@ public class CourseExpert {
     }
 
     public void addPrerequisite(Course mainCourse, Course prerequisiteCourse) {
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Prerequisite: "+mainCourse.getCourseId()+"->"+prerequisiteCourse.getCourseId());
         mainCourse.addPrerequisite(prerequisiteCourse);
     }
 

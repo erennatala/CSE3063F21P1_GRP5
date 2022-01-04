@@ -1,3 +1,4 @@
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class TranscriptWriter {// TranscriptWriter class writes the transcript
     }
 
     public void writeTranscript(Map<String, Object> transcriptMap, int studentId) { //the function takes the transcript map and studentId as parameters
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
         JSONObject transcriptMap1 = new JSONObject(transcriptMap);//transriptMap JSONObjects gets created
 
         try {//writes the transcripts and names them with student's ID
@@ -21,13 +22,13 @@ public class TranscriptWriter {// TranscriptWriter class writes the transcript
             outputFile.write(transcriptMap1.toString(4));
             outputFile.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
 
     }
 
     public void startWriter() {//it will take all students one by and sends the information to writeTranscript function
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
         Map<Integer, Student> studentMap = studentExpert.getStudentMap();
         Iterator<Map.Entry<Integer, Student>> studentIterator = studentMap.entrySet().iterator();
 
@@ -42,12 +43,12 @@ public class TranscriptWriter {// TranscriptWriter class writes the transcript
                 try {
                     transcript.getTranscriptMap().put("Semester", student.getSemester().getSemesterId());
                 }catch (NullPointerException np) {
-
+                    logger.error(np.getMessage());
                 }
                 transcript.getTranscriptMap().put("Completed Credit", student.getCompletedCredit());
                 writeTranscript(transcript.getTranscriptMap(), student.getId());
             }catch(NullPointerException e){
-
+                logger.error(e.getMessage());
             }
         }
 

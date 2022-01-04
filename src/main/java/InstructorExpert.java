@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,6 +27,8 @@ public class InstructorExpert {// A class for holds the functions for instructor
         String fullName = instructor.getFullName();
         Map<String,Instructor> instructorMap = this.instructorMap;
         instructorMap.put(fullName, instructor);
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Instructor Created: " + instructor);
     }
     public void showInstructors(){//the method prints the instructors via while loop by using tmpMap
         Map<String,Instructor> instructorMap = this.instructorMap;

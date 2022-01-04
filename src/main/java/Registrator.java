@@ -1,6 +1,11 @@
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.LogManager;
 
 public class Registrator {//A class for registration process
 
@@ -142,7 +147,9 @@ public class Registrator {//A class for registration process
     public void startRegistration() {//the method given below starts the registration process
 
         Semester semester = student.getSemester();
-        // Select non taken courses with matching semester
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Registering "+student.getName()+" "+student.getSurname()+" to "+semester.getSemesterId()+". semester");
+        // Select Failed courses with matching semester
         for (Course course : student.getFailedCourses()) {
             if (approver.approveCourse(course)) addBasket(course);
 
@@ -180,9 +187,12 @@ public class Registrator {//A class for registration process
             }
         }
         //send instructor approval
+        logger.info("Sending course basket to advisor approval");
         Instructor instructor = student.getAdvisor();
         instructor.approveStudentBasket(student);
         addBasketToActiveCourse();
+
+
 
     }
 

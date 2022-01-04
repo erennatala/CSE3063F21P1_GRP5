@@ -1,3 +1,4 @@
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,7 +21,8 @@ public class InputReader {
 
     @SuppressWarnings("unchecked")
     public void readCourseJson(CourseExpert courseExpert, InstructorExpert instructorExpert) { //oku, instructor objesine kurs ata //the function is reads the courses from json file and assigns them to instructors
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Reading Curriculum.json");
         try {
             JSONArray curr_input = (JSONArray) parser.parse(new FileReader("curriculum.json")); //creates a JSONArray as and reads curriculum.json
 
@@ -93,17 +95,18 @@ public class InputReader {
                 }
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 
     @SuppressWarnings("unchecked")
     public int readStudentJson(int startIndex, StudentExpert studentExpert, Semester semester) {//method for reading students Json files
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Reading Students.json");
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
 
@@ -132,24 +135,24 @@ public class InputReader {
 
             return number;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return 0;
     }
 
     public void readInstructorJson(InstructorExpert instructorExpert) {//a method for reading instructors json files
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Reading Instructor.json");
         try {
             JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("instructors.json"));
 
             for (Object o : instructor_input) {
 
                 JSONObject instructors = (JSONObject) o;
-
                 long id = (long) instructors.get("instructorID");
                 String name = (String) instructors.get("name");
                 String surname = (String) instructors.get("surname");
@@ -157,17 +160,18 @@ public class InputReader {
                 instructorExpert.createInstructor((int) id, name, surname);
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 
     @SuppressWarnings("unchecked")
     public void readPrerequisiteJson(CourseExpert courseExpert) {//function reads the prerequisite json file
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Reading Prerequisite.json");
         try {
             JSONArray student_input = (JSONArray) parser.parse(new FileReader("prerequisite.json"));
 
@@ -196,78 +200,77 @@ public class InputReader {
                 }
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 
     public String readGenerationParameter(){
+        Logger logger = Logger.getLogger(this.getClass().getName());
         try {
             JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
             String generation = config.get("Generation").toString();
             return generation;
 
         }catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
     }
 
     public String readSeasonParameter() {
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
         try {
             JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
             String season = config.get("Season").toString();
             return season;
 
         }catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
     }
     public String readFirstStudent(){
+        Logger logger = Logger.getLogger(this.getClass().getName());
         try {
             JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
             String output = outputobj.get("First Student").toString();
             return output;
 
         }catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
     }
     public String readLastStudent(){
+        Logger logger = Logger.getLogger(this.getClass().getName());
         try {
             JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
             String output = outputobj.get("Last Student").toString();
             return output;
 
         }catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
-    }
-
-    public JSONParser getParser() {
-        return parser;
     }
 }
