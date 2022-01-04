@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -27,22 +29,6 @@ public class Registrator {//A class for registration process
         this.student = student;
     }
 
-    public Random getRandomGenerator() {
-        return randomGenerator;
-    }
-
-    public void setRandomGenerator(Random randomGenerator) {
-        this.randomGenerator = randomGenerator;
-    }
-
-    public Approver getApprover() {
-        return approver;
-    }
-
-    public void setApprover(Approver approver) {
-        this.approver = approver;
-    }
-
     public CourseExpert getCourseExpert() {
         return courseExpert;
     }
@@ -55,9 +41,9 @@ public class Registrator {//A class for registration process
         student.addCourseToBasket(course);
     }
 
-    public void assignNextSemester(Student student,Semester semester) {//the method given below assigns the next semester via active courses of the student
+    public void assignNextSemester(Student student, Semester semester) {//the method given below assigns the next semester via active courses of the student
+        Logger logger = Logger.getLogger(this.getClass().getName());
         try {
-            // student.gradeMap ?
             Transcript transcript = student.getTranscript();
             double activeGrade = transcript.getActiveGrade();
             double cumulativeGrade = transcript.getCumulativeGrade() + activeGrade;
@@ -71,55 +57,20 @@ public class Registrator {//A class for registration process
             student.calculateCGPA();
             student.setSemester(semester);
             transcript.addSemester(semester);
-            List<Course> activeCourses = student.getActiveCourses();
-            activeCourses.clear();
-        }catch(NullPointerException e){
-
+            student.clearActiveCourses();
+        } catch (NullPointerException e) {
+            logger.error(e.getMessage());
         }
     }
 
-    public void addBasketToActiveCourse() {//the function creates lists for course basket and failed courses and makes a compare and remove process.
-        Student student = this.student;
-        Transcript transcript = student.getTranscript();
-        List<Course> courseBasket = student.getCourseBasket();
-        List<Course> failedCourses = student.getFailedCourses();
-        for(Course course: courseBasket){
-
-            if (failedCourses.contains(course)){
-                // Add course credit to active credit of semester
-                double activeCredit = transcript.getActiveCredit();
-                activeCredit += course.getCredit();
-                transcript.setActiveCredit(activeCredit);
-                // Delete courses credit from cumulative credit if is retaken
-                double cumulativeCredit = transcript.getCumulativeCredit();
-                cumulativeCredit -= course.getCredit();
-                transcript.setCumulativeCredit(cumulativeCredit);
-            }
-        }
-        // Clear course object from failed course list if it is retaken
-        failedCourses.removeAll(courseBasket);
-
-        // Add approved course basket to active course list
-        List<Course> activeCourses = student.getActiveCourses();
-        activeCourses.addAll(courseBasket);
-
-        for (Course course : courseBasket) {
-            // Add course credit to active credit of semester
-            double activeCredit = transcript.getActiveCredit();
-            activeCredit += course.getCredit();
-            transcript.setActiveCredit(activeCredit);
-
-            double cumulativeCredit = transcript.getCumulativeCredit();
-            cumulativeCredit += course.getCredit();
-            transcript.setCumulativeCredit(cumulativeCredit);
-            course.addStudentToArraylist(student);
-
-        }
-        courseBasket.clear();
-    }//active courses will be added to course basket and, it will be added to student's ArrayList
+    public void addBasketToActiveCourse() {
+        //the function creates lists for course basket and failed courses and makes a compare and remove process.
+        student.basketToActiveCourses();
+        student.addActiveCredit();
+        student.clearCourseBasket();
+    }
 
     public Course selectRandomElective(Course course) {//A method for selecting elective course randomly
-
         int index;
         Course elective = null;
         do {
@@ -133,19 +84,19 @@ public class Registrator {//A class for registration process
                 index = randomGenerator.nextInt(courseExpert.getFacultyTechnicalList().size());
                 elective = courseExpert.getFacultyTechnicalList().get(index);
             }
-            // If course is not approved or it already exist in student basket or taken course ?
         } while (!approver.approveCourse(elective));
-        return elective;
 
+        return elective;
     }
 
     public void startRegistration() {//the method given below starts the registration process
 
         Semester semester = student.getSemester();
-        // Select non taken courses with matching semester
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Registering " + student.getName() + " " + student.getSurname() + " to " + semester.getSemesterId() + ". semester");
+        // Select Failed courses with matching semester
         for (Course course : student.getFailedCourses()) {
             if (approver.approveCourse(course)) addBasket(course);
-
         }
 
         List<Course> NontakenCourseList = student.getNonTakenCourses();
@@ -161,8 +112,7 @@ public class Registrator {//A class for registration process
                     addBasket(course);
                     iterator.remove();
                 }
-            }
-            else if(approver.approveCourse(next)) {
+            } else if (approver.approveCourse(next)) {
                 addBasket(next);
                 iterator.remove();
             }
@@ -180,10 +130,10 @@ public class Registrator {//A class for registration process
             }
         }
         //send instructor approval
+        logger.info("Sending course basket to advisor approval");
         Instructor instructor = student.getAdvisor();
         instructor.approveStudentBasket(student);
         addBasketToActiveCourse();
-
     }
 
 }

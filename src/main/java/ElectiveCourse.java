@@ -1,4 +1,4 @@
-public class ElectiveCourse extends Course{//A class for elective courses and it extends from Course class
+public class ElectiveCourse extends Course {//A class for elective courses and it extends from Course class
 
     public ElectiveCourse() {
         super();

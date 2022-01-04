@@ -2,7 +2,6 @@ public class CollisionError extends Error{ // CollisionError class extends from 
     private Course firstCourse;
     private Course secondCourse;
 
-
     public CollisionError(Student student, Course firstCourse,Course secondCourse) {
         super(student);
         this.firstCourse = firstCourse;
@@ -13,18 +12,8 @@ public class CollisionError extends Error{ // CollisionError class extends from 
         return firstCourse;
     }
 
-    public CollisionError setFirstCourse(Course firstCourse) {
-        this.firstCourse = firstCourse;
-        return this;
-    }
-
     public Course getSecondCourse() {
         return secondCourse;
-    }
-
-    public CollisionError setSecondCourse(Course secondCourse) {
-        this.secondCourse = secondCourse;
-        return this;
     }
 
     @Override
@@ -34,6 +23,6 @@ public class CollisionError extends Error{ // CollisionError class extends from 
 
     @Override
     public String raiseError() {
-        return "Advisor didn't approve "+secondCourse.getName()+" because of collision with "+firstCourse.getName()+" in schedule";
+        return "Advisor didn't approve "+secondCourse.getCourseId()+" because of collision with "+firstCourse.getCourseId()+" in schedule";
     }
 }

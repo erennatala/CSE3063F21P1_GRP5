@@ -1,7 +1,7 @@
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,7 +16,7 @@ public class TranscriptReader {
 
     @SuppressWarnings("unchecked")
     public void readTranscriptJson(StudentExpert studentExpert, CourseExpert courseExpert, InstructorExpert instructorExpert) {// the function reads the transcripts from json files
-
+        Logger logger = Logger.getLogger(this.getClass().getName());
         try {//the function takes the transcript files that have already created and puts into the process and if transcript exists, function reads it and creates the student. After it, function  adds the student's information which contained in transcript
             File folder = new File("transcripts");//pathname
             File[] listOfFiles = folder.listFiles();
@@ -34,6 +34,7 @@ public class TranscriptReader {
                     int semester = Integer.parseInt(curr_input.get("Semester").toString());
                     String advisor = curr_input.get("Advisor").toString();
                     List<String> emails = (List<String>) curr_input.get("Email");
+                    int completedCredit = Integer.parseInt(curr_input.get("Completed Credit").toString());
 
                     studentExpert.createStudent(id, name, surname, emails, courseExpert.getSemesterMap().get(semester));
 
@@ -42,6 +43,7 @@ public class TranscriptReader {
                     student.setAdvisor(instructor);
                     instructor.addAdvisees(student);
                     student.setCgpa(cgpa);
+                    student.setCompletedCredit(completedCredit);
 
                     for (Object o : curr_input.keySet()) {
                         try {
@@ -61,23 +63,24 @@ public class TranscriptReader {
                                         student.getPastCourses().add(course);
                                     }
                                 }
-                                student.getTranscript().getTranscriptMap().put(o.toString(),(Map<String,Object>)currSemester);
+                                student.getTranscript().getTranscriptMap().put(o.toString(), (Map<String, Object>) currSemester);
                             }
                         } catch (StringIndexOutOfBoundsException s) {
                         }
                     }
 
                 } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 } catch (ParseException e) {
-                    e.printStackTrace();
-                } catch(NullPointerException e) {
+                    logger.error(e.getMessage());
+                } catch (NullPointerException e) {
+                    logger.error(e.getMessage());
                 }
             }
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

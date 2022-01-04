@@ -7,7 +7,7 @@ public class Grade {//Grade class is the class for students grades
     private int YSS;// YSS attribute is the grade attribute for end of the year
     private int YIS;// YIS attribute is the grade attribute for year while student is studying that year
 
-    public Grade(Student student,Course course, int YSS, int YIS) {
+    public Grade(Student student, Course course, int YSS, int YIS) {
         this.student = student;
         this.course = course;
         this.YSS = YSS;

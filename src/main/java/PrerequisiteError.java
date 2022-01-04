@@ -1,4 +1,4 @@
-public class PrerequisiteError extends Error{//PrerequisiteError class extends from Error class. It will occur when a student tries to take a course which he/she did not pass the prerequisite course of that course.
+public class PrerequisiteError extends Error {//PrerequisiteError class extends from Error class. It will occur when a student tries to take a course which he/she did not pass the prerequisite course of that course.
     private Course course;
     private Course required;
 
@@ -31,6 +31,6 @@ public class PrerequisiteError extends Error{//PrerequisiteError class extends f
 
     @Override
     public String raiseError() {
-        return "The system did not allow to take "+course.getCourseId()+" because student failed prerequisite "+ required.getCourseId();
+        return "The system did not allow to take " + course.getCourseId() + " because student failed prerequisite " + required.getCourseId();
     }
 }

@@ -1,4 +1,4 @@
-public class UncompletedCreditError extends Error{//UncompletedCreditError class extends from Error class, and it will occur if student has any uncompleted credit
+public class UncompletedCreditError extends Error {//UncompletedCreditError class extends from Error class, and it will occur if student has any uncompleted credit
     private Course course;
 
     public UncompletedCreditError(Student student, Course course) {

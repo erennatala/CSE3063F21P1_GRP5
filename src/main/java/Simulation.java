@@ -1,7 +1,5 @@
-
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.json.simple.parser.ParseException;
-
 import java.io.*;
 import java.util.*;
 
@@ -11,7 +9,7 @@ public class Simulation {
     private InstructorExpert instructorExpert = new InstructorExpert();
     private CourseExpert courseExpert = new CourseExpert();
     private TranscriptReader transcriptReader = new TranscriptReader();
-    private Map<String,Object> departmentOutput = new HashMap<>();
+    private Map<String, Object> departmentOutput = new HashMap<>();
     private int lastStudent;
     private int firstStudent;
 
@@ -20,7 +18,8 @@ public class Simulation {
 
     public void startRegistration() {//the method starts the registration of students
         //register students
-        System.out.println("--Start point of the startRegistration function--");
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Starting Registration Process");
         Map<Integer, Student> studentMap = studentExpert.getStudentMap();
         Iterator<Map.Entry<Integer, Student>> studentIterator = studentMap.entrySet().iterator();
         while (studentIterator.hasNext()) {
@@ -29,31 +28,32 @@ public class Simulation {
             Registrator registrator = new Registrator(student, courseExpert);
             registrator.startRegistration();
         }
-        System.out.println("--End point of the startRegistration function--");
+        logger.info("Registration Process Finished");
     }
 
-    public void prepareDepartmentOutput(int firstStudent,int lastStudent){
-        departmentOutput.put("First Student",firstStudent);
-        departmentOutput.put("Last Student",lastStudent);
-        Map<Course,List<Integer>> errorMap = studentExpert.prepareErrorOutput();
+    public void prepareDepartmentOutput(int firstStudent, int lastStudent) {
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        departmentOutput.put("First Student", firstStudent);
+        departmentOutput.put("Last Student", lastStudent);
+        Map<Course, List<Integer>> errorMap = studentExpert.prepareErrorOutput();
         List<String> strList = new ArrayList<>();
-        for(Course course: errorMap.keySet()){
+        for (Course course : errorMap.keySet()) {
             List<Integer> tmpList = errorMap.get(course);
-            if(tmpList.get(0)!=0)
-                strList.add(tmpList.get(0).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE COLLIISION PROBLEMS");
-            if(tmpList.get(1)!=0)
-                strList.add(tmpList.get(1).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE NOT IN GRADUATION PROBLEMS");
-            if(tmpList.get(2)!=0)
-                 strList.add(tmpList.get(2).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE PREREQUISITE PROBLEMS");
-            if(tmpList.get(3)!=0)
-                strList.add(tmpList.get(3).toString()+" STUDENTS COULDNT REGISTER FOR GRADUATION PROJECT");
-            if(tmpList.get(4)!=0)
-                strList.add(tmpList.get(4).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE QUOTA PROBLEMS");
-            if(tmpList.get(5)!=0)
-                strList.add(tmpList.get(5).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE TWO TECHNICAL ELECTIVE PROBLEMS");
-            if(tmpList.get(6)!=0)
-                strList.add(tmpList.get(6).toString()+" STUDENTS COULDNT REGISTER FOR "+course.getCourseId()+" DUE TO THE UNCOMPLETED CREDIT PROBLEMS");
-            departmentOutput.put("Errors",strList);
+            if (tmpList.get(0) != 0)
+                strList.add(tmpList.get(0).toString() + " STUDENTS COULDNT REGISTER FOR " + course.getCourseId() + " DUE TO THE COLLIISION PROBLEMS");
+            if (tmpList.get(1) != 0)
+                strList.add(tmpList.get(1).toString() + " STUDENTS COULDNT REGISTER FOR " + course.getCourseId() + " DUE TO THE NOT IN GRADUATION PROBLEMS");
+            if (tmpList.get(2) != 0)
+                strList.add(tmpList.get(2).toString() + " STUDENTS COULDNT REGISTER FOR " + course.getCourseId() + " DUE TO THE PREREQUISITE PROBLEMS");
+            if (tmpList.get(3) != 0)
+                strList.add(tmpList.get(3).toString() + " STUDENTS COULDNT REGISTER FOR GRADUATION PROJECT");
+            if (tmpList.get(4) != 0)
+                strList.add(tmpList.get(4).toString() + " STUDENTS COULDNT REGISTER FOR " + course.getCourseId() + " DUE TO THE QUOTA PROBLEMS");
+            if (tmpList.get(5) != 0)
+                strList.add(tmpList.get(5).toString() + " STUDENTS COULDNT REGISTER FOR " + course.getCourseId() + " DUE TO THE TWO TECHNICAL ELECTIVE PROBLEMS");
+            if (tmpList.get(6) != 0)
+                strList.add(tmpList.get(6).toString() + " STUDENTS COULDNT REGISTER FOR " + course.getCourseId() + " DUE TO THE UNCOMPLETED CREDIT PROBLEMS");
+            departmentOutput.put("Errors", strList);
         }
 
         try {
@@ -61,37 +61,38 @@ public class Simulation {
             JSONObject obj = new JSONObject(departmentOutput);
             outputFile.write(obj.toString(4));
             outputFile.close();
-            // Errors
-        }catch (IOException e) {
-
+        } catch (IOException e) {
+            logger.error(e.getMessage());
         }
 
     }
 
-    public void readDepartmentOutput(){
-       setLastStudent(Integer.parseInt(inputReader.readLastStudent()));
-       setFirstStudent(Integer.parseInt(inputReader.readFirstStudent()));
+    public void readDepartmentOutput() {
+        setLastStudent(Integer.parseInt(inputReader.readLastStudent()));
+        setFirstStudent(Integer.parseInt(inputReader.readFirstStudent()));
     }
 
     public void startGrading() {//the method written below starts the grading with using for loop via Grader
-        System.out.println("--Start point of the starGrading function--");
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Starting Grading Process");
         for (Course course : courseExpert.getCourses()) {
             Grader grader = new Grader(course);
             grader.startGrading();
         }
-        System.out.println("--End point of the startGrading function--");
+        logger.info("Grading Process Finished");
     }
-    public void assignNextSemester(){//the function assigns the next semester for student
-        System.out.println("--Start point of the assignNextSemester function--");
+
+    public void assignNextSemester() {//the function assigns the next semester for student
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Assigning all students to next semester");
         Map<Integer, Student> studentMap = studentExpert.getStudentMap();
         for (Student student : studentMap.values()) {
-            int nextSemesterID = student.getSemester().getSemesterId()+1;
+            int nextSemesterID = student.getSemester().getSemesterId() + 1;
             Semester semester = courseExpert.getSemesterMap().get(nextSemesterID);
             Registrator registrator = new Registrator();
-            registrator.assignNextSemester(student,semester);
+            registrator.assignNextSemester(student, semester);
         }
         courseExpert.clearCourses();
-        System.out.println("--End point of the assignNextSemester function--");
     }
 
     public StudentExpert getStudentExpert() {
@@ -126,28 +127,19 @@ public class Simulation {
         this.courseExpert = courseExpert;
     }
 
-    public void addAllCoursesTogether() {//method written below provides adding all courses together via courseExpert
-        System.out.println("--Start point of the addAllCoursesTogether function--");
-        List<Course> courses = new ArrayList<>();
-        courses.addAll(courseExpert.getMandatoryCourses());
-        courses.addAll(courseExpert.getTechnicalList());
-        courses.addAll(courseExpert.getFacultyTechnicalList());
-        courses.addAll(courseExpert.getNT_UList());
-        courseExpert.setCourses(courses);
-        System.out.println("--End point of the addAllCoursesTogether function--");
-    }
-    public void checkTranscriptFolder(){//the function checks for the transcript folder
-        System.out.println("--Start point of the checkTranscriptFolder function--");
+    public void checkTranscriptFolder() {//the function checks for the transcript folder
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Checking for if transcript folder exist");
         File file = new File("transcripts/");
-        if(!file.exists()){//if folder does not exist, it gets created
+        if (!file.exists()) {//if folder does not exist, it gets created
             file.mkdir();
         }
-        System.out.println("--End point of the checkTranscriptFolder function--");
     }
 
 
-    public void simulateSemester(){
-
+    public void simulateSemester() {
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Simulating Semester");
         startRegistration();
         startGrading();
         assignNextSemester();
@@ -171,11 +163,13 @@ public class Simulation {
         return this;
     }
 
-    public void initializeStudents(String generation, String season){
-            int firstStudent;
-            int lastStudent;
-        if (generation.equals("1")){
+    public void initializeStudents(String generation, String season) {
+        Logger logger = Logger.getLogger(this.getClass().getName());
 
+        int firstStudent;
+        int lastStudent;
+        if (generation.equals("1")) {
+            logger.info("Creating Random Students");
             firstStudent = 999;
             lastStudent = 999;
             setLastStudent(lastStudent);
@@ -183,15 +177,13 @@ public class Simulation {
 
 
             int lastSemester;
-            if(season.equalsIgnoreCase("Fall")){
+            if (season.equalsIgnoreCase("Fall")) {
 
                 lastSemester = 7;
-            }
-            else if (season.equalsIgnoreCase("Spring")){
+            } else if (season.equalsIgnoreCase("Spring")) {
                 lastSemester = 8;
-            }
-            else{
-                System.out.println("Error ocurred while initialization");
+            } else {
+                logger.error("Error occured while initialization");
                 lastSemester = 0;
             }
             // Create Random students for all semester using implemented simulation processes
@@ -203,49 +195,53 @@ public class Simulation {
                 }
                 simulateSemester();
             }
-            if(season.equalsIgnoreCase("Fall")){
+            if (season.equalsIgnoreCase("Fall")) {
                 int superLast = getLastStudent();
                 int ls = inputReader.readStudentJson(superLast, studentExpert, courseExpert.getSemesterMap().get(1));
                 setLastStudent(ls);
             }
 
-        }else {
-
+        } else {
+            logger.info("Reading Students From Existed Transcript");
             readDepartmentOutput();
             transcriptReader.readTranscriptJson(studentExpert, courseExpert, instructorExpert);
-            if(season.equalsIgnoreCase("Fall")){
+            if (season.equalsIgnoreCase("Fall")) {
                 int superLast = getLastStudent();
                 int ls = inputReader.readStudentJson(superLast, studentExpert, courseExpert.getSemesterMap().get(1));
                 setLastStudent(ls);
             }
-
         }
-
     }
 
     public void start() {
 
+        Logger logger = Logger.getLogger(this.getClass().getName());
+        logger.info("Simulation Started");
         checkTranscriptFolder();
+
         // Read other inputs
+
         inputReader.readInstructorJson(instructorExpert);
         inputReader.readCourseJson(courseExpert, instructorExpert);
-        addAllCoursesTogether();
         inputReader.readPrerequisiteJson(courseExpert);
         studentExpert.setInstructors(new ArrayList<>(instructorExpert.getInstructorMap().values()));
 
         // Read Config Parameters
         String season = inputReader.readSeasonParameter();
         String generation = inputReader.readGenerationParameter();
+
         // Initialize Students Depending On Input Parameters
-
-        initializeStudents(generation,season);
-
+        logger.info("Initializing Students");
+        initializeStudents(generation, season);
         simulateSemester();
+
         // Write call for transcript after simulation
+        logger.info("Preparing Department Output and Transcripts");
         studentExpert.prepareErrorOutput();
         TranscriptWriter transcriptWriter = new TranscriptWriter(studentExpert);
         transcriptWriter.startWriter();
-        prepareDepartmentOutput(firstStudent,lastStudent);
+        prepareDepartmentOutput(firstStudent, lastStudent);
+        logger.info("Simulation Finished");
 
     }
 }

@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Section {//section class for courses
 
@@ -22,17 +19,8 @@ public class Section {//section class for courses
         return scheduleList;
     }
 
-    public Section setScheduleList(List<Schedule> scheduleList) {
-        this.scheduleList = scheduleList;
-        return this;
-    }
-
     public int getSectionId() {
         return sectionId;
-    }
-
-    public void setSectionId(int sectionId) {
-        this.sectionId = sectionId;
     }
 
     public Course getCourse() {
