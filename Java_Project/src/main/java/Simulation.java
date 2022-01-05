@@ -130,7 +130,7 @@ public class Simulation {
     public void checkTranscriptFolder() {//the function checks for the transcript folder
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Checking for if transcript folder exist");
-        File file = new File("transcripts/");
+        File file = new File("Java_Project/src/main/resources/transcripts/");
         if (!file.exists()) {//if folder does not exist, it gets created
             file.mkdir();
         }
