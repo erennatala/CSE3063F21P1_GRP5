@@ -51,7 +51,7 @@ class InputReader:
 
         f.close()
 
-    def read_student(self):
+    def read_students(self):
         path = pathlib.Path(__file__).parent.parent.joinpath('resources/students.json')
         f = open(path, 'r', encoding='utf-8')
         data = json.load(f)
@@ -64,7 +64,12 @@ class InputReader:
             #Student(name, surname, id)
 
     def read_transcript(self):
-        path = pathlib.Path(__file__).parent.parent.joinpath('resources/students.json')
-        f = open(path, 'r', encoding='utf-8')
-        data = json.load(f)
+        path = 'transcripts/'
+
+        for file_name in [file for file in os.listdir(path) if file.endswith('.json')]: #reads all files in a dir, using for loop
+            print(file_name)
+            f = open(path+file_name, 'r', encoding='utf-8')
+            data = json.load(f)
+            print(data)
+            f.close()
 

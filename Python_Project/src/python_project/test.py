@@ -10,11 +10,14 @@ import pathlib
 inputReadObj = InputReader()
 outputWriteObj = OutputWriter()
 
+first_student = 999
+
 inputReadObj.read_instructor()
 inputReadObj.read_courses()
-inputReadObj.read_student()
+inputReadObj.read_students()
 
 outputWriteObj.write_transcript(3)
+inputReadObj.read_transcript()
 
 # Student Reader
 # path = pathlib.Path(__file__).parent.parent.joinpath("resources/students.json")
