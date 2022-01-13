@@ -69,7 +69,7 @@ class Instructor:
            except -> will be filled in terms of IndexError
         """
         course_basket = student.course_basket
-        filtered = filter(lambda course: course.course_id == "CSE4197", course_basket)
+        filtered = filter(lambda course: course.course_id == 'CSE4297' or course.course_id == 'CSE4298', course_basket)
         if student.completed_credit < 165:
             try:
                 course = list(filtered)[0]
@@ -102,7 +102,7 @@ class Instructor:
 
     def approve_student_basket(self, student):
         """first if statement checks for the season, if it is fall it calls the check_two_technical method
-           second if statment checks for the semester_id equals 7 or 8, if it is not equal them and season is Fall, check_fte method gets called
+           second if statement checks for the semester_id equals 7 or 8, if it is not equal them and season is Fall, check_fte method gets called
            """
         season = student.semester.season
         semester_id = student.semester.semester_id
