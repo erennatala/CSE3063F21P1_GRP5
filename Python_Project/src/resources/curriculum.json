@@ -1,5 +1,5 @@
-[
 {
+
     "Semester1": [
         {
             "courseId": "ATA121",
@@ -175,10 +175,9 @@
             }
             ]
         }
-    ]
-},
+    ],
 
-{
+
     "Semester2": [
         {
             "courseId": "ATA122",
@@ -338,10 +337,9 @@
             "Capacity": "0",
             "Schedule":[]
         }
-    ]
-},
+    ],
 
-{
+
     "Semester3": [
         {
             "courseId": "CSE2023",
@@ -486,10 +484,9 @@
             }
             ]
         }
-    ]
-},
+    ],
 
-{
+
     "Semester4": [
         {
             "courseId": "CSE2246",
@@ -611,10 +608,9 @@
             }
             ]
         }
-    ]
-},
+    ],
 
-{
+
     "Semester5": [
         {
             "courseId": "CSE3000",
@@ -759,10 +755,9 @@
             }
             ]
         }
-    ]
-},
+    ],
 
-{
+
     "Semester6": [
         {
             "courseId": "CSE3038",
@@ -907,10 +902,9 @@
             }
 			]
         }
-    ]
-},
+    ],
 
-{
+
     "Semester7": [
         {
             "courseId": "CSE4000",
@@ -1059,10 +1053,9 @@
             "Capacity": "0",
             "Schedule":[]
         }
-    ]
-},
+    ],
 
-{
+
     "Semester8": [
         {
             "courseId": "CSE4298",
@@ -1160,10 +1153,9 @@
             "Capacity": "0",
             "Schedule":[]
         }
-    ]
-},
+    ],
 
-{
+
     "(TE)Technical Elective Courses": [
         {
             "courseId": "CSE4026",
@@ -1862,10 +1854,9 @@
 			}
 			]
         }
-    ]
-},
+    ],
 
-{
+
     "(ENG-FTE) Faculty Technical Elective Courses": [
         {
             "courseId": "BIOE4072",
@@ -2422,10 +2413,9 @@
             }
 			]
         }
-    ]
-},
+    ],
 
-{
+
     "(NTE / ENG-UE) Non-Technical and University Elective Courses": [
         {
             "courseId": "BUS1003",
@@ -3398,4 +3388,3 @@
         }
     ]
 }
-]
