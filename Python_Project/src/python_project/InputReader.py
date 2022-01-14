@@ -71,8 +71,19 @@ class InputReader:
         path = 'transcripts/'
 
         for file_name in [file for file in os.listdir(path) if file.endswith('.json')]: #reads all files in a dir, using for loop
-            print(file_name)
             f = open(path+file_name, 'r', encoding='utf-8')
             data = json.load(f)
-            print(data)
             f.close()
+            return data
+
+    def read_department_output(self):
+        path = pathlib.Path(__file__).parent.parent.joinpath('department_output.json')
+        f = open(path, 'r', encoding='utf-8')
+        data = json.load(f)
+
+        output = dict()
+        output['First Student'] = data['First Student']
+        output['Last Student'] = data['Last Student']
+        f.close()
+
+        return output
