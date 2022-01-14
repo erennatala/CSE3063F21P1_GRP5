@@ -31,11 +31,3 @@ class Transcript:
         return self.transcript_map
 
     # cgpa can be added.
-
-
-
-transcript = Transcript("effw")
-transcript.create_semester()
-transcript.add_course("fizik",10)
-transcript.add_error("error")
-print(transcript.add_gpa())
