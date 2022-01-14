@@ -17,7 +17,7 @@ class Student:
         self.past_courses = list()
         self.non_taken_courses = list()
         self.failed_courses = list()
-        self.transcript = Transcript()
+        # self.transcript = Transcript()
         self.semester = semester
         self.gpa = 0
         self.cgpa = 0
