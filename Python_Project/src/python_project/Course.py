@@ -16,6 +16,7 @@ class Course:
         self.schedule = dict()  # { "Day": Schedule() }
         self.set_schedule(schedule_list)
         """self.error_map=dict()"""
+
     def add_student(self, student):
         self.students.append(student)
 
@@ -23,23 +24,26 @@ class Course:
        May be read all of them together
         self.prerequisites.extend(prerequisites)
 """
+
     def set_schedule(self, schedule_list):
         """This method creates each schedule object of course"""
         for val in schedule_list:
             day = val['Day']
             self.schedule[day] = Schedule(val['Day'], val['Start'], val['End'])
 
-    def compare(self,second_course):
+    def compare(self, second_course):
         for sch in self.schedule:
             second_sch = second_course.schedule[sch.Day]
             if sch.compare(second_sch):
                 """Collision error
                     second_course.error_map add
+                    return true
                 """
+    def remove_from_basket(self,will_be_removed):
+        pass
 
     def __str__(self) -> str:
         return f'Course_id={self.course_id}, name={self.name}, instructor={self.instructor}, schedule={self.schedule}'
 
     def __repr__(self) -> str:
         return f'Course_id={self.course_id}, name={self.name}, instructor={self.instructor}, schedule={self.schedule}'
-

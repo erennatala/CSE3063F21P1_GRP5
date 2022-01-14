@@ -20,7 +20,7 @@ class Grade:
 
     # May be computed property
     @property
-    def succes_grade(self):
+    def success_grade(self):
         return self.YIS * 0.6 + self.YSS * 0.4
 
     @property
@@ -34,7 +34,7 @@ class Grade:
             print("Letter grade not found")
 
     def round(self):
-        return int(math.floor(self.succes_grade / 5) * 5)
+        return int(math.floor(self.success_grade / 5) * 5)
 
     def generate_random_grade(self):
         random_grade = random.randint(0, 50)

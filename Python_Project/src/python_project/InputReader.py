@@ -3,7 +3,7 @@ import pathlib
 import os
 
 class InputReader:
-
+    """ Try to remove department"""
     def read_instructor(self, department):
         path = pathlib.Path(__file__).parent.parent.joinpath('resources/instructors.json')
         f = open(path, 'r', encoding='utf-8')

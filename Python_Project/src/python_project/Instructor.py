@@ -1,5 +1,3 @@
-from Course import Course
-from Student import Student
 from Error import Error
 
 class Instructor:
@@ -18,26 +16,13 @@ class Instructor:
            first if statement checks for the course type
            second if statement checks for the courses_count ,creates the error and adds course to the student's non_taken_courses
         """
-        course_basket = student.course_basket
-        for course in course_basket:
-
-            new_course_basket = list()
-            courses_count = 0
-
-            if course.course_type == 'TE':
-                courses_count += 1
-
-                if courses_count > 2:
-                    err = Error('Advisor', course, "Two Technical Elective")
-                    course.error_map["Two Technical Elective"].append(err)
-                    student.add_error(err)
-                    student.add_non_taken(course)
-                    courses_count -= 1
-                else:
-                    new_course_basket.append(course)
-            else:
-                new_course_basket.append(course)
-
+        will_be_removed = list(filter(lambda course: course.course_type == 'TE',student.course_basket))[2:]
+        for course in will_be_removed:
+            err = Error('Advisor', course, "Two Technical Elective")
+            course.error_map["Two Technical Elective"].append(err)
+            student.add_error(err)
+            student.add_non_taken(course)
+        student.remove_from_basket(will_be_removed)
 
     def check_fte(self, student):
         """
@@ -49,17 +34,16 @@ class Instructor:
         course_basket = student.course_basket
         filtered = filter(lambda course: course.course_type == 'FTE', course_basket)
 
-        #instead of using for we can use try except
+        # instead of using for we can use try except
         try:
             course = list(filtered)[0]
             err = Error('Advisor', course, "Graduation Year")
             course.error_map["Graduation Year"].append(err)
             student.add_error(err)
             student.add_non_taken(course)
-
+            student.remove_from_basket(list(filtered))
         except IndexError:
             pass
-
 
     def check_graduation_project(self, student):
         """
@@ -77,10 +61,9 @@ class Instructor:
                 course.error_map['Project'].append(err)
                 student.add_error(err)
                 student.add_non_taken(course)
-
+                student.will_be_removed(list(filtered))
             except IndexError:
                 pass
-
 
     def check_minimum_credit(self, student):
         """
@@ -89,16 +72,27 @@ class Instructor:
            creates the error and adds course to the student's non_taken_courses
         """
         course_basket = student.course_basket
+        will_be_removed = list()
         for course in course_basket:
             if course.course_type == 'TE' and student.completed_credit < course.mimimum_credit:
                 err = Error('Advisor', course, "Uncompleted Credit")
                 course.error_map["Uncompleted Credit"].append(err)
                 student.add_error(err)
                 student.add_non_taken(course)
+                will_be_removed.append(course)
+        student.remove_from_basket(will_be_removed)
 
 
     def check_collision(self, course_basket, student):
-        pass
+        will_be_removed = list()
+        for main_course in course_basket:
+            for second_course in course_basket:
+                if main_course is second_course or second_course in will_be_removed:
+                    continue
+                if main_course.compare(second_course):
+                    will_be_removed.append(second_course)
+        student.remove_from_basket(will_be_removed)
+
 
     def approve_student_basket(self, student):
         """first if statement checks for the season, if it is fall it calls the check_two_technical method
