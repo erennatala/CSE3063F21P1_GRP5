@@ -49,8 +49,8 @@ class Department:
         """Prerequisite courses will be a list of courses"""
         main_course.prerequisites = prerequisite_courses
 
-    def create_student(self, student_id, name, surname, semester_id):
+    def create_student(self, student_id, name, surname, semester_id=1):
         semester = self.semesters[semester_id]
-        advisor = random.choice(self.instructors)
+        advisor = random.choice(list(self.instructors.values()))
         student = Student(student_id, name, surname, semester, advisor)
         self.students[student_id] = student

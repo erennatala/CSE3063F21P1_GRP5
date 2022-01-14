@@ -2,11 +2,9 @@ import json
 import pathlib
 import os
 
-from Instructor import Instructor
-
 class InputReader:
 
-    def read_instructor(self):
+    def read_instructor(self, department):
         path = pathlib.Path(__file__).parent.parent.joinpath('resources/instructors.json')
         f = open(path, 'r', encoding='utf-8')
         data = json.load(f)
@@ -14,54 +12,60 @@ class InputReader:
             id = i['instructorID']
             name = i['name']
             surname = i['surname']
-            fullname = i['fullName']
-            #Instructor(id, name, surname, fullname)
 
+            department.create_instructor(id, name, surname)
         f.close()
 
-    def read_courses(self):
+    def read_courses(self, department):
         path = pathlib.Path(__file__).parent.parent.joinpath('resources/curriculum.json')
         f = open(path, 'r', encoding='utf-8')
         data = json.load(f)
-        for i in data:
-            for title_key, title_value in i.items():
-                for courseiter in title_value:
 
-                    course_id = courseiter['courseId']
-                    course_name = courseiter['courseName']
-                    type = courseiter['Type']
-                    credit = courseiter['Credit']
-                    ects = courseiter['ECTS']
-                    instructor = courseiter['Instructor']
-                    capacity = courseiter['Capacity']
-                    schedule = courseiter['Schedule']
+        for title in data:
+            for courses in data[title]:
 
-                    if title_key[0:8] == 'Semester': #semester mandatory dersler
-                        print("Mandatory course")
-                        # Course(courseId, courseName, capacity, credit, ects, instructor)
+                course_id = courses['courseId']
+                course_name = courses['courseName']
+                course_type = courses['Type']
+                credit = courses['Credit']
+                ects = courses['ECTS']
+                instructor = courses['Instructor']
+                capacity = courses['Capacity']
+                schedule_list = courses['Schedule']
+                semester_id = title
 
-                    elif title_key[1:3] == 'TE': #technical electives
-                        print("Technical Elective")
-
-                    elif title_key[1:8] == 'ENG-FTE': #eng-fte's
-                        print("Faculty Elective")
-
-                    elif title_key[1:13] == 'NTE / ENG-UE': #ntes
-                        print("Non-Technical Elective")
-
+                department.create_course(course_id, course_name, course_type, instructor, capacity, credit, ects, schedule_list, semester_id)
         f.close()
 
-    def read_students(self):
+    def read_students(self, department, start_index):
         path = pathlib.Path(__file__).parent.parent.joinpath('resources/students.json')
         f = open(path, 'r', encoding='utf-8')
         data = json.load(f)
-
+        index = start_index
         for i in data:
+
             index = i['index']
             name = i['name']
             surname = i['surname']
             id = 1000+index
-            #Student(name, surname, id)
+
+            if index < start_index:
+                continue
+
+            if index == start_index + 70:
+                return index
+
+            department.create_student(id, name, surname)
+        f.close()
+
+    def read_prerequisite(self, department):
+        path = pathlib.Path(__file__).parent.parent.joinpath('resources/prerequisite.json')
+        f = open(path, 'r', encoding='utf-8')
+        data = json.load(f)
+
+        for course, pre_list in data.items():
+            department.add_prerequisites(course, pre_list)
+        f.close()
 
     def read_transcript(self):
         path = 'transcripts/'
@@ -72,4 +76,3 @@ class InputReader:
             data = json.load(f)
             print(data)
             f.close()
-
