@@ -17,7 +17,7 @@ class Student:
         self.past_courses = list()
         self.non_taken_courses = list()
         self.failed_courses = list()
-        # self.transcript = Transcript()
+        self.transcript = Transcript(semester.semester_id)
         self.semester = semester
         self.gpa = 0
         self.cgpa = 0
@@ -36,21 +36,15 @@ class Student:
     Basket_To_Active_Courses:
         create grade
         We can assign next semester here but it is not logical
-        
+        clear basket
     """
-    def add_course_basket(self,course):
-        pass
-    # @property
-    # def id(self):
-    #     return self._id
-    #
-    # @id.setter
-    # def id(self, value):
-    #     if value < 0:
-    #         raise ValueError('Student Id can not be negative')
-    #     self._id = value
 
-    def add_error(self,error):
-        pass
-    def add_non_taken(self):
-        pass
+    def add_error(self,error,course):
+        self.non_taken_courses.append(course)
+        self.transcript.add_error(error)
+
+    def add_course_basket(self,course):
+        self.course_basket.append(course)
+
+    def remove_from_basket(self,will_be_removed):
+        self.course_basket = list(set(self.course_basket) - set(will_be_removed))
