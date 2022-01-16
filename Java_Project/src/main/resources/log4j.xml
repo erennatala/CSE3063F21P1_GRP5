@@ -4,7 +4,7 @@
 <log4j:configuration>
 
     <appender name="DEBUG" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="./log/Debug.txt"/>
+        <param name="File" value="Java_Project/src/main/resources/log/Debug.txt"/>
         <param name="Append" value="true"/>
         <param name="MaxFileSize" value="500KB"/>
         <param name="MaxBackupIndex" value="2"/>
@@ -29,7 +29,7 @@
     </appender>
 
     <appender name="ERROR" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="./log/logs.txt"/>
+        <param name="File" value="Java_Project/src/main/resources/log/logs.txt"/>
         <param name="Append" value="true"/>
         <param name="MaxFileSize" value="5MB"/>
         <param name="MaxBackupIndex" value="10"/>

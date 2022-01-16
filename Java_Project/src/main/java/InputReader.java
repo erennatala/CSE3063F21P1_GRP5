@@ -21,7 +21,7 @@ public class InputReader {
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Reading Curriculum.json");
         try {
-            JSONArray curr_input = (JSONArray) parser.parse(new FileReader("curriculum.json")); //creates a JSONArray as and reads curriculum.json
+            JSONArray curr_input = (JSONArray) parser.parse(new FileReader("Java_Project/src/main/resources/curriculum.json")); //creates a JSONArray as and reads curriculum.json
 
             for (Object o : curr_input) {
                 JSONObject courses = (JSONObject) o;
@@ -98,7 +98,7 @@ public class InputReader {
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Reading Students.json");
         try {
-            JSONArray student_input = (JSONArray) parser.parse(new FileReader("students.json"));
+            JSONArray student_input = (JSONArray) parser.parse(new FileReader("Java_Project/src/main/resources/students.json"));
 
             int number = startIndex;
 
@@ -134,7 +134,7 @@ public class InputReader {
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Reading Instructor.json");
         try {
-            JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("instructors.json"));
+            JSONArray instructor_input = (JSONArray) parser.parse(new FileReader("Java_Project/src/main/resources/instructors.json"));
 
             for (Object o : instructor_input) {
 
@@ -158,7 +158,7 @@ public class InputReader {
         Logger logger = Logger.getLogger(this.getClass().getName());
         logger.info("Reading Prerequisite.json");
         try {
-            JSONArray student_input = (JSONArray) parser.parse(new FileReader("prerequisite.json"));
+            JSONArray student_input = (JSONArray) parser.parse(new FileReader("Java_Project/src/main/resources/prerequisite.json"));
 
             for (Object o : student_input) {
 
@@ -191,7 +191,7 @@ public class InputReader {
     public String readGenerationParameter() {
         Logger logger = Logger.getLogger(this.getClass().getName());
         try {
-            JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
+            JSONObject config = (JSONObject) parser.parse(new FileReader("Java_Project/src/main/resources/config.json"));
             String generation = config.get("Generation").toString();
             return generation;
 
@@ -208,7 +208,7 @@ public class InputReader {
     public String readSeasonParameter() {
         Logger logger = Logger.getLogger(this.getClass().getName());
         try {
-            JSONObject config = (JSONObject) parser.parse(new FileReader("config.json"));
+            JSONObject config = (JSONObject) parser.parse(new FileReader("Java_Project/src/main/resources/config.json"));
             String season = config.get("Season").toString();
             return season;
 
@@ -225,7 +225,7 @@ public class InputReader {
     public String readFirstStudent() {
         Logger logger = Logger.getLogger(this.getClass().getName());
         try {
-            JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
+            JSONObject outputobj = (JSONObject) parser.parse(new FileReader("Java_Project/src/main/resources/DepartmentOutput.json"));
             String output = outputobj.get("First Student").toString();
             return output;
 
@@ -242,7 +242,7 @@ public class InputReader {
     public String readLastStudent() {
         Logger logger = Logger.getLogger(this.getClass().getName());
         try {
-            JSONObject outputobj = (JSONObject) parser.parse(new FileReader("DepartmentOutput.json"));
+            JSONObject outputobj = (JSONObject) parser.parse(new FileReader("Java_Project/src/main/resources/DepartmentOutput.json"));
             String output = outputobj.get("Last Student").toString();
             return output;
 

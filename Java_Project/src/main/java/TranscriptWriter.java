@@ -18,7 +18,7 @@ public class TranscriptWriter {// TranscriptWriter class writes the transcript
         JSONObject transcriptMap1 = new JSONObject(transcriptMap);//transriptMap JSONObjects gets created
 
         try {//writes the transcripts and names them with student's ID
-            FileWriter outputFile = new FileWriter("transcripts/" + transcriptMap1.get("ID").toString() + ".json");
+            FileWriter outputFile = new FileWriter("Java_Project/src/main/resources/transcripts/" + transcriptMap1.get("ID").toString() + ".json");
             outputFile.write(transcriptMap1.toString(4));
             outputFile.close();
         } catch (IOException e) {
