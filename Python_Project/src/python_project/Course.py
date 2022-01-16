@@ -17,7 +17,8 @@ class Course:
         self.prerequisites = list()
         self.schedule = dict()  # { "Day": Schedule() }
         self.set_schedule(schedule_list)
-        self.error_map=dict()
+        self.error_map = {'Quota': [], 'Prerequisite': [], 'Project': [], 'Collision': [], 'Uncompleted Credits': [],
+                          'Graduation Year': [], 'Two Technical Elective': []}
 
     def add_student(self, student):
         self.students.append(student)
@@ -33,14 +34,11 @@ class Course:
             try:
                 second_sch = second_course.schedule[sch.day]
                 if sch.compare(second_sch):
-                    print("Collision")
-                    """Collision error
-                        second_course.error_map add
-                        return true
-                    """
+                    return True
             except KeyError:
                 continue
-    def approve_course(self,student):
+
+    def approve_course(self, student):
         """ This method checks if given student satisfies registration criterias of this course """
         capacity_check = True
         elective_check = True
@@ -51,25 +49,22 @@ class Course:
             # Quota error call transcript
             err = Error('System', self, 'Quota')
             self.error_map['Quota'].append(err)
-            student.non_taken_courses.append(self)
+            student.add_error(err,self)
             capacity = False
 
         # Prerequisite Check
         if not all(course in student.past_courses for course in self.prerequisites):
-            #prerequisite error
+            # prerequisite error
+            #print(self)
             err = Error('System', self, 'Prerequisite')
             self.error_map['Prerequisite'].append(err)
-            student.non_taken_courses.append(self)
+            student.add_error(err,self)
             prerequisite_check = False
 
         if (self.course_type != "Must") and (self in student.past_courses or self in student.course_basket):
             elective_check = False
 
         return capacity_check and elective_check and prerequisite_check
-
-        # isElective taken
-    def remove_from_basket(self,will_be_removed):
-        pass
 
     def __str__(self) -> str:
         return f'Course_id={self.course_id}, name={self.name}, instructor={self.instructor}, schedule={self.schedule}'

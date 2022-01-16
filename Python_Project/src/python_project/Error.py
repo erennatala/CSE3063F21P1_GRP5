@@ -5,4 +5,4 @@ class Error:
         self.reason = reason
 
     def raise_error(self):
-        return self.actor + " did not approve " + self.course.course_id + self.reason
+        return self.actor + " did not approve " + self.course.course_id + " because of " + self.reason + " error."

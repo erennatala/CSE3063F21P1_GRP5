@@ -2,8 +2,10 @@ import json
 import pathlib
 import os
 
+
 class InputReader:
     """ Try to remove department"""
+
     def read_instructor(self, department):
         path = pathlib.Path(__file__).parent.parent.joinpath('resources/instructors.json')
         f = open(path, 'r', encoding='utf-8')
@@ -23,7 +25,6 @@ class InputReader:
 
         for title in data:
             for courses in data[title]:
-
                 course_id = courses['courseId']
                 course_name = courses['courseName']
                 course_type = courses['Type']
@@ -34,7 +35,8 @@ class InputReader:
                 schedule_list = courses['Schedule']
                 semester_id = title
 
-                department.create_course(course_id, course_name, course_type, instructor, capacity, credit, ects, schedule_list, semester_id)
+                department.create_course(course_id, course_name, course_type, instructor, capacity, float(credit), ects,
+                                         schedule_list, semester_id)
 
         f.close()
 
@@ -48,12 +50,12 @@ class InputReader:
             index = i['index']
             name = i['name']
             surname = i['surname']
-            id = 1000+index
+            id = 1000 + index
 
             if index < start_index:
                 continue
 
-            if index == start_index + 70:
+            if index == start_index + 50:
                 return index
 
             department.create_student(id, name, surname)
@@ -71,8 +73,9 @@ class InputReader:
     def read_transcript(self):
         path = 'transcripts/'
 
-        for file_name in [file for file in os.listdir(path) if file.endswith('.json')]: #reads all files in a dir, using for loop
-            f = open(path+file_name, 'r', encoding='utf-8')
+        for file_name in [file for file in os.listdir(path) if
+                          file.endswith('.json')]:  # reads all files in a dir, using for loop
+            f = open(path + file_name, 'r', encoding='utf-8')
             data = json.load(f)
             f.close()
             return data
@@ -81,10 +84,18 @@ class InputReader:
         path = pathlib.Path(__file__).parent.parent.joinpath('department_output.json')
         f = open(path, 'r', encoding='utf-8')
         data = json.load(f)
-
         output = dict()
         output['First Student'] = data['First Student']
         output['Last Student'] = data['Last Student']
         f.close()
+        return output
 
+    def read_config(self):
+        path = pathlib.Path(__file__).parent.parent.joinpath('config.json')
+        f = open(path, 'r', encoding='utf-8')
+        data = json.load(f)
+        output = dict()
+        output['Season'] = data['Season']
+        output['Generation'] = int(data['Generation'])
+        f.close()
         return output

@@ -2,6 +2,7 @@ from Student import Student
 from Semester import Semester
 from Instructor import Instructor
 from Course import Course
+from Registrator import Registrator
 import random
 
 
@@ -13,6 +14,19 @@ class Department:
         self.semesters = dict()
         self.instructors = dict()
         self.create_semesters()
+
+
+    def start_registration(self):
+        registrator = Registrator(self.courses,self.semesters)
+        for student in list(self.students.values()):
+            registrator.start_registration(student)
+
+    def next_semester(self):
+
+        for student in list(self.students.values()):
+            semester = self.semesters[student.semester.semester_id+1]
+            student.next_semester(semester)
+
 
     def create_semesters(self):
         for semester_id in range(1, 9):

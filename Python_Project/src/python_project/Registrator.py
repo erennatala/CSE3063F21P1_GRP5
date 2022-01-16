@@ -17,18 +17,29 @@ class Registrator:
 
     def select_course(self, course_list, student):
         """ Selects course from given list and checks if student can take that course """
-        for course in course_list:
-            if course.course_type != "Must":
+        list_copy = course_list.copy()
+
+        for course in list_copy:
+            if course.course_type != 'Must':
+
                 while True:
                     selected_course = random.choice(self.courses[course.course_type])
                     if selected_course.approve_course(student):
                         break
+                try:
+                    student.non_taken_courses.remove(selected_course)
+                except Exception:
+                    pass
                 student.add_course_basket(selected_course)
             elif course.approve_course(student):
+
+                try:
+                    student.non_taken_courses.remove(course)
+                except Exception:
+                    pass
                 student.add_course_basket(course)
 
     def start_registration(self, student):
-
         for course in student.failed_courses:
             if course.approve_course(student):
                 student.add_course_basket(course)
