@@ -1,6 +1,6 @@
 class Transcript:
 
-    def __init__(self, semester_id):
+    def __init__(self, semester_id,student):
         self.transcript_map = dict()
         self.semester_id = str(semester_id)
         self.create_semester()

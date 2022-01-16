@@ -16,7 +16,6 @@ outputWriteObj = OutputWriter()
 inputReadObj.read_instructor(dpt)
 inputReadObj.read_courses(dpt)
 inputReadObj.read_prerequisite(dpt)
-inputReadObj.read_prerequisite(dpt)
 inputReadObj.read_students(dpt,0)
 
 registrator = Registrator(dpt.courses,dpt.semesters)

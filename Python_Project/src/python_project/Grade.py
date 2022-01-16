@@ -14,6 +14,17 @@ class Grade:
         50: "DD", 45: "FD",
         0: "FF"
     }
+    _credit_map = {
+        "AA":4.00,
+        "BA":3.50,
+        "BB":3.00,
+        "CB":2.50,
+        "CC":2.00,
+        "DC":1.50,
+        "DD":1.00,
+        "FD":0.50,
+        "FF":0.00,
+    }
 
     def __init__(self):
         self.assign_random_grade()
@@ -46,3 +57,4 @@ class Grade:
     def assign_random_grade(self):
         self.YIS = self.generate_random_grade()
         self.YSS = self.generate_random_grade()
+        self.grade = self._credit_map[self.letter_grade]
