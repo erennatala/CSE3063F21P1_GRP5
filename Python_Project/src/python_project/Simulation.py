@@ -1,5 +1,6 @@
 from InputReader import InputReader
 from Department import Department
+from OutputWriter import OutputWriter
 
 
 class Simulation:
@@ -8,8 +9,9 @@ class Simulation:
         self.department = Department()
 
     def simulate_semester(self):
+        self.department.start_registration()
+        self.department.next_semester()
 
-        pass
 
     def initialize_department(self):
         config = self.input_reader.read_config()
@@ -42,5 +44,15 @@ class Simulation:
             pass
 
     def start_simulation(self):
-        self.initialize_department()
-        pass
+        #self.initialize_department()
+        self.input_reader.read_instructor(self.department)
+        self.input_reader.read_courses(self.department)
+        self.input_reader.read_prerequisite(self.department)
+        self.input_reader.read_students(self.department,0)
+
+        for i in range(1,7):
+            self.simulate_semester()
+        writer = OutputWriter()
+        writer.start_writer(self.department.students)
+
+

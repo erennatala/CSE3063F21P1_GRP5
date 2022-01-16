@@ -4,6 +4,7 @@ import os
 class OutputWriter:
 
     def write_transcript(self, transcript_map):
+
         newpath = 'transcripts'
         if not os.path.exists(newpath):
             os.makedirs(newpath)
@@ -16,5 +17,5 @@ class OutputWriter:
             json.dump(department_output, output_json, indent=4)
 
     def start_writer(self, student_map):
-        for transcript_map in list(student_map.values()):
-            self.write_transcript(transcript_map)
+        for student in list(student_map.values()):
+            self.write_transcript(student.transcript.transcript_map)

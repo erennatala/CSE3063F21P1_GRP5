@@ -38,7 +38,6 @@ class Grade:
     def letter_grade(self):
         try:
             if self.round() < 45:
-                print("fail")
                 return self._letter_map[0]
             return self._letter_map[self.round()]
         except KeyError:

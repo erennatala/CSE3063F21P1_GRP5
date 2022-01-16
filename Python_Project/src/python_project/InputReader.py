@@ -35,7 +35,7 @@ class InputReader:
                 schedule_list = courses['Schedule']
                 semester_id = title
 
-                department.create_course(course_id, course_name, course_type, instructor, capacity, credit, ects,
+                department.create_course(course_id, course_name, course_type, instructor, capacity, float(credit), ects,
                                          schedule_list, semester_id)
 
         f.close()
@@ -55,7 +55,7 @@ class InputReader:
             if index < start_index:
                 continue
 
-            if index == start_index + 70:
+            if index == start_index + 50:
                 return index
 
             department.create_student(id, name, surname)

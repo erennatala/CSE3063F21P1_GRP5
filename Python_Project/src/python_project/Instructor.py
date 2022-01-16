@@ -84,14 +84,22 @@ class Instructor:
     def check_collision(self, course_basket, student):
         will_be_removed = list()
         for main_course in course_basket:
+            if main_course in will_be_removed:
+                continue
             for second_course in course_basket:
                 if main_course is second_course or second_course in will_be_removed:
                     continue
                 if main_course.compare(second_course):
-                    err = Error('Advisor', second_course, 'Collision')
-                    second_course.error_map['Collision'].append(err)
-                    student.add_error(err, second_course)
-                    will_be_removed.append(second_course)
+                    if main_course.course_type == 'Must':
+                        err = Error('Advisor', second_course, 'Collision')
+                        second_course.error_map['Collision'].append(err)
+                        student.add_error(err, second_course)
+                        will_be_removed.append(second_course)
+                    else:
+                        err = Error('Advisor', main_course, 'Collision')
+                        main_course.error_map['Collision'].append(err)
+                        student.add_error(err, main_course)
+                        will_be_removed.append(main_course)
         student.remove_from_basket(will_be_removed)
 
     def approve_student_basket(self, student):

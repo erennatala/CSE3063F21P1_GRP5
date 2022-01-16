@@ -18,7 +18,6 @@ class Student:
         self.past_courses = list()
         self.non_taken_courses = list()
         self.failed_courses = list()
-        self.transcript = Transcript(semester.semester_id,self)
         self.semester = semester
         self.gpa = 0
         self.cgpa = 0
@@ -28,29 +27,34 @@ class Student:
         self.active_credit = 0
         self.cumulative_grade = 0
         self.active_grade = 0
-
+        self.transcript = Transcript(self)
 
     def next_semester(self, semester):
-        """
-            Grade pass-fail
-            Active credit - cumulative credit - completed_credit
-            calculate gpa-cgpa
-            set active - past - failed courses
-            add semester to transcript
-        """
-        pass
+
+        self.create_grades()
+        self.calculate_gpa()
+        self.calculate_cgpa()
+        self.transcript.add_gpa(self.gpa, self.active_credit, self.cgpa, self.cumulative_credit)
+        self.active_grade = 0
+        self.active_credit = 0
+        self.semester = semester
+        self.transcript.create_semester()
+        for course in self.active_courses:
+            course.students.remove(self)
+        self.active_courses.clear()
 
     def create_grades(self):
         for course in self.active_courses:
             grade = Grade()
             self.grade_map[course] = grade
-            if grade == "FF":
+            if grade.letter_grade == "FF":
                 self.failed_courses.append(course)
             else:
                 self.completed_credit += course.credit
                 self.past_courses.append(course)
             self.active_grade += course.credit * grade.grade
-            self.transcript.add_course(course.course, grade.letter_grade)
+            self.transcript.add_course(course.course_id, grade.letter_grade)
+        self.cumulative_grade += self.active_grade
 
     def calculate_gpa(self):
         self.gpa = self.active_grade / self.active_credit
@@ -70,7 +74,7 @@ class Student:
                 self.failed_courses.remove(course)
             self.active_credit += course.credit
             self.cumulative_credit += course.credit
-            course.students.add(self)
+            course.students.append(self)
         self.course_basket.clear()
 
     def add_error(self, error, course):
