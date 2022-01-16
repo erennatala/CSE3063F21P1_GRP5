@@ -1,5 +1,6 @@
 from Error import Error
 
+
 class Instructor:
 
     def __init__(self, id, name, surname):
@@ -16,7 +17,7 @@ class Instructor:
            first if statement checks for the course type
            second if statement checks for the courses_count ,creates the error and adds course to the student's non_taken_courses
         """
-        will_be_removed = list(filter(lambda course: course.course_type == 'TE',student.course_basket))[2:]
+        will_be_removed = list(filter(lambda course: course.course_type == 'TE', student.course_basket))[2:]
         for course in will_be_removed:
             err = Error('Advisor', course, "Two Technical Elective")
             course.error_map["Two Technical Elective"].append(err)
@@ -59,8 +60,7 @@ class Instructor:
                 course = list(filtered)[0]
                 err = Error('Advisor', course, 'Project')
                 course.error_map['Project'].append(err)
-                student.add_error(err)
-                student.add_non_taken(course)
+                student.add_error(err, course)
                 student.will_be_removed(list(filtered))
             except IndexError:
                 pass
@@ -77,11 +77,9 @@ class Instructor:
             if course.course_type == 'TE' and student.completed_credit < course.mimimum_credit:
                 err = Error('Advisor', course, "Uncompleted Credit")
                 course.error_map["Uncompleted Credit"].append(err)
-                student.add_error(err)
-                student.add_non_taken(course)
+                student.add_error(err, course)
                 will_be_removed.append(course)
         student.remove_from_basket(will_be_removed)
-
 
     def check_collision(self, course_basket, student):
         will_be_removed = list()
@@ -90,9 +88,11 @@ class Instructor:
                 if main_course is second_course or second_course in will_be_removed:
                     continue
                 if main_course.compare(second_course):
+                    err = Error('Advisor', second_course, 'Collision')
+                    second_course.error_map['Collision'].append(err)
+                    student.add_error(err, second_course)
                     will_be_removed.append(second_course)
         student.remove_from_basket(will_be_removed)
-
 
     def approve_student_basket(self, student):
         """first if statement checks for the season, if it is fall it calls the check_two_technical method

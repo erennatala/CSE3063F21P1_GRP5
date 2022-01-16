@@ -35,6 +35,7 @@ class InputReader:
                 semester_id = title
 
                 department.create_course(course_id, course_name, course_type, instructor, capacity, credit, ects, schedule_list, semester_id)
+
         f.close()
 
     def read_students(self, department, start_index):

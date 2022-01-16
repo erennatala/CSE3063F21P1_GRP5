@@ -1,6 +1,6 @@
 {
 
-    "Semester1": [
+    "1": [
         {
             "courseId": "ATA121",
             "courseName": "Atatürk İlkeleri ve İnkılap Tarihi I",
@@ -178,7 +178,7 @@
     ],
 
 
-    "Semester2": [
+    "2": [
         {
             "courseId": "ATA122",
             "courseName": "Atatürk İlkeleri ve İnkılap Tarihi II",
@@ -340,7 +340,7 @@
     ],
 
 
-    "Semester3": [
+    "3": [
         {
             "courseId": "CSE2023",
             "courseName": "Discrete Computational Structures",
@@ -487,7 +487,7 @@
     ],
 
 
-    "Semester4": [
+    "4": [
         {
             "courseId": "CSE2246",
             "courseName": "Analysis of Algorithms",
@@ -611,7 +611,7 @@
     ],
 
 
-    "Semester5": [
+    "5": [
         {
             "courseId": "CSE3000",
             "courseName": "Summer Practice I",
@@ -758,7 +758,7 @@
     ],
 
 
-    "Semester6": [
+    "6": [
         {
             "courseId": "CSE3038",
             "courseName": "Computer Organization",
@@ -905,7 +905,7 @@
     ],
 
 
-    "Semester7": [
+    "7": [
         {
             "courseId": "CSE4000",
             "courseName": "Summer Practice II",

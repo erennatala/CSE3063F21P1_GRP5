@@ -33,6 +33,7 @@ class Department:
         except KeyError:
             instructor = None
         course = Course(course_id, name, course_type, capacity, instructor, credit, ects, schedule_list)
+
         try:
             self.courses[course_type].append(course)
         except KeyError:
@@ -40,14 +41,25 @@ class Department:
             self.courses[course_type].append(course)
         try:
             """ Creating Semester Course """
-            self.semesters[semester_id].add_course(course)
-        except KeyError:
+            self.semesters[int(semester_id)].add_course(course)
+            if course_type != "Must":
+                self.courses[course_type].remove(course)
+        except ValueError:
             """ Creating Elective Course """
             pass
 
+    def find_course(self, course_id):
+        course_list = sum(self.courses.values(), [])
+        for course in course_list:
+            if course.course_id == course_id:
+                return course
+        return None
+
     def add_prerequisites(self, main_course, prerequisite_courses):
-        """Prerequisite courses will be a list of courses"""
-        main_course.prerequisites = prerequisite_courses
+        main_course_obj = self.find_course(main_course)
+        for prerequisite_course in prerequisite_courses:
+            prerequisite = self.find_course(prerequisite_course["courseCode"])
+            main_course_obj.prerequisites.append(prerequisite)
 
     def create_student(self, student_id, name, surname, semester_id=1):
         semester = self.semesters[semester_id]
